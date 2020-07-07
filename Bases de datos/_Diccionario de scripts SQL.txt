@@ -1,0 +1,9 @@
+init.sql = Contiene las instrucciones para crear la base de datos.
+
+tablas.sql = Contiene todas las tablas de la base de datos.
+
+config.sql = Contiene registros de configuración y por defecto para la aplicación.
+
+stored procedures.sql Contiene las instrucciones de store procedures a utilizar
+en la aplicación.
+

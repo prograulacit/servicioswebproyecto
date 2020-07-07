@@ -1,0 +1,20 @@
+﻿.titulo {
+    color: #999999;
+    font-size: 30px;
+    padding: 22px;
+    padding-bottom: 12px;
+}
+
+.descripcion {
+    padding: 15px;
+}
+
+/*Da un fondo gris*/
+.fondo-gris {
+    background-color: #E5E5E5;
+}
+
+/*Da un fondo aun más gris*/
+.fondo-gris-mas {
+    background-color: #D8D8D8;
+}

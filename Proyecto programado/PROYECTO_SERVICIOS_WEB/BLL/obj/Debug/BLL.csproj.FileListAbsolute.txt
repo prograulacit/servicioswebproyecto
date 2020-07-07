@@ -1,0 +1,16 @@
+E:\Nube\Dropbox\UNI\SERVICIOS WEB\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\BLL.dll
+E:\Nube\Dropbox\UNI\SERVICIOS WEB\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\BLL.pdb
+E:\Nube\Dropbox\UNI\SERVICIOS WEB\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\DAL.dll
+E:\Nube\Dropbox\UNI\SERVICIOS WEB\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\DAL.pdb
+E:\Nube\Dropbox\UNI\SERVICIOS WEB\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+E:\Nube\Dropbox\UNI\SERVICIOS WEB\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\Nube\Dropbox\UNI\SERVICIOS WEB\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.dll
+E:\Nube\Dropbox\UNI\SERVICIOS WEB\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.pdb
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\BLL.dll
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\BLL.pdb
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\DAL.dll
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\DAL.pdb
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.dll
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.pdb

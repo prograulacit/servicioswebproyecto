@@ -1,0 +1,14 @@
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DATABASE_HANDLER.exe.config
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DATABASE_HANDLER.exe
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DATABASE_HANDLER.pdb
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\BLL.dll
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DAL.dll
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\BLL.pdb
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DAL.pdb
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.csprojAssemblyReference.cache
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.Main.resources
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.Properties.Resources.resources
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.csproj.GenerateResource.cache
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.csproj.CopyComplete
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.exe
+C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.pdb
