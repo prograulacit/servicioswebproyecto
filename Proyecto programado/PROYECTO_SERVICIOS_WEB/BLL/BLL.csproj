@@ -42,11 +42,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logica\Encriptacion.cs" />
+    <Compile Include="Logica\Memoria.cs" />
+    <Compile Include="Logica\Tareas.cs" />
+    <Compile Include="Objeto\Admin.cs" />
+    <Compile Include="Objeto\Bitacora.cs" />
+    <Compile Include="Objeto\Consecutivo.cs" />
+    <Compile Include="Objeto\Error.cs" />
+    <Compile Include="Objeto\Libro.cs" />
+    <Compile Include="Objeto\Musica.cs" />
+    <Compile Include="Objeto\Parametros.cs" />
+    <Compile Include="Objeto\Pelicula.cs" />
+    <Compile Include="Objeto\Producto.cs" />
+    <Compile Include="Objeto\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Objeto\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{344760f2-c96b-4d88-ae39-f0c523b91004}</Project>
