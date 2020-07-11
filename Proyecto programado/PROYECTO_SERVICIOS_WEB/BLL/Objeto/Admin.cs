@@ -1,4 +1,4 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
 
 namespace BLL.Objeto
 {
@@ -16,7 +16,7 @@ namespace BLL.Objeto
         public string respuestaSeguridad { get; set; }
         public bool activado { get; set; }
 
-        public DataSet traerAdmins()
+        public List<Admin> traerAdmins()
         {
             return null;
         }

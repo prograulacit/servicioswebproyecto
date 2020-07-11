@@ -2,11 +2,17 @@
 
 namespace BLL.Objeto
 {
-    public class Pelicula : Producto
+    public class Pelicula
     {
+        public int id { get; set; }
+        public string nombre { get; set; }
         public string genero { get; set; }
         public string anio { get; set; }
+        public string idioma { get; set; }
         public string actores { get; set; }
+        public string rutaArchivoDescarga { get; set; }
+        public string rutaArchivoPrevisualizacion { get; set; }
+        public double monto { get; set; }
 
         public DataSet traerPeliculas()
         {
@@ -45,19 +51,17 @@ namespace BLL.Objeto
 
         public Pelicula() { }
 
-        public Pelicula(int id, string nombre, double monto, string idioma, string rutaArchivoDescarga, string rutaArchivoPrevisualizacion,
-            string genero, string anio, string actores)
+        public Pelicula(int id, string nombre, string genero, string anio, string idioma, string actores, string rutaArchivoDescarga, string rutaArchivoPrevisualizacion, double monto)
         {
             this.id = id;
             this.nombre = nombre;
-            this.monto = monto;
-            this.idioma = idioma;
-            this.rutaArchivoDescarga = rutaArchivoDescarga;
-            this.rutaArchivoPrevisualizacion = rutaArchivoPrevisualizacion;
-
             this.genero = genero;
             this.anio = anio;
+            this.idioma = idioma;
             this.actores = actores;
+            this.rutaArchivoDescarga = rutaArchivoDescarga;
+            this.rutaArchivoPrevisualizacion = rutaArchivoPrevisualizacion;
+            this.monto = monto;
         }
     }
 }

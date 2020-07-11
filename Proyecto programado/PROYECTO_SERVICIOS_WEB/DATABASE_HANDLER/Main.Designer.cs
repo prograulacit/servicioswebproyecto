@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button_crear_admin_maestro = new System.Windows.Forms.Button();
+            this.button_crear_registros = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button_crear_admin_maestro
+            // button_crear_registros
             // 
-            this.button_crear_admin_maestro.Location = new System.Drawing.Point(13, 13);
-            this.button_crear_admin_maestro.Name = "button_crear_admin_maestro";
-            this.button_crear_admin_maestro.Size = new System.Drawing.Size(130, 23);
-            this.button_crear_admin_maestro.TabIndex = 0;
-            this.button_crear_admin_maestro.Text = "Crear admin maestro";
-            this.button_crear_admin_maestro.UseVisualStyleBackColor = true;
-            this.button_crear_admin_maestro.Click += new System.EventHandler(this.button_probar_conexion_Click);
+            this.button_crear_registros.Location = new System.Drawing.Point(13, 13);
+            this.button_crear_registros.Name = "button_crear_registros";
+            this.button_crear_registros.Size = new System.Drawing.Size(130, 23);
+            this.button_crear_registros.TabIndex = 0;
+            this.button_crear_registros.Text = "Crear registros init";
+            this.button_crear_registros.UseVisualStyleBackColor = true;
+            this.button_crear_registros.Click += new System.EventHandler(this.button_crear_registros_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 142);
-            this.Controls.Add(this.button_crear_admin_maestro);
+            this.ClientSize = new System.Drawing.Size(437, 225);
+            this.Controls.Add(this.button_crear_registros);
             this.Name = "Main";
             this.Text = "Main";
             this.ResumeLayout(false);
@@ -55,6 +55,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button_crear_admin_maestro;
+        private System.Windows.Forms.Button button_crear_registros;
     }
 }

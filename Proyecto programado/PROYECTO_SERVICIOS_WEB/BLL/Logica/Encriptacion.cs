@@ -7,21 +7,27 @@ namespace BLL.Logica
     {
         // Resive una cadena de texto como input en texto plano y retorna
         // su equivalente en Base64.
-        public static string encriptar(string input)
+        public string encriptar(string input)
         {
-                string resultado = string.Empty;
-                Byte[] encriptar = new UnicodeEncoding().GetBytes(input);
-                return Convert.ToBase64String(encriptar);
+            string resultado = string.Empty;
+            Byte[] encriptar = new UnicodeEncoding().GetBytes(input);
+            return Convert.ToBase64String(encriptar);
         }
 
         // Resive una cadena de texto como input en Base64 y retorna
         // su equivalente en texto plano
-        public static string desencriptar(string input)
+        public string desencriptar(string input)
         {
+            if (Memoria.datos_encriptados)
+            {
                 string resultado = string.Empty;
                 Byte[] desencriptar = Convert.FromBase64String(input);
                 return new UnicodeEncoding().GetString(desencriptar);
+            }
+            else
+            {
+                return input;
+            }
         }
-
     }
 }

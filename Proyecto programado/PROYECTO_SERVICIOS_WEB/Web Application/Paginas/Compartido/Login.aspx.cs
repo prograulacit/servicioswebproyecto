@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Web_Application.Paginas.Compartido
 {
@@ -16,7 +11,10 @@ namespace Web_Application.Paginas.Compartido
 
         protected void button_submit_login_Click(object sender, EventArgs e)
         {
+            string nombre_de_usuario = textbox_nombre_usuario.Text;
+            string contrasenia = textbox_contrasenia.Text;
 
+            //List<admin> lista_admins = 
         }
     }
 }

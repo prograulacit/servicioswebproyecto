@@ -6,13 +6,25 @@ namespace DAL
 {
     public class DBLogica
     {
-        public static bool encriptar_datos = true;
+
+        public DBLogica() { }
+
+        public DBLogica(bool datos_encriptados)
+        {
+            this.datos_encriptados = datos_encriptados;
+        }
+
+        // Si es true, los datos con los que la aplicación está trabajando están
+        // encriptados. Si es false, se está trabajando con datos en texto plano.
+        // Los datos serán siempre enviados a la base de datos según el estado de
+        // ésta variable. Por defecto la variable sera false si no es establecida.
+        private bool datos_encriptados = false;
 
         // Strings de conexión de las bases de datos.
         ///////////////////////////////////////////////////
-        public static string stringDeConexion_baseDeDatos_principal =
+        public string stringDeConexion_baseDeDatos_principal =
             "Data Source=10.172.61.116;Initial Catalog=SERVICIOSWEB_MAIN;User ID=admin;Password=admin123";
-        public static string stringDeConexion_baseDeDatos_pagos = "";
+        public string stringDeConexion_baseDeDatos_pagos = "";
 
         /// <summary>
         /// Ejecuta una consulta de SQL en donde no es requerido un retorno de datos.
@@ -22,7 +34,7 @@ namespace DAL
         /// <param name="nombre_storedProcedure">Nombre del Store Procedure a usar.</param>
         /// <param name="parametros">Array de parametros a usar con relación al Store Procedure.</param>
         /// <param name="valores">Array de valores a usar con relación al Store Procedure.</param>
-        public static void querySimple(
+        public void querySimple(
             string stringDeConexion,
             string nombre_storedProcedure,
             string[] parametros,
@@ -34,7 +46,7 @@ namespace DAL
             for (int i = 0; i < parametros.Length; i++)
             {
                 string valor_entrante;
-                if (encriptar_datos) { valor_entrante = Encriptacion.encriptar(valores[i]); }else{ valor_entrante = valores[i]; }
+                if (datos_encriptados) { valor_entrante = Encriptacion.encriptar(valores[i]); } else { valor_entrante = valores[i]; }
                 cmd.Parameters.AddWithValue(parametros[i], SqlDbType.NVarChar).Value = valor_entrante;
             }
             try
@@ -62,7 +74,7 @@ namespace DAL
         /// <param name="parametros">Array de parametros a usar con relación al Store Procedure.</param>
         /// <param name="valores">Array de valores a usar con relación al Store Procedure.</param>
         /// <returns>DataSet con los registros encontrados.</returns>
-        public static DataSet queryConRetornoDeDatos(
+        public DataSet queryConRetornoDeDatos(
             string stringDeConexion,
             string nombre_storedProcedure,
             string[] parametros,
@@ -75,7 +87,7 @@ namespace DAL
             for (int i = 0; i < parametros.Length; i++)
             {
                 string valor_entrante;
-                if (encriptar_datos) { valor_entrante = Encriptacion.encriptar(valores[i]); } else { valor_entrante = valores[i]; }
+                if (datos_encriptados) { valor_entrante = Encriptacion.encriptar(valores[i]); } else { valor_entrante = valores[i]; }
                 cmd.Parameters.AddWithValue(parametros[i], SqlDbType.NVarChar).Value = valor_entrante;
             }
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -92,7 +104,7 @@ namespace DAL
         /// <param name="stringDeConexion">String de conexión de la base de datos a usar.</param>
         /// <param name="nombre_storedProcedure">Nombre del Store Procedure a usar.</param>
         /// <returns>DataSet con los registros encontrados.</returns>
-        public static DataSet queryConRetornoDeDatos_sinParametros(
+        public DataSet queryConRetornoDeDatos_sinParametros(
             string stringDeConexion,
             string nombre_storedProcedure)
         {

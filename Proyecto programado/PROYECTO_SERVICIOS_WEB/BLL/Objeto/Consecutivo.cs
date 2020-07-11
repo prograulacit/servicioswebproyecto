@@ -10,9 +10,6 @@ namespace BLL.Objeto
         public string prefijo { get; set; }
         public string rangoInicial { get; set; }
         public string rangoFinal { get; set; }
-        public string musica { get; set; }
-        public string pelicula { get; set; }
-        public string libro { get; set; }
 
         public DataSet traerConsecutivos()
         {
@@ -41,7 +38,7 @@ namespace BLL.Objeto
 
         public Consecutivo() { }
 
-        public Consecutivo(int id, string tipoConsecutivo, string descripcion, string prefijo, string rangoInicial, string rangoFinal, string musica, string pelicula, string libro)
+        public Consecutivo(int id, string tipoConsecutivo, string descripcion, string prefijo, string rangoInicial, string rangoFinal)
         {
             this.id = id;
             this.tipoConsecutivo = tipoConsecutivo;
@@ -49,9 +46,6 @@ namespace BLL.Objeto
             this.prefijo = prefijo;
             this.rangoInicial = rangoInicial;
             this.rangoFinal = rangoFinal;
-            this.musica = musica;
-            this.pelicula = pelicula;
-            this.libro = libro;
         }
     }
 }

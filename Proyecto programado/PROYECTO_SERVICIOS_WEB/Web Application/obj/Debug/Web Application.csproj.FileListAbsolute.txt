@@ -56,3 +56,75 @@ C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICI
 C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.csproj.CopyComplete
 C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.dll
 C:\Proyecto final superficie\Proyecto final\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.pdb
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Web Application.dll.config
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Web Application.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Web Application.pdb
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csc.exe
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csc.exe.config
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csc.rsp
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csi.exe
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csi.exe.config
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csi.rsp
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.AppContext.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Collections.Immutable.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Console.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Globalization.Calendars.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.IO.Compression.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.IO.FileSystem.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Net.Http.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Net.Sockets.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Reflection.Metadata.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.ValueTuple.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Xml.XPath.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\vbc.exe
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\vbc.exe.config
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\vbc.rsp
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\VBCSCompiler.exe
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\VBCSCompiler.exe.config
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.csprojAssemblyReference.cache
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.csproj.CopyComplete
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.pdb
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Newtonsoft.Json.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Net.Http.Formatting.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Web.Http.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Web.Http.WebHost.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Newtonsoft.Json.xml
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Net.Http.Formatting.xml
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Web.Http.xml
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Web.Http.WebHost.xml
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\BLL.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\DAL.dll
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\BLL.pdb
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\BLL.dll.config
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\DAL.pdb
+C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\DAL.dll.config
