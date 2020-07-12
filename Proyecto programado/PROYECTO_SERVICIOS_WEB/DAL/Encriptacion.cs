@@ -7,20 +7,24 @@ namespace DAL
     {
         // Resive una cadena de texto como input en texto plano y retorna
         // su equivalente en Base64.
+        // Este metodo es usado en DAL/DBLogica para encriptar los datos que se
+        // envian a la base de datos.
         public static string encriptar(string input)
         {
-            string resultado = string.Empty;
-            Byte[] encriptar = new UnicodeEncoding().GetBytes(input);
-            return Convert.ToBase64String(encriptar);
+            try
+            {
+                string resultado = string.Empty;
+                Byte[] encriptar = new UnicodeEncoding().GetBytes(input);
+                return Convert.ToBase64String(encriptar);
+            }
+            catch (Exception)
+            {
+                // Si hay un error de datos no convertibles de Base64 a string
+                // se retorna el valor de input.
+                return input;
+            }
         }
 
-        // Resive una cadena de texto como input en Base64 y retorna
-        // su equivalente en texto plano
-        public static string desencriptar(string input)
-        {
-            string resultado = string.Empty;
-            Byte[] desencriptar = Convert.FromBase64String(input);
-            return new UnicodeEncoding().GetString(desencriptar);
-        }
+        // El metodo de desencriptacion se encuentra en BLL/Logica/Encriptacion
     }
 }

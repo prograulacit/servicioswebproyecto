@@ -14,12 +14,14 @@ namespace BLL.Logica
         // "true" o "false" en formato string. Si pasamos
         // el valor a conversor_booleano, este retornara true
         // o false.
-        public int conversor_integer(string input)
+        public static int conversor_integer(string input)
         {
             return Int32.Parse(input);
         }
 
-        public bool conversor_booleando(string input)
+        // Resive un string que dice true o false. Retorna true o false
+        // en booleano.
+        public static bool conversor_booleando(string input)
         {
             if (input.Equals("true"))
             {
@@ -33,6 +35,19 @@ namespace BLL.Logica
             {
                 Console.Error.WriteLine("Input recibido no es true ni false.");
                 return false;
+            }
+        }
+
+        // Resive un booleano. Retorna true o false en string.
+        public static string conversor_booleandoInverso(bool input)
+        {
+            if (input)
+            {
+                return "true";
+            }
+            else
+            {
+                return "false";
             }
         }
         #endregion
@@ -61,7 +76,7 @@ namespace BLL.Logica
         // Retorna la fecha actual del computador donde el servidor está ospedado.
         // Retorna la fecha en formato dia/mes/año hora:minuto:segundo.
         // Retorna el resultado en String.
-        public string obtener_fecha_actual()
+        public static string obtener_fecha_actual()
         {
             return DateTime.Now.ToString();
         }

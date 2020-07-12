@@ -4,5 +4,6 @@ namespace BLL.Objeto
 {
     public class Libro
     {
+
     }
 }

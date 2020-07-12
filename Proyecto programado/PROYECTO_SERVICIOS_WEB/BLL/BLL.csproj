@@ -46,8 +46,11 @@
     <Compile Include="Logica\Tareas.cs" />
     <Compile Include="Objeto\Admin.cs" />
     <Compile Include="Objeto\Bitacora.cs" />
+    <Compile Include="Objeto\Categorias_libros.cs" />
     <Compile Include="Objeto\Consecutivo.cs" />
     <Compile Include="Objeto\Error.cs" />
+    <Compile Include="Objeto\Generos_musica.cs" />
+    <Compile Include="Objeto\Generos_peliculas.cs" />
     <Compile Include="Objeto\Libro.cs" />
     <Compile Include="Objeto\Musica.cs" />
     <Compile Include="Objeto\Parametros.cs" />

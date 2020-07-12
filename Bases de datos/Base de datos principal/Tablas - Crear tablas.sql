@@ -51,7 +51,7 @@ CREATE TABLE CATEGORIAS_LIBROS(
 CREATE TABLE PELICULA(
 	ID nvarchar(max),
 	nombre nvarchar(max),
-	IDgenero nvarchar(max),
+	genero nvarchar(max),
 	anio nvarchar(max),
 	idioma nvarchar(max),
 	actores nvarchar(max),
@@ -63,7 +63,7 @@ CREATE TABLE PELICULA(
 CREATE TABLE MUSICA(
 	ID nvarchar(max),
 	nombre nvarchar(max),
-	IDgenero nvarchar(max),
+	genero nvarchar(max),
 	tipoInterpretacion nvarchar(max),
 	pais nvarchar(max),
 	anio nvarchar(max),
@@ -79,7 +79,7 @@ CREATE TABLE MUSICA(
 CREATE TABLE LIBRO(
 	ID nvarchar(max),
 	nombre nvarchar(max),
-	IDcategoria nvarchar(max),
+	categoria nvarchar(max),
 	autor nvarchar(max),
 	idioma nvarchar(max),
 	editorial nvarchar(max),
@@ -110,10 +110,17 @@ CREATE TABLE BITACORA(
 
 CREATE TABLE PARAMETROS(
 	ID nvarchar(max),
-	rutasAlmacenamientoPrevisualizacionLibros nvarchar(max),
-	rutasAlmacenamientoLibros nvarchar(max),
-	rutasAlmacenamientoPrevisualizacionPeliculas nvarchar(max),
-	rutasAlmacenamientoPeliculas nvarchar(max),
-	rutasAlmacenamientoPrevisualizacionMusica nvarchar(max),
-	rutasAlmacenamientoMusica nvarchar(max),
+	rutaAlmacenamientoPrevisualizacionLibros nvarchar(max),
+	rutaAlmacenamientoLibros nvarchar(max),
+	rutaAlmacenamientoPrevisualizacionPeliculas nvarchar(max),
+	rutaAlmacenamientoPeliculas nvarchar(max),
+	rutaAlmacenamientoPrevisualizacionMusica nvarchar(max),
+	rutaAlmacenamientoMusica nvarchar(max)
+);
+
+CREATE TABLE ERROR(
+	ID nvarchar(max),
+	fechaYHora nvarchar(max),
+	IDusuario nvarchar(max),
+	mensajeDeError nvarchar(max)
 );

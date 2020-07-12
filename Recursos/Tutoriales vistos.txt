@@ -1,0 +1,9 @@
+Agregar archivos Web API a proyecto con platilla ASP:
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
+
+Agregar archivos Web API a proyecto con plantilla ASP - videotutorial:
+https://youtu.be/VFOETqWHUqk
+
+Ejemplo de metodo POST con Postman:
+https://youtu.be/qL0VbepWcqk
+
