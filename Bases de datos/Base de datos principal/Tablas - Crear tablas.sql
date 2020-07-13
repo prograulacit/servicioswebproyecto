@@ -1,6 +1,3 @@
--- Ejecutar comando USE primero antes de crear las tablas.
---USE SERVICIOSWEB_MAIN;
-
 CREATE TABLE USUARIO(
 ID NVARCHAR(MAX),
 nombre NVARCHAR(MAX),
@@ -39,12 +36,12 @@ CREATE TABLE GENEROS_PELICULAS(
 );
 
 CREATE TABLE GENEROS_MUSICA(
-	IDgeneroMus nvarchar(max),
-	genero varchar(100)
+	ID nvarchar(max),
+	genero varchar(max)
 );
 
 CREATE TABLE CATEGORIAS_LIBROS(
-	IDcategoriaLib nvarchar(max),
+	ID nvarchar(max),
 	categoria nvarchar(max)
 );
 
@@ -65,11 +62,11 @@ CREATE TABLE MUSICA(
 	nombre nvarchar(max),
 	genero nvarchar(max),
 	tipoInterpretacion nvarchar(max),
-	pais nvarchar(max),
-	anio nvarchar(max),
 	idioma nvarchar(max),
+	pais nvarchar(max),
 	diquera nvarchar(max),
 	nombreDisco nvarchar(max),
+	anio nvarchar(max),
 	nombreArchivoDescarga nvarchar(max),
 	nombreArchivoPrevisualizacion nvarchar(max),
 	monto nvarchar(max)
@@ -91,11 +88,10 @@ CREATE TABLE LIBRO(
 
 CREATE TABLE TRANSACCION(
 	ID nvarchar(max),
-	IDtarjeta nvarchar(max),
-	IDusuario nvarchar(max),
-	IDcompra nvarchar(max),
+	fechaCompra nvarchar(max),
 	monto nvarchar(max),
-	fechaCompra nvarchar(max)
+	IDusuario nvarchar(max),
+	IDconsecutivo nvarchar(max)
 );
 
 CREATE TABLE BITACORA(
@@ -123,4 +119,10 @@ CREATE TABLE ERROR(
 	fechaYHora nvarchar(max),
 	IDusuario nvarchar(max),
 	mensajeDeError nvarchar(max)
+);
+
+CREATE TABLE DESCARGAS(
+	ID nvarchar(max),
+	IDconsecutivo nvarchar(max),
+	IDusuario nvarchar(max)
 );

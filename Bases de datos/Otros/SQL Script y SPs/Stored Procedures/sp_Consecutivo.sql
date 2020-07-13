@@ -33,12 +33,12 @@ END
 
 GO
 CREATE PROCEDURE sp_consecutivo_actualizar
-@ID nvarchar(max),
-@tipoConsecutivo nvarchar(max),
-@descripcion nvarchar(max),
-@prefijo nvarchar(max),
-@rangoInicial nvarchar(max),
-@rangoFinal nvarchar(max)
+@ID nvarchar(450),
+@tipoConsecutivo nvarchar(450),
+@descripcion nvarchar(450),
+@prefijo nvarchar(450),
+@rangoInicial nvarchar(450),
+@rangoFinal nvarchar(450)
 AS
 BEGIN
 UPDATE Consecutivo
@@ -57,7 +57,7 @@ END
 
 GO
 CREATE PROCEDURE sp_consecutivo_eliminar
-@ID nvarchar(max)
+@ID nvarchar(450)
 AS
 BEGIN
 DELETE Consecutivo WHERE ID = @ID

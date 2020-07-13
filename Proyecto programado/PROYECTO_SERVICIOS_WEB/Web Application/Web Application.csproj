@@ -122,9 +122,12 @@
   <ItemGroup>
     <Compile Include="ApiControllers\AdminController.cs" />
     <Compile Include="ApiControllers\BitacoraController.cs" />
+    <Compile Include="ApiControllers\Categorias_librosController.cs" />
     <Compile Include="ApiControllers\ConsecutivoController.cs" />
     <Compile Include="ApiControllers\DefaultController.cs" />
     <Compile Include="ApiControllers\ErrorController.cs" />
+    <Compile Include="ApiControllers\Generos_musicaController.cs" />
+    <Compile Include="ApiControllers\Generos_peliculasController.cs" />
     <Compile Include="ApiControllers\ParametrosController.cs" />
     <Compile Include="ApiControllers\PeliculaController.cs" />
     <Compile Include="ApiControllers\UsuarioController.cs" />

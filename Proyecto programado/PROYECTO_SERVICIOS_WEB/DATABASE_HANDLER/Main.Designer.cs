@@ -33,11 +33,11 @@
             // 
             // button_crear_registros
             // 
-            this.button_crear_registros.Location = new System.Drawing.Point(13, 13);
+            this.button_crear_registros.Location = new System.Drawing.Point(25, 32);
             this.button_crear_registros.Name = "button_crear_registros";
-            this.button_crear_registros.Size = new System.Drawing.Size(130, 23);
+            this.button_crear_registros.Size = new System.Drawing.Size(164, 23);
             this.button_crear_registros.TabIndex = 0;
-            this.button_crear_registros.Text = "Crear registros init";
+            this.button_crear_registros.Text = "INIT de registros iniciales";
             this.button_crear_registros.UseVisualStyleBackColor = true;
             this.button_crear_registros.Click += new System.EventHandler(this.button_crear_registros_Click);
             // 
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 225);
+            this.ClientSize = new System.Drawing.Size(212, 84);
             this.Controls.Add(this.button_crear_registros);
             this.Name = "Main";
             this.Text = "Main";

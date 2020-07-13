@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 
-
 namespace BLL.Objeto
 {
     public class Pelicula

@@ -23,7 +23,7 @@ namespace DAL
         // Strings de conexión de las bases de datos.
         ///////////////////////////////////////////////////
         public string stringDeConexion_baseDeDatos_principal =
-            "Data Source=10.172.61.116;Initial Catalog=SERVICIOSWEB_MAIN;User ID=admin;Password=admin123";
+            "Data Source=10.172.61.116;Initial Catalog=SERVICIOSWEB_MAIN;User ID=admin;Password=admin123@.";
         public string stringDeConexion_baseDeDatos_pagos = "";
 
         /// <summary>

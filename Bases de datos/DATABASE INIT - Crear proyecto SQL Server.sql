@@ -1,3 +1,144 @@
+-- Creación de la base de datos principal
+CREATE DATABASE SERVICIOSWEB_MAIN;
+GO
+USE SERVICIOSWEB_MAIN;
+GO
+
+----------------------------
+-- Creación de tablas para base de datos principal.
+----------------------------
+
+CREATE TABLE DESCARGAS(
+	ID nvarchar(max),
+	IDconsecutivo nvarchar(max),
+	IDusuario nvarchar(max)
+);
+
+CREATE TABLE USUARIO(
+ID NVARCHAR(MAX),
+nombre NVARCHAR(MAX),
+primerApellido NVARCHAR(MAX),
+segundoApellido NVARCHAR(MAX),
+correoElectronico NVARCHAR(MAX),
+nombreUsuario NVARCHAR(MAX),
+contrasenia NVARCHAR(MAX)
+);
+
+CREATE TABLE ADMIN(
+ID NVARCHAR(MAX),
+nombreUsuario NVARCHAR(MAX),
+contrasenia NVARCHAR(MAX),
+correoElectronico NVARCHAR(MAX),
+preguntaSeguridad NVARCHAR(MAX),
+respuestaSeguridad NVARCHAR(MAX),
+adminMaestro NVARCHAR(MAX),
+adminSeguridad NVARCHAR(MAX),
+adminMantenimiento NVARCHAR(MAX),
+adminConsultas NVARCHAR(MAX),
+);
+
+CREATE TABLE CONSECUTIVO(
+ID NVARCHAR(MAX),
+tipoConsecutivo NVARCHAR(MAX),
+descripcion NVARCHAR(MAX),
+prefijo NVARCHAR(MAX),
+rangoInicial NVARCHAR(MAX),
+rangoFinal NVARCHAR(MAX)
+);
+
+CREATE TABLE GENEROS_PELICULAS(
+	ID nvarchar(max),
+	genero nvarchar(max)
+);
+
+CREATE TABLE GENEROS_MUSICA(
+	ID nvarchar(max),
+	genero varchar(max)
+);
+
+CREATE TABLE CATEGORIAS_LIBROS(
+	ID nvarchar(max),
+	categoria nvarchar(max)
+);
+
+CREATE TABLE PELICULA(
+	ID nvarchar(max),
+	nombre nvarchar(max),
+	genero nvarchar(max),
+	anio nvarchar(max),
+	idioma nvarchar(max),
+	actores nvarchar(max),
+	nombreArchivoDescarga nvarchar(max),
+	nombreArchivoPrevisualizacion nvarchar(max),
+	monto nvarchar(max)
+);
+
+CREATE TABLE MUSICA(
+	ID nvarchar(max),
+	nombre nvarchar(max),
+	genero nvarchar(max),
+	tipoInterpretacion nvarchar(max),
+	pais nvarchar(max),
+	anio nvarchar(max),
+	idioma nvarchar(max),
+	diquera nvarchar(max),
+	nombreDisco nvarchar(max),
+	nombreArchivoDescarga nvarchar(max),
+	nombreArchivoPrevisualizacion nvarchar(max),
+	monto nvarchar(max)
+);
+
+
+CREATE TABLE LIBRO(
+	ID nvarchar(max),
+	nombre nvarchar(max),
+	categoria nvarchar(max),
+	autor nvarchar(max),
+	idioma nvarchar(max),
+	editorial nvarchar(max),
+	anioPublicacion nvarchar(max),
+	nombreArchivoDescarga nvarchar(max),
+	nombreArchivoPrevisualizacion nvarchar(max),
+	monto nvarchar(max)
+);
+
+CREATE TABLE TRANSACCION(
+	ID nvarchar(max),
+	fechaCompra nvarchar(max),
+	monto nvarchar(max),
+	IDusuario nvarchar(max),
+	IDconsecutivo nvarchar(max)
+);
+
+CREATE TABLE BITACORA(
+	ID nvarchar(max),
+	IDadmin nvarchar(max),
+	fechaYHora nvarchar(max),
+	codigoDelRegistro nvarchar(max),
+	tipo nvarchar(max),
+	descripcion nvarchar(max),
+	registroEnDetalle nvarchar(max)
+);
+
+CREATE TABLE PARAMETROS(
+	ID nvarchar(max),
+	rutaAlmacenamientoPrevisualizacionLibros nvarchar(max),
+	rutaAlmacenamientoLibros nvarchar(max),
+	rutaAlmacenamientoPrevisualizacionPeliculas nvarchar(max),
+	rutaAlmacenamientoPeliculas nvarchar(max),
+	rutaAlmacenamientoPrevisualizacionMusica nvarchar(max),
+	rutaAlmacenamientoMusica nvarchar(max)
+);
+
+CREATE TABLE ERROR(
+	ID nvarchar(max),
+	fechaYHora nvarchar(max),
+	IDusuario nvarchar(max),
+	mensajeDeError nvarchar(max)
+);
+
+-- Creación de Stored Procedures
+
 --SP para crear nuevos admins.
 GO
 CREATE PROCEDURE sp_admin_crear
@@ -253,7 +394,7 @@ IDusuario,
 mensajeDeError
 )
 VALUES(
-@IDError,
+@ID,
 @fechaYHora,
 @IDusuario,
 @mensajeDeError
@@ -1005,7 +1146,7 @@ genero = @genero,
 tipoInterpretacion = @tipoInterpretacion,
 idioma = @idioma,
 pais = @pais,
-diquera = @diquera,
+diquera = @disquera,
 nombreDisco = @nombreDisco,
 anio = @anio,
 nombreArchivoDescarga = @nombreArchivoDescarga,
@@ -1033,4 +1174,198 @@ AS
 BEGIN
 SELECT * FROM Musica
 END
+GO
 
+-- Contraints
+-- Aun no definidos.
+
+-- Creacion de base de datos de pagos.
+CREATE DATABASE SERVICIOSWEB_PAGOS;
+GO
+USE SERVICIOSWEB_PAGOS;
+GO
+
+-- Creación de tablas.
+CREATE TABLE TARJETA(
+	ID nvarchar(max),
+	IDusuario nvarchar(max),
+	numeroTarjeta nvarchar(max),
+	mesExpiracion nvarchar(max),
+	anioExpiracion nvarchar(max),
+	CVV nvarchar(max),
+	monto nvarchar(max),
+	tipo nvarchar(max)
+);
+
+CREATE TABLE EASYPAY(
+	ID nvarchar(max),
+	IDusuario nvarchar(max),
+	numeroCuenta nvarchar(max),
+	codigoSeguridad nvarchar(max),
+	contrasenia nvarchar(max),
+	monto nvarchar(max)
+);
+GO
+
+-- Creación de Stored Procedures
+
+-- Tabla: Easypay / Insertar 
+
+GO
+CREATE PROCEDURE sp_easypay_crear
+@ID nvarchar(max),
+@IDusuario nvarchar(max),
+@numeroCuenta nvarchar(max),
+@codigoSeguridad nvarchar(max),
+@contrasenia nvarchar(max),
+@monto nvarchar(max)
+AS
+BEGIN
+INSERT INTO Easypay(
+ID,
+IDusuario,
+numeroCuenta,
+codigoSeguridad,
+contrasenia,
+monto
+)
+VALUES(
+@ID,
+@IDusuario,
+@numeroCuenta,
+@codigoSeguridad,
+@contrasenia,
+@monto
+);
+END
+
+-- Tabla: Easypay / Actualizar
+
+GO
+CREATE PROCEDURE sp_easypay_actualizar
+@ID nvarchar(max),
+@IDusuario nvarchar(max),
+@numeroCuenta nvarchar(max),
+@codigoSeguridad nvarchar(max),
+@contrasenia nvarchar(max),
+@monto nvarchar(max)
+AS
+BEGIN
+UPDATE Easypay
+SET
+ID = @ID,
+IDusuario = @IDusuario,
+numeroCuenta = @numeroCuenta,
+codigoSeguridad = @codigoSeguridad,
+contrasenia = @contrasenia,
+monto = @monto
+WHERE
+ID = @ID
+END
+
+-- Tabla: Easypay / Eliminar
+
+GO
+CREATE PROCEDURE sp_easypay_eliminar
+@ID nvarchar(max)
+AS
+BEGIN
+DELETE Easypay WHERE ID = @ID
+END
+
+-- Tabla: Easypay / Leer
+
+GO
+CREATE PROCEDURE sp_easypay_leer
+AS
+BEGIN
+SELECT * FROM Easypay
+END
+
+
+-- Tabla: Tarjeta / Insertar 
+
+GO
+CREATE PROCEDURE sp_tarjeta_crear
+@ID nvarchar(max),
+@IDusuario nvarchar(max),
+@numeroTarjeta nvarchar(max),
+@mesExpiracion nvarchar(max),
+@anioExpiracion nvarchar(max),
+@CVV nvarchar(max),
+@monto nvarchar(max),
+@tipo nvarchar(max)
+AS
+BEGIN
+INSERT INTO Tarjeta(
+ID,
+IDusuario,
+numeroTarjeta,
+mesExpiracion,
+anioExpiracion,
+CVV,
+monto,
+tipo
+)
+VALUES(
+@ID,
+@IDusuario,
+@numeroTarjeta,
+@mesExpiracion,
+@anioExpiracion,
+@CVV,
+@monto,
+@tipo
+);
+END
+
+-- Tabla: Tarjeta / Actualizar
+
+GO
+CREATE PROCEDURE sp_tarjeta_actualizar
+@ID nvarchar(max),
+@IDusuario nvarchar(max),
+@numeroTarjeta nvarchar(max),
+@mesExpiracion nvarchar(max),
+@anioExpiracion nvarchar(max),
+@CVV nvarchar(max),
+@monto nvarchar(max),
+@tipo nvarchar(max)
+AS
+BEGIN
+UPDATE Tarjeta
+SET
+ID = @ID,
+IDusuario = @IDusuario,
+numeroTarjeta = @numeroTarjeta,
+mesExpiracion = @mesExpiracion,
+anioExpiracion = @anioExpiracion,
+CVV = @CVV,
+monto = @monto,
+tipo = @tipo
+WHERE
+numeroTarjeta = @numeroTarjeta
+END
+
+-- Tabla: Tarjeta / Eliminar
+
+GO
+CREATE PROCEDURE sp_tarjeta_eliminar
+@ID nvarchar(max)
+AS
+BEGIN
+DELETE Tarjeta WHERE ID = @ID
+END
+
+-- Tabla: Tarjeta / Leer
+
+GO
+CREATE PROCEDURE sp_tarjeta_leer
+AS
+BEGIN
+SELECT * FROM Tarjeta
+END
+
+GO
+USE SERVICIOSWEB_MAIN;
+GO

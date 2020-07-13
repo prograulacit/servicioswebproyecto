@@ -3,23 +3,29 @@
 
 GO
 CREATE PROCEDURE sp_easypay_crear
-@numerocuenta nvarchar(450),
-@IDusuario nvarchar(450),
-@codigoSeguridad nvarchar(450),
-@contrasenia nvarchar(450)
+@ID nvarchar(max),
+@IDusuario nvarchar(max),
+@numeroCuenta nvarchar(max),
+@codigoSeguridad nvarchar(max),
+@contrasenia nvarchar(max),
+@monto nvarchar(max)
 AS
 BEGIN
 INSERT INTO Easypay(
-numerocuenta,
+ID,
 IDusuario,
+numeroCuenta,
 codigoSeguridad,
-contrasenia
+contrasenia,
+monto
 )
 VALUES(
-@numerocuenta,
+@ID
 @IDusuario,
+@numerocuenta,
 @codigoSeguridad,
-@contrasenia
+@contrasenia,
+@monto
 );
 END
 
@@ -27,30 +33,34 @@ END
 
 GO
 CREATE PROCEDURE sp_easypay_actualizar
-@numerocuenta nvarchar(450),
-@IDusuario nvarchar(450),
-@codigoSeguridad nvarchar(450),
-@contrasenia nvarchar(450)
+@ID nvarchar(max),
+@IDusuario nvarchar(max),
+@numeroCuenta nvarchar(max),
+@codigoSeguridad nvarchar(max),
+@contrasenia nvarchar(max),
+@monto nvarchar(max)
 AS
 BEGIN
 UPDATE Easypay
 SET
-numerocuenta = @numerocuenta,
+ID = @ID,
 IDusuario = @IDusuario,
+numeroCuenta = @numeroCuenta,
 codigoSeguridad = @codigoSeguridad,
-contrasenia = @contrasenia
+contrasenia = @contrasenia,
+monto = @monto
 WHERE
-numerocuenta = @numerocuenta
+ID = @ID
 END
 
 -- Tabla: Easypay / Eliminar
 
 GO
 CREATE PROCEDURE sp_easypay_eliminar
-@numerocuenta nvarchar(450)
+@ID nvarchar(max)
 AS
 BEGIN
-DELETE Easypay WHERE numerocuenta = @numerocuenta
+DELETE Easypay WHERE ID = @ID
 END
 
 -- Tabla: Easypay / Leer

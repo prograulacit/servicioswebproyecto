@@ -1,7 +1,7 @@
 CREATE TABLE TARJETA(
 	ID nvarchar(max),
-	numeroTarjeta nvarchar(max),
 	IDusuario nvarchar(max),
+	numeroTarjeta nvarchar(max),
 	mesExpiracion nvarchar(max),
 	anioExpiracion nvarchar(max),
 	CVV nvarchar(max),
@@ -11,8 +11,8 @@ CREATE TABLE TARJETA(
 
 CREATE TABLE EASYPAY(
 	ID nvarchar(max),
-	numerocuenta nvarchar(max),
 	IDusuario nvarchar(max),
+	numeroCuenta nvarchar(max),
 	codigoSeguridad nvarchar(max),
 	contrasenia nvarchar(max),
 	monto nvarchar(max)
