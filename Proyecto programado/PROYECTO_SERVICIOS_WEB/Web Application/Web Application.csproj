@@ -117,6 +117,8 @@
     <Content Include="Paginas\Compartido\Registrarse.aspx" />
     <Content Include="Public\estilos\estilo_global.css" />
     <Content Include="Public\imagenes\logo-header.png" />
+    <Content Include="Public\pruebas\index.html" />
+    <Content Include="Public\pruebas\script.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

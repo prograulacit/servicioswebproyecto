@@ -15,12 +15,6 @@ namespace Web_Application.ApiControllers
             return lista_catLib;
         }
 
-        // GET: api/Categorias_libros/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST: api/Categorias_libros
         public string Post([FromBody]Categorias_libros categorias_libros)
         {
