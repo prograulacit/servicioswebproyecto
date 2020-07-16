@@ -26,22 +26,40 @@ namespace Web_Application.ApiControllers
         {
             #region Plantilla Postman -> Abrir para ver.
             //{
-            //    "nombre":"IDadminResponsable",
-            //    "genero": "codigoDelRegistroPlaceholder",
-            //    "anio":"tipoBitacoraPlaceholder",
-            //    "idioma":"descripcionPlaceholder",
-            //    "actores":"registroEnDetallePlaceholder",
+            //    "nombre":"NombreDePelicula",
+            //    "genero": "generoDePelicula",
+            //    "anio":"anioDeLaPelicula",
+            //    "idioma":"idiomaDeLaPelicula",
+            //    "actores":"actoresDeLaPelicula",
             //    "nombreArchivoDescarga":"registroEnDetallePlaceholder",
             //    "nombreArchivoPrevisualizacion":"registroEnDetallePlaceholder",
             //    "monto":"registroEnDetallePlaceholder"
             //}
             #endregion
-            string nuevo_id = Tareas.generar_nuevo_id_para_un_registro();
 
-            pelicula.id = nuevo_id;
+            Consecutivo consecutivo = new Consecutivo();
 
+            // Registro espejo del registro requerido guardado en la base de datos.
+            Consecutivo registro_de_consecutivo = 
+                consecutivo.traerConsecutivo_registroReflejadoEnDB("pelicula");
+
+            // Se actualiza el id de la pelicula como prefijo+numConsecuvito.
+            // Ejemplo: pel4 .
+            pelicula.id = 
+                registro_de_consecutivo.prefijo + registro_de_consecutivo.descripcion;
+
+            // Aumentamos el valor "descripcion" del consecutivo en 1.
+            string valorDescripcionAumentadoEn1 =
+                Tareas.aumentarColumnaDeConsecutivoEn1(registro_de_consecutivo);
+            registro_de_consecutivo.descripcion = valorDescripcionAumentadoEn1;
+
+            // Guardamos el nuevo registro en la base de datos.
             pelicula.guardarPelicula(pelicula);
-            return "Pelicula " + nuevo_id + " guardada.";
+
+            // Actualizamos el consecutivo en la base de datos.
+            consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
+
+            return "Pelicula " + pelicula.id + " guardada.";
         }
 
         // PUT: api/Pelicula/5

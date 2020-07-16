@@ -20,7 +20,7 @@ namespace BLL.Objeto
                 Memoria.logica_database.stringDeConexion_baseDeDatos_principal,
                 "sp_consecutivo_traer"
                 );
-   
+
             if (datos.Tables[0].Rows.Count > 0)
             {
                 List<Consecutivo> lista_consecutivos = new List<Consecutivo>();
@@ -83,6 +83,73 @@ namespace BLL.Objeto
                , nombre_storedProcedure
                , parametros
                , valores);
+        }
+
+        /// <summary>
+        /// Retorna un objeto de tipo Consecutivo el cual es el reflejo exacto de un
+        /// registro de Consecutivo en la base de datos. Se utilizara para aumentar el valor
+        /// descripcion del consecutivo principalmente.
+        /// </summary>
+        /// <param name="elemento_requerido">String con el ID requerido para trabajar con.
+        /// Estos pueden ser, admin, musica, libro, pelicula o transaccion. Dependiendo
+        /// de el valor dado, este sera el objeto consecutivo que sera retornado.</param>
+        /// <returns>Objeto Consecutivo el cual es el reflejo exacto de un registro
+        /// en la base de datos.</returns>
+        public Consecutivo traerConsecutivo_registroReflejadoEnDB(string elemento_requerido)
+        {
+            List<Consecutivo> lista_consecutivos = traerConsecutivos();
+
+            switch (elemento_requerido)
+            {
+                case "pelicula":
+                    for (int i = 0; i < lista_consecutivos.Count; i++)
+                    {
+                        if (lista_consecutivos[i].id == "pelicula")
+                        {
+                            return lista_consecutivos[i];
+                        }
+                    }
+                    break;
+                case "musica":
+                    for (int i = 0; i < lista_consecutivos.Count; i++)
+                    {
+                        if (lista_consecutivos[i].id == "musica")
+                        {
+                            return lista_consecutivos[i];
+                        }
+                    }
+                    break;
+                case "libro":
+                    for (int i = 0; i < lista_consecutivos.Count; i++)
+                    {
+                        if (lista_consecutivos[i].id == "libro")
+                        {
+                            return lista_consecutivos[i];
+                        }
+                    }
+                    break;
+                case "admin":
+                    for (int i = 0; i < lista_consecutivos.Count; i++)
+                    {
+                        if (lista_consecutivos[i].id == "admin")
+                        {
+                            return lista_consecutivos[i];
+                        }
+                    }
+                    break;
+                case "transaccion":
+                    for (int i = 0; i < lista_consecutivos.Count; i++)
+                    {
+                        if (lista_consecutivos[i].id == "transaccion")
+                        {
+                            return lista_consecutivos[i];
+                        }
+                    }
+                    break;
+                default:
+                    return null;
+            }
+            return null;
         }
 
         public Consecutivo() { }

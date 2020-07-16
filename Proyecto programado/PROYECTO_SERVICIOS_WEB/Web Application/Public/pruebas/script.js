@@ -119,7 +119,7 @@ function renderizar_categorias_libros(json, contenedor_id) {
             <p>Registros: <br>
             `;
         for (let index = 0; index < json.length; index++) {
-            html += json[index].id + "<br>" + json[index].categoria + "<br><br>";
+            html += "ID: " + json[index].id + "<br>" + json[index].categoria + "<br><br>";
         }
         html += "</p>";
 

@@ -37,22 +37,30 @@ namespace Web_Application.ApiControllers
             //    "adminConsultas":false
             //}
             #endregion
-            string nuevo_id = Tareas.generar_nuevo_id_para_un_registro();
-            Admin admin_temp = new Admin(
-                nuevo_id
-                , admin.nombreUsuario
-                , admin.contrasenia
-                , admin.correoElectronico
-                , admin.preguntaSeguridad
-                , admin.respuestaSeguridad
-                , admin.adminMaestro
-                , admin.adminSeguridad
-                , admin.adminMantenimiento
-                , admin.adminConsultas
-                );
 
-            admin_temp.insertarAdmin_baseDeDatos(admin_temp);
-            return "Admin " + nuevo_id + " agregado.";
+            Consecutivo consecutivo = new Consecutivo();
+
+            // Registro espejo del registro requerido guardado en la base de datos.
+            Consecutivo registro_de_consecutivo =
+                consecutivo.traerConsecutivo_registroReflejadoEnDB("admin");
+
+            // Se actualiza el id de la pelicula como prefijo+numConsecuvito.
+            // Ejemplo: ele4 .
+            admin.id =
+                registro_de_consecutivo.prefijo + registro_de_consecutivo.descripcion;
+
+            // Aumentamos el valor "descripcion" del consecutivo en 1.
+            string valorDescripcionAumentadoEn1 =
+                Tareas.aumentarColumnaDeConsecutivoEn1(registro_de_consecutivo);
+            registro_de_consecutivo.descripcion = valorDescripcionAumentadoEn1;
+
+            // Guardamos el nuevo registro en la base de datos.
+            admin.insertarAdmin_baseDeDatos(admin);
+
+            // Actualizamos el consecutivo en la base de datos.
+            consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
+
+            return "Admin " + admin.id + " agregado.";
         }
 
         // PUT: api/Admin/5

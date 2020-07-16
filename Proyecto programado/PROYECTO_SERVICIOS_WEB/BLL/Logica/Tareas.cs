@@ -1,25 +1,41 @@
 ﻿using System;
 using System.Linq;
+using BLL.Objeto;
 
 namespace BLL.Logica
 {
     public class Tareas
     {
         #region Conversores de datos
+        /// <summary>
         // Conversores de datos.
         // Dado que la base de datos es toda NVARCHAR/string,
         // estos metodos retornan el valor correcto para ser
-        // trabajado por la lógica del programa. Ejemplo:
+        // trabajado por la lógica del programa.Ejemplo:
         // AdminMaestro en la base de datos se guarda como
         // "true" o "false" en formato string. Si pasamos
         // el valor a conversor_booleano, este retornara true
         // o false.
+        /// </summary>
+        /// <param name="input">String de algun numero. Ejemplo "4"</param>
+        /// <returns>Retorna el equivalente del string en int. Si el string
+        /// es "4", retorna 4.</returns>
         public static int conversor_integer(string input)
         {
             return Int32.Parse(input);
         }
 
-        // Resive un string que dice true o false. Retorna true o false
+        /// <summary>
+        /// Recibe un int. Retorna su equivalente en string.
+        /// </summary>
+        /// <param name="input">Numero a convertir en string</param>
+        /// <returns>Retorna el valor int en string. Si era 3, retorna "3"</returns>
+        public static string conversor_integerInverso(int input)
+        {
+            return "" + input;
+        }
+
+        // Recibe un string que dice true o false. Retorna true o false
         // en booleano.
         public static bool conversor_booleando(string input)
         {
@@ -38,7 +54,7 @@ namespace BLL.Logica
             }
         }
 
-        // Resive un booleano. Retorna true o false en string.
+        // Recibe un booleano. Retorna true o false en string.
         public static string conversor_booleandoInverso(bool input)
         {
             if (input)
@@ -79,6 +95,19 @@ namespace BLL.Logica
         public static string obtener_fecha_actual()
         {
             return DateTime.Now.ToString();
+        }
+
+        /// <summary>
+        /// Recibe un Consecutivo. Retorna su valor descripcion aumentado en 1 en string.
+        /// </summary>
+        /// <param name="consecutivo">Numero en string. Ejemplo: "4".</param>
+        /// <returns>Retorna Int aumentado en 1. Si el valor es "4", retorna 5.</returns>
+        public static string aumentarColumnaDeConsecutivoEn1(Consecutivo consecutivo)
+        {
+            int valorDescripcionActual = conversor_integer(consecutivo.descripcion);
+            int valorDescripcionAumentadoEn1 = 
+                valorDescripcionActual = valorDescripcionActual + 1;
+            return conversor_integerInverso(valorDescripcionAumentadoEn1);
         }
     }
 }
