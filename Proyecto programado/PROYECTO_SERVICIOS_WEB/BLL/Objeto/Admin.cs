@@ -100,6 +100,43 @@ namespace BLL.Objeto
                 , return_valores(admin));
         }
 
+        // Deslogea al administrador del sistema.
+        public void deslogeo()
+        {
+            // No existe sesion de admin.
+            Memoria.sesionDeAdmin = false;
+
+            // Datos del admin logeado borrados.
+            Memoria.sesionAdminDatos = new Admin();
+        }
+
+        /// <summary>
+        /// Este metodo se encarga de crear un nuevo admin. Se encarga además
+        /// de hacer toda la logica de los id por consecutivo. Este metodo se utiliza
+        /// para crear administradores desde la interfaz de usuario. Se utiliza en
+        /// Web Application/Paginas/Backend/CrearNuevoAdmin.aspx.cs
+        /// </summary>
+        /// <param name="admin">Objeto admin que refleja el registro a guardar.</param>
+        public void crearNuevoAdmin_UI(Admin admin)
+        {
+            // Se trae el registro de consecutivo de admins
+            Consecutivo consecutivo = new Consecutivo();
+            consecutivo =
+                consecutivo.traerConsecutivo_registroReflejadoEnDB("admin");
+
+            // Se asigna el id del admin segun el consecutivo.
+            admin.id = consecutivo.prefijo + consecutivo.descripcion;
+
+            // Se aumenta el valor "descripcion" del consecutivo en 1.
+            string valorDescripcionAumentadoEn1 =
+            Tareas.aumentarColumnaDeConsecutivoEn1(consecutivo);
+            consecutivo.descripcion = valorDescripcionAumentadoEn1;
+
+            // Se guarda el admin y el consecutivo actualizado.
+            consecutivo.actualizarConsecutivo_baseDeDatos(consecutivo);
+            insertarAdmin_baseDeDatos(admin);
+        }
+
         public Admin()
         {
 

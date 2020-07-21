@@ -19,5 +19,12 @@
         <br />
         <br />
         <asp:Button ID="button_submit_login" runat="server" Text="Submit" OnClick="button_submit_login_Click" />
+        <br />
+        <asp:Label class="badge badge-danger" ID="Label_status_error" runat="server" Text=""></asp:Label>
     </div>
+
+    <script>
+        document.getElementById("ContentPlaceHolder1_textbox_nombre_usuario").autofocus;
+
+    </script>
 </asp:Content>

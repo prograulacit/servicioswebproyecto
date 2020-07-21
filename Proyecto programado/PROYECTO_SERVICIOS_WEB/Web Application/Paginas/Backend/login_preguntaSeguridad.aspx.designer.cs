@@ -7,39 +7,48 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web_Application.Paginas.Compartido
+namespace Web_Application.Paginas.Backend
 {
 
 
-    public partial class Login
+    public partial class login_preguntaSeguridad
     {
 
         /// <summary>
-        /// textbox_nombre_usuario control.
+        /// Label_pistaPreguntaSeguridad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox_nombre_usuario;
+        protected global::System.Web.UI.WebControls.Label Label_pistaPreguntaSeguridad;
 
         /// <summary>
-        /// textbox_contrasenia control.
+        /// TextBox_respuestaSeguridad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox_contrasenia;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_respuestaSeguridad;
 
         /// <summary>
-        /// button_submit_login control.
+        /// Button_aceptar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_submit_login;
+        protected global::System.Web.UI.WebControls.Button Button_aceptar;
+
+        /// <summary>
+        /// Button_cancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_cancelar;
 
         /// <summary>
         /// Label_status_error control.

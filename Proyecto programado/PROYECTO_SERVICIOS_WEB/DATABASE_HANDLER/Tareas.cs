@@ -25,7 +25,7 @@ namespace DATABASE_HANDLER
                 , "adminConsultas" };
             string[] valoresAdmin = {
                 "adm1",
-                "admin",
+                "adminMaestro",
                 "admin",
                 "admin@e-descargas.com",
                 "Respuesta de pregunta de seguridad:respuesta",
@@ -41,6 +41,51 @@ namespace DATABASE_HANDLER
 
             Console.WriteLine("Admin maestro creado. OK.");
             Console.WriteLine("Secuencia -> Crear admin maestro -> Terminada");
+        }
+
+        // Crea nuevos admins para el sistema.
+        public void crear_admin(string id
+            , string nombreUsuario
+            , string contrasenia
+            , string correoElectronico
+            , string preguntaSeguridad
+            , string respuestaSeguridad
+            , string adminMaestro
+            , string adminSeguridad
+            , string adminMantenimiento
+            , string adminConsultas)
+        {
+            Console.WriteLine("Secuencia -> Crear admin nuevo -> Iniciada");
+            // Parametros y valores del admin nuevo.
+            string[] parametrosAdmin =
+                {"ID"
+                ,"nombreUsuario"
+                , "contrasenia"
+                , "correoElectronico"
+                , "preguntaSeguridad"
+                , "respuestaSeguridad"
+                , "adminMaestro"
+                , "adminSeguridad"
+                , "adminMantenimiento"
+                , "adminConsultas" };
+            string[] valoresAdmin = {
+                id,
+                nombreUsuario,
+                contrasenia,
+                correoElectronico,
+                preguntaSeguridad,
+                respuestaSeguridad,
+                adminMaestro,
+                adminSeguridad,
+                adminMantenimiento,
+                adminConsultas};
+            database_logica.querySimple(
+                database_logica.stringDeConexion_baseDeDatos_principal,
+                "sp_admin_crear",
+                parametrosAdmin, valoresAdmin);
+
+            Console.WriteLine("Admin nuevo creado. OK.");
+            Console.WriteLine("Secuencia -> Crear nuevo maestro -> Terminada");
         }
 
         // Crea los registros de Transaccion, Admin, Pelicula, Musica y Libro.
@@ -60,7 +105,7 @@ namespace DATABASE_HANDLER
             string[] valores_admin = {
                 "admin"
                 ,"admin"
-                ,"2" //2 porqué ya se hizo el admin maestro.
+                ,"5" // 5 porqué ya existen 4 admins: maestro, seguridad, mantenimiento y consultas.
                 ,"adm"
                 ,"0"
                 ,"200" };

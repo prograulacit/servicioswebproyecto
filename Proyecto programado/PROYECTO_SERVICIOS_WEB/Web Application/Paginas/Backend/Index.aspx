@@ -23,9 +23,9 @@
                     Seguridad
                 </div>
                 <div class="fondo-gris">
-                    <a href="#">- Crear nuevo usuario</a>
+                    <a href="./crearNuevoAdmin.aspx">- Crear nuevo administrador</a>
                     <br>
-                    <a href="#">- Asignar roles de usuarios</a>
+                    <a href="#">- Editar permisos de administradores</a>
                     <br>
                     <a href="#">- Cambiar contraseña actual</a>
                 </div>
@@ -62,4 +62,5 @@
             </div>
         </div>
     </div>
-</asp:Content>
+    <asp:Button ID="Button_cerrar_sesion" runat="server" Text="Sign out" OnClick="Button_cerrar_sesion_Click" />
+    </asp:Content>

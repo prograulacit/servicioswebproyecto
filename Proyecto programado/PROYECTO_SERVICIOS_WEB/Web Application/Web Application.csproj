@@ -111,7 +111,9 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Paginas\ApiTests.aspx" />
+    <Content Include="Paginas\Backend\crearNuevoAdmin.aspx" />
     <Content Include="Paginas\Backend\Index.aspx" />
+    <Content Include="Paginas\Backend\login_preguntaSeguridad.aspx" />
     <Content Include="Paginas\Compartido\index.aspx" />
     <Content Include="Paginas\Compartido\Login.aspx" />
     <Content Include="Paginas\Compartido\Registrarse.aspx" />
@@ -130,6 +132,8 @@
     <Compile Include="ApiControllers\ErrorController.cs" />
     <Compile Include="ApiControllers\Generos_musicaController.cs" />
     <Compile Include="ApiControllers\Generos_peliculasController.cs" />
+    <Compile Include="ApiControllers\LibroController.cs" />
+    <Compile Include="ApiControllers\MusicaController.cs" />
     <Compile Include="ApiControllers\ParametrosController.cs" />
     <Compile Include="ApiControllers\PeliculaController.cs" />
     <Compile Include="ApiControllers\UsuarioController.cs" />
@@ -144,12 +148,26 @@
     <Compile Include="Paginas\ApiTests.aspx.designer.cs">
       <DependentUpon>ApiTests.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\Backend\crearNuevoAdmin.aspx.cs">
+      <DependentUpon>crearNuevoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\crearNuevoAdmin.aspx.designer.cs">
+      <DependentUpon>crearNuevoAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Backend\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Paginas\Backend\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\login_preguntaSeguridad.aspx.cs">
+      <DependentUpon>login_preguntaSeguridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\login_preguntaSeguridad.aspx.designer.cs">
+      <DependentUpon>login_preguntaSeguridad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Compartido\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

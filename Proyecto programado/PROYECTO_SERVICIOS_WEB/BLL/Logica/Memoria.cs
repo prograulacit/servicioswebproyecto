@@ -19,7 +19,8 @@ namespace BLL.Logica
         // Guarda los ID de los productos (Musica, Pelicula, Libro).
         public static List<string> carrito_de_compra = new List<string>();
 
-        // Lista de variables bool.
+        // Lista de variables bool. Si sessionDeUsuario, por ejemplo, es true significa
+        // que el usuario actualmente logeado es un usuario o cliente.
         public static bool sesionDeUsuario = false;
         public static bool sesionDeAdmin = false;
 
@@ -28,9 +29,10 @@ namespace BLL.Logica
         // trabajando con datos en texto plano.
         public static bool datos_encriptados = true;
 
-        // Lista de variables objecto/Clase.
-        public static Usuario sesionUsuario;
-        public static Admin sesionAdmin;
+        // Lista de variables objecto/Clase. Si por ejemplo el usuario logeado es un admin,
+        // sus datos seran guardados en ésta variale segun corresponda.
+        public static Usuario sesionUsuarioDatos;
+        public static Admin sesionAdminDatos;
 
         // Con este objecto vamos a realizar las acciones de la base de datos para
         // crear, leer, actualizar y borrar registros. Al ser un objeto estatico, puede
