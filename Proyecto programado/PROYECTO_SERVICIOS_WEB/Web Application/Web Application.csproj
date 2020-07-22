@@ -111,7 +111,10 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Paginas\ApiTests.aspx" />
+    <Content Include="Paginas\Backend\bitacoraErroresTransaccionesDescargas.aspx" />
+    <Content Include="Paginas\Backend\cambiarContrasenia.aspx" />
     <Content Include="Paginas\Backend\crearNuevoAdmin.aspx" />
+    <Content Include="Paginas\Backend\editarAdministradores.aspx" />
     <Content Include="Paginas\Backend\Index.aspx" />
     <Content Include="Paginas\Backend\login_preguntaSeguridad.aspx" />
     <Content Include="Paginas\Compartido\index.aspx" />
@@ -121,6 +124,7 @@
     <Content Include="Public\imagenes\logo-header.png" />
     <Content Include="Public\pruebas\index.html" />
     <Content Include="Public\pruebas\script.js" />
+    <Content Include="Public\scripts\bitacoraErroresTransaccionesDescargas.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -148,12 +152,33 @@
     <Compile Include="Paginas\ApiTests.aspx.designer.cs">
       <DependentUpon>ApiTests.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\Backend\bitacoraErroresTransaccionesDescargas.aspx.cs">
+      <DependentUpon>bitacoraErroresTransaccionesDescargas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\bitacoraErroresTransaccionesDescargas.aspx.designer.cs">
+      <DependentUpon>bitacoraErroresTransaccionesDescargas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\cambiarContrasenia.aspx.cs">
+      <DependentUpon>cambiarContrasenia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\cambiarContrasenia.aspx.designer.cs">
+      <DependentUpon>cambiarContrasenia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Backend\crearNuevoAdmin.aspx.cs">
       <DependentUpon>crearNuevoAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Paginas\Backend\crearNuevoAdmin.aspx.designer.cs">
       <DependentUpon>crearNuevoAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\editarAdministradores.aspx.cs">
+      <DependentUpon>editarAdministradores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\editarAdministradores.aspx.designer.cs">
+      <DependentUpon>editarAdministradores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Backend\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

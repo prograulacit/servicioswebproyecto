@@ -23,7 +23,7 @@
     <asp:TextBox ID="TextBox_nombreUsuario" runat="server"></asp:TextBox>
     <br />
     Contraseña:
-    <asp:TextBox ID="TextBox_contrasenia" runat="server"></asp:TextBox>
+    <asp:TextBox TextMode="Password" ID="TextBox_contrasenia" runat="server"></asp:TextBox>
     <br />
     Correo electrónico:
     <asp:TextBox ID="TextBox_correoElectronico" runat="server"></asp:TextBox>

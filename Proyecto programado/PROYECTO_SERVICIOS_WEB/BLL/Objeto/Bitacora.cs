@@ -7,7 +7,7 @@ namespace BLL.Objeto
     public class Bitacora
     {
         public string id { get; set; }
-        public string IDadmin { get; set; }
+        public string nombreUsuarioAdmin { get; set; }
         public string fechaYHora { get; set; }
         public string codigoDelRegistro { get; set; }
         public string tipo { get; set; }
@@ -31,7 +31,7 @@ namespace BLL.Objeto
                         new Bitacora
                             (
                             Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["IDadmin"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreUsuarioAdmin"].ToString())
                             , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["fechaYHora"].ToString())
                             , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["codigoDelRegistro"].ToString())
                             , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["tipo"].ToString())
@@ -93,7 +93,7 @@ namespace BLL.Objeto
         }
 
         public Bitacora(string id
-            , string IDadmin
+            , string nombreUsuarioAdmin
             , string fechaYHora
             , string codigoDelRegistro
             , string tipo
@@ -101,7 +101,7 @@ namespace BLL.Objeto
             , string registroEnDetalle)
         {
             this.id = id;
-            this.IDadmin = IDadmin;
+            this.nombreUsuarioAdmin = nombreUsuarioAdmin;
             this.fechaYHora = fechaYHora;
             this.codigoDelRegistro = codigoDelRegistro;
             this.tipo = tipo;
@@ -111,7 +111,7 @@ namespace BLL.Objeto
 
         string[] parametros = {
                 "ID"
-                ,"IDadmin"
+                ,"nombreUsuarioAdmin"
                 , "fechaYHora"
                 , "codigoDelRegistro"
                 , "tipo"
@@ -122,7 +122,7 @@ namespace BLL.Objeto
         {
             string[] valores = {
                 bitacora.id,
-                bitacora.IDadmin,
+                bitacora.nombreUsuarioAdmin,
                 bitacora.fechaYHora,
                 bitacora.codigoDelRegistro,
                 bitacora.tipo,

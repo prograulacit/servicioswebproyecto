@@ -55,7 +55,7 @@ namespace Web_Application.ApiControllers
             registro_de_consecutivo.descripcion = valorDescripcionAumentadoEn1;
 
             // Guardamos el nuevo registro en la base de datos.
-            admin.insertarAdmin_baseDeDatos(admin);
+            admin.registrarAdmin(admin);
 
             // Actualizamos el consecutivo en la base de datos.
             consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
@@ -67,33 +67,38 @@ namespace Web_Application.ApiControllers
         public string Put([FromBody]Admin admin)
         {
             #region Plantilla Postman -> Abrir para ver
-            //{
-            //    "ID":"idplaceholder",
-            //    "nombreUsuario":"admin_editado",
-            //    "contrasenia": "editado",
-            //    "correoElectronico":"editado",
-            //    "preguntaSeguridad":"editado",
-            //    "respuestaSeguridad":"editado",
-            //    "adminMaestro":true,
-            //    "adminSeguridad":true,
-            //    "adminMantenimiento":true,
-            //    "adminConsultas":true
-            //}
+            /*{
+                "ID":"idplaceholder",
+                "nombreUsuario":"admin_editado",
+                "contrasenia": "editado",
+                "correoElectronico":"editado",
+                "preguntaSeguridad":"editado",
+                "respuestaSeguridad":"editado",
+                "adminMaestro":true,
+                "adminSeguridad":true,
+                "adminMantenimiento":true,
+                "adminConsultas":true
+            }*/
             #endregion
-            Admin admin_temp = new Admin(
-                admin.id
-                , admin.nombreUsuario
-                , admin.contrasenia
-                , admin.correoElectronico
-                , admin.preguntaSeguridad
-                , admin.respuestaSeguridad
-                , admin.adminMaestro
-                , admin.adminSeguridad
-                , admin.adminMantenimiento
-                , admin.adminConsultas
-                );
 
-            admin_temp.actualizarAdmin_baseDeDatos(admin_temp);
+            admin.actualizarAdmin(admin);
+
+                if (Memoria.sesionAdminDatos.id == admin.id)
+                {
+                    // El admin que se está editando por REST API es el mismo
+                    // que esta logeado por medio de interfaz de usuario.
+                    // Por lo tanto actualizamos los datos.
+                    Memoria.sesionAdminDatos.nombreUsuario = admin.nombreUsuario;
+                    Memoria.sesionAdminDatos.contrasenia = admin.contrasenia;
+                    Memoria.sesionAdminDatos.correoElectronico = admin.correoElectronico;
+                    Memoria.sesionAdminDatos.preguntaSeguridad = admin.preguntaSeguridad;
+                    Memoria.sesionAdminDatos.respuestaSeguridad = admin.respuestaSeguridad;
+                    Memoria.sesionAdminDatos.adminMaestro = admin.adminMaestro;
+                    Memoria.sesionAdminDatos.adminSeguridad = admin.adminSeguridad;
+                    Memoria.sesionAdminDatos.adminMantenimiento = admin.adminMantenimiento;
+                    Memoria.sesionAdminDatos.adminConsultas = admin.adminConsultas;
+                }
+            
             return "Admin " + admin.id + " actualizado.";
         }
 
@@ -107,7 +112,16 @@ namespace Web_Application.ApiControllers
             // Escribir value como el ID guardado en la base de datos.
             // Pulsar Send.
             Admin admin = new Admin();
-            admin.borrarAdmin_baseDeDatos(id);
+
+            if (Memoria.sesionAdminDatos.id == id)
+            {
+                // El admin que se está eliminando por REST API es el mismo
+                // que esta logeado por medio de interfaz de usuario.
+                // Por lo tanto terminamos la sesión de usuario.
+                admin.deslogeo();
+            }
+
+            admin.eliminarAdmin(id);
             return "Admin " + id + " eliminado.";
         }
     }

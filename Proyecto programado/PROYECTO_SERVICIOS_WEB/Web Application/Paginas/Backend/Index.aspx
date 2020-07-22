@@ -25,9 +25,9 @@
                 <div class="fondo-gris">
                     <a href="./crearNuevoAdmin.aspx">- Crear nuevo administrador</a>
                     <br>
-                    <a href="#">- Editar permisos de administradores</a>
+                    <a href="./editarAdministradores.aspx">- Editar administradores</a>
                     <br>
-                    <a href="#">- Cambiar contraseña actual</a>
+                    <a href="./cambiarContrasenia.aspx">- Cambiar contraseña actual</a>
                 </div>
             </div>
             <div class="col-12 col-sm-4 col-md-4 col-lg-2">
@@ -48,16 +48,10 @@
             </div>
             <div class="col-12 col-sm-4 col-md-4 col-lg-2">
                 <div class="fondo-gris-mas categoria">
-                    Consultas
+                    Consultas y monitoreo
                 </div>
                 <div class="fondo-gris">
-                    <a href="#">- Bitácora</a>
-                    <br>
-                    <a href="#">- Transacciones</a>
-                    <br>
-                    <a href="#">- Descargas</a>
-                    <br>
-                    <a href="#">- Errores</a>
+                    <a href="./bitacoraErroresTransaccionesDescargas.aspx">- Página de consultas y monitoreo</a>
                 </div>
             </div>
         </div>

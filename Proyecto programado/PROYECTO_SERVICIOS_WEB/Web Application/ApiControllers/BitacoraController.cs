@@ -25,18 +25,18 @@ namespace Web_Application.ApiControllers
         public string Post([FromBody]Bitacora bitacora)
         {
             #region Plantilla Postman -> Abrir para ver.
-            //{
-            //    "IDadmin":"IDadminResponsable",
-            //    "codigoDelRegistro": "codigoDelRegistroPlaceholder",
-            //    "tipo":"tipoBitacoraPlaceholder",
-            //    "descripcion":"descripcionPlaceholder",
-            //    "registroEnDetalle":"registroEnDetallePlaceholder"
-            //}
+            /*{
+                "nombreUsuarioAdmin":"IDadminResponsable",
+                "codigoDelRegistro": "codigoDelRegistroPlaceholder",
+                "tipo":"tipoBitacoraPlaceholder",
+                "descripcion":"descripcionPlaceholder",
+                "registroEnDetalle":"registroEnDetallePlaceholder"
+            }*/
             #endregion
             string nuevo_id = Tareas.generar_nuevo_id_para_un_registro();
             Bitacora bitacora_temp = new Bitacora(
                 nuevo_id
-                , bitacora.IDadmin
+                , bitacora.nombreUsuarioAdmin
                 , Tareas.obtener_fecha_actual() //Fecha
                 , bitacora.codigoDelRegistro
                 , bitacora.tipo
@@ -54,7 +54,7 @@ namespace Web_Application.ApiControllers
             #region Plantilla Postman -> Abrir para ver.
             //{
             //    "ID":"IDBitacoraPlaceholder",
-            //    "IDadmin":"editado",
+            //    "nombreUsuarioAdmin":"editado",
             //    "codigoDelRegistro": "editado",
             //    "tipo":"editado",
             //    "descripcion":"editado",
@@ -63,7 +63,7 @@ namespace Web_Application.ApiControllers
             #endregion
             Bitacora bitacora_temp = new Bitacora(
                 bitacora.id
-                , bitacora.IDadmin
+                , bitacora.nombreUsuarioAdmin
                 , Tareas.obtener_fecha_actual()
                 , bitacora.codigoDelRegistro
                 , bitacora.tipo

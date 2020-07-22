@@ -60,7 +60,7 @@ namespace BLL.Objeto
             }
         }
 
-        public void actualizarAdmin_baseDeDatos(Admin admin)
+        public void actualizarAdmin(Admin admin)
         {
             string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;
             string nombre_storedProcedure = "sp_admin_actualizar";
@@ -72,7 +72,7 @@ namespace BLL.Objeto
                 , return_valores(admin));
         }
 
-        public void borrarAdmin_baseDeDatos(string id)
+        public void eliminarAdmin(string id)
         {
             string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;
             string nombre_storedProcedure = "sp_admin_eliminar";
@@ -87,7 +87,7 @@ namespace BLL.Objeto
                , valores);
         }
 
-        public void insertarAdmin_baseDeDatos(Admin admin)
+        public void registrarAdmin(Admin admin)
         {
             string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;
             string nombre_storedProcedure = "sp_admin_crear";
@@ -134,7 +134,7 @@ namespace BLL.Objeto
 
             // Se guarda el admin y el consecutivo actualizado.
             consecutivo.actualizarConsecutivo_baseDeDatos(consecutivo);
-            insertarAdmin_baseDeDatos(admin);
+            registrarAdmin(admin);
         }
 
         public Admin()

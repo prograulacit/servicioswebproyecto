@@ -15,7 +15,7 @@
         <br />
         <asp:Label runat="server" Text="Contraseña"></asp:Label>
         <br />
-        <asp:TextBox ID="textbox_contrasenia" runat="server"></asp:TextBox>
+        <asp:TextBox TextMode="Password" ID="textbox_contrasenia" runat="server"></asp:TextBox>
         <br />
         <br />
         <asp:Button ID="button_submit_login" runat="server" Text="Submit" OnClick="button_submit_login_Click" />

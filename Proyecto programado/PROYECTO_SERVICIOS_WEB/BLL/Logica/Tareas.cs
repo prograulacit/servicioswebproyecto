@@ -109,5 +109,25 @@ namespace BLL.Logica
                 valorDescripcionActual = valorDescripcionActual + 1;
             return conversor_integerInverso(valorDescripcionAumentadoEn1);
         }
+
+        // Recibe parametros de una bitacora, crea un objeto bitacora y
+        // la guarda automaticamente en la base de datos.
+        public static void guardarRegistro_bitacora(string nombreUsuarioAdmin
+            , string codigoDelRegistro
+            , string tipo
+            , string descripcion
+            , string registroEnDetalle)
+        {
+            Bitacora bitacora = new Bitacora(
+                Tareas.generar_nuevo_id_para_un_registro()
+                , nombreUsuarioAdmin
+                , Tareas.obtener_fecha_actual()
+                , codigoDelRegistro
+                , tipo
+                , descripcion
+                , registroEnDetalle);
+
+            bitacora.guardarBitacora(bitacora);
+        }
     }
 }

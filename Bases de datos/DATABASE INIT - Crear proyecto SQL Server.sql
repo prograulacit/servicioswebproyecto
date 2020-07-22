@@ -112,7 +112,7 @@ CREATE TABLE TRANSACCION(
 
 CREATE TABLE BITACORA(
 	ID nvarchar(max),
-	IDadmin nvarchar(max),
+	nombreUsuarioAdmin nvarchar(max),
 	fechaYHora nvarchar(max),
 	codigoDelRegistro nvarchar(max),
 	tipo nvarchar(max),
@@ -303,7 +303,7 @@ END
 GO
 CREATE PROCEDURE sp_bitacora_crear
 @ID nvarchar(max),
-@IDadmin nvarchar(max),
+@nombreUsuarioAdmin nvarchar(max),
 @fechaYHora nvarchar(max),
 @codigoDelRegistro nvarchar(max),
 @tipo nvarchar(max),
@@ -313,7 +313,7 @@ AS
 BEGIN
 INSERT INTO Bitacora(
 ID,
-IDadmin,
+nombreUsuarioAdmin,
 fechaYHora,
 codigoDelRegistro,
 tipo,
@@ -322,7 +322,7 @@ registroEnDetalle
 )
 VALUES(
 @ID,
-@IDadmin,
+@nombreUsuarioAdmin,
 @fechaYHora,
 @codigoDelRegistro,
 @tipo,
@@ -336,7 +336,7 @@ END
 GO
 CREATE PROCEDURE sp_bitacora_actualizar
 @ID nvarchar(max),
-@IDadmin nvarchar(max),
+@nombreUsuarioAdmin nvarchar(max),
 @fechaYHora nvarchar(max),
 @codigoDelRegistro nvarchar(max),
 @tipo nvarchar(max),
@@ -347,7 +347,7 @@ BEGIN
 UPDATE Bitacora
 SET
 ID = @ID,
-IDadmin = @IDadmin,
+nombreUsuarioAdmin = @nombreUsuarioAdmin,
 fechaYHora = @fechaYHora,
 codigoDelRegistro = @codigoDelRegistro,
 tipo = @tipo,
