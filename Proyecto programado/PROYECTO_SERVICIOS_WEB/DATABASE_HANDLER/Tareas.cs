@@ -222,5 +222,19 @@ namespace DATABASE_HANDLER
             p.crearRegistroParametros(p);
             Console.WriteLine("Secuencia -> Parametros termianda. OK");
         }
+
+        public void crear_usuario()
+        {
+            Console.WriteLine("Secuencia -> Crear usuario iniciada.");
+            Usuario u = new Usuario("firstUser"
+                ,"Juan"
+                ,"Mora"
+                ,"Tenorio"
+                ,"juanMoraTenorio@gmail.com"
+                , "user","password"
+                );
+            u.guardarNuevoUsuario(u);
+            Console.WriteLine("Secuencia -> Crear usuario terminada.OK.");
+        }
     }
 }

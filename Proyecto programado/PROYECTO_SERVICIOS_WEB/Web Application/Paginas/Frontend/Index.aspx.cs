@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,11 @@ namespace Web_Application.Paginas.Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Memoria.sesionDeUsuario)
+            {
+                // Envia de vuelta al usuario al index si no hay nadie logeado
+                Response.Redirect("~/Paginas/Compartido/index.aspx");
+            }
         }
     }
 }

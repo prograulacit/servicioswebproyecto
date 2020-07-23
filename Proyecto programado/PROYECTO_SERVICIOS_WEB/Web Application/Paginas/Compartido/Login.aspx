@@ -19,6 +19,7 @@
         <br />
         <br />
         <asp:Button ID="button_submit_login" runat="server" Text="Submit" OnClick="button_submit_login_Click" />
+        <a href="index.aspx">Volver</a>
         <br />
         <asp:Label class="badge badge-danger" ID="Label_status_error" runat="server" Text=""></asp:Label>
     </div>

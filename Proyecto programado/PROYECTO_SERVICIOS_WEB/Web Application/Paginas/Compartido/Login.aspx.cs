@@ -12,15 +12,47 @@ namespace Web_Application.Paginas.Compartido
 
         }
 
+        private bool usuario_autenticado = false;
+
         // Logica del botón de login.
         protected void button_submit_login_Click(object sender, EventArgs e)
         {
             // Comprobamos que los espacios esten llenos.
             if (estanLlenosLosEspacios())
             {
+                comprobarCredencialesUsuario();
                 comprobarCredencialesAdmin();
-                //comprobarCredencialesUsuario(lista_admins);
+
+                labelStatusDanger_cambiarTexto("El usuario ingresado no " +
+                "existe o las crendeciales son incorrectas.");
             }
+        }
+
+        private void comprobarCredencialesUsuario()
+        {
+            Usuario usuario = new Usuario();
+            List<Usuario> lista_usuarios = usuario.traerUsuarios();
+
+            string nombreDeUsuario_input = textbox_nombre_usuario.Text;
+            string contrasenia_input = textbox_contrasenia.Text;
+
+            for (int i = 0; i < lista_usuarios.Count; i++)
+            {
+                if (lista_usuarios[i].contrasenia == contrasenia_input &&
+                    lista_usuarios[i].nombreUsuario == nombreDeUsuario_input)
+                {
+                    comprobacionExitosaUsuario(usuario);
+                    break;
+                }
+            }
+        }
+
+        private void comprobacionExitosaUsuario(Usuario usuario)
+        {
+            Memoria.sesionDeUsuario = true;
+            Memoria.sesionUsuarioDatos = usuario;
+
+            Response.Redirect("~/Paginas/Frontend/index.aspx");
         }
 
         // Metodo que comprueba las credenciales.
@@ -45,8 +77,6 @@ namespace Web_Application.Paginas.Compartido
                     break;
                 }
             }
-            labelStatusDanger_cambiarTexto("El usuario ingresado no " +
-                "existe o las crendeciales son incorrectas.");
 
             // Guardamos un registro de error.
             Error e = new Error();

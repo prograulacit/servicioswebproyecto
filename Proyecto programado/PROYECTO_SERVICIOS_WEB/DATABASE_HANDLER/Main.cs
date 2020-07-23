@@ -21,6 +21,7 @@ namespace DATABASE_HANDLER
                 createAdmin_datosQuemados();
                 tareas.crear_registros_de_consecutivos();
                 tareas.crear_parametros();
+                tareas.crear_usuario();
                 Console.WriteLine("Secuencia -> Pulsar boton -> Crear Registros -> Terminado");
                 MessageBox.Show("Secuencia de datos ejecutada con exito!!");
             }

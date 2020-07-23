@@ -15,6 +15,24 @@ namespace Web_Application.Paginas.Compartido
     {
 
         /// <summary>
+        /// Label_error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_error;
+
+        /// <summary>
+        /// Label4_success control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4_success;
+
+        /// <summary>
         /// textbox_nombre control.
         /// </summary>
         /// <remarks>

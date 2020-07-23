@@ -92,6 +92,15 @@ namespace BLL.Objeto
             // Se hará despues en la fase 3.
         }
 
+        public void deslogeo()
+        {
+            // No existe sesion de admin.
+            Memoria.sesionDeUsuario = false;
+
+            // Datos del admin logeado borrados.
+            Memoria.sesionUsuarioDatos = new Usuario();
+        }
+
         public Usuario() { }
 
         public Usuario(string id
