@@ -1,12 +1,5 @@
 ﻿const apiURL = "https://localhost:44371";
 
-function get_data_filtrada(array, llave, data_filtro) {
-    let filtrado = array.filter((item) => {
-        return Object.keys(item).some((key) => item[llave].includes(data_filtro));
-    });
-    return filtrado;
-}
-
 function cargar_errores(fechaInicio, fechaFinal) {
     let tablaErrores = document.getElementById("tabla_errores");
     tablaErrores.innerHTML = "** Cargando datos..."
@@ -17,22 +10,10 @@ function cargar_errores(fechaInicio, fechaFinal) {
             if (json != null) {
                 // Aplica filtros
                 if (fechaInicio) {
-                    json = json.filter((item) => {
-                        const fecha1 = new Date(item['fechaYHora']);
-                        const fecha2 = new Date(fechaInicio);
-                        fecha1.setHours(0, 0, 0, 0);
-                        fecha2.setHours(0, 0, 0, 0);
-                        return fecha1.getTime() >= fecha2.getTime();
-                    });
+                    json = filtro_fecha_inicio(json, 'fechaYHora', fechaInicio);
                 }
                 if (fechaFinal) {
-                    json = json.filter((item) => {
-                        const fecha1 = new Date(item['fechaYHora']);
-                        const fecha2 = new Date(fechaFinal);
-                        fecha1.setHours(0, 0, 0, 0);
-                        fecha2.setHours(0, 0, 0, 0);
-                        return fecha1.getTime() <= fecha2.getTime();
-                    });
+                    json = filtro_fecha_final(json, 'fechaYHora', fechaFinal);
                 }
 
                 // Genera tabla

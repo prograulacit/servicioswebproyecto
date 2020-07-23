@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Compartido/MasterPage_Backend.Master" AutoEventWireup="true" CodeBehind="ConsultasDescargas.aspx.cs" Inherits="Web_Application.Paginas.Backend.ConsultasDescargas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Compartido/MasterPage_Backend.Master" AutoEventWireup="true" CodeBehind="consultasDescargas.aspx.cs" Inherits="Web_Application.Paginas.Backend.ConsultasDescargas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -56,5 +56,6 @@
             </div>
         </div>
     </div>
-    <script src="../../Public/scripts/consultasDercargas.js"></script>
+    <script src="../../Public/scripts/utils.js"></script>
+    <script src="../../Public/scripts/consultasDescargas.js"></script>
 </asp:Content>

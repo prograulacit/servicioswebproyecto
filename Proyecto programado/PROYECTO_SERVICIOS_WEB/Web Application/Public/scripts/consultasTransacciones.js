@@ -1,12 +1,5 @@
 ﻿const apiURL = "https://localhost:44371";
 
-function get_data_filtrada(array, llave, data_filtro) {
-    let filtrado = array.filter((item) => {
-        return Object.keys(item).some((key) => item[llave].includes(data_filtro));
-    });
-    return filtrado;
-}
-
 function cargar_transacciones(tipoFecha, fechaInicio, fechaFinal, medioPago) {
     let tablaTransacciones = document.getElementById("tabla_transacciones");
     tablaTransacciones.innerHTML = "** Cargando datos..."
@@ -19,44 +12,55 @@ function cargar_transacciones(tipoFecha, fechaInicio, fechaFinal, medioPago) {
                 if (tipoFecha) {
                     switch (tipoFecha) {
                         case 'diaria':
+                            json = filtro_fecha_actual_diaria(json, 'fechaCompra');
                         break;
                         case 'semanal':
+                            json = filtro_fecha_actual_semanal(json, 'fechaCompra');
                         break;
                         case 'mensualActual':
+                            json = filtro_fecha_actual_mensual_actual(json, 'fechaCompra');
                         break;
                         case 'mensualAnterior':
+                            json = filtro_fecha_actual_mensual_anterior(json, 'fechaCompra');
                         break;
                         case 'trimestral':
+                            json = filtro_fecha_actual_trimestral(json, 'fechaCompra');
                         break;
                         case 'semestral':
+                            json = filtro_fecha_actual_semestral(json, 'fechaCompra');
                         break;
                         case 'anual':
+                            json = filtro_fecha_actual_anual(json, 'fechaCompra');
                         break;
                         case 'rango':
                             if (fechaInicio) {
-                                json = json.filter((item) => {
-                                    const fecha1 = new Date(item['fechaCompra']);
-                                    const fecha2 = new Date(fechaInicio);
-                                    fecha1.setHours(0, 0, 0, 0);
-                                    fecha2.setHours(0, 0, 0, 0);
-                                    return fecha1.getTime() >= fecha2.getTime();
-                                });
+                                json = filtro_fecha_inicio(json, 'fechaCompra', fechaInicio);
                             };
                             if (fechaFinal) {
-                                json = json.filter((item) => {
-                                    const fecha1 = new Date(item['fechaCompra']);
-                                    const fecha2 = new Date(fechaFinal);
-                                    fecha1.setHours(0, 0, 0, 0);
-                                    fecha2.setHours(0, 0, 0, 0);
-                                    return fecha1.getTime() <= fecha2.getTime();
-                                });
+                                json = filtro_fecha_final(json, 'fechaCompra', fechaFinal);
                             };
                         break;
                     }
                 }
-                //if (medioPago) {
-                //    json = get_data_filtrada(json, 'medioPago', medioPago);
-                //}
+                if (medioPago) {
+                    switch (medioPago) {
+                        case 'tarjeta':
+                            json = json.filter((item) => {
+                                return item['tarjetaID'] !== null;
+                            });
+                            break;
+                        case 'easypay':
+                            json = json.filter((item) => {
+                                return item['easyPayID'] !== null;
+                            });
+                            break;
+                        case 'ambas':
+                            json = json.filter((item) => {
+                                return item['tarjetaID'] !== null && item['easyPayID'] !== null;
+                            });
+                            break;
+                    }
+                }
 
                 // Genera tabla
                 let html = "";
@@ -79,7 +83,7 @@ function cargar_transacciones(tipoFecha, fechaInicio, fechaFinal, medioPago) {
                 html += "</tbody></table>";
                 tablaTransacciones.innerHTML = html;
             } else {
-                tablaTransacciones.innerHTML = "No hay registros de errores.";
+                tablaTransacciones.innerHTML = "No hay registros de transacciones.";
             }
         })
         .catch(function (err) {

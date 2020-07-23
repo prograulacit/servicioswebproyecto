@@ -32,5 +32,6 @@
             </div>
         </div>
     </div>
+    <script src="../../Public/scripts/utils.js"></script>
     <script src="../../Public/scripts/consultasErrores.js"></script>
 </asp:Content>

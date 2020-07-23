@@ -1,16 +1,9 @@
 ﻿const apiURL = "https://localhost:44371";
 
-function get_data_filtrada(array, llave, data_filtro) {
-    let filtrado = array.filter((item) => {
-        return Object.keys(item).some((key) => item[llave].includes(data_filtro));
-    });
-    return filtrado;
-}
-
 function cargar_descargas(tipoFecha, fechaInicio, fechaFinal, tipo, categoria) {
     let tablaDescargas = document.getElementById("tabla_descargas");
     tablaDescargas.innerHTML = "** Cargando datos..."
-    fetch(`${apiURL}/api/descarga`)
+    fetch(`${apiURL}/api/descargas`)
         .then(function (response) { return response.text(); })
         .then(function (response) {
             let json = JSON.parse(response);
@@ -19,37 +12,32 @@ function cargar_descargas(tipoFecha, fechaInicio, fechaFinal, tipo, categoria) {
                 if (tipoFecha) {
                     switch (tipoFecha) {
                         case 'diaria':
+                            json = filtro_fecha_actual_diaria(json, 'fechaCompra');
                             break;
                         case 'semanal':
+                            json = filtro_fecha_actual_semanal(json, 'fechaCompra');
                             break;
                         case 'mensualActual':
+                            json = filtro_fecha_actual_mensual_actual(json, 'fechaCompra');
                             break;
                         case 'mensualAnterior':
+                            json = filtro_fecha_actual_mensual_anterior(json, 'fechaCompra');
                             break;
                         case 'trimestral':
+                            json = filtro_fecha_actual_trimestral(json, 'fechaCompra');
                             break;
                         case 'semestral':
+                            json = filtro_fecha_actual_semestral(json, 'fechaCompra');
                             break;
                         case 'anual':
+                            json = filtro_fecha_actual_anual(json, 'fechaCompra');
                             break;
                         case 'rango':
                             if (fechaInicio) {
-                                json = json.filter((item) => {
-                                    const fecha1 = new Date(item['fechaCompra']);
-                                    const fecha2 = new Date(fechaInicio);
-                                    fecha1.setHours(0, 0, 0, 0);
-                                    fecha2.setHours(0, 0, 0, 0);
-                                    return fecha1.getTime() >= fecha2.getTime();
-                                });
+                                json = filtro_fecha_inicio(json, 'fechaCompra', fechaInicio);
                             };
                             if (fechaFinal) {
-                                json = json.filter((item) => {
-                                    const fecha1 = new Date(item['fechaCompra']);
-                                    const fecha2 = new Date(fechaFinal);
-                                    fecha1.setHours(0, 0, 0, 0);
-                                    fecha2.setHours(0, 0, 0, 0);
-                                    return fecha1.getTime() <= fecha2.getTime();
-                                });
+                                json = filtro_fecha_final(json, 'fechaCompra', fechaFinal);
                             };
                             break;
                     }
@@ -77,7 +65,7 @@ function cargar_descargas(tipoFecha, fechaInicio, fechaFinal, tipo, categoria) {
                 html += "</tbody></table>";
                 tablaDescargas.innerHTML = html;
             } else {
-                tablaDescargas.innerHTML = "No hay registros de errores.";
+                tablaDescargas.innerHTML = "No hay registros de descargas.";
             }
         })
         .catch(function (err) {

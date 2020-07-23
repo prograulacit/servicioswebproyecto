@@ -53,5 +53,6 @@
             </div>
         </div>
     </div>
+    <script src="../../Public/scripts/utils.js"></script>
     <script src="../../Public/scripts/consultasTransacciones.js"></script>
 </asp:Content>
