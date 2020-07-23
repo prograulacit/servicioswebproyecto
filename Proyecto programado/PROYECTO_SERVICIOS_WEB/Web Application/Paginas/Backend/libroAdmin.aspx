@@ -1,15 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Compartido/MasterPage_Backend.Master" AutoEventWireup="true" CodeBehind="peliculasAdmin.aspx.cs" Inherits="Web_Application.Paginas.Backend.peliculasAdmin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Compartido/MasterPage_Backend.Master" AutoEventWireup="true" CodeBehind="libroAdmin.aspx.cs" Inherits="Web_Application.Paginas.Backend.libroAdmin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="../../Public/scripts/peliculasAdmin.js"></script>
+    <script src="../../Public/scripts/libroAdmin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="titulo">
-        Administracion de peliculas
+        Administracion de libros
     </div>
 
     <div class="descripcion">
-        Aquí puede administrar los recursos de peliculas
+        Aquí puede administrar los recursos de libros (PDF)
     </div>
 
     <div id="boton_crear">
@@ -27,7 +27,7 @@
 
     <div id="contenedor_editar">
         <div class="titulo">
-            Editando pelicula
+            Editando libro
         </div>
         ID:
         <br>
@@ -37,21 +37,25 @@
         <br>
         <input type="text" name="" id="editar_nombre">
         <br>
-        Genero:
+        Categoria:
         <br>
-        <input type="text" name="" id="editar_genero">
+        <input type="text" name="" id="editar_categoria">
         <br>
-        Año:
+        Autor:
         <br>
-        <input type="text" name="" id="editar_anio">
+        <input type="text" name="" id="editar_autor">
         <br>
         Idioma:
         <br>
         <input type="text" name="" id="editar_idioma">
         <br>
-        Actores:
+        Editorial:
         <br>
-        <input type="text" name="" id="editar_actores">
+        <input type="text" name="" id="editar_editorial">
+        <br>
+        Año de publicación:
+        <br>
+        <input type="text" name="" id="editar_anioPublicacion">
         <br>
         Archivo descarga:
         <br>
@@ -74,21 +78,25 @@
         <br>
         <input type="text" name="" id="crear_nombre">
         <br>
-        Genero:
+        Categoria:
         <br>
-        <input type="text" name="" id="crear_genero">
+        <input type="text" name="" id="crear_categoria">
         <br>
-        Año:
+        Autor:
         <br>
-        <input type="text" name="" id="crear_anio">
+        <input type="text" name="" id="crear_autor">
         <br>
         Idioma:
         <br>
         <input type="text" name="" id="crear_idioma">
         <br>
-        Actores:
+        Editorial:
         <br>
-        <input type="text" name="" id="crear_actores">
+        <input type="text" name="" id="crear_editorial">
+        <br>
+        Año de publicación:
+        <br>
+        <input type="text" name="" id="crear_anioPublicacion">
         <br>
         Archivo descarga:
         <br>
@@ -102,7 +110,7 @@
         <br>
         <input type="number" name="" id="crear_monto">
         <br>
-        <button type="button" onclick="crear_elemento()">Crear nueva pelicula</button>
+        <button type="button" onclick="crear_elemento()">Crear nuevo libro</button>
         <button>Cancelar</button>
     </div>
 

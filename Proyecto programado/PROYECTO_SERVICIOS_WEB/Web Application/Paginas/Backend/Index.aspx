@@ -45,7 +45,7 @@
                     <br>
                     <a href="peliculasAdmin.aspx">- Películas</a>
                     <br>
-                    <a href="#">- Libros</a>
+                    <a href="libroAdmin.aspx">- Libros</a>
                     <br>
                     <a href="musicaAdmin.aspx">- Música</a>
                 </div>

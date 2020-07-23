@@ -75,7 +75,7 @@
         <br>
         Monto:
         <br>
-        <input type="text" name="" id="editar_monto">
+        <input type="number" name="" id="editar_monto">
         <br>
         <button type="button" onclick="guardar_cambios()">Guardar cambios</button>
         <button>Cancelar</button>
@@ -124,7 +124,7 @@
         <br>
         Monto:
         <br>
-        <input type="text" name="" id="crear_monto">
+        <input type="number" name="" id="crear_monto">
         <br>
         <button type="button" onclick="crear_elemento()">Crear nueva musica</button>
         <button>Cancelar</button>

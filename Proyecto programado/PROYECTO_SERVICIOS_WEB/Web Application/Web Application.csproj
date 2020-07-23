@@ -119,6 +119,7 @@
     <Content Include="Paginas\Backend\crearNuevoAdmin.aspx" />
     <Content Include="Paginas\Backend\editarAdministradores.aspx" />
     <Content Include="Paginas\Backend\Index.aspx" />
+    <Content Include="Paginas\Backend\libroAdmin.aspx" />
     <Content Include="Paginas\Backend\login_preguntaSeguridad.aspx" />
     <Content Include="Paginas\Backend\musicaAdmin.aspx" />
     <Content Include="Paginas\Backend\parametros.aspx" />
@@ -138,6 +139,7 @@
     <Content Include="Public\scripts\categoriasLibro.js" />
     <Content Include="Public\scripts\generosMusica.js" />
     <Content Include="Public\scripts\generosPeliculas.js" />
+    <Content Include="Public\scripts\libroAdmin.js" />
     <Content Include="Public\scripts\libros.js" />
     <Content Include="Public\scripts\musica.js" />
     <Content Include="Public\scripts\musicaAdmin.js" />
@@ -228,6 +230,13 @@
     </Compile>
     <Compile Include="Paginas\Backend\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\libroAdmin.aspx.cs">
+      <DependentUpon>libroAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\libroAdmin.aspx.designer.cs">
+      <DependentUpon>libroAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Backend\login_preguntaSeguridad.aspx.cs">
       <DependentUpon>login_preguntaSeguridad.aspx</DependentUpon>
