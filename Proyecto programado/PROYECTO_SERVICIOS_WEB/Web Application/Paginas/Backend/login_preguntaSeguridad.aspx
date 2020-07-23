@@ -14,7 +14,7 @@
     <p>
         Respuesta de seguridad:</p>
     <p>
-        &nbsp;<asp:TextBox ID="TextBox_respuestaSeguridad" runat="server"></asp:TextBox>
+        &nbsp;<asp:TextBox TextMode="Password" ID="TextBox_respuestaSeguridad" runat="server"></asp:TextBox>
     </p>
     <p>
         <asp:Button ID="Button_aceptar" runat="server" Text="Aceptar" OnClick="Button_aceptar_Click" />

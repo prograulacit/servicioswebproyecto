@@ -39,6 +39,14 @@ namespace Web_Application.Paginas.Backend
             {
                 // La respuesta es correcta.
                 Memoria.sesionDeAdmin = true;
+
+                // Guardamos una bitacora de inicio de sesion.
+                Bitacora b = new Bitacora();
+                b.guardarBitacora_interfazDeUsuario("Inicio de sesion"
+                    , "Admin a iniciado sesion"
+                    , $"El administrador {Memoria.sesionAdminDatos.nombreUsuario} a ingresado " +
+                    $"en el sistema.");
+
                 Response.Redirect("~/Paginas/Backend/index.aspx");
             }
             else

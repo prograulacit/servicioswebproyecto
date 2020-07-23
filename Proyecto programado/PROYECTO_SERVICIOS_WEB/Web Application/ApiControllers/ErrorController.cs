@@ -25,16 +25,16 @@ namespace Web_Application.ApiControllers
         public string Post([FromBody]Error error)
         {
             #region Plantilla Postman -> Abrir para ver.
-            //{
-            //    "idUsuario":"idUsuarioPlaceholder",
-            //    "mensajeDeError": "Mensaje de error placeholder"
-            //}
+            /*{
+                "IDUsuario":"idUsuarioPlaceholder",
+                "mensajeDeError": "Mensaje de error placeholder"
+            }*/
             #endregion
             string nuevo_id = Tareas.generar_nuevo_id_para_un_registro();
             Error error_temp = new Error(
                 nuevo_id
                 , Tareas.obtener_fecha_actual()
-                , error.idUsuario
+                , error.IDUsuario
                 , error.mensajeDeError
                 );
 
@@ -48,14 +48,14 @@ namespace Web_Application.ApiControllers
             #region Plantilla Postman -> Abrir para ver.
             //{
             //    "ID":"id del registor de error",
-            //    "idUsuario":"idUsuarioPlaceholder update",
+            //    "IDUsuario":"idUsuarioPlaceholder update",
             //    "mensajeDeError": "Mensaje de error placeholder update"
             //}
             #endregion
             Error error_temp = new Error(
                 error.id
                 , Tareas.obtener_fecha_actual()
-                , error.idUsuario
+                , error.IDUsuario
                 , error.mensajeDeError
                 );
 

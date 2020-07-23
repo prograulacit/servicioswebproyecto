@@ -35,11 +35,15 @@
                     Administración
                 </div>
                 <div class="fondo-gris">
-                    <a href="#">- Consecutivos</a>
+                    <a href="generosPeliculas.aspx">- Generos peliculas.</a>
                     <br>
-                    <a href="#">- Parámetros</a>
+                    <a href="generosMusica.aspx">- Generos musica.</a>
                     <br>
-                    <a href="#">- Películas</a>
+                    <a href="categoriasLibro.aspx">- Categorias libro.</a>
+                    <br>
+                    <a href="parametros.aspx">- Parámetros</a>
+                    <br>
+                    <a href="peliculasAdmin.aspx">- Películas</a>
                     <br>
                     <a href="#">- Libros</a>
                     <br>
@@ -56,5 +60,4 @@
             </div>
         </div>
     </div>
-    <asp:Button ID="Button_cerrar_sesion" runat="server" Text="Sign out" OnClick="Button_cerrar_sesion_Click" />
     </asp:Content>

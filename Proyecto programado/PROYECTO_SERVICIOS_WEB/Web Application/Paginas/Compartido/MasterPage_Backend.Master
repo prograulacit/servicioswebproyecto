@@ -19,58 +19,62 @@
     <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
 </head>
 <body>
-    <!--Inicio del codigo para crear el Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="../../Public/imagenes/logo-header.png" width="80px" alt="e descargas logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Paginas/Backend/Index.aspx">INICIO<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seguridad
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/Paginas/Backend/crearNuevoAdmin.aspx">Crear Usuario</a>
-                        <a class="dropdown-item" href="/Paginas/Backend/editarAdministradores.aspx">Editar Usuario</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/Paginas/Backend/cambiarContrasenia.aspx">Cambiar Contraseña</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administración
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Consecutivos</a>
-                        <a class="dropdown-item" href="#">Parámetros</a>
-                        <a class="dropdown-item" href="#">Películas</a>
-                        <a class="dropdown-item" href="#">Libros</a>
-                        <a class="dropdown-item" href="#">Música</a>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consultas
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">Bitácora</a>
-                        <a class="dropdown-item" href="#">Transacciones</a>
-                        <a class="dropdown-item" href="#">Descargas</a>
-                        <a class="dropdown-item" href="#">Errores</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="row my-2 my-lg-0">
-                <a class="text-light" href="/Login.aspx">Cerrar Sesión</a>
-            </div>
-        </div>
-    </nav>
-    <!--Fin del codigo para crear el Navbar-->
     <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="../../Public/imagenes/logo-header.png" width="80px" alt="e descargas logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Paginas/Backend/Index.aspx">INICIO<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seguridad
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/Paginas/Backend/crearNuevoAdmin.aspx">Crear Usuario</a>
+                            <a class="dropdown-item" href="/Paginas/Backend/editarAdministradores.aspx">Editar Usuario</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/Paginas/Backend/cambiarContrasenia.aspx">Cambiar Contraseña</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administración
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="">Consecutivos</a>
+                            <a class="dropdown-item" href="#">Parámetros</a>
+                            <a class="dropdown-item" href="#">Películas</a>
+                            <a class="dropdown-item" href="#">Libros</a>
+                            <a class="dropdown-item" href="#">Música</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consultas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../Backend/bitacoraErroresTransaccionesDescargas.aspx">Bitácora</a>
+                            <a class="dropdown-item" href="../Backend/bitacoraErroresTransaccionesDescargas.aspx">Transacciones</a>
+                            <a class="dropdown-item" href="../Backend/bitacoraErroresTransaccionesDescargas.aspx">Descargas</a>
+                            <a class="dropdown-item" href="../Backend/bitacoraErroresTransaccionesDescargas.aspx">Errores</a>
+                        </div>
+                    </li>
+                    <li>
+                        <asp:Label ID="Label_admin_nombreUsuario" style="padding-top:14px; padding-right: 7px;" class="badge badge-light" runat="server" Text="AdminV"></asp:Label>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton_cerrar_sesion" class="btn btn-outline-secondary" runat="server" OnClick="LinkButton_cerrar_sesion_Click">Cerrar sesión</asp:LinkButton>
+                    </li>
+                </ul>
+                <div class="row my-2 my-lg-0">
+                    <a class="text-light" href="/Login.aspx">Cerrar Sesión</a>
+                </div>
+            </div>
+        </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

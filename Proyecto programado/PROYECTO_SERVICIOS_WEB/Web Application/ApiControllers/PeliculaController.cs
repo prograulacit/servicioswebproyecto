@@ -25,16 +25,16 @@ namespace Web_Application.ApiControllers
         public string Post([FromBody]Pelicula pelicula)
         {
             #region Plantilla Postman -> Abrir para ver.
-            //{
-            //    "nombre":"NombreDePelicula",
-            //    "genero": "generoDePelicula",
-            //    "anio":"anioDeLaPelicula",
-            //    "idioma":"idiomaDeLaPelicula",
-            //    "actores":"actoresDeLaPelicula",
-            //    "nombreArchivoDescarga":"registroEnDetallePlaceholder",
-            //    "nombreArchivoPrevisualizacion":"registroEnDetallePlaceholder",
-            //    "monto":"registroEnDetallePlaceholder"
-            //}
+            /*{
+                "nombre":"NombreDePelicula",
+                "genero": "generoDePelicula",
+                "anio":"anioDeLaPelicula",
+                "idioma":"idiomaDeLaPelicula",
+                "actores":"actoresDeLaPelicula",
+                "nombreArchivoDescarga":"registroEnDetallePlaceholder",
+                "nombreArchivoPrevisualizacion":"registroEnDetallePlaceholder",
+                "monto":"registroEnDetallePlaceholder"
+            }*/
             #endregion
 
             Consecutivo consecutivo = new Consecutivo();

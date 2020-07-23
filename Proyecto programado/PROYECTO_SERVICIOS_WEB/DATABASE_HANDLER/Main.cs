@@ -20,6 +20,7 @@ namespace DATABASE_HANDLER
                 tareas.crear_admin_maestro();
                 createAdmin_datosQuemados();
                 tareas.crear_registros_de_consecutivos();
+                tareas.crear_parametros();
                 Console.WriteLine("Secuencia -> Pulsar boton -> Crear Registros -> Terminado");
                 MessageBox.Show("Secuencia de datos ejecutada con exito!!");
             }

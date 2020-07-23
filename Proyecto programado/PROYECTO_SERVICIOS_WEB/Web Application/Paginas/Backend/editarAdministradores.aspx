@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://kit.fontawesome.com/651255ba72.js" crossorigin="anonymous"></script>
+    <script src="../../Public/scripts/tareas.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
@@ -68,6 +69,7 @@
 
     <script>
 
+        cargarDatos();
         document.getElementById('editar_admin').style.display = "none";
 
         function editarAdmin_guardarCambios() {
@@ -117,6 +119,7 @@
                         )
                         document.getElementById("editar_id").readOnly = false;
                         document.getElementById('editar_admin').style.display = "none";
+                        guardarBitacora("asjd", "asjd", "asjd", "asjd");
                         cargarDatos();
                     });
             } else {
@@ -134,10 +137,6 @@
             document.getElementById("lista_admins").style.display = "inline";
             cargarDatos();
         }
-
-        cargarDatos();
-
-        document.getElementById('editar_admin').style.display = "none";
 
         function cargarDatos() {
             const contenedor_id = "lista_admins";
@@ -310,6 +309,7 @@
                             }).then(response =>
                                 response.json().then((json) => {
                                     console.log(json);
+                                    guardarBitacora("asjd", "asjd", "asjd", "asjd");
                                     cargarDatos();
                                 })
                             );
@@ -334,6 +334,6 @@
                 })
             }
         }
+
     </script>
-    <a href="./index.aspx">Volver</a>
 </asp:Content>

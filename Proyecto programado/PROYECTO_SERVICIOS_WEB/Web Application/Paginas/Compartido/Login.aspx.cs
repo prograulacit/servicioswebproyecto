@@ -47,6 +47,13 @@ namespace Web_Application.Paginas.Compartido
             }
             labelStatusDanger_cambiarTexto("El usuario ingresado no " +
                 "existe o las crendeciales son incorrectas.");
+
+            // Guardamos un registro de error.
+            Error e = new Error();
+            e.guardarError_interfazDeUsuario_LoginMalosCredenciales($"Intento de inicio de sesión fallido. " +
+                $"Usuario no existe o credenciales incorrectas. " +
+                $"Usuario utilizado: {nombreDeUsuario_input}"
+                , nombreDeUsuario_input);
         }
 
         private void comprobacionExitosaAdmin(Admin admin)

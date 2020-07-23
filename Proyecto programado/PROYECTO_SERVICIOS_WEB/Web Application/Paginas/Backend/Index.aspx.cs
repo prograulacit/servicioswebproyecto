@@ -34,6 +34,12 @@ namespace Web_Application.Paginas.Backend
             // Metodo que deslogea al admin del sistema.
             admin.deslogeo();
 
+            Bitacora b = new Bitacora();
+            b.guardarBitacora_interfazDeUsuario("Cierre de sesion"
+                , "Admin a cerrado su sesion"
+                , $"El administrador {Memoria.sesionAdminDatos.nombreUsuario} a salido del " +
+                $"sistema.");
+
             // Envia al usuario nuevamente al lobby.
             Response.Redirect("~/Paginas/Compartido/index.aspx");
         }

@@ -156,27 +156,32 @@ function traer_transacciones() {
 
                 let contenidoHtml = "";
 
-                let objBitacoras = voltearValoresObj(objResponse);
+                let obj = voltearValoresObj(objResponse);
 
                 contenidoHtml +=
-                    `<p>Total de registros: ${objBitacoras.length}</p>
+                    `<p>Total de registros: ${obj.length}</p>
                     <p>Registros:</p> <br>
                     <table class="table table-striped">
                             <tr>
                                 <th scope="col">Num registro</th>    
                                 <th scope="col">Fecha</th>
                                 <th scope="col">Monto</th>
-                                <th scope="col">Monto</th>
+                                <th scope="col">ID Usuario</th>
                                 <th scope="col">Detalles del error</th>
+                                <th scope="col">ID Tarjeta</th>
+                                <th scope="col">ID EasyPay</th>
                             </tr>
                     `;
-                for (let index = 0; index < objBitacoras.length; index++) {
+                for (let index = 0; index < obj.length; index++) {
 
                     contenidoHtml += `<tr>
-                                <td>` + objBitacoras[index].id + `</td>            
-                                <td>` + objBitacoras[index].idUsuario + `</td>
-                                <td>` + objBitacoras[index].fechaYHora + `</td>
-                                <td>` + objBitacoras[index].mensajeDeError + `</td>
+                                <td>` + obj[index].id + `</td>            
+                                <td>` + obj[index].fechaCompra + `</td>
+                                <td>` + obj[index].monto + `</td>
+                                <td>` + obj[index].usuarioId + `</td>
+                                <td>` + obj[index].consecutivoProductoID + `</td>
+                                <td>` + obj[index].tarjetaID + `</td>
+                                <td>` + obj[index].easyPayID + `</td>
                             </tr>
                             `
                 }
@@ -194,5 +199,48 @@ function traer_transacciones() {
 }
 
 function traer_descargas() {
+    const APIUrl = "https://localhost:44371/api/descargas";
 
+    fetch(APIUrl)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (response) {
+            let objResponse = JSON.parse(response);
+            if (objResponse != null) {
+
+                let contenidoHtml = "";
+
+                let obj = voltearValoresObj(objResponse);
+
+                contenidoHtml +=
+                    `<p>Total de registros: ${obj.length}</p>
+                    <p>Registros:</p> <br>
+                    <table class="table table-striped">
+                            <tr>
+                                <th scope="col">Num registro</th>    
+                                <th scope="col">ID Producto</th>
+                                <th scope="col">ID/Nombre de usuario</th>
+                            </tr>
+                    `;
+                for (let index = 0; index < obj.length; index++) {
+
+                    contenidoHtml += `<tr>
+                                <td>` + obj[index].ID + `</td>            
+                                <td>` + obj[index].IDconsecutivo + `</td>
+                                <td>` + obj[index].IDusuario + `</td>
+                            </tr>
+                            `
+                }
+                contenidoHtml += "</table>";
+                document.getElementById("contenido").innerHTML = contenidoHtml;
+
+            } else {
+                document.getElementById("contenido").innerHTML = "No hay registros de transacciones.";
+            }
+        })
+        .catch(function (err) {
+            console.error(err);
+            document.getElementById("contenido").innerHTML = "*** Ha ocurrido un error ***";
+        });
 }

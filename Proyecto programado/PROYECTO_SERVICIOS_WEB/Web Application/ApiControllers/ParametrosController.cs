@@ -44,7 +44,7 @@ namespace Web_Application.ApiControllers
             // Si lista_parametros_temporal es null, se guardara el registro.
             if (lista_parametros_temporal == null)
             {
-                string nuevo_id = Tareas.generar_nuevo_id_para_un_registro();
+                string nuevo_id = "par";
                 Parametros parametros_registro = new Parametros(
                      nuevo_id
                      , parametros.rutaAlmacenamientoPrevisualizacionLibros
@@ -67,15 +67,15 @@ namespace Web_Application.ApiControllers
         public string Put([FromBody]Parametros parametros)
         {
             #region Plantilla Postman -> Abrir para ver.
-            //{
-            //    "ID":"IDDelRegistroUnicoDeParametros",
-            //    "rutaAlmacenamientoPrevisualizacionLibros":"PreLibros",
-            //    "rutaAlmacenamientoLibros": "AlLibros",
-            //    "rutaAlmacenamientoPrevisualizacionPeliculas":"PrePeliculas",
-            //    "rutaAlmacenamientoPeliculas": "AlPeliculas",
-            //    "rutaAlmacenamientoPrevisualizacionMusica":"PreMusica",
-            //    "rutaAlmacenamientoMusica": "AlMusica"
-            //}
+            /*{
+                "ID":"IDDelRegistroUnicoDeParametros",
+                "rutaAlmacenamientoPrevisualizacionLibros":"PreLibros",
+                "rutaAlmacenamientoLibros": "AlLibros",
+                "rutaAlmacenamientoPrevisualizacionPeliculas":"PrePeliculas",
+                "rutaAlmacenamientoPeliculas": "AlPeliculas",
+                "rutaAlmacenamientoPrevisualizacionMusica":"PreMusica",
+                "rutaAlmacenamientoMusica": "AlMusica"
+            }*/
             #endregion
             Parametros parametros_temp = new Parametros(
                        parametros.id

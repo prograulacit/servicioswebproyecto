@@ -113,10 +113,15 @@
     <Content Include="Paginas\ApiTests.aspx" />
     <Content Include="Paginas\Backend\bitacoraErroresTransaccionesDescargas.aspx" />
     <Content Include="Paginas\Backend\cambiarContrasenia.aspx" />
+    <Content Include="Paginas\Backend\categoriasLibro.aspx" />
+    <Content Include="Paginas\Backend\generosMusica.aspx" />
+    <Content Include="Paginas\Backend\generosPeliculas.aspx" />
     <Content Include="Paginas\Backend\crearNuevoAdmin.aspx" />
     <Content Include="Paginas\Backend\editarAdministradores.aspx" />
     <Content Include="Paginas\Backend\Index.aspx" />
     <Content Include="Paginas\Backend\login_preguntaSeguridad.aspx" />
+    <Content Include="Paginas\Backend\parametros.aspx" />
+    <Content Include="Paginas\Backend\peliculasAdmin.aspx" />
     <Content Include="Paginas\Compartido\index.aspx" />
     <Content Include="Paginas\Compartido\Login.aspx" />
     <Content Include="Paginas\Compartido\Registrarse.aspx" />
@@ -129,9 +134,15 @@
     <Content Include="Public\pruebas\index.html" />
     <Content Include="Public\pruebas\script.js" />
     <Content Include="Public\scripts\bitacoraErroresTransaccionesDescargas.js" />
+    <Content Include="Public\scripts\categoriasLibro.js" />
+    <Content Include="Public\scripts\generosMusica.js" />
+    <Content Include="Public\scripts\generosPeliculas.js" />
     <Content Include="Public\scripts\libros.js" />
     <Content Include="Public\scripts\musica.js" />
+    <Content Include="Public\scripts\parametros.js" />
     <Content Include="Public\scripts\peliculas.js" />
+    <Content Include="Public\scripts\peliculasAdmin.js" />
+    <Content Include="Public\scripts\tareas.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +150,7 @@
     <Compile Include="ApiControllers\BitacoraController.cs" />
     <Compile Include="ApiControllers\Categorias_librosController.cs" />
     <Compile Include="ApiControllers\ConsecutivoController.cs" />
-    <Compile Include="ApiControllers\DefaultController.cs" />
+    <Compile Include="ApiControllers\DescargasController.cs" />
     <Compile Include="ApiControllers\ErrorController.cs" />
     <Compile Include="ApiControllers\Generos_musicaController.cs" />
     <Compile Include="ApiControllers\Generos_peliculasController.cs" />
@@ -147,6 +158,7 @@
     <Compile Include="ApiControllers\MusicaController.cs" />
     <Compile Include="ApiControllers\ParametrosController.cs" />
     <Compile Include="ApiControllers\PeliculaController.cs" />
+    <Compile Include="ApiControllers\TransaccionController.cs" />
     <Compile Include="ApiControllers\UsuarioController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
@@ -172,6 +184,27 @@
     </Compile>
     <Compile Include="Paginas\Backend\cambiarContrasenia.aspx.designer.cs">
       <DependentUpon>cambiarContrasenia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\categoriasLibro.aspx.cs">
+      <DependentUpon>categoriasLibro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\categoriasLibro.aspx.designer.cs">
+      <DependentUpon>categoriasLibro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\generosMusica.aspx.cs">
+      <DependentUpon>generosMusica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\generosMusica.aspx.designer.cs">
+      <DependentUpon>generosMusica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\generosPeliculas.aspx.cs">
+      <DependentUpon>generosPeliculas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\generosPeliculas.aspx.designer.cs">
+      <DependentUpon>generosPeliculas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Backend\crearNuevoAdmin.aspx.cs">
       <DependentUpon>crearNuevoAdmin.aspx</DependentUpon>
@@ -201,6 +234,20 @@
     <Compile Include="Paginas\Backend\login_preguntaSeguridad.aspx.designer.cs">
       <DependentUpon>login_preguntaSeguridad.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\Backend\parametros.aspx.cs">
+      <DependentUpon>parametros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\parametros.aspx.designer.cs">
+      <DependentUpon>parametros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\peliculasAdmin.aspx.cs">
+      <DependentUpon>peliculasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\peliculasAdmin.aspx.designer.cs">
+      <DependentUpon>peliculasAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Compartido\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,6 +271,7 @@
     </Compile>
     <Compile Include="Paginas\Compartido\MasterPage_Frontend.Master.cs">
       <DependentUpon>MasterPage_Frontend.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Paginas\Compartido\MasterPage_Frontend.Master.designer.cs">
       <DependentUpon>MasterPage_Frontend.Master</DependentUpon>

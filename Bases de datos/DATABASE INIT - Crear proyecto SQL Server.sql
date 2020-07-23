@@ -106,8 +106,10 @@ CREATE TABLE TRANSACCION(
 	ID nvarchar(max),
 	fechaCompra nvarchar(max),
 	monto nvarchar(max),
-	IDusuario nvarchar(max),
-	IDconsecutivo nvarchar(max)
+	usuarioID nvarchar(max),
+	consecutivoProductoID nvarchar(max),
+	tarjetaID nvarchar(max),
+	easyPayID nvarchar(max)
 );
 
 CREATE TABLE BITACORA(
@@ -916,23 +918,29 @@ CREATE PROCEDURE sp_transaccion_crear
 @ID nvarchar(max),
 @fechaCompra nvarchar(max),
 @monto nvarchar(max),
-@IDusuario nvarchar(max),
-@IDconsecutivo nvarchar(max)
+@usuarioID nvarchar(max),
+@consecutivoProductoID nvarchar(max),
+@tarjetaID nvarchar(max),
+@easyPayID nvarchar(max)
 AS
 BEGIN
 INSERT INTO TRANSACCION(
 ID,
 fechaCompra,
 monto,
-IDusuario,
-IDconsecutivo
+usuarioID,
+consecutivoProductoID,
+tarjetaID,
+easyPayID
 )
 VALUES(
 @ID,
 @fechaCompra,
 @monto,
-@IDusuario,
-@IDconsecutivo
+@usuarioID,
+@consecutivoProductoID,
+@tarjetaID,
+@easyPayID
 );
 END
 
@@ -943,8 +951,10 @@ CREATE PROCEDURE sp_transaccion_actualizar
 @ID nvarchar(max),
 @fechaCompra nvarchar(max),
 @monto nvarchar(max),
-@IDusuario nvarchar(max),
-@IDconsecutivo nvarchar(max)
+@usuarioID nvarchar(max),
+@consecutivoProductoID nvarchar(max),
+@tarjetaID nvarchar(max),
+@easyPayID nvarchar(max)
 AS
 BEGIN
 UPDATE TRANSACCION
@@ -952,8 +962,10 @@ SET
 ID = @ID,
 fechaCompra = @fechaCompra,
 monto = @monto,
-IDusuario = @IDusuario,
-IDconsecutivo = @IDconsecutivo
+usuarioID = @usuarioID,
+consecutivoProductoID = @consecutivoProductoID,
+tarjetaID = @tarjetaID,
+easyPayID = @easyPayID
 WHERE
 ID = @ID
 END

@@ -87,6 +87,24 @@ namespace BLL.Objeto
                , valores);
         }
 
+        // Guarda una bitacora automaticamente. Solo require que se
+        // de el tipo de bitacora, la descripcion y el registro en 
+        // detalle.
+        public void guardarBitacora_interfazDeUsuario(string tipo
+            , string descripcion, string registroEnDetalle)
+        {
+            Bitacora bitacora = new Bitacora(
+                Tareas.generar_nuevo_id_para_un_registro()
+                , Memoria.sesionAdminDatos.nombreUsuario
+                , Tareas.obtener_fecha_actual()
+                , "N/A"
+                , tipo
+                , descripcion
+                , registroEnDetalle
+                );
+            guardarBitacora(bitacora);
+        }
+
         public Bitacora()
         {
 

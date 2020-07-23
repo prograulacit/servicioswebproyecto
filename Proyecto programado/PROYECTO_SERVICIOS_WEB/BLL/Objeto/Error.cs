@@ -8,7 +8,7 @@ namespace BLL.Objeto
     {
         public string id { get; set; }
         public string fechaYHora{ get; set; }
-        public string idUsuario { get; set; }
+        public string IDUsuario { get; set; }
         public string mensajeDeError { get; set; }
 
         public List<Error> traerErrores()
@@ -29,7 +29,7 @@ namespace BLL.Objeto
                             (
                             Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
                             , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["fechaYHora"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["idUsuario"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["IDUsuario"].ToString())
                             , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["mensajeDeError"].ToString())
                             )
                         );
@@ -81,11 +81,40 @@ namespace BLL.Objeto
                , valores);
         }
 
-        public Error(string id, string fechaYHora, string idUsuario, string mensajeDeError)
+        // Guarda una bitacora automaticamente. Solo require que se
+        // de el tipo de bitacora, la descripcion y el registro en 
+        // detalle.
+        public void guardarError_interfazDeUsuario(string mensajeDeError)
+        {
+            Error e = new Error(
+                Tareas.generar_nuevo_id_para_un_registro()
+                , Tareas.obtener_fecha_actual()
+                , Memoria.sesionAdminDatos.nombreUsuario
+                , mensajeDeError
+                );
+            guardarError(e);
+        }
+
+        // Guarda un error de error de inicio de sesion.
+        public void guardarError_interfazDeUsuario_LoginMalosCredenciales(
+            string mensajeDeError
+            , string nombreDeUsuario)
+        {
+            Error e = new Error(
+                Tareas.generar_nuevo_id_para_un_registro()
+                , Tareas.obtener_fecha_actual()
+                , nombreDeUsuario
+                , mensajeDeError
+                );
+            guardarError(e);
+        }
+
+        public Error(string id, string fechaYHora
+            , string idUsuario, string mensajeDeError)
         {
             this.id = id;
             this.fechaYHora = fechaYHora;
-            this.idUsuario = idUsuario;
+            this.IDUsuario = idUsuario;
             this.mensajeDeError = mensajeDeError;
         }
 
@@ -97,7 +126,7 @@ namespace BLL.Objeto
         string[] parametros = {
                 "ID"
                 ,"fechaYHora"
-                , "idUsuario"
+                , "IDUsuario"
                 , "mensajeDeError"};
 
         private string[] return_valores(Error error)
@@ -105,7 +134,7 @@ namespace BLL.Objeto
             string[] valores = {
                 error.id,
                 error.fechaYHora,
-                error.idUsuario,
+                error.IDUsuario,
                 error.mensajeDeError};
             return valores;
         }

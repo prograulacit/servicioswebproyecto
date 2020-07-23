@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using BLL.Logica;
 using BLL.Objeto;
 
@@ -52,11 +48,21 @@ namespace Web_Application.Paginas.Backend
                     , adminMantenimiento
                     , adminConsultas);
 
-                // Se envia el admin a un metodo llamado crearNuevoAdmin_UI
+                // Se envia el objeto admin a un metodo llamado crearNuevoAdmin_UI
                 // el cual se encarga de darle un id al admin segun corresponda
                 // en relación a los consecutivos así como actualizar el registro
                 // de consecutivos.
                 admin.crearNuevoAdmin_UI(admin);
+
+                // Guardamos una bitacora.
+                Bitacora b = new Bitacora();
+                b.guardarBitacora_interfazDeUsuario("Movimiento a otro admin"
+                    , "Un nuevo administrador a sido creado."
+                    , $"El administrador {Memoria.sesionAdminDatos.nombreUsuario} a " +
+                    $"creado un nuevo administrador con el nombre de usuario " +
+                    $"{nombreUsuario} el cual tiene los permisos de: AdminMaestro: {adminMaestro}, " +
+                    $"AdminSeguridad: {adminSeguridad}, AdminMantenimiento: {adminMantenimiento}, " +
+                    $"AdminConsultas: {adminConsultas}.");
 
                 // Se da feedback al administrador en el user interface.
                 adminCreado_cambiosUI();
@@ -84,6 +90,7 @@ namespace Web_Application.Paginas.Backend
             Response.Redirect("~/Paginas/Backend/Index.aspx");
         }
 
+        #region verificaciones
         private bool estanTodosLosEspaciosLlenos()
         {
             if (!String.IsNullOrEmpty(TextBox_nombreUsuario.Text) &&
@@ -136,6 +143,7 @@ namespace Web_Application.Paginas.Backend
             }
             return true;
         }
+        #endregion
 
         private void labelStatusDanger_cambiarTexto(string mensaje)
         {

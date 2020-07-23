@@ -1,4 +1,5 @@
 ﻿using BLL.Logica;
+using BLL.Objeto;
 using System;
 
 namespace Web_Application.Paginas.Backend
@@ -33,6 +34,13 @@ namespace Web_Application.Paginas.Backend
             // de datos.
             Memoria.sesionAdminDatos
                 .actualizarAdmin(Memoria.sesionAdminDatos);
+
+            // Guardamos una bitacora de cambio de contraseña.
+            Bitacora b = new Bitacora();
+            b.guardarBitacora_interfazDeUsuario("Cambio de contraseña"
+                , "Un administrador cambio su contraseña."
+                , $"El administrador {Memoria.sesionAdminDatos.nombreUsuario} a cambiado su " +
+                $"contraseña de ingreso al sistema.");
 
             label_status_change("", "Contraseña actualizada con exito");
             limpiarCajasDeTexto();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Objeto;
+using System;
 
 namespace DATABASE_HANDLER
 {
@@ -204,6 +205,22 @@ namespace DATABASE_HANDLER
                 parametros_libro, valores_libro);
             Console.WriteLine("Consecutivo libro creado. OK");
             Console.WriteLine("Secuencia -> Crear consecutivos -> Terminada");
+        }
+
+        public void crear_parametros()
+        {
+            Console.WriteLine("Secuencia -> Parametros iniciada.");
+            Parametros p = new Parametros(
+                   "par"
+                , "PlaceholderRutaPreLibros"
+                , "PlaceholderRutaLibros"
+                , "PlaceholderRutaPrePeliculas"
+                , "PlaceholderRutaPeliculas"
+                , "PlaceholderRutaPreMusica"
+                , "PlaceholderRutaMusica"
+                );
+            p.crearRegistroParametros(p);
+            Console.WriteLine("Secuencia -> Parametros termianda. OK");
         }
     }
 }
