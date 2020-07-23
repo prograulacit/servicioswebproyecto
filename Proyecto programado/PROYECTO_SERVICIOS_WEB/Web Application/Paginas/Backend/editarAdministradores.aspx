@@ -119,7 +119,6 @@
                         )
                         document.getElementById("editar_id").readOnly = false;
                         document.getElementById('editar_admin').style.display = "none";
-                        guardarBitacora("asjd", "asjd", "asjd", "asjd");
                         cargarDatos();
                     });
             } else {

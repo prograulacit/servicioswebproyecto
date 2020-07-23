@@ -60,6 +60,22 @@ function actualizar_parametros() {
             .catch(error => console.error('Error:', error))
             .then((response) => {
                 console.log(response);
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Parametros actualizados con exito.'
+                })
                 traer_datos();
             });
     } else {

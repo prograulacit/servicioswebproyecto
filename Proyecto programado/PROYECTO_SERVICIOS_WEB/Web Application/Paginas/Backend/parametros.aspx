@@ -4,6 +4,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.aspx">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Administracion de parametros</li>
+        </ol>
+    </nav>
     <div class="titulo">
         Parametros
     </div>
