@@ -47,7 +47,7 @@
                     <br>
                     <a href="#">- Libros</a>
                     <br>
-                    <a href="#">- Música</a>
+                    <a href="musicaAdmin.aspx">- Música</a>
                 </div>
             </div>
             <div class="col-12 col-sm-4 col-md-4 col-lg-2">

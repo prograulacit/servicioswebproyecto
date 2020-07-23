@@ -120,6 +120,7 @@
     <Content Include="Paginas\Backend\editarAdministradores.aspx" />
     <Content Include="Paginas\Backend\Index.aspx" />
     <Content Include="Paginas\Backend\login_preguntaSeguridad.aspx" />
+    <Content Include="Paginas\Backend\musicaAdmin.aspx" />
     <Content Include="Paginas\Backend\parametros.aspx" />
     <Content Include="Paginas\Backend\peliculasAdmin.aspx" />
     <Content Include="Paginas\Compartido\index.aspx" />
@@ -139,6 +140,7 @@
     <Content Include="Public\scripts\generosPeliculas.js" />
     <Content Include="Public\scripts\libros.js" />
     <Content Include="Public\scripts\musica.js" />
+    <Content Include="Public\scripts\musicaAdmin.js" />
     <Content Include="Public\scripts\parametros.js" />
     <Content Include="Public\scripts\peliculas.js" />
     <Content Include="Public\scripts\peliculasAdmin.js" />
@@ -233,6 +235,13 @@
     </Compile>
     <Compile Include="Paginas\Backend\login_preguntaSeguridad.aspx.designer.cs">
       <DependentUpon>login_preguntaSeguridad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\musicaAdmin.aspx.cs">
+      <DependentUpon>musicaAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\musicaAdmin.aspx.designer.cs">
+      <DependentUpon>musicaAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Backend\parametros.aspx.cs">
       <DependentUpon>parametros.aspx</DependentUpon>
