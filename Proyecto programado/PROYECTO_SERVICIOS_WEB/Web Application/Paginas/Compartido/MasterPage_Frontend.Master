@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage_Frontend.master.cs" Inherits="Web_Application.Paginas.Compartido.MasterPage_Frontend" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>E-Descargas</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <%--Importe de framework Bootstrap--%>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <%--Importe de estilo CSS--%>
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
+</head>
+<body>
+    <!--Inicio del codigo para crear el Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="../../Public/imagenes/logo-header.png" width="80px" alt="e descargas logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-light" href="/Paginas/Frontend/Index.aspx">INICIO<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/Paginas/Frontend/Peliculas.aspx">Peliculas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/Paginas/Frontend/Musica.aspx">Musica</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/Paginas/Frontend/Libros.aspx">Libros</a>
+                </li>
+            </ul>
+            <div class="row my-2 my-lg-0">
+                <a class="text-light" href="/Login.aspx">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+    <!--Fin del codigo para crear el Navbar-->
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
