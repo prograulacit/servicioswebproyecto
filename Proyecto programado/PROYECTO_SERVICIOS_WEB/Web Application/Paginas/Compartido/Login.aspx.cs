@@ -12,8 +12,6 @@ namespace Web_Application.Paginas.Compartido
 
         }
 
-        private bool usuario_autenticado = false;
-
         // Logica del botón de login.
         protected void button_submit_login_Click(object sender, EventArgs e)
         {
@@ -33,16 +31,19 @@ namespace Web_Application.Paginas.Compartido
             Usuario usuario = new Usuario();
             List<Usuario> lista_usuarios = usuario.traerUsuarios();
 
-            string nombreDeUsuario_input = textbox_nombre_usuario.Text;
-            string contrasenia_input = textbox_contrasenia.Text;
-
-            for (int i = 0; i < lista_usuarios.Count; i++)
+            if (lista_usuarios != null)
             {
-                if (lista_usuarios[i].contrasenia == contrasenia_input &&
-                    lista_usuarios[i].nombreUsuario == nombreDeUsuario_input)
+                string nombreDeUsuario_input = textbox_nombre_usuario.Text;
+                string contrasenia_input = textbox_contrasenia.Text;
+
+                for (int i = 0; i < lista_usuarios.Count; i++)
                 {
-                    comprobacionExitosaUsuario(usuario);
-                    break;
+                    if (lista_usuarios[i].contrasenia == contrasenia_input &&
+                        lista_usuarios[i].nombreUsuario == nombreDeUsuario_input)
+                    {
+                        comprobacionExitosaUsuario(usuario);
+                        break;
+                    }
                 }
             }
         }
@@ -66,15 +67,18 @@ namespace Web_Application.Paginas.Compartido
             string nombreDeUsuario_input = textbox_nombre_usuario.Text;
             string contrasenia_input = textbox_contrasenia.Text;
 
-            for (int i = 0; i < lista_admins.Count; i++)
+            if (lista_admins != null)
             {
-                // Comprobamos si la contraseña y nombre de usuario coinciden.
-                if (lista_admins[i].contrasenia == contrasenia_input &&
-                    lista_admins[i].nombreUsuario == nombreDeUsuario_input)
+                for (int i = 0; i < lista_admins.Count; i++)
                 {
-                    // Si entramos aquí, se han encontrado datos que coinciden.
-                    comprobacionExitosaAdmin(lista_admins[i]);
-                    break;
+                    // Comprobamos si la contraseña y nombre de usuario coinciden.
+                    if (lista_admins[i].contrasenia == contrasenia_input &&
+                        lista_admins[i].nombreUsuario == nombreDeUsuario_input)
+                    {
+                        // Si entramos aquí, se han encontrado datos que coinciden.
+                        comprobacionExitosaAdmin(lista_admins[i]);
+                        break;
+                    }
                 }
             }
 
