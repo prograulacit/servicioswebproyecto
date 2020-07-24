@@ -114,6 +114,10 @@
     <Content Include="Paginas\Backend\bitacoraErroresTransaccionesDescargas.aspx" />
     <Content Include="Paginas\Backend\cambiarContrasenia.aspx" />
     <Content Include="Paginas\Backend\categoriasLibro.aspx" />
+    <Content Include="Paginas\Backend\consultasBitacora.aspx" />
+    <Content Include="Paginas\Backend\consultasDescargas.aspx" />
+    <Content Include="Paginas\Backend\consultasErrores.aspx" />
+    <Content Include="Paginas\Backend\consultasTransacciones.aspx" />
     <Content Include="Paginas\Backend\generosMusica.aspx" />
     <Content Include="Paginas\Backend\generosPeliculas.aspx" />
     <Content Include="Paginas\Backend\crearNuevoAdmin.aspx" />
@@ -137,6 +141,10 @@
     <Content Include="Public\pruebas\script.js" />
     <Content Include="Public\scripts\bitacoraErroresTransaccionesDescargas.js" />
     <Content Include="Public\scripts\categoriasLibro.js" />
+    <Content Include="Public\scripts\consultasBitacora.js" />
+    <Content Include="Public\scripts\consultasDescargas.js" />
+    <Content Include="Public\scripts\consultasErrores.js" />
+    <Content Include="Public\scripts\consultasTransacciones.js" />
     <Content Include="Public\scripts\generosMusica.js" />
     <Content Include="Public\scripts\generosPeliculas.js" />
     <Content Include="Public\scripts\libroAdmin.js" />
@@ -147,6 +155,7 @@
     <Content Include="Public\scripts\peliculas.js" />
     <Content Include="Public\scripts\peliculasAdmin.js" />
     <Content Include="Public\scripts\tareas.js" />
+    <Content Include="Public\scripts\utils.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +204,34 @@
     </Compile>
     <Compile Include="Paginas\Backend\categoriasLibro.aspx.designer.cs">
       <DependentUpon>categoriasLibro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\consultasBitacora.aspx.cs">
+      <DependentUpon>consultasBitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\consultasBitacora.aspx.designer.cs">
+      <DependentUpon>consultasBitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\consultasDescargas.aspx.cs">
+      <DependentUpon>consultasDescargas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\consultasDescargas.aspx.designer.cs">
+      <DependentUpon>consultasDescargas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\consultasErrores.aspx.cs">
+      <DependentUpon>consultasErrores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\consultasErrores.aspx.designer.cs">
+      <DependentUpon>consultasErrores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\consultasTransacciones.aspx.cs">
+      <DependentUpon>consultasTransacciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\consultasTransacciones.aspx.designer.cs">
+      <DependentUpon>consultasTransacciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Backend\generosMusica.aspx.cs">
       <DependentUpon>generosMusica.aspx</DependentUpon>

@@ -57,10 +57,10 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consultas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../Backend/bitacoraErroresTransaccionesDescargas.aspx">Bitácora</a>
-                            <a class="dropdown-item" href="../Backend/bitacoraErroresTransaccionesDescargas.aspx">Transacciones</a>
-                            <a class="dropdown-item" href="../Backend/bitacoraErroresTransaccionesDescargas.aspx">Descargas</a>
-                            <a class="dropdown-item" href="../Backend/bitacoraErroresTransaccionesDescargas.aspx">Errores</a>
+                            <a class="dropdown-item" href="../Backend/consultasBitacora.aspx">Bitácora</a>
+                            <a class="dropdown-item" href="../Backend/consultasTransacciones.aspx">Transacciones</a>
+                            <a class="dropdown-item" href="../Backend/consultasDescargas.aspx">Descargas</a>
+                            <a class="dropdown-item" href="../Backend/consultasErrores.aspx">Errores</a>
                         </div>
                     </li>
                     <li>
