@@ -65,18 +65,25 @@ namespace Web_Application.Paginas.Compartido
             Usuario u = new Usuario();
             List<Usuario> lista_usuario = u.traerUsuarios();
 
-            if (lista_usuario.Count > 0)
+            if (lista_usuario != null)
             {
-                for (int i = 0; i < lista_usuario.Count; i++)
+                if (lista_usuario.Count > 0)
                 {
-                    if (textbox_nombre_de_usuario.Text.Equals(
-                        lista_usuario[i].nombreUsuario))
+                    for (int i = 0; i < lista_usuario.Count; i++)
                     {
-                        status_labels("El nombre de usuario ya ha sido tomado", "");
-                        return false;
+                        if (textbox_nombre_de_usuario.Text.Equals(
+                            lista_usuario[i].nombreUsuario))
+                        {
+                            status_labels("El nombre de usuario ya ha sido tomado", "");
+                            return false;
+                        }
                     }
+                    return true;
                 }
-                return true;
+                else
+                {
+                    return true;
+                }
             }
             else
             {

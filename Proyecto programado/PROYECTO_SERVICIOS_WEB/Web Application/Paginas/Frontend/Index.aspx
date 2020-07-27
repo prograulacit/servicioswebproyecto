@@ -13,7 +13,7 @@
         <br />
         <br />
         <div class="justify-content-center ">
-            <h1 class="text-uppercase text-muted">Bienvedio a la aplicacion</h1>
+            <h1 class="text-uppercase text-muted">Bienvenido a la aplicacion</h1>
         </div>
     </div>
 </asp:Content>

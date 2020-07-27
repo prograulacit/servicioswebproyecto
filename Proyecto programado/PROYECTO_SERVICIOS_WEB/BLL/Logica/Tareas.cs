@@ -6,6 +6,7 @@ namespace BLL.Logica
 {
     public class Tareas
     {
+
         #region Conversores de datos
         /// <summary>
         // Conversores de datos.
@@ -37,25 +38,23 @@ namespace BLL.Logica
 
         // Recibe un string que dice true o false. Retorna true o false
         // en booleano.
-        public static bool conversor_booleando(string input)
+        public static bool conversor_booleano(string input)
         {
-            if (input.Equals("true"))
+            switch (input)
             {
-                return true;
+                case "true ":
+                    return true;
+                case "false":
+                    return false;
+                default:
+                    Console.Error.WriteLine("Input recibido no es true ni false.");
+                    return false;
             }
-            else if (input.Equals("false"))
-            {
-                return false;
-            }
-            else
-            {
-                Console.Error.WriteLine("Input recibido no es true ni false.");
-                return false;
-            }
+
         }
 
         // Recibe un booleano. Retorna true o false en string.
-        public static string conversor_booleandoInverso(bool input)
+        public static string conversor_booleanoInverso(bool input)
         {
             if (input)
             {
@@ -76,14 +75,16 @@ namespace BLL.Logica
         {
             string resultado = "";
 
+            Random random = new Random();
+
             // Genera un numero aleatorio.
-            Random rnd = new Random();
-            resultado += "" + rnd.Next(1, 99999999);
+
+            resultado += "" + random.Next(1, 99999999);
 
             // Genera un string aleatorio de 15 caracteres de largo.
             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             string random_strings = new string(Enumerable.Repeat(chars, 15)
-                .Select(s => s[rnd.Next(s.Length)]).ToArray());
+                .Select(s => s[random.Next(s.Length)]).ToArray());
 
             resultado += random_strings;
             return resultado;
@@ -105,7 +106,7 @@ namespace BLL.Logica
         public static string aumentarColumnaDeConsecutivoEn1(Consecutivo consecutivo)
         {
             int valorDescripcionActual = conversor_integer(consecutivo.descripcion);
-            int valorDescripcionAumentadoEn1 = 
+            int valorDescripcionAumentadoEn1 =
                 valorDescripcionActual = valorDescripcionActual + 1;
             return conversor_integerInverso(valorDescripcionAumentadoEn1);
         }

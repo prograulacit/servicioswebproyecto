@@ -223,15 +223,45 @@ namespace DATABASE_HANDLER
             Console.WriteLine("Secuencia -> Parametros termianda. OK");
         }
 
-        public void crear_usuario()
+        /// <summary>
+        /// Crea un nuevo usuario y lo guarda en la base de datos.
+        /// </summary>
+        /// <param name="id">Si es escrito "vacio" se generara un id
+        /// a partir del metodo. Si se establece id, se concatena id + 
+        /// Tareas.generar_nuevo_id_para_un_registro().</param>
+        /// <param name="nombre"></param>
+        /// <param name="apellido_paterno"></param>
+        /// <param name="apellido_materno"></param>
+        /// <param name="correo"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        public void crear_usuario(string id
+            ,string nombre
+            , string apellido_paterno
+            , string apellido_materno
+            , string correo
+            , string username
+            , string password)
         {
             Console.WriteLine("Secuencia -> Crear usuario iniciada.");
-            Usuario u = new Usuario("firstUser"
-                ,"Juan"
-                ,"Mora"
-                ,"Tenorio"
-                ,"juanMoraTenorio@gmail.com"
-                , "user","password"
+
+            string id_resultado = "";
+
+            if (!id.Equals("vacio"))
+            {
+                id_resultado = id + BLL.Logica.Tareas.generar_nuevo_id_para_un_registro();
+            }
+            else
+            {
+                id_resultado = BLL.Logica.Tareas.generar_nuevo_id_para_un_registro();
+            }
+
+            Usuario u = new Usuario(id_resultado
+                , nombre
+                , apellido_paterno
+                , apellido_materno
+                , correo
+                , username, password
                 );
             u.guardarNuevoUsuario(u);
             Console.WriteLine("Secuencia -> Crear usuario terminada.OK.");

@@ -44,10 +44,10 @@ namespace BLL.Objeto
                             , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["correoElectronico"].ToString())
                             , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["preguntaSeguridad"].ToString())
                             , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["respuestaSeguridad"].ToString())
-                            , Tareas.conversor_booleando(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminMaestro"].ToString()))
-                            , Tareas.conversor_booleando(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminSeguridad"].ToString()))
-                            , Tareas.conversor_booleando(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminMantenimiento"].ToString()))
-                            , Tareas.conversor_booleando(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminConsultas"].ToString()))
+                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminMaestro"].ToString()))
+                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminSeguridad"].ToString()))
+                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminMantenimiento"].ToString()))
+                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminConsultas"].ToString()))
                             )
                         );
                 }
@@ -188,10 +188,10 @@ namespace BLL.Objeto
                 admin.correoElectronico,
                 admin.preguntaSeguridad,
                 admin.respuestaSeguridad,
-                Tareas.conversor_booleandoInverso(admin.adminMaestro),
-                Tareas.conversor_booleandoInverso(admin.adminSeguridad),
-                Tareas.conversor_booleandoInverso(admin.adminMantenimiento),
-                Tareas.conversor_booleandoInverso(admin.adminConsultas)};
+                Tareas.conversor_booleanoInverso(admin.adminMaestro),
+                Tareas.conversor_booleanoInverso(admin.adminSeguridad),
+                Tareas.conversor_booleanoInverso(admin.adminMantenimiento),
+                Tareas.conversor_booleanoInverso(admin.adminConsultas)};
             return valores;
         }
     }
