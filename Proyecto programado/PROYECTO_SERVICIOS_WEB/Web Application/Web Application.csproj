@@ -131,10 +131,12 @@
     <Content Include="Paginas\Compartido\index.aspx" />
     <Content Include="Paginas\Compartido\Login.aspx" />
     <Content Include="Paginas\Compartido\Registrarse.aspx" />
+    <Content Include="Paginas\Frontend\ajustesUsuario.aspx" />
     <Content Include="Paginas\Frontend\Index.aspx" />
     <Content Include="Paginas\Frontend\Libros.aspx" />
     <Content Include="Paginas\Frontend\Musica.aspx" />
     <Content Include="Paginas\Frontend\Peliculas.aspx" />
+    <Content Include="Public\estilos\estilo_clientes.css" />
     <Content Include="Public\estilos\estilo_global.css" />
     <Content Include="Public\imagenes\logo-header.png" />
     <Content Include="Public\pruebas\index.html" />
@@ -344,6 +346,13 @@
     </Compile>
     <Compile Include="Paginas\Compartido\SesionAnonimo.Master.designer.cs">
       <DependentUpon>SesionAnonimo.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Frontend\ajustesUsuario.aspx.cs">
+      <DependentUpon>ajustesUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Frontend\ajustesUsuario.aspx.designer.cs">
+      <DependentUpon>ajustesUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Frontend\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

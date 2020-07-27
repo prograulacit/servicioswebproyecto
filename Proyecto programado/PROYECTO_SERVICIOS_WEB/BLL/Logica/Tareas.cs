@@ -42,7 +42,7 @@ namespace BLL.Logica
         {
             switch (input)
             {
-                case "true ":
+                case "true":
                     return true;
                 case "false":
                     return false;
