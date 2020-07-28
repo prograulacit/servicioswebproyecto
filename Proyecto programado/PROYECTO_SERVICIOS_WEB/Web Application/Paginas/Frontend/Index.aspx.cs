@@ -14,7 +14,6 @@ namespace Web_Application.Paginas.Frontend
         {
             if (!Memoria.sesionDeUsuario)
             {
-                // Envia de vuelta al usuario al index si no hay nadie logeado
                 Response.Redirect("~/Paginas/Compartido/index.aspx");
             }
         }

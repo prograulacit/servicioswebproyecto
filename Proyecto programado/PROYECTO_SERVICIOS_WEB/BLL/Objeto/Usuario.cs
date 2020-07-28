@@ -1,4 +1,5 @@
 ﻿using BLL.Logica;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -46,6 +47,19 @@ namespace BLL.Objeto
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Elimina la cuenta del usuario en la memoria.
+        /// El usuario es eliminado de la base de datos tambien.
+        /// </summary>
+        public void borrarCuenta()
+        {
+            // Eliminar el usuario de la base de datos.
+            eliminarUsuario(Memoria.sesionUsuarioDatos.id);
+
+            Memoria.sesionDeUsuario = false;
+            Memoria.sesionUsuarioDatos = new Usuario();
         }
 
         public void guardarNuevoUsuario(Usuario usuario)

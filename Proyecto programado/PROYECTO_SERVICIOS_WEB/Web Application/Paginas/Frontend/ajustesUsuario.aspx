@@ -43,8 +43,8 @@
                 <div class="input">
                     <asp:TextBox ID="TextBox_nombreUsuario" runat="server"></asp:TextBox>
                 </div>
-                <asp:Label ID="Label_status_success_parametros" runat="server" Text=""></asp:Label>
-                <asp:Label ID="Label_status_failed_parametros" runat="server" Text=""></asp:Label>
+                <asp:Label ID="Label_status_success_parametros" runat="server" Text="" class="badge badge-success"></asp:Label>
+                <asp:Label ID="Label_status_failed_parametros" runat="server" Text="" class="badge badge-danger"></asp:Label>
                 <br />
                 <asp:Button ID="Button_actualizarDatos" runat="server" Text="Actualizar datos" OnClick="Button_actualizarDatos_Click" />
             </div>
@@ -56,22 +56,22 @@
                     Contraseña actual
                 </div>
                 <div class="input">
-                    <asp:TextBox ID="TextBox_contraseniaActual" runat="server"></asp:TextBox>
+                    <asp:TextBox TextMode="Password" ID="TextBox_contraseniaActual" runat="server"></asp:TextBox>
                 </div>
                 <div class="label">
                     Contraseña nueva
                 </div>
                 <div class="input">
-                    <asp:TextBox ID="TextBox_contraseniaNueva" runat="server"></asp:TextBox>
+                    <asp:TextBox TextMode="Password" ID="TextBox_contraseniaNueva" runat="server"></asp:TextBox>
                 </div>
                 <div class="label">
                     Confirmar contraseña
                 </div>
                 <div class="input">
-                    <asp:TextBox ID="TextBox_contraseniaConfirmar" runat="server"></asp:TextBox>
+                    <asp:TextBox TextMode="Password" ID="TextBox_contraseniaConfirmar" runat="server"></asp:TextBox>
                 </div>
-                <asp:Label ID="Label1_status_success_contrasenia" runat="server" Text=""></asp:Label>
-                <asp:Label ID="Label1_status_failed_contrasenia" runat="server" Text=""></asp:Label>
+                <asp:Label ID="Label1_status_success_contrasenia" runat="server" Text="" class="badge badge-success"></asp:Label>
+                <asp:Label ID="Label1_status_failed_contrasenia" runat="server" Text="" class="badge badge-danger"></asp:Label>
                 <br />
                 <asp:Button ID="Button_actualizarContrasenia" runat="server" Text="Actualizar contraseña" OnClick="Button_actualizarContrasenia_Click" />
             </div>

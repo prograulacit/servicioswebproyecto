@@ -132,6 +132,7 @@
     <Content Include="Paginas\Compartido\Login.aspx" />
     <Content Include="Paginas\Compartido\Registrarse.aspx" />
     <Content Include="Paginas\Frontend\ajustesUsuario.aspx" />
+    <Content Include="Paginas\Frontend\eliminarCuenta.aspx" />
     <Content Include="Paginas\Frontend\Index.aspx" />
     <Content Include="Paginas\Frontend\Libros.aspx" />
     <Content Include="Paginas\Frontend\Musica.aspx" />
@@ -353,6 +354,13 @@
     </Compile>
     <Compile Include="Paginas\Frontend\ajustesUsuario.aspx.designer.cs">
       <DependentUpon>ajustesUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Frontend\eliminarCuenta.aspx.cs">
+      <DependentUpon>eliminarCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Frontend\eliminarCuenta.aspx.designer.cs">
+      <DependentUpon>eliminarCuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Frontend\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

@@ -37,6 +37,12 @@ namespace Web_Application.Paginas.Compartido
                 usuario.guardarNuevoUsuario(usuario);
 
                 status_labels("", $"Usuario {nombreUsuario} registrado!");
+
+                Memoria.sesionUsuarioDatos = usuario;
+
+                Memoria.sesionDeUsuario = true;
+
+                Response.Redirect("~/Paginas/Frontend/index.aspx");
             }
         }
 

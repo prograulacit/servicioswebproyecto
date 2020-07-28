@@ -41,7 +41,7 @@ namespace Web_Application.Paginas.Compartido
                     if (lista_usuarios[i].contrasenia == contrasenia_input &&
                         lista_usuarios[i].nombreUsuario == nombreDeUsuario_input)
                     {
-                        comprobacionExitosaUsuario(usuario);
+                        comprobacionExitosaUsuario(lista_usuarios[i]);
                         break;
                     }
                 }
