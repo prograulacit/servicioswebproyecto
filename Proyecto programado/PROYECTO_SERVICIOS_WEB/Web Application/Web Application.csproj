@@ -178,6 +178,7 @@
     <Compile Include="ApiControllers\MusicaController.cs" />
     <Compile Include="ApiControllers\ParametrosController.cs" />
     <Compile Include="ApiControllers\PeliculaController.cs" />
+    <Compile Include="ApiControllers\TarjetaController.cs" />
     <Compile Include="ApiControllers\TransaccionController.cs" />
     <Compile Include="ApiControllers\UsuarioController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />

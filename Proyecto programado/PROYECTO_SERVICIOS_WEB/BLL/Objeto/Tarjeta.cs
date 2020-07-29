@@ -1,10 +1,6 @@
 ﻿using BLL.Logica;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL.Objeto
 {
@@ -18,44 +14,35 @@ namespace BLL.Objeto
         public string cvv { get; set; }
         public string monto { get; set; }
         public string tipo { get; set; }
-        public string tarjetaAUsar { get; set; }
 
-        public List<Admin> traerAdmins()
+        public List<Tarjeta> traerTarjetas()
         {
-            // Se traen todos los datos de la base de datos cono objeto DataSet.
             DataSet datos = Memoria.logica_database
-                .queryConRetornoDeDatos_sinParametros(
-                Memoria.logica_database.stringDeConexion_baseDeDatos_principal,
-                "sp_admin_traer"
-                );
+             .queryConRetornoDeDatos_sinParametros(
+             Memoria.logica_database.stringDeConexion_baseDeDatos_pagos,
+             "sp_tarjeta_leer"
+             );
 
-            // Si no hay registros se retorna false.
             if (datos.Tables[0].Rows.Count > 0)
             {
-                // Se crea una lista de admins.
-                List<Admin> lista_admins = new List<Admin>();
-                // Se recorren los datos del DataSet.
+                List<Tarjeta> lista_tarjetas = new List<Tarjeta>();
                 for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
                 {
-                    // Se agregan objetos Admin a la lista.
-                    lista_admins.Add(
-                        new Admin
+                    lista_tarjetas.Add(
+                        new Tarjeta
                             (
                             Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreUsuario"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["contrasenia"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["correoElectronico"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["preguntaSeguridad"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["respuestaSeguridad"].ToString())
-                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminMaestro"].ToString()))
-                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminSeguridad"].ToString()))
-                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminMantenimiento"].ToString()))
-                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminConsultas"].ToString()))
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["IDusuario"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["numeroTarjeta"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["mesExpiracion"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["anioExpiracion"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["CVV"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["tipo"].ToString())
                             )
                         );
                 }
-                // Se retorna la lista.
-                return lista_admins;
+                return lista_tarjetas;
             }
             else
             {
@@ -63,22 +50,34 @@ namespace BLL.Objeto
             }
         }
 
-        public void actualizarAdmin(Admin admin)
+        public void guardarTarjeta(Tarjeta tarjeta)
         {
-            //string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;
-            //string nombre_storedProcedure = "sp_admin_actualizar";
+            string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_pagos;
+            string nombre_storedProcedure = "sp_tarjeta_crear";
 
-            //Memoria.logica_database
-            //    .querySimple(stringDeConexion
-            //    , nombre_storedProcedure
-            //    , this.parametros
-            //    , return_valores(admin));
+            Memoria.logica_database
+                .querySimple(stringDeConexion
+                , nombre_storedProcedure
+                , this.parametros
+                , return_valores(tarjeta));
         }
 
-        public void eliminarAdmin(string id)
+        public void actualizarTarjeta(Tarjeta tarjeta)
         {
-            string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;
-            string nombre_storedProcedure = "sp_admin_eliminar";
+            string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_pagos;
+            string nombre_storedProcedure = "sp_tarjeta_actualizar";
+
+            Memoria.logica_database
+                .querySimple(stringDeConexion
+                , nombre_storedProcedure
+                , this.parametros
+                , return_valores(tarjeta));
+        }
+
+        public void eliminarTarjeta(string id)
+        {
+            string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_pagos;
+            string nombre_storedProcedure = "sp_tarjeta_eliminar";
 
             string[] parametros = { "ID" };
             string[] valores = { id };
@@ -90,17 +89,29 @@ namespace BLL.Objeto
                , valores);
         }
 
-        public void registrarAdmin(Admin admin)
+        /// <summary>
+        /// Retorna una lista de tarjetas asociadas a el ID de un usuario.
+        /// </summary>
+        /// <param name="usuario_id">ID del usuario asociado a las
+        /// tarjetas a buscar.</param>
+        /// <returns>Lista de tarjetas con asociacion al usuario.</returns>
+        public List<Tarjeta> traerTarjetas_UsuarioId(string usuario_id)
         {
-            //string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;
-            //string nombre_storedProcedure = "sp_admin_crear";
+            List<Tarjeta> lista_tarjetas = traerTarjetas();
+            List<Tarjeta> listaTarjetas_usuario = new List<Tarjeta>();
 
-            //// Envia los datos para ser guardados en la base de datos.
-            //Memoria.logica_database
-            //    .querySimple(stringDeConexion
-            //    , nombre_storedProcedure
-            //    , this.parametros
-            //    , return_valores(admin));
+            if (lista_tarjetas != null)
+            {
+                for (int i = 0; i < lista_tarjetas.Count; i++)
+                {
+                    if (lista_tarjetas[i].usuarioId == usuario_id)
+                    {
+                        listaTarjetas_usuario.Add(lista_tarjetas[i]);
+                    }
+                }
+                return listaTarjetas_usuario;
+            }
+            return null;
         }
 
         public Tarjeta() { }
@@ -112,8 +123,7 @@ namespace BLL.Objeto
             , string anioExpiracion
             , string cvv
             , string monto
-            , string tipo
-            , string tarjetaAUsar)
+            , string tipo)
         {
             this.id = id;
             this.usuarioId = usuarioId;
@@ -123,17 +133,16 @@ namespace BLL.Objeto
             this.cvv = cvv;
             this.monto = monto;
             this.tipo = tipo;
-            this.tarjetaAUsar = tarjetaAUsar;
         }
         string[] parametros = {
                 "ID"
-                ,"usuarioID"
+                ,"IDusuario"
                 , "numeroTarjeta"
                 , "mesExpiracion"
-                , "cvv"
+                , "anioExpiracion"
+                , "CVV"
                 , "monto"
                 , "tipo"
-                , "tarjetaAUsar"
                 };
 
         private string[] return_valores(Tarjeta tarjeta)
@@ -143,10 +152,10 @@ namespace BLL.Objeto
                 ,tarjeta.usuarioId
                 ,tarjeta.numeroTarjeta
                 ,tarjeta.mesExpiracion
+                ,tarjeta.anioExpiracion
                 ,tarjeta.cvv
                 ,tarjeta.monto
-                ,tarjeta.tipo
-                ,tarjeta.tarjetaAUsar};
+                ,tarjeta.tipo };
             return valores;
         }
     }
