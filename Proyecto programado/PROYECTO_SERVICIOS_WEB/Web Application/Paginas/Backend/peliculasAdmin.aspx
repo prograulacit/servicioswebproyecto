@@ -31,39 +31,47 @@
         </div>
         ID:
         <br>
-        <input type="text" name="" id="editar_id">
+        <input disabled type="text" name="" class="editar_id">
         <br>
         Nombre:
         <br>
-        <input type="text" name="" id="editar_nombre">
+        <input type="text" name="" class="editar_nombre">
         <br>
         Genero:
         <br>
-        <input type="text" name="" id="editar_genero">
+        <input type="text" name="" class="editar_genero">
         <br>
         Año:
         <br>
-        <input type="text" name="" id="editar_anio">
+        <input type="text" name="" class="editar_anio">
         <br>
         Idioma:
         <br>
-        <input type="text" name="" id="editar_idioma">
+        <input type="text" name="" class="editar_idioma">
         <br>
         Actores:
         <br>
-        <input type="text" name="" id="editar_actores">
-        <br>
-        Archivo descarga:
-        <br>
-        <input type="text" name="" id="editar_descarga">
-        <br>
-        Archivo previsualizacion:
-        <br>
-        <input type="text" name="" id="editar_previsualizacion">
+        <input type="text" name="" class="editar_actores">
         <br>
         Monto:
         <br>
-        <input type="number" name="" id="editar_monto">
+        <input type="number" name="" class="editar_monto">
+        <br>
+        Nombre archivo descarga:
+        <br>
+        <input type="text" name="" id="editarNombreDescargaPelicula" class="editar_nombre_descarga_pelicula" runat="server">
+        <br>
+        Archivo Pelicula:
+        <br>
+        <input id="editarArchivoPelicula" class="editar_archivo_pelicula" type="file" accept=".mp4,video/*" runat="server"/>
+        <br>
+        Nombre archivo previsualizacion:
+        <br>
+        <input type="text" name="" id="editarNombrePrevisualizacionPelicula" class="editar_nombre_previsualizacion_pelicula" runat="server">
+        <br>
+        Archivo Pelicula previsualizacion:
+        <br>
+        <input id="editarArchivoPeliculaPrev" class="editar_archivo_pelicula_prev" type="file" accept=".mp4,video/*" runat="server"/>
         <br>
         <button type="button" onclick="guardar_cambios()">Guardar cambios</button>
         <button>Cancelar</button>
@@ -72,39 +80,54 @@
     <div id="contenedor_crear">
         Nombre:
         <br>
-        <input type="text" name="" id="crear_nombre">
+        <input type="text" name="" class="crear_nombre">
         <br>
         Genero:
         <br>
-        <input type="text" name="" id="crear_genero">
+        <input type="text" name="" class="crear_genero">
         <br>
         Año:
         <br>
-        <input type="text" name="" id="crear_anio">
+        <input type="text" name="" class="crear_anio">
         <br>
         Idioma:
         <br>
-        <input type="text" name="" id="crear_idioma">
+        <input type="text" name="" class="crear_idioma">
         <br>
         Actores:
         <br>
-        <input type="text" name="" id="crear_actores">
-        <br>
-        Archivo descarga:
-        <br>
-        <input type="text" name="" id="crear_descarga">
-        <br>
-        Archivo previsualizacion:
-        <br>
-        <input type="text" name="" id="crear_previsualizacion">
+        <input type="text" name="" class="crear_actores">
         <br>
         Monto:
         <br>
-        <input type="number" name="" id="crear_monto">
+        <input type="number" name="" class="crear_monto">
+        <br>
+        Nombre archivo descarga:
+        <br>
+        <input type="text" name="" id="nombreArchivoPelicula" class="nombre_archivo_pelicula" runat="server">
+        <br>
+        Archivo Pelicula:
+        <br>
+        <input id="archivoPelicula" class="archivo_pelicula" type="file" accept=".mp4,video/*" runat="server"/>
+        <br>
+        Nombre archivo previsualizacion:
+        <br>
+        <input type="text" id="nombrePrevisualizacionPelicula" class="nombre_previsualizacion_pelicula" runat="server">
+        <br>
+        Archivo Pelicula previsualizacion:
+        <br>
+        <input id="archivoPeliculaPrev" class="archivo_pelicula_prev" type="file" accept=".mp4,video/*" runat="server"/>
         <br>
         <button type="button" onclick="crear_elemento()">Crear nueva pelicula</button>
         <button>Cancelar</button>
     </div>
+
+    <%--hidden elements--%>
+    <asp:Button class="descargar_archivo_pelicula" id="descargarArchivoPelicula" runat="server" Text="" OnClick="subirArchivosPelicula_Click" style="display:none"/>
+    <asp:Button class="eliminar_archivo_pelicula" id="eliminarArchivoPelicula" runat="server" Text="" OnClick="eliminarArchivoPelicula_Click" style="display:none"/>
+    <asp:Button class="editar_archivos_pelicula" id="editarArchivosPelicula" runat="server" Text="" OnClick="editarArchivosPelicula_Click" style="display:none"/>
+    <input type="text" name="" id="viejoNombreDescargaPelicula" class="viejo_nombre_descarga_pelicula" runat="server" style="display:none">
+    <input type="text" name="" id="viejoNombrePrevisualizacionPelicula" class="viejo_nombre_previsualizacion_pelicula" runat="server" style="display:none">
 
     <script>
         cargar_elementos();

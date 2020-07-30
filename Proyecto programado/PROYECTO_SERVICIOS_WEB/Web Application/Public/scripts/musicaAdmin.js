@@ -1,6 +1,8 @@
 ﻿const url = "https://localhost:44371/api/musica";
+regexExtensionMusica = new RegExp("(.*?)\.(mp3|m4a|flac|mp4|wav|wma|aac)$");
 
-function eliminar_elemento(id) {
+function eliminar_elemento(id, nombreArchivoDescarga, nombreArchivoPrevisualizacion) {
+    const eliminar_archivo_musica = document.getElementsByClassName("eliminar_archivo_musica")[0];
     Swal.fire({
         title: 'Esta seguro que desea eliminar este elemento?',
         text: "Esta accion no se puede deshacer",
@@ -22,16 +24,9 @@ function eliminar_elemento(id) {
                     method: 'delete'
                 }).then(response =>
                     response.json().then((json) => {
-                        console.log(json);
-                        Swal.fire(
-                            'Hecho',
-                            'El elemento ha sido eliminado con exito.',
-                            'success'
-                        ).then((result) => {
-                            if (result.value) {
-                                location.reload();
-                            }
-                        })
+                        document.getElementsByClassName("viejo_nombre_descarga_musica")[0].value = nombreArchivoDescarga;
+                        document.getElementsByClassName("viejo_nombre_previsualizacion_musica")[0].value = nombreArchivoPrevisualizacion;
+                        eliminar_archivo_musica.click();
                     })
                 );
             }
@@ -40,18 +35,20 @@ function eliminar_elemento(id) {
 }
 
 function crear_elemento() {
-
-    const crear_nombre = document.getElementById("crear_nombre").value
-    const crear_genero = document.getElementById("crear_genero").value
-    const crear_tipoInterpretacion = document.getElementById("crear_tipoInterpretacion").value
-    const crear_idioma = document.getElementById("crear_idioma").value
-    const crear_pais = document.getElementById("crear_pais").value
-    const crear_disquera = document.getElementById("crear_disquera").value
-    const crear_nombreDisco = document.getElementById("crear_nombreDisco").value
-    const crear_anio = document.getElementById("crear_anio").value
-    const crear_descarga = document.getElementById("crear_descarga").value
-    const crear_previsualizacion = document.getElementById("crear_previsualizacion").value
-    const crear_monto = document.getElementById("crear_monto").value
+    const descargar_archivo_musica = document.getElementsByClassName("descargar_archivo_musica")[0];
+    const crear_nombre = document.getElementsByClassName("crear_nombre_musica")[0].value;
+    const crear_genero = document.getElementsByClassName("crear_genero_musica")[0].value;
+    const crear_tipoInterpretacion = document.getElementsByClassName("crear_tipoInterpretacion_musica")[0].value;
+    const crear_idioma = document.getElementsByClassName("crear_idioma_musica")[0].value;
+    const crear_pais = document.getElementsByClassName("crear_pais_musica")[0].value;
+    const crear_disquera = document.getElementsByClassName("crear_disquera_musica")[0].value;
+    const crear_nombreDisco = document.getElementsByClassName("crear_nombreDisco_musica")[0].value;
+    const crear_anio = document.getElementsByClassName("crear_anio_musica")[0].value;
+    const nombre_archivo_musica = document.getElementsByClassName("nombre_archivo_musica")[0].value;
+    const nombre_previsualizacion_musica = document.getElementsByClassName("nombre_previsualizacion_musica")[0].value;
+    const crear_monto = document.getElementsByClassName("crear_monto_musica")[0].value;
+    const archivo_musica = document.getElementsByClassName("archivo_musica")[0].files;
+    const archivo_musica_prev = document.getElementsByClassName("archivo_musica_prev")[0].files;
 
     if (crear_nombre != "" &&
         crear_genero != "" &&
@@ -61,48 +58,51 @@ function crear_elemento() {
         crear_disquera != "" &&
         crear_nombreDisco != "" &&
         crear_anio != "" &&
-        crear_descarga != "" &&
-        crear_previsualizacion != "" &&
-        crear_monto != "") {
+        nombre_archivo_musica != "" &&
+        nombre_previsualizacion_musica != "" &&
+        crear_monto != "" &&
+        archivo_musica.length > 0 &&
+        archivo_musica_prev.length > 0) {
 
-        var json_request = {
-            "nombre": crear_nombre,
-            "genero": crear_genero,
-            "tipoInterpretacion": crear_tipoInterpretacion,
-            "idioma": crear_idioma,
-            "pais": crear_pais,
-            "disquera": crear_disquera,
-            "nombreDisco": crear_nombreDisco,
-            "anio": crear_anio,
-            "nombreArchivoDescarga": crear_descarga,
-            "nombreArchivoPrevisualizacion": crear_previsualizacion,
-            "monto": crear_monto
-        };
+        if (!regexExtensionMusica.test(nombre_archivo_musica) || !regexExtensionMusica.test(nombre_previsualizacion_musica)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los archivos de musica y previsualizacion deben tener extension MP3, MP4, WAV, M4A, FLAC, WMA o AAC',
+            })
+        } else if (nombre_archivo_musica === nombre_previsualizacion_musica) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los archivos de musica y previsualizacion no pueden tener el mismo nombre.',
+            })
+        } else {
+            var json_request = {
+                "nombre": crear_nombre,
+                "genero": crear_genero,
+                "tipoInterpretacion": crear_tipoInterpretacion,
+                "idioma": crear_idioma,
+                "pais": crear_pais,
+                "disquera": crear_disquera,
+                "nombreDisco": crear_nombreDisco,
+                "anio": crear_anio,
+                "nombreArchivoDescarga": nombre_archivo_musica,
+                "nombreArchivoPrevisualizacion": nombre_previsualizacion_musica,
+                "monto": crear_monto
+            };
 
-        fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(json_request), // data can be `string` or {object}!
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then((response) => {
-                console.log('Success:', response)
-
-                document.getElementById("crear_nombre").value = ""
-                document.getElementById("crear_genero").value = ""
-                document.getElementById("crear_tipoInterpretacion").value = ""
-                document.getElementById("crear_idioma").value = ""
-                document.getElementById("crear_disquera").value = ""
-                document.getElementById("crear_nombreDisco").value = ""
-                document.getElementById("crear_anio").value = ""
-                document.getElementById("crear_descarga").value = ""
-                document.getElementById("crear_previsualizacion").value = ""
-                document.getElementById("crear_monto").value = ""
-
-                cargar_elementos();
-            });
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(json_request), // data can be `string` or {object}!
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+                .catch(error => console.error('Error:', error))
+                .then((response) => {
+                    descargar_archivo_musica.click();
+                });
+        }
     } else {
         errorLlenarEspacios();
     }
@@ -168,7 +168,7 @@ function renderizar(json, contenedor_id) {
                                 <td>` + obj[index].nombreArchivoPrevisualizacion + `</td>
                                 <td>` + obj[index].monto + `</td>
                                 <td> <a href="#" onclick="editar_elemento('` + obj[index].id + `')">Editar</a> </td>
-                                <td> <a href="#" onclick="eliminar_elemento('${obj[index].id}')">Eliminar</a> </td>
+                                <td> <a href="#" onclick="eliminar_elemento('${obj[index].id}', '${obj[index].nombreArchivoDescarga}', '${obj[index].nombreArchivoPrevisualizacion}')">Eliminar</a> </td>
                             </tr>
                             `
         }
@@ -215,18 +215,20 @@ function editar_elemento(codigo) {
 
             for (let index = 0; index < json.length; index++) {
                 if (json[index].id == codigo) {
-                    document.getElementById("editar_id").value = json[index].id;
-                    document.getElementById("editar_nombre").value = json[index].nombre;
-                    document.getElementById("editar_genero").value = json[index].genero;
-                    document.getElementById("editar_tipoInterpretacion").value = json[index].tipoInterpretacion;
-                    document.getElementById("editar_idioma").value = json[index].idioma;
-                    document.getElementById("editar_pais").value = json[index].pais;
-                    document.getElementById("editar_disquera").value = json[index].disquera;
-                    document.getElementById("editar_nombreDisco").value = json[index].nombreDisco;
-                    document.getElementById("editar_anio").value = json[index].anio;
-                    document.getElementById("editar_descarga").value = json[index].nombreArchivoDescarga;
-                    document.getElementById("editar_previsualizacion").value = json[index].nombreArchivoPrevisualizacion;
-                    document.getElementById("editar_monto").value = json[index].monto;
+                    document.getElementsByClassName("editar_id_musica")[0].value = json[index].id;
+                    document.getElementsByClassName("editar_nombre_musica")[0].value = json[index].nombre;
+                    document.getElementsByClassName("editar_genero_musica")[0].value = json[index].genero;
+                    document.getElementsByClassName("editar_tipoInterpretacion_musica")[0].value = json[index].tipoInterpretacion;
+                    document.getElementsByClassName("editar_idioma_musica")[0].value = json[index].idioma;
+                    document.getElementsByClassName("editar_pais_musica")[0].value = json[index].pais;
+                    document.getElementsByClassName("editar_disquera_musica")[0].value = json[index].disquera;
+                    document.getElementsByClassName("editar_nombreDisco_musica")[0].value = json[index].nombreDisco;
+                    document.getElementsByClassName("editar_anio_musica")[0].value = json[index].anio;
+                    document.getElementsByClassName("editar_nombre_descarga_musica")[0].value = json[index].nombreArchivoDescarga;
+                    document.getElementsByClassName("editar_nombre_previsualizacion_musica")[0].value = json[index].nombreArchivoPrevisualizacion;
+                    document.getElementsByClassName("viejo_nombre_descarga_musica")[0].value = json[index].nombreArchivoDescarga;
+                    document.getElementsByClassName("viejo_nombre_previsualizacion_musica")[0].value = json[index].nombreArchivoPrevisualizacion;
+                    document.getElementsByClassName("editar_monto_musica")[0].value = json[index].monto;
                 }
             }
 
@@ -237,18 +239,19 @@ function editar_elemento(codigo) {
 }
 
 function guardar_cambios() {
-    const editar_id = document.getElementById("editar_id").value
-    const editar_nombre = document.getElementById("editar_nombre").value
-    const editar_genero = document.getElementById("editar_genero").value
-    const editar_tipoInterpretacion = document.getElementById("editar_tipoInterpretacion").value
-    const editar_idioma = document.getElementById("editar_idioma").value
-    const editar_pais = document.getElementById("editar_pais").value
-    const editar_disquera = document.getElementById("editar_disquera").value
-    const editar_nombreDisco = document.getElementById("editar_nombreDisco").value
-    const editar_anio = document.getElementById("editar_anio").value
-    const editar_descarga = document.getElementById("editar_descarga").value
-    const editar_previsualizacion = document.getElementById("editar_previsualizacion").value
-    const editar_monto = document.getElementById("editar_monto").value
+    const editar_archivos_musica = document.getElementsByClassName("editar_archivos_musica")[0]
+    const editar_id = document.getElementsByClassName("editar_id_musica")[0].value
+    const editar_nombre = document.getElementsByClassName("editar_nombre_musica")[0].value
+    const editar_genero = document.getElementsByClassName("editar_genero_musica")[0].value
+    const editar_tipoInterpretacion = document.getElementsByClassName("editar_tipoInterpretacion_musica")[0].value
+    const editar_idioma = document.getElementsByClassName("editar_idioma_musica")[0].value
+    const editar_pais = document.getElementsByClassName("editar_pais_musica")[0].value
+    const editar_disquera = document.getElementsByClassName("editar_disquera_musica")[0].value
+    const editar_nombreDisco = document.getElementsByClassName("editar_nombreDisco_musica")[0].value
+    const editar_anio = document.getElementsByClassName("editar_anio_musica")[0].value
+    const editar_descarga = document.getElementsByClassName("editar_nombre_descarga_musica")[0].value
+    const editar_previsualizacion = document.getElementsByClassName("editar_nombre_previsualizacion_musica")[0].value
+    const editar_monto = document.getElementsByClassName("editar_monto_musica")[0].value
 
     if (editar_id != "" &&
         editar_nombre != "" &&
@@ -278,22 +281,31 @@ function guardar_cambios() {
             "monto": editar_monto
         };
 
-        fetch(url, {
-            method: 'PUT',
-            body: JSON.stringify(json_request), // data can be `string` or {object}!
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then((response) => {
-                console.log('Success:', response)
-                cargar_elementos();
-                contenedorTabla_visible("inline");
-                contenedorEditar_visible("none");
-                contenedorCrear_visible("none");
-            });
-
+        if (!regexExtensionMusica.test(editar_descarga) || !regexExtensionMusica.test(editar_previsualizacion)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los archivos de musica y previsualizacion deben tener extension MP3, MP4, WAV, M4A, FLAC, WMA o AAC',
+            })
+        } else if (editar_descarga === editar_previsualizacion) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los archivos de musica y previsualizacion no pueden tener el mismo nombre.',
+            })
+        } else {
+            fetch(url, {
+                method: 'PUT',
+                body: JSON.stringify(json_request), // data can be `string` or {object}!
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+                .catch(error => console.error('Error:', error))
+                .then((response) => {
+                    editar_archivos_musica.click();
+                });
+        }
     } else {
         errorLlenarEspacios();
     }
@@ -317,5 +329,21 @@ function errorLlenarEspacios() {
         icon: 'error',
         title: 'Error',
         text: 'Por favor, rellene todos los espacios.',
+    })
+}
+
+function exitoMensaje(texto) {
+    Swal.fire({
+        icon: 'success',
+        title: 'Hecho',
+        text: texto,
+    })
+}
+
+function errorMensaje(texto) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: texto,
     })
 }

@@ -1,6 +1,8 @@
 ﻿const url = "https://localhost:44371/api/libro";
+regexExtensionLibro = new RegExp("(.*?)\.(pdf)$");
 
-function eliminar_elemento(id) {
+function eliminar_elemento(id, nombreArchivoDescarga, nombreArchivoPrevisualizacion) {
+    const eliminar_archivo_libro = document.getElementsByClassName("eliminar_archivo_libro")[0];
     Swal.fire({
         title: 'Esta seguro que desea eliminar este elemento?',
         text: "Esta accion no se puede deshacer",
@@ -22,16 +24,9 @@ function eliminar_elemento(id) {
                     method: 'delete'
                 }).then(response =>
                     response.json().then((json) => {
-                        console.log(json);
-                        Swal.fire(
-                            'Hecho',
-                            'El elemento ha sido eliminado con exito.',
-                            'success'
-                        ).then((result) => {
-                            if (result.value) {
-                                location.reload();
-                            }
-                        })
+                        document.getElementsByClassName("viejo_nombre_descarga_libro")[0].value = nombreArchivoDescarga;
+                        document.getElementsByClassName("viejo_nombre_previsualizacion_libro")[0].value = nombreArchivoPrevisualizacion;
+                        eliminar_archivo_libro.click();
                     })
                 );
             }
@@ -40,16 +35,18 @@ function eliminar_elemento(id) {
 }
 
 function crear_elemento() {
-
-    const crear_nombre = document.getElementById("crear_nombre").value
-    const crear_categoria = document.getElementById("crear_categoria").value
-    const crear_autor = document.getElementById("crear_autor").value
-    const crear_idioma = document.getElementById("crear_idioma").value
-    const crear_editorial = document.getElementById("crear_editorial").value
-    const crear_anioPublicacion = document.getElementById("crear_anioPublicacion").value
-    const crear_descarga = document.getElementById("crear_descarga").value
-    const crear_previsualizacion = document.getElementById("crear_previsualizacion").value
-    const crear_monto = document.getElementById("crear_monto").value
+    const descargar_archivo_libro = document.getElementsByClassName("descargar_archivo_libro")[0];
+    const crear_nombre = document.getElementsByClassName("crear_nombre")[0].value
+    const crear_categoria = document.getElementsByClassName("crear_categoria")[0].value
+    const crear_autor = document.getElementsByClassName("crear_autor")[0].value
+    const crear_idioma = document.getElementsByClassName("crear_idioma")[0].value
+    const crear_editorial = document.getElementsByClassName("crear_editorial")[0].value
+    const crear_anioPublicacion = document.getElementsByClassName("crear_anioPublicacion")[0].value
+    const nombre_archivo_libro = document.getElementsByClassName("nombre_archivo_libro")[0].value
+    const nombre_previsualizacion_libro = document.getElementsByClassName("nombre_previsualizacion_libro")[0].value
+    const crear_monto = document.getElementsByClassName("crear_monto")[0].value
+    const archivo_libro = document.getElementsByClassName("archivo_libro")[0].files
+    const archivo_libro_prev = document.getElementsByClassName("archivo_libro_prev")[0].files
 
     if (crear_nombre != "" &&
         crear_categoria != "" &&
@@ -57,9 +54,11 @@ function crear_elemento() {
         crear_idioma != "" &&
         crear_editorial != "" &&
         crear_anioPublicacion != "" &&
-        crear_descarga != "" &&
-        crear_previsualizacion != "" &&
-        crear_monto != "") {
+        nombre_archivo_libro != "" &&
+        nombre_previsualizacion_libro != "" &&
+        crear_monto != "" &&
+        archivo_libro.length > 0 &&
+        archivo_libro_prev.length > 0) {
 
         var json_request = {
             "nombre": crear_nombre,
@@ -68,34 +67,36 @@ function crear_elemento() {
             "idioma": crear_idioma,
             "editorial": crear_editorial,
             "anioPublicacion": crear_anioPublicacion,
-            "nombreArchivoDescarga": crear_descarga,
-            "nombreArchivoPrevisualizacion": crear_previsualizacion,
+            "nombreArchivoDescarga": nombre_archivo_libro,
+            "nombreArchivoPrevisualizacion": nombre_previsualizacion_libro,
             "monto": crear_monto
         };
 
-        fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(json_request), // data can be `string` or {object}!
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then((response) => {
-                console.log('Success:', response)
-
-                document.getElementById("crear_nombre").value = "";
-                document.getElementById("crear_categoria").value = "";
-                document.getElementById("crear_autor").value = "";
-                document.getElementById("crear_idioma").value = "";
-                document.getElementById("crear_editorial").value = "";
-                document.getElementById("crear_anioPublicacion").value = "";
-                document.getElementById("crear_descarga").value = "";
-                document.getElementById("crear_previsualizacion").value = "";
-                document.getElementById("crear_monto").value = "";
-
-                cargar_elementos();
-            });
+        if (!regexExtensionLibro.test(nombre_archivo_libro) || !regexExtensionLibro.test(nombre_previsualizacion_libro)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los archivos de libros y previsualizacion deben tener extension PDF.',
+            })
+        } else if (nombre_archivo_libro === nombre_previsualizacion_libro) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los archivos de libros y previsualizacion no pueden tener el mismo nombre.',
+            })
+        } else {
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(json_request), // data can be `string` or {object}!
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+                .catch(error => console.error('Error:', error))
+                .then((response) => {
+                    descargar_archivo_libro.click();
+                });
+        }
     } else {
         errorLlenarEspacios();
     }
@@ -157,7 +158,7 @@ function renderizar(json, contenedor_id) {
                                 <td>` + obj[index].nombreArchivoPrevisualizacion + `</td>
                                 <td>` + obj[index].monto + `</td>
                                 <td> <a href="#" onclick="editar_elemento('` + obj[index].id + `')">Editar</a> </td>
-                                <td> <a href="#" onclick="eliminar_elemento('${obj[index].id}')">Eliminar</a> </td>
+                                <td> <a href="#" onclick="eliminar_elemento('${obj[index].id}', '${obj[index].nombreArchivoDescarga}', '${obj[index].nombreArchivoPrevisualizacion}')">Eliminar</a> </td>
                             </tr>
                             `
         }
@@ -204,16 +205,18 @@ function editar_elemento(codigo) {
 
             for (let index = 0; index < json.length; index++) {
                 if (json[index].id == codigo) {
-                    document.getElementById("editar_id").value = json[index].id;
-                    document.getElementById("editar_nombre").value = json[index].nombre;
-                    document.getElementById("editar_categoria").value = json[index].categoria;
-                    document.getElementById("editar_autor").value = json[index].autor;
-                    document.getElementById("editar_idioma").value = json[index].idioma;
-                    document.getElementById("editar_editorial").value = json[index].editorial;
-                    document.getElementById("editar_anioPublicacion").value = json[index].anioPublicacion;
-                    document.getElementById("editar_descarga").value = json[index].nombreArchivoDescarga;
-                    document.getElementById("editar_previsualizacion").value = json[index].nombreArchivoPrevisualizacion;
-                    document.getElementById("editar_monto").value = json[index].monto;
+                    document.getElementsByClassName("editar_id")[0].value = json[index].id;
+                    document.getElementsByClassName("editar_nombre")[0].value = json[index].nombre;
+                    document.getElementsByClassName("editar_categoria")[0].value = json[index].categoria;
+                    document.getElementsByClassName("editar_autor")[0].value = json[index].autor;
+                    document.getElementsByClassName("editar_idioma")[0].value = json[index].idioma;
+                    document.getElementsByClassName("editar_editorial")[0].value = json[index].editorial;
+                    document.getElementsByClassName("editar_anioPublicacion")[0].value = json[index].anioPublicacion;
+                    document.getElementsByClassName("editar_nombre_descarga_libro")[0].value = json[index].nombreArchivoDescarga;
+                    document.getElementsByClassName("editar_nombre_previsualizacion_libro")[0].value = json[index].nombreArchivoPrevisualizacion;
+                    document.getElementsByClassName("editar_monto")[0].value = json[index].monto;
+                    document.getElementsByClassName("viejo_nombre_descarga_libro")[0].value = json[index].nombreArchivoDescarga;
+                    document.getElementsByClassName("viejo_nombre_previsualizacion_libro")[0].value = json[index].nombreArchivoPrevisualizacion;
                 }
             }
 
@@ -224,16 +227,17 @@ function editar_elemento(codigo) {
 }
 
 function guardar_cambios() {
-    const editar_id = document.getElementById("editar_id").value
-    const editar_nombre = document.getElementById("editar_nombre").value
-    const editar_categoria = document.getElementById("editar_categoria").value
-    const editar_autor = document.getElementById("editar_autor").value
-    const editar_idioma = document.getElementById("editar_idioma").value
-    const editar_editorial = document.getElementById("editar_editorial").value
-    const editar_anioPublicacion = document.getElementById("editar_anioPublicacion").value
-    const editar_descarga = document.getElementById("editar_descarga").value
-    const editar_previsualizacion = document.getElementById("editar_previsualizacion").value
-    const editar_monto = document.getElementById("editar_monto").value
+    const editar_archivos_libro = document.getElementsByClassName("editar_archivos_libro")[0]
+    const editar_id = document.getElementsByClassName("editar_id")[0].value
+    const editar_nombre = document.getElementsByClassName("editar_nombre")[0].value
+    const editar_categoria = document.getElementsByClassName("editar_categoria")[0].value
+    const editar_autor = document.getElementsByClassName("editar_autor")[0].value
+    const editar_idioma = document.getElementsByClassName("editar_idioma")[0].value
+    const editar_editorial = document.getElementsByClassName("editar_editorial")[0].value
+    const editar_anioPublicacion = document.getElementsByClassName("editar_anioPublicacion")[0].value
+    const editar_nombre_descarga_libro = document.getElementsByClassName("editar_nombre_descarga_libro")[0].value
+    const editar_nombre_previsualizacion_libro = document.getElementsByClassName("editar_nombre_previsualizacion_libro")[0].value
+    const editar_monto = document.getElementsByClassName("editar_monto")[0].value
 
     if (editar_id != "" &&
         editar_nombre != "" &&
@@ -242,8 +246,8 @@ function guardar_cambios() {
         editar_idioma != "" &&
         editar_editorial != "" &&
         editar_anioPublicacion != "" &&
-        editar_descarga != "" &&
-        editar_previsualizacion != "" &&
+        editar_nombre_descarga_libro != "" &&
+        editar_nombre_previsualizacion_libro != "" &&
         editar_monto != "") {
 
         var json_request = {
@@ -254,26 +258,36 @@ function guardar_cambios() {
             "idioma": editar_idioma,
             "editorial": editar_editorial,
             "anioPublicacion": editar_anioPublicacion,
-            "nombreArchivoDescarga": editar_descarga,
-            "nombreArchivoPrevisualizacion": editar_previsualizacion,
+            "nombreArchivoDescarga": editar_nombre_descarga_libro,
+            "nombreArchivoPrevisualizacion": editar_nombre_previsualizacion_libro,
             "monto": editar_monto
         };
 
-        fetch(url, {
-            method: 'PUT',
-            body: JSON.stringify(json_request), // data can be `string` or {object}!
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then((response) => {
-                console.log('Success:', response)
-                cargar_elementos();
-                contenedorTabla_visible("inline");
-                contenedorEditar_visible("none");
-                contenedorCrear_visible("none");
-            });
+        if (!regexExtensionLibro.test(editar_nombre_descarga_libro) || !regexExtensionLibro.test(editar_nombre_previsualizacion_libro)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los archivos de libros y previsualizacion deben tener extension PDF.',
+            })
+        } else if (editar_nombre_descarga_libro === editar_nombre_previsualizacion_libro) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los archivos de libros y previsualizacion no pueden tener el mismo nombre.',
+            })
+        } else {
+            fetch(url, {
+                method: 'PUT',
+                body: JSON.stringify(json_request), // data can be `string` or {object}!
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+                .catch(error => console.error('Error:', error))
+                .then((response) => {
+                    editar_archivos_libro.click();
+                });
+        }
 
     } else {
         errorLlenarEspacios();
@@ -298,5 +312,21 @@ function errorLlenarEspacios() {
         icon: 'error',
         title: 'Error',
         text: 'Por favor, rellene todos los espacios.',
+    })
+}
+
+function exitoMensaje(texto) {
+    Swal.fire({
+        icon: 'success',
+        title: 'Hecho',
+        text: texto,
+    })
+}
+
+function errorMensaje(texto) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: texto,
     })
 }
