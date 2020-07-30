@@ -24,22 +24,22 @@ namespace Web_Application.Paginas.Frontend
         protected global::System.Web.UI.WebControls.TextBox TextBox_numeroTarjeta;
 
         /// <summary>
-        /// TextBox_mesExpiracion control.
+        /// DropDownList_mesExpiracion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_mesExpiracion;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList_mesExpiracion;
 
         /// <summary>
-        /// TextBox_anioDeExpiracion control.
+        /// DropDownList_anioExpiracion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_anioDeExpiracion;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList_anioExpiracion;
 
         /// <summary>
         /// TextBox_cvv control.
@@ -58,5 +58,23 @@ namespace Web_Application.Paginas.Frontend
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_guardarTarjeta;
+
+        /// <summary>
+        /// Label_status_error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_status_error;
+
+        /// <summary>
+        /// Label_status_success control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_status_success;
     }
 }
