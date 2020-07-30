@@ -1356,7 +1356,7 @@ CVV = @CVV,
 monto = @monto,
 tipo = @tipo
 WHERE
-numeroTarjeta = @numeroTarjeta
+ID = @ID
 END
 
 -- Tabla: Tarjeta / Eliminar

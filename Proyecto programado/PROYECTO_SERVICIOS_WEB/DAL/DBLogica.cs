@@ -24,7 +24,8 @@ namespace DAL
         ///////////////////////////////////////////////////
         public string stringDeConexion_baseDeDatos_principal =
             "Data Source=192.168.0.7;Initial Catalog=SERVICIOSWEB_MAIN;User ID=admin;Password=admin123@.";
-        public string stringDeConexion_baseDeDatos_pagos = "";
+        public string stringDeConexion_baseDeDatos_pagos =
+            "Data Source=192.168.0.7;Initial Catalog=SERVICIOSWEB_PAGOS;User ID=admin;Password=admin123@.";
 
         /// <summary>
         /// Ejecuta una consulta de SQL en donde no es requerido un retorno de datos.

@@ -135,10 +135,13 @@
     <Content Include="Paginas\Frontend\eliminarCuenta.aspx" />
     <Content Include="Paginas\Frontend\Index.aspx" />
     <Content Include="Paginas\Frontend\Libros.aspx" />
+    <Content Include="Paginas\Frontend\metodosDePago.aspx" />
     <Content Include="Paginas\Frontend\Musica.aspx" />
     <Content Include="Paginas\Frontend\Peliculas.aspx" />
+    <Content Include="Paginas\Frontend\tarjetas.aspx" />
     <Content Include="Public\estilos\estilo_clientes.css" />
     <Content Include="Public\estilos\estilo_global.css" />
+    <Content Include="Public\estilos\tarjetas.css" />
     <Content Include="Public\imagenes\logo-header.png" />
     <Content Include="Public\pruebas\index.html" />
     <Content Include="Public\pruebas\script.js" />
@@ -158,6 +161,7 @@
     <Content Include="Public\scripts\peliculas.js" />
     <Content Include="Public\scripts\peliculasAdmin.js" />
     <Content Include="Public\scripts\tareas.js" />
+    <Content Include="Public\scripts\tarjetas.js" />
     <Content Include="Public\scripts\utils.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -174,6 +178,7 @@
     <Compile Include="ApiControllers\MusicaController.cs" />
     <Compile Include="ApiControllers\ParametrosController.cs" />
     <Compile Include="ApiControllers\PeliculaController.cs" />
+    <Compile Include="ApiControllers\TarjetaController.cs" />
     <Compile Include="ApiControllers\TransaccionController.cs" />
     <Compile Include="ApiControllers\UsuarioController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -376,6 +381,13 @@
     <Compile Include="Paginas\Frontend\Libros.aspx.designer.cs">
       <DependentUpon>Libros.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\Frontend\metodosDePago.aspx.cs">
+      <DependentUpon>metodosDePago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Frontend\metodosDePago.aspx.designer.cs">
+      <DependentUpon>metodosDePago.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Frontend\Musica.aspx.cs">
       <DependentUpon>Musica.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -389,6 +401,13 @@
     </Compile>
     <Compile Include="Paginas\Frontend\Peliculas.aspx.designer.cs">
       <DependentUpon>Peliculas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Frontend\tarjetas.aspx.cs">
+      <DependentUpon>tarjetas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Frontend\tarjetas.aspx.designer.cs">
+      <DependentUpon>tarjetas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

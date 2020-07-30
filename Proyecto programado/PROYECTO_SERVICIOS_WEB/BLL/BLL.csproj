@@ -56,6 +56,7 @@
     <Compile Include="Objeto\Musica.cs" />
     <Compile Include="Objeto\Parametros.cs" />
     <Compile Include="Objeto\Pelicula.cs" />
+    <Compile Include="Objeto\Tarjeta.cs" />
     <Compile Include="Objeto\Transaccion.cs" />
     <Compile Include="Objeto\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
