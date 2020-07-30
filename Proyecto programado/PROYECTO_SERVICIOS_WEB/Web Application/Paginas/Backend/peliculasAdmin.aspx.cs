@@ -37,8 +37,8 @@ namespace Web_Application.Paginas.Backend
                 exitoArchivo = true;
             }
 
-            //Subida archivo musica previsualizacion
-            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionMusica;
+            //Subida archivo pelicula previsualizacion
+            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionPeliculas;
             string rutaArchivoPrev = rutaPrincipalPrev + "\\" + nombrePrevisualizacionPelicula.Value.ToString();
             if (exitoArchivo && !File.Exists(rutaArchivoPrev))
             {
@@ -72,7 +72,7 @@ namespace Web_Application.Paginas.Backend
 
             if ((editarArchivoPelicula.PostedFile.ContentLength == 0) && (viejoNombreDescargaPelicula.Value != editarNombreDescargaPelicula.Value) && File.Exists(rutaArchivoViejo))
             {
-                //Editar solo ruta archivo musica
+                //Editar solo ruta archivo pelicula
                 if (!File.Exists(rutaArchivoNuevo))
                 {
                     File.Move(rutaArchivoViejo, rutaArchivoNuevo);
@@ -80,12 +80,12 @@ namespace Web_Application.Paginas.Backend
                 else
                 {
                     exitoArchivo = false;
-                    errorMensaje = "El archivo de musica ya existe. Por favor, ingresar otro nombre de archivo.";
+                    errorMensaje = "El archivo de pelicula ya existe. Por favor, ingresar otro nombre de archivo.";
                 }
             }
             else if ((editarArchivoPelicula.PostedFile.ContentLength > 0) && (viejoNombreDescargaPelicula.Value != editarNombreDescargaPelicula.Value) && File.Exists(rutaArchivoViejo))
             {
-                //Editar archivo de musica y ruta
+                //Editar archivo de pelicula y ruta
                 if (!File.Exists(rutaArchivoNuevo))
                 {
                     File.Delete(rutaArchivoViejo);
@@ -94,19 +94,19 @@ namespace Web_Application.Paginas.Backend
                 else
                 {
                     exitoArchivo = false;
-                    errorMensaje = "El archivo de musica ya existe. Por favor, ingresar otro nombre de archivo.";
+                    errorMensaje = "El archivo de pelicula ya existe. Por favor, ingresar otro nombre de archivo.";
                 }
             }
             else if ((editarArchivoPelicula.PostedFile.ContentLength > 0) && (viejoNombreDescargaPelicula.Value == editarNombreDescargaPelicula.Value) && File.Exists(rutaArchivoViejo))
             {
-                //Editar archivo de musica
+                //Editar archivo de pelicula
                 File.Delete(rutaArchivoViejo);
                 editarArchivoPelicula.PostedFile.SaveAs(rutaArchivoViejo);
             }
 
             if ((editarArchivoPeliculaPrev.PostedFile.ContentLength == 0) && (viejoNombrePrevisualizacionPelicula.Value != editarNombrePrevisualizacionPelicula.Value) && File.Exists(rutaArchivoViejoPrev))
             {
-                //Editar solo ruta archivo previsualizacion musica
+                //Editar solo ruta archivo previsualizacion pelicula
                 if (!File.Exists(rutaArchivoNuevoPrev))
                 {
                     File.Move(rutaArchivoViejoPrev, rutaArchivoNuevoPrev);
@@ -124,7 +124,7 @@ namespace Web_Application.Paginas.Backend
             }
             else if ((editarArchivoPeliculaPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionPelicula.Value != editarNombrePrevisualizacionPelicula.Value) && File.Exists(rutaArchivoViejoPrev))
             {
-                //Editar archivo de musica previsualizacion y ruta
+                //Editar archivo de pelicula previsualizacion y ruta
                 if (!File.Exists(rutaArchivoNuevoPrev))
                 {
                     File.Delete(rutaArchivoViejoPrev);
@@ -143,7 +143,7 @@ namespace Web_Application.Paginas.Backend
             }
             else if ((editarArchivoPeliculaPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionPelicula.Value == editarNombrePrevisualizacionPelicula.Value) && File.Exists(rutaArchivoViejoPrev))
             {
-                //Editar archivo de musica previsualizacion
+                //Editar archivo de pelicula previsualizacion
                 File.Delete(rutaArchivoViejoPrev);
                 editarArchivoPeliculaPrev.PostedFile.SaveAs(rutaArchivoViejoPrev);
             }

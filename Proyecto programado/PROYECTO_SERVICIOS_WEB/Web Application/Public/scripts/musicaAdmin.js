@@ -1,5 +1,28 @@
 ﻿const url = "https://localhost:44371/api/musica";
+const urlGenero = "https://localhost:44371/api/generos_musica";
 regexExtensionMusica = new RegExp("(.*?)\.(mp3|m4a|flac|mp4|wav|wma|aac)$");
+
+function traer_generos() {
+    fetch(urlGenero)
+    .then(function (response) {
+        return response.text();
+    })
+    .then(function (response) {
+        let json = JSON.parse(response);
+        let html = '<option value="">Ninguno</option>';
+        if (json) {
+
+            for (let index = 0; index < json.length; index++) {
+                html += `<option value="${json[index].genero}">${json[index].genero}</option>`;
+            }
+        }
+        document.getElementById("crearGenero").innerHTML = html;
+        document.getElementById("editarGenero").innerHTML = html;
+    })
+    .catch(function (err) {
+        console.error(err);
+    });
+}
 
 function eliminar_elemento(id, nombreArchivoDescarga, nombreArchivoPrevisualizacion) {
     const eliminar_archivo_musica = document.getElementsByClassName("eliminar_archivo_musica")[0];

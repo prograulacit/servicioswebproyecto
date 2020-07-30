@@ -46,7 +46,7 @@
         <br>
         Genero:
         <br>
-        <input type="text" name="" class="editar_genero_musica">
+        <select id="editarGenero" class="form-control sm-1 editar_genero_musica"></select>
         <br>
         Tipo interpretacion:
         <br>
@@ -103,7 +103,7 @@
         <br>
         Genero:
         <br>
-        <input type="text" name="" class="crear_genero_musica">
+        <select id="crearGenero" class="form-control sm-1 crear_genero_musica"></select>
         <br>
         Tipo interpretacion:
         <br>
@@ -162,6 +162,7 @@
 
     <script>
         cargar_elementos();
+        traer_generos();
         contenedorTabla_visible("inline");
         contenedorEditar_visible("none");
         contenedorCrear_visible("none");

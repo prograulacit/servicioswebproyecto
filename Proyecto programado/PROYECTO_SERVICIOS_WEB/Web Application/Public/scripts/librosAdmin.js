@@ -1,5 +1,28 @@
 ﻿const url = "https://localhost:44371/api/libro";
+const urlCategoria = "https://localhost:44371/api/categorias_libros";
 regexExtensionLibro = new RegExp("(.*?)\.(pdf)$");
+
+function traer_categorias() {
+    fetch(urlCategoria)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (response) {
+            let json = JSON.parse(response);
+            let html = '<option value="">Ninguno</option>';
+            if (json) {
+
+                for (let index = 0; index < json.length; index++) {
+                    html += `<option value="${json[index].categoria}">${json[index].categoria}</option>`;
+                }
+            }
+            document.getElementById("crearCategoria").innerHTML = html;
+            document.getElementById("editarCategoria").innerHTML = html;
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
+}
 
 function eliminar_elemento(id, nombreArchivoDescarga, nombreArchivoPrevisualizacion) {
     const eliminar_archivo_libro = document.getElementsByClassName("eliminar_archivo_libro")[0];

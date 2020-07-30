@@ -62,6 +62,17 @@ namespace Web_Application.ApiControllers
             // Actualizamos el consecutivo en la base de datos.
             consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
 
+            // Agregar registro en bitacora
+            Bitacora bitacora = new Bitacora();
+            string registroEnDetalle = "Id=" + libro.id + " | " + "Nombre=" + libro.nombre + " | " +
+                "categoria=" + libro.categoria + " | " + "autor=" + libro.autor + " | " +
+                "idioma=" + libro.idioma + " | " + "editorial=" + libro.editorial + " | " +
+                "anioPublicacion=" + libro.anioPublicacion + " | " +
+                "nombreArchivoDescarga=" + libro.nombreArchivoDescarga + " | " +
+                "nombreArchivoPrevisualizacion=" + libro.nombreArchivoPrevisualizacion + " | " + 
+                "monto=" + libro.monto + " | ";
+            bitacora.guardarBitacora_interfazDeUsuario("Agregar", "Insercion de un nuevo Libro", registroEnDetalle);
+
             return "Libro " + libro.id + " " + libro.nombre + " guardado.";
         }
 
@@ -86,6 +97,18 @@ namespace Web_Application.ApiControllers
             #endregion
 
             libro.actualizarLibro(libro);
+
+            // Agregar registro en bitacora
+            Bitacora bitacora = new Bitacora();
+            string registroEnDetalle = "Id=" + libro.id + " | " + "Nombre=" + libro.nombre + " | " +
+                "categoria=" + libro.categoria + " | " + "autor=" + libro.autor + " | " +
+                "idioma=" + libro.idioma + " | " + "editorial=" + libro.editorial + " | " +
+                "anioPublicacion=" + libro.anioPublicacion + " | " +
+                "nombreArchivoDescarga=" + libro.nombreArchivoDescarga + " | " +
+                "nombreArchivoPrevisualizacion=" + libro.nombreArchivoPrevisualizacion + " | " +
+                "monto=" + libro.monto + " | ";
+            bitacora.guardarBitacora_interfazDeUsuario("Modificar", "Modificacion de libro", registroEnDetalle);
+
             return "Libro " + libro.id + " " + libro.nombre + " actualizada.";
         }
 
@@ -94,6 +117,11 @@ namespace Web_Application.ApiControllers
         {
             Libro libro = new Libro();
             libro.eliminarLibro(id);
+
+            // Agregar registro en bitacora
+            Bitacora bitacora = new Bitacora();
+            bitacora.guardarBitacora_interfazDeUsuario("Eliminar", "Eliminacion de Libro", "");
+
             return "Libro " + id + " eliminado.";
         }
     }

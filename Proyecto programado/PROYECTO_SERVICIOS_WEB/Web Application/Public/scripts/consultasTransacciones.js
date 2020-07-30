@@ -2,6 +2,7 @@
 
 function cargar_transacciones(tipoFecha, fechaInicio, fechaFinal, medioPago) {
     let tablaTransacciones = document.getElementById("tabla_transacciones");
+    let totalTransacciones = document.getElementById("total_transacciones");
     tablaTransacciones.innerHTML = "** Cargando datos..."
     fetch(`${apiURL}/api/transaccion`)
         .then(function (response) { return response.text(); })
@@ -81,6 +82,7 @@ function cargar_transacciones(tipoFecha, fechaInicio, fechaFinal, medioPago) {
                         </tr>`;
                 }
                 html += "</tbody></table>";
+                totalTransacciones.innerHTML = `<strong>Total de transacciones: </strong> ${json.length}`;
                 tablaTransacciones.innerHTML = html;
             } else {
                 tablaTransacciones.innerHTML = "No hay registros de transacciones.";

@@ -64,6 +64,16 @@ namespace Web_Application.ApiControllers
             // Actualizamos el consecutivo en la base de datos.
             consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
 
+            // Agregar registro en bitacora
+            Bitacora bitacora = new Bitacora();
+            string registroEnDetalle = "Id=" + musica.id + " | " + "Nombre=" + musica.nombre + " | " +
+                "Genero=" + musica.genero + " | " + "tipoInterpretacion=" + musica.tipoInterpretacion + " | " +
+                "idioma=" + musica.idioma + " | " + "pais=" + musica.pais + " | " +
+                "disquera=" + musica.disquera + " | " + "nombreDisco=" + musica.nombreDisco + " | " +
+                "anio=" + musica.anio + " | " + "nombreArchivoDescarga=" + musica.nombreArchivoDescarga + " | " + 
+                "nombreArchivoPrevisualizacion=" + musica.nombreArchivoPrevisualizacion + " | " + "monto=" + musica.monto + " | ";
+            bitacora.guardarBitacora_interfazDeUsuario("Agregar", "Insercion de nueva Musica", registroEnDetalle);
+
             return "Musica " + musica.id + " " + musica.nombre + " guardada.";
         }
 
@@ -90,6 +100,17 @@ namespace Web_Application.ApiControllers
             #endregion
 
             musica.actualizarMusica(musica);
+
+            // Agregar registro en bitacora
+            Bitacora bitacora = new Bitacora();
+            string registroEnDetalle = "Id=" + musica.id + " | " + "Nombre=" + musica.nombre + " | " +
+                "Genero=" + musica.genero + " | " + "tipoInterpretacion=" + musica.tipoInterpretacion + " | " +
+                "idioma=" + musica.idioma + " | " + "pais=" + musica.pais + " | " +
+                "disquera=" + musica.disquera + " | " + "nombreDisco=" + musica.nombreDisco + " | " +
+                "anio=" + musica.anio + " | " + "nombreArchivoDescarga=" + musica.nombreArchivoDescarga + " | " +
+                "nombreArchivoPrevisualizacion=" + musica.nombreArchivoPrevisualizacion + " | " + "monto=" + musica.monto + " | ";
+            bitacora.guardarBitacora_interfazDeUsuario("Modificar", "Modificacion de Musica", registroEnDetalle);
+
             return "Musica " + musica.id + " " + musica.nombre + " actualizada.";
         }
 
@@ -98,6 +119,11 @@ namespace Web_Application.ApiControllers
         {
             Musica musica = new Musica();
             musica.eliminarMusica(id);
+
+            // Agregar registro en bitacora
+            Bitacora bitacora = new Bitacora();
+            bitacora.guardarBitacora_interfazDeUsuario("Eliminar", "Eliminacion de Musica", "");
+
             return "Musica " + id + " eliminada.";
         }
     }

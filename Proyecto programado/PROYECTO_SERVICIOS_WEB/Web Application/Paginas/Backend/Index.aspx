@@ -41,6 +41,8 @@
                     <br>
                     <a href="categoriasLibro.aspx">- Categorias libro.</a>
                     <br>
+                    <a href="consecutivos.aspx">- Consecutivos.</a>
+                    <br>
                     <a href="parametros.aspx">- Parámetros</a>
                     <br>
                     <a href="peliculasAdmin.aspx">- Películas</a>
@@ -52,10 +54,16 @@
             </div>
             <div class="col-12 col-sm-4 col-md-4 col-lg-2">
                 <div class="fondo-gris-mas categoria">
-                    Consultas y monitoreo
+                    Consultas
                 </div>
                 <div class="fondo-gris">
-                    <a href="./bitacoraErroresTransaccionesDescargas.aspx">- Página de consultas y monitoreo</a>
+                    <a href="consultasBitacora.aspx">- Bitácora.</a>
+                    <br>
+                    <a href="consultasTransacciones.aspx">- Transacciones.</a>
+                    <br>
+                    <a href="consultasDescargas.aspx">- Descargas.</a>
+                    <br>
+                    <a href="consultasErrores.aspx">- Errores.</a>
                 </div>
             </div>
         </div>

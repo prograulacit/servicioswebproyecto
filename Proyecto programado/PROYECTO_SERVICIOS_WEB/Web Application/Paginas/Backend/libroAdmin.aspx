@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Compartido/MasterPage_Backend.Master" AutoEventWireup="true" CodeBehind="libroAdmin.aspx.cs" Inherits="Web_Application.Paginas.Backend.libroAdmin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="../../Public/scripts/libroAdmin.js"></script>
+    <script src="../../Public/scripts/librosAdmin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -45,7 +45,7 @@
         <br>
         Categoria:
         <br>
-        <input type="text" name="" class="editar_categoria">
+        <select id="editarCategoria" class="form-control sm-1 editar_categoria"></select>
         <br>
         Autor:
         <br>
@@ -94,7 +94,7 @@
         <br>
         Categoria:
         <br>
-        <input type="text" name="" class="crear_categoria">
+        <select id="crearCategoria" class="form-control sm-1 crear_categoria"></select>
         <br>
         Autor:
         <br>
@@ -145,6 +145,7 @@
 
     <script>
         cargar_elementos();
+        traer_categorias();
         contenedorTabla_visible("inline");
         contenedorEditar_visible("none");
         contenedorCrear_visible("none");

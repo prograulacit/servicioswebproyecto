@@ -17,7 +17,10 @@
                 <h3 class="text-uppercase text-muted">Búsqueda de Libros</h3>
                 <br />
                 <label class="text-font-normal">Categoría</label>
-                <input type="text" id="input_libros_Categorias" placeholder="Categorias" class="form-control sm-1" aria-label="Search" />
+                <div class="spinner-border text-primary input_libros_Categorias_spinner" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <select id="input_libros_Categorias" class="form-control sm-1"></select>
                 <br />
                 <label class="text-font-normal">Nombre</label>
                 <input type="text" id="input_libros_Nombre" placeholder="Nombre" class="form-control" aria-label="Search" />
@@ -45,5 +48,8 @@
             </div>
         </div>
     </div>
-    <script src="../../Public/scripts/libros.js"></script>
+    <script src="../../Public/scripts/libro.js"></script>
+    <script>
+        traer_categorias();
+    </script>
 </asp:Content>

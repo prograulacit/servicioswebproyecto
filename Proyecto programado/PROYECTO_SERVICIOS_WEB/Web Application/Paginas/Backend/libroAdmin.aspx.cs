@@ -26,7 +26,7 @@ namespace Web_Application.Paginas.Backend
         protected void subirArchivosLibro_Click(object sender, EventArgs e)
         {
             Parametros parametros = new Parametros();
-            string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoMusica;
+            string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
             string rutaArchivo = rutaPrincipal + "\\" + nombreArchivoLibro.Value.ToString();
             bool exitoArchivo = false;
             bool exitoArchivoPrev = false;
@@ -37,8 +37,8 @@ namespace Web_Application.Paginas.Backend
                 exitoArchivo = true;
             }
 
-            //Subida archivo musica previsualizacion
-            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionMusica;
+            //Subida archivo libro previsualizacion
+            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
             string rutaArchivoPrev = rutaPrincipalPrev + "\\" + nombrePrevisualizacionLibro.Value.ToString();
             if (exitoArchivo && !File.Exists(rutaArchivoPrev))
             {
@@ -60,8 +60,8 @@ namespace Web_Application.Paginas.Backend
         protected void editarArchivosLibro_Click(object sender, EventArgs e)
         {
             Parametros parametros = new Parametros();
-            string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoMusica;
-            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionMusica;
+            string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
+            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
             string rutaArchivoViejo = rutaPrincipal + "\\" + viejoNombreDescargaLibro.Value;
             string rutaArchivoNuevo = rutaPrincipal + "\\" + editarNombreDescargaLibro.Value;
             string rutaArchivoViejoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionLibro.Value;
@@ -72,7 +72,7 @@ namespace Web_Application.Paginas.Backend
 
             if ((editarArchivoLibro.PostedFile.ContentLength == 0) && (viejoNombreDescargaLibro.Value != editarNombreDescargaLibro.Value) && File.Exists(rutaArchivoViejo))
             {
-                //Editar solo ruta archivo musica
+                //Editar solo ruta archivo libro
                 if (!File.Exists(rutaArchivoNuevo))
                 {
                     File.Move(rutaArchivoViejo, rutaArchivoNuevo);
@@ -80,12 +80,12 @@ namespace Web_Application.Paginas.Backend
                 else
                 {
                     exitoArchivo = false;
-                    errorMensaje = "El archivo de musica ya existe. Por favor, ingresar otro nombre de archivo.";
+                    errorMensaje = "El archivo de libro ya existe. Por favor, ingresar otro nombre de archivo.";
                 }
             }
             else if ((editarArchivoLibro.PostedFile.ContentLength > 0) && (viejoNombreDescargaLibro.Value != editarNombreDescargaLibro.Value) && File.Exists(rutaArchivoViejo))
             {
-                //Editar archivo de musica y ruta
+                //Editar archivo de libro y ruta
                 if (!File.Exists(rutaArchivoNuevo))
                 {
                     File.Delete(rutaArchivoViejo);
@@ -94,19 +94,19 @@ namespace Web_Application.Paginas.Backend
                 else
                 {
                     exitoArchivo = false;
-                    errorMensaje = "El archivo de musica ya existe. Por favor, ingresar otro nombre de archivo.";
+                    errorMensaje = "El archivo de libro ya existe. Por favor, ingresar otro nombre de archivo.";
                 }
             }
             else if ((editarArchivoLibro.PostedFile.ContentLength > 0) && (viejoNombreDescargaLibro.Value == editarNombreDescargaLibro.Value) && File.Exists(rutaArchivoViejo))
             {
-                //Editar archivo de musica
+                //Editar archivo de libro
                 File.Delete(rutaArchivoViejo);
                 editarArchivoLibro.PostedFile.SaveAs(rutaArchivoViejo);
             }
 
             if ((editarArchivoLibroPrev.PostedFile.ContentLength == 0) && (viejoNombrePrevisualizacionLibro.Value != editarNombrePrevisualizacionLibro.Value) && File.Exists(rutaArchivoViejoPrev))
             {
-                //Editar solo ruta archivo previsualizacion musica
+                //Editar solo ruta archivo previsualizacion libro
                 if (!File.Exists(rutaArchivoNuevoPrev))
                 {
                     File.Move(rutaArchivoViejoPrev, rutaArchivoNuevoPrev);
@@ -124,7 +124,7 @@ namespace Web_Application.Paginas.Backend
             }
             else if ((editarArchivoLibroPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionLibro.Value != editarNombrePrevisualizacionLibro.Value) && File.Exists(rutaArchivoViejoPrev))
             {
-                //Editar archivo de musica previsualizacion y ruta
+                //Editar archivo de libro previsualizacion y ruta
                 if (!File.Exists(rutaArchivoNuevoPrev))
                 {
                     File.Delete(rutaArchivoViejoPrev);
@@ -143,7 +143,7 @@ namespace Web_Application.Paginas.Backend
             }
             else if ((editarArchivoLibroPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionLibro.Value == editarNombrePrevisualizacionLibro.Value) && File.Exists(rutaArchivoViejoPrev))
             {
-                //Editar archivo de musica previsualizacion
+                //Editar archivo de libro previsualizacion
                 File.Delete(rutaArchivoViejoPrev);
                 editarArchivoLibroPrev.PostedFile.SaveAs(rutaArchivoViejoPrev);
             }
@@ -165,8 +165,8 @@ namespace Web_Application.Paginas.Backend
 
             try
             {
-                string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoMusica;
-                string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionMusica;
+                string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
+                string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
 
                 if ((viejoNombreDescargaLibro.Value != "") && (viejoNombrePrevisualizacionLibro.Value != ""))
                 {

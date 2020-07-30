@@ -49,6 +49,7 @@
                 <br />
                 <br />
                 <br />
+                <div id="total_transacciones"><strong>Total de transacciones: </strong> 0</div>
                 <div id="tabla_transacciones"></div>
             </div>
         </div>
