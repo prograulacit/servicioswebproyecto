@@ -16,19 +16,41 @@ namespace Web_Application.ApiControllers
             return lista_tarjetas;
         }
 
-        // GET: api/Tarjeta/5
-        // Resive un id de usuario y retorna JSON con
-        // tarjetas asociadas con ese id.
+        /// <summary>
+        /// Envia al cliente una lista de tarjetas asociadas
+        /// con el ID que se haya dado.
+        /// </summary>
+        /// <param name="user_id">ID del usuario. Si es
+        /// escrito "asociada" se envia segun el usuario
+        /// logeado en memoria.</param>
+        /// <returns>Lista de tarjetas asociadas al usuario
+        /// cuto ID fue dado.</returns>
         public IEnumerable<Tarjeta> Get(string user_id)
         {
-
             Tarjeta t = new Tarjeta();
-            List<Tarjeta> listaTarjetas_asociadas = 
+
+            if (!user_id.Equals("asociada"))
+            {
+                List<Tarjeta> listaTarjetas_asociadas =
                 t.traerTarjetas_UsuarioId(user_id);
 
-            if (listaTarjetas_asociadas.Count > 0 )
+                if (listaTarjetas_asociadas.Count > 0)
+                {
+                    return listaTarjetas_asociadas;
+                }
+            }
+            else // Se requieren las tarjetas asociadas al usuario logeado en memoria.
             {
-                return listaTarjetas_asociadas;
+                if (Memoria.sesionUsuarioDatos != null)
+                {
+                    List<Tarjeta> listaTarjetas_asociadas =
+                        t.traerTarjetas_UsuarioId(Memoria.sesionUsuarioDatos.id);
+
+                    if (listaTarjetas_asociadas != null)
+                    {
+                        return listaTarjetas_asociadas;
+                    }
+                }
             }
 
             // Si no hay tarjetas asociadas, retorna null.

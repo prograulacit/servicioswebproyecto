@@ -130,5 +130,16 @@ namespace BLL.Logica
 
             bitacora.guardarBitacora(bitacora);
         }
+
+        /// <summary>
+        /// Genera un monto de dinero para guardar en una tarjeta
+        /// o EasyPay.
+        /// </summary>
+        /// <returns></returns>
+        public static string generarMonto_tarjetaEasypay()
+        {
+            Random rnd = new Random();
+            return "" + rnd.Next(1000, 50000); // Genera un numero entre 1000 y 50000.
+        }
     }
 }
