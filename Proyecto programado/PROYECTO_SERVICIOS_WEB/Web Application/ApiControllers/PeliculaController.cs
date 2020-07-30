@@ -59,6 +59,16 @@ namespace Web_Application.ApiControllers
             // Actualizamos el consecutivo en la base de datos.
             consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
 
+            // Agregar registro en bitacora
+            Bitacora bitacora = new Bitacora();
+            string registroEnDetalle = "Id=" + pelicula.id + " | " + "Nombre=" + pelicula.nombre + " | " +
+                "Genero=" + pelicula.genero + " | " + "Anio=" + pelicula.anio + " | " +
+                "idioma=" + pelicula.idioma + " | " + "Actores=" + pelicula.actores + " | " +
+                "nombreArchivoDescarga=" + pelicula.nombreArchivoDescarga + " | " +
+                "nombreArchivoPrevisualizacion=" + pelicula.nombreArchivoPrevisualizacion + " | " +
+                "Monto=" + pelicula.monto + " | ";
+            bitacora.guardarBitacora_interfazDeUsuario("Agregar", "Insercion de una nueva Pelicula", registroEnDetalle);
+
             return "Pelicula " + pelicula.id + " guardada.";
         }
 
@@ -80,6 +90,17 @@ namespace Web_Application.ApiControllers
             #endregion
 
             pelicula.actualizarPelicula(pelicula);
+
+            // Agregar registro en bitacora
+            Bitacora bitacora = new Bitacora();
+            string registroEnDetalle = "Id=" + pelicula.id + " | " + "Nombre=" + pelicula.nombre + " | " +
+                "Genero=" + pelicula.genero + " | " + "Anio=" + pelicula.anio + " | " +
+                "idioma=" + pelicula.idioma + " | " + "Actores=" + pelicula.actores + " | " +
+                "nombreArchivoDescarga=" + pelicula.nombreArchivoDescarga + " | " +
+                "nombreArchivoPrevisualizacion=" + pelicula.nombreArchivoPrevisualizacion + " | " +
+                "Monto=" + pelicula.monto + " | ";
+            bitacora.guardarBitacora_interfazDeUsuario("Modificar", "Modificacion de Pelicula", registroEnDetalle);
+
             return "Pelicula " + pelicula.id + " actualizada.";
         }
 
@@ -88,6 +109,11 @@ namespace Web_Application.ApiControllers
         {
             Pelicula pelicula = new Pelicula();
             pelicula.eliminarPelicula(id);
+
+            // Agregar registro en bitacora
+            Bitacora bitacora = new Bitacora();
+            bitacora.guardarBitacora_interfazDeUsuario("Eliminar", "Eliminacion de Pelicula", "");
+
             return "Pelicula " + id + " eliminada.";
         }
     }

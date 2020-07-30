@@ -9,7 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Bitacora</li>
         </ol>
     </nav>
-    <div class="container">
+    <div class="container" id="buscador_bitacora">
         <div class="row">
             <div class="col-md-4">
                 <br />
@@ -27,9 +27,9 @@
                 <label class="text-font-normal">Tipo</label>
                 <select id="input_bitacora_tipo" class="form-control">
                   <option value="">Ninguno</option>
-                  <option value="agregar">Agregar</option>
-                  <option value="modificar">Modificar</option>
-                  <option value="eliminar">Eliminar</option>
+                  <option value="Agregar">Agregar</option>
+                  <option value="Modificar">Modificar</option>
+                  <option value="Eliminar">Eliminar</option>
                 </select>
                 <br />
                 <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="button_submit_bitacora_buscar()">Buscar</button>
@@ -43,6 +43,12 @@
             </div>
         </div>
     </div>
+
+    <div class="container" id="detalle_bitacora_contenedor" style="display:none">
+        <a href="#" onclick="ir_atras_detalle()">Atras</a>
+        <div class="container" id="detalle_bitacora"></div>
+    </div>
+
     <script src="../../Public/scripts/utils.js"></script>
     <script src="../../Public/scripts/consultasBitacora.js"></script>
 </asp:Content>

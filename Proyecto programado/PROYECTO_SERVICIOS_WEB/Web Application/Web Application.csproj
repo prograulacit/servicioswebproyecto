@@ -114,6 +114,7 @@
     <Content Include="Paginas\Backend\bitacoraErroresTransaccionesDescargas.aspx" />
     <Content Include="Paginas\Backend\cambiarContrasenia.aspx" />
     <Content Include="Paginas\Backend\categoriasLibro.aspx" />
+    <Content Include="Paginas\Backend\consecutivos.aspx" />
     <Content Include="Paginas\Backend\consultasBitacora.aspx" />
     <Content Include="Paginas\Backend\consultasDescargas.aspx" />
     <Content Include="Paginas\Backend\consultasErrores.aspx" />
@@ -147,14 +148,15 @@
     <Content Include="Public\pruebas\script.js" />
     <Content Include="Public\scripts\bitacoraErroresTransaccionesDescargas.js" />
     <Content Include="Public\scripts\categoriasLibro.js" />
+    <Content Include="Public\scripts\consecutivos.js" />
     <Content Include="Public\scripts\consultasBitacora.js" />
     <Content Include="Public\scripts\consultasDescargas.js" />
     <Content Include="Public\scripts\consultasErrores.js" />
     <Content Include="Public\scripts\consultasTransacciones.js" />
     <Content Include="Public\scripts\generosMusica.js" />
     <Content Include="Public\scripts\generosPeliculas.js" />
-    <Content Include="Public\scripts\libroAdmin.js" />
-    <Content Include="Public\scripts\libros.js" />
+    <Content Include="Public\scripts\librosAdmin.js" />
+    <Content Include="Public\scripts\libro.js" />
     <Content Include="Public\scripts\musica.js" />
     <Content Include="Public\scripts\musicaAdmin.js" />
     <Content Include="Public\scripts\parametros.js" />
@@ -212,6 +214,13 @@
     </Compile>
     <Compile Include="Paginas\Backend\categoriasLibro.aspx.designer.cs">
       <DependentUpon>categoriasLibro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Backend\consecutivos.aspx.cs">
+      <DependentUpon>consecutivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Backend\consecutivos.aspx.designer.cs">
+      <DependentUpon>consecutivos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Backend\consultasBitacora.aspx.cs">
       <DependentUpon>consultasBitacora.aspx</DependentUpon>

@@ -1,31 +1,31 @@
-﻿const url = "https://localhost:44371/api/pelicula";
-const urlGenero = "https://localhost:44371/api/generos_peliculas";
-regexExtensionPelicula = new RegExp("(.*?)\.(mp4|mov)$");
+﻿const url = "https://localhost:44371/api/libro";
+const urlCategoria = "https://localhost:44371/api/categorias_libros";
+regexExtensionLibro = new RegExp("(.*?)\.(pdf)$");
 
-function traer_generos() {
-    fetch(urlGenero)
-    .then(function (response) {
-        return response.text();
-    })
-    .then(function (response) {
-        let json = JSON.parse(response);
-        let html = '<option value="">Ninguno</option>';
-        if (json) {
-                
-            for (let index = 0; index < json.length; index++) {
-                html += `<option value="${json[index].genero}">${json[index].genero}</option>`;
+function traer_categorias() {
+    fetch(urlCategoria)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (response) {
+            let json = JSON.parse(response);
+            let html = '<option value="">Ninguno</option>';
+            if (json) {
+
+                for (let index = 0; index < json.length; index++) {
+                    html += `<option value="${json[index].categoria}">${json[index].categoria}</option>`;
+                }
             }
-        }
-        document.getElementById("crearGenero").innerHTML = html;
-        document.getElementById("editarGenero").innerHTML = html;
-    })
-    .catch(function (err) {
-        console.error(err);
-    });
+            document.getElementById("crearCategoria").innerHTML = html;
+            document.getElementById("editarCategoria").innerHTML = html;
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
 }
 
 function eliminar_elemento(id, nombreArchivoDescarga, nombreArchivoPrevisualizacion) {
-    const eliminar_archivo_pelicula = document.getElementsByClassName("eliminar_archivo_pelicula")[0];
+    const eliminar_archivo_libro = document.getElementsByClassName("eliminar_archivo_libro")[0];
     Swal.fire({
         title: 'Esta seguro que desea eliminar este elemento?',
         text: "Esta accion no se puede deshacer",
@@ -47,9 +47,9 @@ function eliminar_elemento(id, nombreArchivoDescarga, nombreArchivoPrevisualizac
                     method: 'delete'
                 }).then(response =>
                     response.json().then((json) => {
-                        document.getElementsByClassName("viejo_nombre_descarga_pelicula")[0].value = nombreArchivoDescarga;
-                        document.getElementsByClassName("viejo_nombre_previsualizacion_pelicula")[0].value = nombreArchivoPrevisualizacion;
-                        eliminar_archivo_pelicula.click();
+                        document.getElementsByClassName("viejo_nombre_descarga_libro")[0].value = nombreArchivoDescarga;
+                        document.getElementsByClassName("viejo_nombre_previsualizacion_libro")[0].value = nombreArchivoPrevisualizacion;
+                        eliminar_archivo_libro.click();
                     })
                 );
             }
@@ -58,54 +58,56 @@ function eliminar_elemento(id, nombreArchivoDescarga, nombreArchivoPrevisualizac
 }
 
 function crear_elemento() {
-    const descargar_archivo_pelicula = document.getElementsByClassName("descargar_archivo_pelicula")[0];
+    const descargar_archivo_libro = document.getElementsByClassName("descargar_archivo_libro")[0];
     const crear_nombre = document.getElementsByClassName("crear_nombre")[0].value
-    const crear_genero = document.getElementsByClassName("crear_genero")[0].value
-    const crear_anio = document.getElementsByClassName("crear_anio")[0].value
+    const crear_categoria = document.getElementsByClassName("crear_categoria")[0].value
+    const crear_autor = document.getElementsByClassName("crear_autor")[0].value
     const crear_idioma = document.getElementsByClassName("crear_idioma")[0].value
-    const crear_actores = document.getElementsByClassName("crear_actores")[0].value
-    const nombre_archivo_pelicula = document.getElementsByClassName("nombre_archivo_pelicula")[0].value
-    const nombre_previsualizacion_pelicula = document.getElementsByClassName("nombre_previsualizacion_pelicula")[0].value
+    const crear_editorial = document.getElementsByClassName("crear_editorial")[0].value
+    const crear_anioPublicacion = document.getElementsByClassName("crear_anioPublicacion")[0].value
+    const nombre_archivo_libro = document.getElementsByClassName("nombre_archivo_libro")[0].value
+    const nombre_previsualizacion_libro = document.getElementsByClassName("nombre_previsualizacion_libro")[0].value
     const crear_monto = document.getElementsByClassName("crear_monto")[0].value
-    const archivo_pelicula = document.getElementsByClassName("archivo_pelicula")[0].files
-    const archivo_pelicula_prev = document.getElementsByClassName("archivo_pelicula_prev")[0].files
+    const archivo_libro = document.getElementsByClassName("archivo_libro")[0].files
+    const archivo_libro_prev = document.getElementsByClassName("archivo_libro_prev")[0].files
 
     if (crear_nombre != "" &&
-        crear_genero != "" &&
-        crear_anio != "" &&
+        crear_categoria != "" &&
+        crear_autor != "" &&
         crear_idioma != "" &&
-        crear_actores != "" &&
-        nombre_archivo_pelicula != "" &&
-        nombre_previsualizacion_pelicula != "" &&
+        crear_editorial != "" &&
+        crear_anioPublicacion != "" &&
+        nombre_archivo_libro != "" &&
+        nombre_previsualizacion_libro != "" &&
         crear_monto != "" &&
-        archivo_pelicula.length > 0 &&
-        archivo_pelicula_prev.length > 0) {
+        archivo_libro.length > 0 &&
+        archivo_libro_prev.length > 0) {
 
-        if (!regexExtensionPelicula.test(nombre_archivo_pelicula) || !regexExtensionPelicula.test(nombre_previsualizacion_pelicula)) {
+        var json_request = {
+            "nombre": crear_nombre,
+            "categoria": crear_categoria,
+            "autor": crear_autor,
+            "idioma": crear_idioma,
+            "editorial": crear_editorial,
+            "anioPublicacion": crear_anioPublicacion,
+            "nombreArchivoDescarga": nombre_archivo_libro,
+            "nombreArchivoPrevisualizacion": nombre_previsualizacion_libro,
+            "monto": crear_monto
+        };
+
+        if (!regexExtensionLibro.test(nombre_archivo_libro) || !regexExtensionLibro.test(nombre_previsualizacion_libro)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Los archivos de pelicula y previsualizacion deben tener extension MP4 o MOV',
+                text: 'Los archivos de libros y previsualizacion deben tener extension PDF.',
             })
-        } else if (nombre_archivo_pelicula === nombre_previsualizacion_pelicula) {
+        } else if (nombre_archivo_libro === nombre_previsualizacion_libro) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Los archivos de pelicula y previsualizacion no pueden tener el mismo nombre.',
+                text: 'Los archivos de libros y previsualizacion no pueden tener el mismo nombre.',
             })
         } else {
-
-            var json_request = {
-                "nombre": crear_nombre,
-                "genero": crear_genero,
-                "anio": crear_anio,
-                "idioma": crear_idioma,
-                "actores": crear_actores,
-                "nombreArchivoDescarga": nombre_archivo_pelicula,
-                "nombreArchivoPrevisualizacion": nombre_previsualizacion_pelicula,
-                "monto": crear_monto
-            };
-
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify(json_request), // data can be `string` or {object}!
@@ -115,7 +117,7 @@ function crear_elemento() {
             }).then(res => res.json())
                 .catch(error => console.error('Error:', error))
                 .then((response) => {
-                    descargar_archivo_pelicula.click();
+                    descargar_archivo_libro.click();
                 });
         }
     } else {
@@ -154,10 +156,11 @@ function renderizar(json, contenedor_id) {
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Genero</th>
-                                <th scope="col">Año</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Autor</th>
                                 <th scope="col">Idioma</th>
-                                <th scope="col">Actores</th>
+                                <th scope="col">Editorial</th>
+                                <th scope="col">Año de publicación</th>
                                 <th scope="col">Archivo Descarga</th>
                                 <th scope="col">Archivo Previsualizacion</th>
                                 <th scope="col">Monto</th>
@@ -169,10 +172,11 @@ function renderizar(json, contenedor_id) {
                 `<tr>
                                 <td>` + obj[index].id + `</td>
                                 <td>` + obj[index].nombre + `</td>
-                                <td>` + obj[index].genero + `</td>
-                                <td>` + obj[index].anio + `</td>
+                                <td>` + obj[index].categoria + `</td>
+                                <td>` + obj[index].autor + `</td>
                                 <td>` + obj[index].idioma + `</td>
-                                <td>` + obj[index].actores + `</td>
+                                <td>` + obj[index].editorial + `</td>
+                                <td>` + obj[index].anioPublicacion + `</td>
                                 <td>` + obj[index].nombreArchivoDescarga + `</td>
                                 <td>` + obj[index].nombreArchivoPrevisualizacion + `</td>
                                 <td>` + obj[index].monto + `</td>
@@ -226,15 +230,16 @@ function editar_elemento(codigo) {
                 if (json[index].id == codigo) {
                     document.getElementsByClassName("editar_id")[0].value = json[index].id;
                     document.getElementsByClassName("editar_nombre")[0].value = json[index].nombre;
-                    document.getElementsByClassName("editar_genero")[0].value = json[index].genero;
-                    document.getElementsByClassName("editar_anio")[0].value = json[index].anio;
+                    document.getElementsByClassName("editar_categoria")[0].value = json[index].categoria;
+                    document.getElementsByClassName("editar_autor")[0].value = json[index].autor;
                     document.getElementsByClassName("editar_idioma")[0].value = json[index].idioma;
-                    document.getElementsByClassName("editar_actores")[0].value = json[index].actores;
-                    document.getElementsByClassName("editar_nombre_descarga_pelicula")[0].value = json[index].nombreArchivoDescarga;
-                    document.getElementsByClassName("editar_nombre_previsualizacion_pelicula")[0].value = json[index].nombreArchivoPrevisualizacion;
+                    document.getElementsByClassName("editar_editorial")[0].value = json[index].editorial;
+                    document.getElementsByClassName("editar_anioPublicacion")[0].value = json[index].anioPublicacion;
+                    document.getElementsByClassName("editar_nombre_descarga_libro")[0].value = json[index].nombreArchivoDescarga;
+                    document.getElementsByClassName("editar_nombre_previsualizacion_libro")[0].value = json[index].nombreArchivoPrevisualizacion;
                     document.getElementsByClassName("editar_monto")[0].value = json[index].monto;
-                    document.getElementsByClassName("viejo_nombre_descarga_pelicula")[0].value = json[index].nombreArchivoDescarga;
-                    document.getElementsByClassName("viejo_nombre_previsualizacion_pelicula")[0].value = json[index].nombreArchivoPrevisualizacion;
+                    document.getElementsByClassName("viejo_nombre_descarga_libro")[0].value = json[index].nombreArchivoDescarga;
+                    document.getElementsByClassName("viejo_nombre_previsualizacion_libro")[0].value = json[index].nombreArchivoPrevisualizacion;
                 }
             }
 
@@ -245,50 +250,53 @@ function editar_elemento(codigo) {
 }
 
 function guardar_cambios() {
-    const editar_archivos_pelicula = document.getElementsByClassName("editar_archivos_pelicula")[0];
-    const editar_id = document.getElementsByClassName("editar_id")[0].value;
+    const editar_archivos_libro = document.getElementsByClassName("editar_archivos_libro")[0]
+    const editar_id = document.getElementsByClassName("editar_id")[0].value
     const editar_nombre = document.getElementsByClassName("editar_nombre")[0].value
-    const editar_genero = document.getElementsByClassName("editar_genero")[0].value
-    const editar_anio = document.getElementsByClassName("editar_anio")[0].value
+    const editar_categoria = document.getElementsByClassName("editar_categoria")[0].value
+    const editar_autor = document.getElementsByClassName("editar_autor")[0].value
     const editar_idioma = document.getElementsByClassName("editar_idioma")[0].value
-    const editar_actores = document.getElementsByClassName("editar_actores")[0].value
-    const editar_nombre_descarga_pelicula = document.getElementsByClassName("editar_nombre_descarga_pelicula")[0].value
-    const editar_nombre_previsualizacion_pelicula = document.getElementsByClassName("editar_nombre_previsualizacion_pelicula")[0].value
+    const editar_editorial = document.getElementsByClassName("editar_editorial")[0].value
+    const editar_anioPublicacion = document.getElementsByClassName("editar_anioPublicacion")[0].value
+    const editar_nombre_descarga_libro = document.getElementsByClassName("editar_nombre_descarga_libro")[0].value
+    const editar_nombre_previsualizacion_libro = document.getElementsByClassName("editar_nombre_previsualizacion_libro")[0].value
     const editar_monto = document.getElementsByClassName("editar_monto")[0].value
 
     if (editar_id != "" &&
         editar_nombre != "" &&
-        editar_genero != "" &&
-        editar_anio != "" &&
+        editar_categoria != "" &&
+        editar_autor != "" &&
         editar_idioma != "" &&
-        editar_actores != "" &&
-        editar_nombre_descarga_pelicula != "" &&
-        editar_nombre_previsualizacion_pelicula != "" &&
+        editar_editorial != "" &&
+        editar_anioPublicacion != "" &&
+        editar_nombre_descarga_libro != "" &&
+        editar_nombre_previsualizacion_libro != "" &&
         editar_monto != "") {
 
         var json_request = {
             "ID": editar_id,
             "nombre": editar_nombre,
-            "genero": editar_genero,
-            "anio": editar_anio,
+            "categoria": editar_categoria,
+            "autor": editar_autor,
             "idioma": editar_idioma,
-            "actores": editar_actores,
-            "nombreArchivoDescarga": editar_nombre_descarga_pelicula,
-            "nombreArchivoPrevisualizacion": editar_nombre_previsualizacion_pelicula,
+            "editorial": editar_editorial,
+            "anioPublicacion": editar_anioPublicacion,
+            "nombreArchivoDescarga": editar_nombre_descarga_libro,
+            "nombreArchivoPrevisualizacion": editar_nombre_previsualizacion_libro,
             "monto": editar_monto
         };
 
-        if (!regexExtensionPelicula.test(editar_nombre_descarga_pelicula) || !regexExtensionPelicula.test(editar_nombre_previsualizacion_pelicula)) {
+        if (!regexExtensionLibro.test(editar_nombre_descarga_libro) || !regexExtensionLibro.test(editar_nombre_previsualizacion_libro)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Los archivos de pelicula y previsualizacion deben tener extension MP3 o MOV',
+                text: 'Los archivos de libros y previsualizacion deben tener extension PDF.',
             })
-        } else if (editar_nombre_descarga_pelicula === editar_nombre_previsualizacion_pelicula) {
+        } else if (editar_nombre_descarga_libro === editar_nombre_previsualizacion_libro) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Los archivos de pelicula y previsualizacion no pueden tener el mismo nombre.',
+                text: 'Los archivos de libros y previsualizacion no pueden tener el mismo nombre.',
             })
         } else {
             fetch(url, {
@@ -300,9 +308,10 @@ function guardar_cambios() {
             }).then(res => res.json())
                 .catch(error => console.error('Error:', error))
                 .then((response) => {
-                    editar_archivos_pelicula.click();
+                    editar_archivos_libro.click();
                 });
         }
+
     } else {
         errorLlenarEspacios();
     }

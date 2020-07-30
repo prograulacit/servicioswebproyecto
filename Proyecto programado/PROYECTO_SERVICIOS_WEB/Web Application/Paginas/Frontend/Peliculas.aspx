@@ -17,7 +17,10 @@
                 <h3 class="text-uppercase text-muted">Búsqueda de Películas</h3>
                 <br />
                 <label class="text-font-normal">Genero</label>
-                <input type="text" id="input_peli_genero" placeholder="Genero" class="form-control sm-1" aria-label="Search" />
+                <div class="spinner-border text-primary input_peli_genero_spinner" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <select id="input_peli_genero" class="form-control sm-1"></select>
                 <br />
                 <label class="text-font-normal">Nombre</label>
                 <input type="text" id="input_peli_nombre" placeholder="Nombre" class="form-control" aria-label="Search" />
@@ -43,4 +46,7 @@
         </div>
     </div>
     <script src="../../Public/scripts/peliculas.js"></script>
+    <script>
+        traer_generos();
+    </script>
 </asp:Content>

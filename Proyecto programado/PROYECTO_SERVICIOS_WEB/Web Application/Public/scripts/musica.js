@@ -1,10 +1,33 @@
 ﻿const apiURL = "https://localhost:44371";
+const urlGenero = "https://localhost:44371/api/generos_musica";
 
 function get_data_filtrada(array, llave, data_filtro) {
     let filtrado = array.filter((item) => {
         return Object.keys(item).some((key) => item[llave].includes(data_filtro));
     });
     return filtrado;
+}
+
+function traer_generos() {
+    fetch(urlGenero)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (response) {
+            let json = JSON.parse(response);
+            let html = '<option value="">Ninguno</option>';
+            if (json) {
+
+                for (let index = 0; index < json.length; index++) {
+                    html += `<option value="${json[index].genero}">${json[index].genero}</option>`;
+                }
+            }
+            document.getElementsByClassName("input_musica_Genero_spinner")[0].style.display = "none";
+            document.getElementById("input_musica_Genero").innerHTML = html;
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
 }
 
 function cargar_musica(genero, nombre, tipoInterpretacion, idioma, pais, disquera, nombreDisco, anio) {
