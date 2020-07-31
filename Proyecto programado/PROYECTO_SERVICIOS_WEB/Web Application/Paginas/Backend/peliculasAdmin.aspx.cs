@@ -1,12 +1,9 @@
 ﻿using BLL.Logica;
 using BLL.Objeto;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Web_Application.Paginas.Backend
 {
@@ -21,166 +18,123 @@ namespace Web_Application.Paginas.Backend
             {
                 Response.Redirect("~/Paginas/Backend/Index.aspx");
             }
+
+            if (!IsPostBack)
+            {
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
+            }
         }
 
         protected void subirArchivosPelicula_Click(object sender, EventArgs e)
         {
-            Parametros parametros = new Parametros();
-            string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoPeliculas;
-            string rutaArchivo = rutaPrincipal + "\\" + nombreArchivoPelicula.Value.ToString();
-            bool exitoArchivo = false;
-            bool exitoArchivoPrev = false;
-
-            if (!File.Exists(rutaArchivo))
+            if (Session["update"].ToString() == ViewState["update"].ToString())
             {
-                archivoPelicula.PostedFile.SaveAs(rutaArchivo);
-                exitoArchivo = true;
-            }
-
-            //Subida archivo pelicula previsualizacion
-            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionPeliculas;
-            string rutaArchivoPrev = rutaPrincipalPrev + "\\" + nombrePrevisualizacionPelicula.Value.ToString();
-            if (exitoArchivo && !File.Exists(rutaArchivoPrev))
-            {
-                archivoPeliculaPrev.PostedFile.SaveAs(rutaArchivoPrev);
-                exitoArchivoPrev = true;
-            }
-
-            if (exitoArchivo && exitoArchivoPrev)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoCrear", "exitoMensaje('Elemento creado con exito')", true);
-            }
-            else
-            {
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "eliminar_ultima", "eliminar_elemento('"+ ultimaMusicaId.Value + "', 'null', 'null')", true);
+                try
+                {
+                    Parametros parametros = new Parametros();
+                    string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoPeliculas;
+                    string rutaArchivo = rutaPrincipal + "\\" + nombreArchivoPelicula.Value.ToString();
+                    string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionPeliculas;
+                    string rutaArchivoPrev = rutaPrincipalPrev + "\\" + nombrePrevisualizacionPelicula.Value.ToString();
+                    archivoPelicula.PostedFile.SaveAs(rutaArchivo);
+                    archivoPeliculaPrev.PostedFile.SaveAs(rutaArchivoPrev);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoCrear", "exitoMensaje('Elemento creado con exito')", true);
+                }
+                catch (Exception ex)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                }
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
         }
 
 
         protected void editarArchivosPelicula_Click(object sender, EventArgs e)
         {
-            Parametros parametros = new Parametros();
-            string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoPeliculas;
-            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionPeliculas;
-            string rutaArchivoViejo = rutaPrincipal + "\\" + viejoNombreDescargaPelicula.Value;
-            string rutaArchivoNuevo = rutaPrincipal + "\\" + editarNombreDescargaPelicula.Value;
-            string rutaArchivoViejoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionPelicula.Value;
-            string rutaArchivoNuevoPrev = rutaPrincipalPrev + "\\" + editarNombrePrevisualizacionPelicula.Value;
-            string errorMensaje = "";
-            bool exitoArchivo = true;
-            bool exitoArchivoPrev = true;
+            if (Session["update"].ToString() == ViewState["update"].ToString())
+            {
+                try
+                {
+                    Parametros parametros = new Parametros();
+                    string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoPeliculas;
+                    string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionPeliculas;
+                    string rutaArchivoViejo = rutaPrincipal + "\\" + viejoNombreDescargaPelicula.Value;
+                    string rutaArchivoNuevo = rutaPrincipal + "\\" + editarNombreDescargaPelicula.Value;
+                    string rutaArchivoViejoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionPelicula.Value;
+                    string rutaArchivoNuevoPrev = rutaPrincipalPrev + "\\" + editarNombrePrevisualizacionPelicula.Value;
 
-            if ((editarArchivoPelicula.PostedFile.ContentLength == 0) && (viejoNombreDescargaPelicula.Value != editarNombreDescargaPelicula.Value) && File.Exists(rutaArchivoViejo))
-            {
-                //Editar solo ruta archivo pelicula
-                if (!File.Exists(rutaArchivoNuevo))
-                {
-                    File.Move(rutaArchivoViejo, rutaArchivoNuevo);
-                }
-                else
-                {
-                    exitoArchivo = false;
-                    errorMensaje = "El archivo de pelicula ya existe. Por favor, ingresar otro nombre de archivo.";
-                }
-            }
-            else if ((editarArchivoPelicula.PostedFile.ContentLength > 0) && (viejoNombreDescargaPelicula.Value != editarNombreDescargaPelicula.Value) && File.Exists(rutaArchivoViejo))
-            {
-                //Editar archivo de pelicula y ruta
-                if (!File.Exists(rutaArchivoNuevo))
-                {
-                    File.Delete(rutaArchivoViejo);
-                    editarArchivoPelicula.PostedFile.SaveAs(rutaArchivoNuevo);
-                }
-                else
-                {
-                    exitoArchivo = false;
-                    errorMensaje = "El archivo de pelicula ya existe. Por favor, ingresar otro nombre de archivo.";
-                }
-            }
-            else if ((editarArchivoPelicula.PostedFile.ContentLength > 0) && (viejoNombreDescargaPelicula.Value == editarNombreDescargaPelicula.Value) && File.Exists(rutaArchivoViejo))
-            {
-                //Editar archivo de pelicula
-                File.Delete(rutaArchivoViejo);
-                editarArchivoPelicula.PostedFile.SaveAs(rutaArchivoViejo);
-            }
-
-            if ((editarArchivoPeliculaPrev.PostedFile.ContentLength == 0) && (viejoNombrePrevisualizacionPelicula.Value != editarNombrePrevisualizacionPelicula.Value) && File.Exists(rutaArchivoViejoPrev))
-            {
-                //Editar solo ruta archivo previsualizacion pelicula
-                if (!File.Exists(rutaArchivoNuevoPrev))
-                {
-                    File.Move(rutaArchivoViejoPrev, rutaArchivoNuevoPrev);
-                }
-                else
-                {
-                    exitoArchivoPrev = false;
-                    errorMensaje = "El archivo de previsualizacion ya existe. Por favor, ingresar otro nombre de archivo.";
-
-                    if (File.Exists(rutaArchivoNuevo))
+                    if ((editarArchivoPelicula.PostedFile.ContentLength == 0) && (viejoNombreDescargaPelicula.Value != editarNombreDescargaPelicula.Value) && File.Exists(rutaArchivoViejo))
                     {
-                        File.Delete(rutaArchivoNuevo);
+                        //Editar solo ruta archivo pelicula
+                        File.Move(rutaArchivoViejo, rutaArchivoNuevo);
                     }
-                }
-            }
-            else if ((editarArchivoPeliculaPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionPelicula.Value != editarNombrePrevisualizacionPelicula.Value) && File.Exists(rutaArchivoViejoPrev))
-            {
-                //Editar archivo de pelicula previsualizacion y ruta
-                if (!File.Exists(rutaArchivoNuevoPrev))
-                {
-                    File.Delete(rutaArchivoViejoPrev);
-                    editarArchivoPeliculaPrev.PostedFile.SaveAs(rutaArchivoNuevoPrev);
-                }
-                else
-                {
-                    exitoArchivoPrev = false;
-                    errorMensaje = "El archivo de previsualizacion ya existe. Por favor, ingresar otro nombre de archivo.";
-
-                    if (File.Exists(rutaArchivoNuevo))
+                    else if ((editarArchivoPelicula.PostedFile.ContentLength > 0) && (viejoNombreDescargaPelicula.Value != editarNombreDescargaPelicula.Value) && File.Exists(rutaArchivoViejo))
                     {
-                        File.Delete(rutaArchivoNuevo);
+                        //Editar archivo de pelicula y ruta
+                        File.Delete(rutaArchivoViejo);
+                        editarArchivoPelicula.PostedFile.SaveAs(rutaArchivoNuevo);
                     }
-                }
-            }
-            else if ((editarArchivoPeliculaPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionPelicula.Value == editarNombrePrevisualizacionPelicula.Value) && File.Exists(rutaArchivoViejoPrev))
-            {
-                //Editar archivo de pelicula previsualizacion
-                File.Delete(rutaArchivoViejoPrev);
-                editarArchivoPeliculaPrev.PostedFile.SaveAs(rutaArchivoViejoPrev);
-            }
+                    else if ((editarArchivoPelicula.PostedFile.ContentLength > 0) && (viejoNombreDescargaPelicula.Value == editarNombreDescargaPelicula.Value) && File.Exists(rutaArchivoViejo))
+                    {
+                        //Editar solo archivo de pelicula
+                        File.Delete(rutaArchivoViejo);
+                        editarArchivoPelicula.PostedFile.SaveAs(rutaArchivoViejo);
+                    }
 
-            if (exitoArchivo && exitoArchivoPrev)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoCrear", "exitoMensaje('Elemento actualizado con exito')", true);
-            }
-            else
-            {
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "eliminar_ultima", "eliminar_ultima()", true);
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('" + errorMensaje + "')", true);
+                    if ((editarArchivoPeliculaPrev.PostedFile.ContentLength == 0) && (viejoNombrePrevisualizacionPelicula.Value != editarNombrePrevisualizacionPelicula.Value) && File.Exists(rutaArchivoViejoPrev))
+                    {
+                        //Editar solo ruta archivo previsualizacion pelicula
+                        File.Move(rutaArchivoViejoPrev, rutaArchivoNuevoPrev);
+                    }
+                    else if ((editarArchivoPeliculaPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionPelicula.Value != editarNombrePrevisualizacionPelicula.Value) && File.Exists(rutaArchivoViejoPrev))
+                    {
+                        //Editar archivo de pelicula previsualizacion y ruta
+                        File.Delete(rutaArchivoViejoPrev);
+                        editarArchivoPeliculaPrev.PostedFile.SaveAs(rutaArchivoNuevoPrev);
+                    }
+                    else if ((editarArchivoPeliculaPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionPelicula.Value == editarNombrePrevisualizacionPelicula.Value) && File.Exists(rutaArchivoViejoPrev))
+                    {
+                        //Editar solo archivo de pelicula previsualizacion
+                        File.Delete(rutaArchivoViejoPrev);
+                        editarArchivoPeliculaPrev.PostedFile.SaveAs(rutaArchivoViejoPrev);
+                    }
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoCrear", "exitoMensaje('Elemento actualizado con exito')", true);
+                }
+                catch (Exception ex)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                }
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
         }
 
         protected void eliminarArchivoPelicula_Click(object sender, EventArgs e)
         {
-            Parametros parametros = new Parametros();
-
-            try
+            if (Session["update"].ToString() == ViewState["update"].ToString())
             {
-                string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoPeliculas;
-                string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionPeliculas;
-
-                if ((viejoNombreDescargaPelicula.Value != "") && (viejoNombrePrevisualizacionPelicula.Value != ""))
+                try
                 {
+                    Parametros parametros = new Parametros();
+                    string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoPeliculas;
+                    string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionPeliculas;
                     string rutaArchivo = rutaPrincipal + "\\" + viejoNombreDescargaPelicula.Value;
                     string rutaArchivoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionPelicula.Value;
                     if (File.Exists(rutaArchivo)) { File.Delete(rutaArchivo); }
                     if (File.Exists(rutaArchivoPrev)) { File.Delete(rutaArchivoPrev); }
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoMensaje", "exitoMensaje('Elemento eliminado con exito.')", true);
                 }
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoMensaje", "exitoMensaje('El elemento ha sido eliminado con exito.')", true);
+                catch (Exception ex)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                }
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
-            catch (Exception ex)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
-            }
+                
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
+            ViewState["update"] = Session["update"];
         }
     }
 }
