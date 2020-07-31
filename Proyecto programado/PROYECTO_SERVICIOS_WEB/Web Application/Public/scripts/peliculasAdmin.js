@@ -1,6 +1,7 @@
 ﻿const url = "https://localhost:44371/api/pelicula";
 const urlGenero = "https://localhost:44371/api/generos_peliculas";
-regexExtensionPelicula = new RegExp("(.*?)\.(mp4|mov)$");
+let regexExtensionPelicula = new RegExp("(.*?)\.(mp4|mov)$");
+let registrosPeliculas;
 
 function traer_generos() {
     fetch(urlGenero)
@@ -22,6 +23,18 @@ function traer_generos() {
     .catch(function (err) {
         console.error(err);
     });
+}
+
+function es_archivo_unico(nombre) {
+    if (registrosPeliculas) {
+        for (let index = 0; index < registrosPeliculas.length; index++) {
+            if (registrosPeliculas[index].nombreArchivoDescarga == nombre ||
+                registrosPeliculas[index].nombreArchivoPrevisualizacion == nombre) {
+                return false;
+            }
+        }
+    }
+    return true
 }
 
 function eliminar_elemento(id, nombreArchivoDescarga, nombreArchivoPrevisualizacion) {
@@ -81,7 +94,19 @@ function crear_elemento() {
         archivo_pelicula.length > 0 &&
         archivo_pelicula_prev.length > 0) {
 
-        if (!regexExtensionPelicula.test(nombre_archivo_pelicula) || !regexExtensionPelicula.test(nombre_previsualizacion_pelicula)) {
+        if (!es_archivo_unico(nombre_archivo_pelicula)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El nombre de archivo de pelicula ingresado ya existe.',
+            })
+        } else if (!es_archivo_unico(nombre_previsualizacion_pelicula)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El nombre de archivo de previsualizacion ingresado ya existe.',
+            })
+        } else if (!regexExtensionPelicula.test(nombre_archivo_pelicula) || !regexExtensionPelicula.test(nombre_previsualizacion_pelicula)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
@@ -92,6 +117,12 @@ function crear_elemento() {
                 icon: 'error',
                 title: 'Error',
                 text: 'Los archivos de pelicula y previsualizacion no pueden tener el mismo nombre.',
+            })
+        } else if (archivo_pelicula[0].size / 1024 / 1024 / 1024 > 1 || archivo_pelicula_prev[0].size / 1024 / 1024 / 1024 > 1) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No se permiten archivos mayores a 1GB',
             })
         } else {
 
@@ -133,6 +164,7 @@ function cargar_elementos() {
         })
         .then(function (response) {
             let json = JSON.parse(response);
+            registrosPeliculas = json;
             renderizar(json, contenedor_id);
         })
         .catch(function (err) {
@@ -255,6 +287,10 @@ function guardar_cambios() {
     const editar_nombre_descarga_pelicula = document.getElementsByClassName("editar_nombre_descarga_pelicula")[0].value
     const editar_nombre_previsualizacion_pelicula = document.getElementsByClassName("editar_nombre_previsualizacion_pelicula")[0].value
     const editar_monto = document.getElementsByClassName("editar_monto")[0].value
+    const editar_archivo_pelicula = document.getElementsByClassName("editar_archivo_pelicula")[0].files
+    const editar_archivo_pelicula_prev = document.getElementsByClassName("editar_archivo_pelicula_prev")[0].files
+    const viejo_nombre_descarga_pelicula = document.getElementsByClassName("viejo_nombre_descarga_pelicula")[0].value
+    const viejo_nombre_previsualizacion_pelicula = document.getElementsByClassName("viejo_nombre_previsualizacion_pelicula")[0].value
 
     if (editar_id != "" &&
         editar_nombre != "" &&
@@ -278,7 +314,19 @@ function guardar_cambios() {
             "monto": editar_monto
         };
 
-        if (!regexExtensionPelicula.test(editar_nombre_descarga_pelicula) || !regexExtensionPelicula.test(editar_nombre_previsualizacion_pelicula)) {
+        if ((editar_nombre_descarga_pelicula != viejo_nombre_descarga_pelicula) && !es_archivo_unico(editar_nombre_descarga_pelicula)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El nombre de archivo de pelicula ingresado ya existe.',
+            })
+        } else if ((editar_nombre_previsualizacion_pelicula != viejo_nombre_previsualizacion_pelicula) && !es_archivo_unico(editar_nombre_previsualizacion_pelicula)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El nombre de archivo de previsualizacion ingresado ya existe.',
+            })
+        } else if (!regexExtensionPelicula.test(editar_nombre_descarga_pelicula) || !regexExtensionPelicula.test(editar_nombre_previsualizacion_pelicula)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
@@ -289,6 +337,13 @@ function guardar_cambios() {
                 icon: 'error',
                 title: 'Error',
                 text: 'Los archivos de pelicula y previsualizacion no pueden tener el mismo nombre.',
+            })
+        } else if ((editar_archivo_pelicula.length > 0 && editar_archivo_pelicula[0].size / 1024 / 1024 / 1024 > 1) ||
+            (editar_archivo_pelicula_prev.length > 0 && editar_archivo_pelicula_prev[0].size / 1024 / 1024 / 1024 > 1)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No se permiten archivos mayores a 1GB',
             })
         } else {
             fetch(url, {

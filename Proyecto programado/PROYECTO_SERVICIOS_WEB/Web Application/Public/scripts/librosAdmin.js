@@ -1,27 +1,40 @@
 ﻿const url = "https://localhost:44371/api/libro";
 const urlCategoria = "https://localhost:44371/api/categorias_libros";
-regexExtensionLibro = new RegExp("(.*?)\.(pdf)$");
+let regexExtensionLibro = new RegExp("(.*?)\.(pdf)$");
+let registrosLibros;
 
 function traer_categorias() {
     fetch(urlCategoria)
-        .then(function (response) {
-            return response.text();
-        })
-        .then(function (response) {
-            let json = JSON.parse(response);
-            let html = '<option value="">Ninguno</option>';
-            if (json) {
+    .then(function (response) {
+        return response.text();
+    })
+    .then(function (response) {
+        let json = JSON.parse(response);
+        let html = '<option value="">Ninguno</option>';
+        if (json) {
 
-                for (let index = 0; index < json.length; index++) {
-                    html += `<option value="${json[index].categoria}">${json[index].categoria}</option>`;
-                }
+            for (let index = 0; index < json.length; index++) {
+                html += `<option value="${json[index].categoria}">${json[index].categoria}</option>`;
             }
-            document.getElementById("crearCategoria").innerHTML = html;
-            document.getElementById("editarCategoria").innerHTML = html;
-        })
-        .catch(function (err) {
-            console.error(err);
-        });
+        }
+        document.getElementById("crearCategoria").innerHTML = html;
+        document.getElementById("editarCategoria").innerHTML = html;
+    })
+    .catch(function (err) {
+        console.error(err);
+    });
+}
+
+function es_archivo_unico(nombre) {
+    if (registrosLibros) {
+        for (let index = 0; index < registrosLibros.length; index++) {
+            if (registrosLibros[index].nombreArchivoDescarga == nombre ||
+                registrosLibros[index].nombreArchivoPrevisualizacion == nombre) {
+                return false;
+            }
+        }
+    }
+    return true
 }
 
 function eliminar_elemento(id, nombreArchivoDescarga, nombreArchivoPrevisualizacion) {
@@ -95,7 +108,19 @@ function crear_elemento() {
             "monto": crear_monto
         };
 
-        if (!regexExtensionLibro.test(nombre_archivo_libro) || !regexExtensionLibro.test(nombre_previsualizacion_libro)) {
+        if (!es_archivo_unico(nombre_archivo_libro)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El nombre de archivo de libro ingresado ya existe.',
+            })
+        } else if (!es_archivo_unico(nombre_previsualizacion_libro)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El nombre de archivo de previsualizacion ingresado ya existe.',
+            })
+        } else if (!regexExtensionLibro.test(nombre_archivo_libro) || !regexExtensionLibro.test(nombre_previsualizacion_libro)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
@@ -106,6 +131,12 @@ function crear_elemento() {
                 icon: 'error',
                 title: 'Error',
                 text: 'Los archivos de libros y previsualizacion no pueden tener el mismo nombre.',
+            })
+        } else if (archivo_libro[0].size / 1024 / 1024 / 1024 > 1 || archivo_libro_prev[0].size / 1024 / 1024 / 1024 > 1) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No se permiten archivos mayores a 1GB',
             })
         } else {
             fetch(url, {
@@ -135,6 +166,7 @@ function cargar_elementos() {
         })
         .then(function (response) {
             let json = JSON.parse(response);
+            registrosLibros = json;
             renderizar(json, contenedor_id);
         })
         .catch(function (err) {
@@ -261,6 +293,10 @@ function guardar_cambios() {
     const editar_nombre_descarga_libro = document.getElementsByClassName("editar_nombre_descarga_libro")[0].value
     const editar_nombre_previsualizacion_libro = document.getElementsByClassName("editar_nombre_previsualizacion_libro")[0].value
     const editar_monto = document.getElementsByClassName("editar_monto")[0].value
+    const editar_archivo_libro = document.getElementsByClassName("editar_archivo_libro")[0].files
+    const editar_archivo_libro_prev = document.getElementsByClassName("editar_archivo_libro_prev")[0].files
+    const viejo_nombre_descarga_libro = document.getElementsByClassName("viejo_nombre_descarga_libro")[0].value
+    const viejo_nombre_previsualizacion_libro = document.getElementsByClassName("viejo_nombre_previsualizacion_libro")[0].value
 
     if (editar_id != "" &&
         editar_nombre != "" &&
@@ -286,7 +322,19 @@ function guardar_cambios() {
             "monto": editar_monto
         };
 
-        if (!regexExtensionLibro.test(editar_nombre_descarga_libro) || !regexExtensionLibro.test(editar_nombre_previsualizacion_libro)) {
+        if ((editar_nombre_descarga_libro != viejo_nombre_descarga_libro) && !es_archivo_unico(editar_nombre_descarga_libro)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El nombre de archivo de musica ingresado ya existe.',
+            })
+        } else if ((editar_nombre_previsualizacion_libro != viejo_nombre_previsualizacion_libro) && !es_archivo_unico(editar_nombre_previsualizacion_libro)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El nombre de archivo de previsualizacion ingresado ya existe.',
+            })
+        } else if (!regexExtensionLibro.test(editar_nombre_descarga_libro) || !regexExtensionLibro.test(editar_nombre_previsualizacion_libro)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
@@ -297,6 +345,13 @@ function guardar_cambios() {
                 icon: 'error',
                 title: 'Error',
                 text: 'Los archivos de libros y previsualizacion no pueden tener el mismo nombre.',
+            })
+        } else if ((editar_archivo_libro.length > 0 && editar_archivo_libro[0].size / 1024 / 1024 / 1024 > 1) ||
+            (editar_archivo_libro_prev.length > 0 && editar_archivo_libro_prev[0].size / 1024 / 1024 / 1024 > 1)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No se permiten archivos mayores a 1GB',
             })
         } else {
             fetch(url, {

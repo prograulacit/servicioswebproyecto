@@ -1,12 +1,9 @@
 ﻿using BLL.Logica;
 using BLL.Objeto;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Web_Application.Paginas.Backend
 {
@@ -21,141 +18,93 @@ namespace Web_Application.Paginas.Backend
             {
                 Response.Redirect("~/Paginas/Backend/Index.aspx");
             }
+
+            if (!IsPostBack)
+            {
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
+            }
         }
 
         protected void subirArchivosLibro_Click(object sender, EventArgs e)
         {
-            Parametros parametros = new Parametros();
-            string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
-            string rutaArchivo = rutaPrincipal + "\\" + nombreArchivoLibro.Value.ToString();
-            bool exitoArchivo = false;
-            bool exitoArchivoPrev = false;
-
-            if (!File.Exists(rutaArchivo))
+            if (Session["update"].ToString() == ViewState["update"].ToString())
             {
-                archivoLibro.PostedFile.SaveAs(rutaArchivo);
-                exitoArchivo = true;
-            }
-
-            //Subida archivo libro previsualizacion
-            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
-            string rutaArchivoPrev = rutaPrincipalPrev + "\\" + nombrePrevisualizacionLibro.Value.ToString();
-            if (exitoArchivo && !File.Exists(rutaArchivoPrev))
-            {
-                archivoLibroPrev.PostedFile.SaveAs(rutaArchivoPrev);
-                exitoArchivoPrev = true;
-            }
-
-            if (exitoArchivo && exitoArchivoPrev)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoCrear", "exitoMensaje('Elemento creado con exito')", true);
-            }
-            else
-            {
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "eliminar_ultima", "eliminar_elemento('"+ ultimaMusicaId.Value + "', 'null', 'null')", true);
+                try
+                {
+                    Parametros parametros = new Parametros();
+                    string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
+                    string rutaArchivo = rutaPrincipal + "\\" + nombreArchivoLibro.Value.ToString();
+                    string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
+                    string rutaArchivoPrev = rutaPrincipalPrev + "\\" + nombrePrevisualizacionLibro.Value.ToString();
+                    archivoLibro.PostedFile.SaveAs(rutaArchivo);
+                    archivoLibroPrev.PostedFile.SaveAs(rutaArchivoPrev);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoCrear", "exitoMensaje('Elemento creado con exito')", true);
+                }
+                catch (Exception ex)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                }
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
         }
 
 
         protected void editarArchivosLibro_Click(object sender, EventArgs e)
         {
-            Parametros parametros = new Parametros();
-            string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
-            string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
-            string rutaArchivoViejo = rutaPrincipal + "\\" + viejoNombreDescargaLibro.Value;
-            string rutaArchivoNuevo = rutaPrincipal + "\\" + editarNombreDescargaLibro.Value;
-            string rutaArchivoViejoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionLibro.Value;
-            string rutaArchivoNuevoPrev = rutaPrincipalPrev + "\\" + editarNombrePrevisualizacionLibro.Value;
-            string errorMensaje = "";
-            bool exitoArchivo = true;
-            bool exitoArchivoPrev = true;
+            if (Session["update"].ToString() == ViewState["update"].ToString())
+            {
+                try
+                {
+                    Parametros parametros = new Parametros();
+                    string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
+                    string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
+                    string rutaArchivoViejo = rutaPrincipal + "\\" + viejoNombreDescargaLibro.Value;
+                    string rutaArchivoNuevo = rutaPrincipal + "\\" + editarNombreDescargaLibro.Value;
+                    string rutaArchivoViejoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionLibro.Value;
+                    string rutaArchivoNuevoPrev = rutaPrincipalPrev + "\\" + editarNombrePrevisualizacionLibro.Value;
 
-            if ((editarArchivoLibro.PostedFile.ContentLength == 0) && (viejoNombreDescargaLibro.Value != editarNombreDescargaLibro.Value) && File.Exists(rutaArchivoViejo))
-            {
-                //Editar solo ruta archivo libro
-                if (!File.Exists(rutaArchivoNuevo))
-                {
-                    File.Move(rutaArchivoViejo, rutaArchivoNuevo);
-                }
-                else
-                {
-                    exitoArchivo = false;
-                    errorMensaje = "El archivo de libro ya existe. Por favor, ingresar otro nombre de archivo.";
-                }
-            }
-            else if ((editarArchivoLibro.PostedFile.ContentLength > 0) && (viejoNombreDescargaLibro.Value != editarNombreDescargaLibro.Value) && File.Exists(rutaArchivoViejo))
-            {
-                //Editar archivo de libro y ruta
-                if (!File.Exists(rutaArchivoNuevo))
-                {
-                    File.Delete(rutaArchivoViejo);
-                    editarArchivoLibro.PostedFile.SaveAs(rutaArchivoNuevo);
-                }
-                else
-                {
-                    exitoArchivo = false;
-                    errorMensaje = "El archivo de libro ya existe. Por favor, ingresar otro nombre de archivo.";
-                }
-            }
-            else if ((editarArchivoLibro.PostedFile.ContentLength > 0) && (viejoNombreDescargaLibro.Value == editarNombreDescargaLibro.Value) && File.Exists(rutaArchivoViejo))
-            {
-                //Editar archivo de libro
-                File.Delete(rutaArchivoViejo);
-                editarArchivoLibro.PostedFile.SaveAs(rutaArchivoViejo);
-            }
-
-            if ((editarArchivoLibroPrev.PostedFile.ContentLength == 0) && (viejoNombrePrevisualizacionLibro.Value != editarNombrePrevisualizacionLibro.Value) && File.Exists(rutaArchivoViejoPrev))
-            {
-                //Editar solo ruta archivo previsualizacion libro
-                if (!File.Exists(rutaArchivoNuevoPrev))
-                {
-                    File.Move(rutaArchivoViejoPrev, rutaArchivoNuevoPrev);
-                }
-                else
-                {
-                    exitoArchivoPrev = false;
-                    errorMensaje = "El archivo de previsualizacion ya existe. Por favor, ingresar otro nombre de archivo.";
-
-                    if (File.Exists(rutaArchivoNuevo))
+                    if ((editarArchivoLibro.PostedFile.ContentLength == 0) && (viejoNombreDescargaLibro.Value != editarNombreDescargaLibro.Value) && File.Exists(rutaArchivoViejo))
                     {
-                        File.Delete(rutaArchivoNuevo);
+                        //Editar solo ruta archivo libro
+                        File.Move(rutaArchivoViejo, rutaArchivoNuevo);
                     }
-                }
-            }
-            else if ((editarArchivoLibroPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionLibro.Value != editarNombrePrevisualizacionLibro.Value) && File.Exists(rutaArchivoViejoPrev))
-            {
-                //Editar archivo de libro previsualizacion y ruta
-                if (!File.Exists(rutaArchivoNuevoPrev))
-                {
-                    File.Delete(rutaArchivoViejoPrev);
-                    editarArchivoLibroPrev.PostedFile.SaveAs(rutaArchivoNuevoPrev);
-                }
-                else
-                {
-                    exitoArchivoPrev = false;
-                    errorMensaje = "El archivo de previsualizacion ya existe. Por favor, ingresar otro nombre de archivo.";
-
-                    if (File.Exists(rutaArchivoNuevo))
+                    else if ((editarArchivoLibro.PostedFile.ContentLength > 0) && (viejoNombreDescargaLibro.Value != editarNombreDescargaLibro.Value) && File.Exists(rutaArchivoViejo))
                     {
-                        File.Delete(rutaArchivoNuevo);
+                        //Editar archivo de libro y ruta
+                        File.Delete(rutaArchivoViejo);
+                        editarArchivoLibro.PostedFile.SaveAs(rutaArchivoNuevo);
                     }
-                }
-            }
-            else if ((editarArchivoLibroPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionLibro.Value == editarNombrePrevisualizacionLibro.Value) && File.Exists(rutaArchivoViejoPrev))
-            {
-                //Editar archivo de libro previsualizacion
-                File.Delete(rutaArchivoViejoPrev);
-                editarArchivoLibroPrev.PostedFile.SaveAs(rutaArchivoViejoPrev);
-            }
+                    else if ((editarArchivoLibro.PostedFile.ContentLength > 0) && (viejoNombreDescargaLibro.Value == editarNombreDescargaLibro.Value) && File.Exists(rutaArchivoViejo))
+                    {
+                        //Editar solo archivo de libro
+                        File.Delete(rutaArchivoViejo);
+                        editarArchivoLibro.PostedFile.SaveAs(rutaArchivoViejo);
+                    }
 
-            if (exitoArchivo && exitoArchivoPrev)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoCrear", "exitoMensaje('Elemento actualizado con exito')", true);
-            }
-            else
-            {
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "eliminar_ultima", "eliminar_ultima()", true);
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('" + errorMensaje + "')", true);
+                    if ((editarArchivoLibroPrev.PostedFile.ContentLength == 0) && (viejoNombrePrevisualizacionLibro.Value != editarNombrePrevisualizacionLibro.Value) && File.Exists(rutaArchivoViejoPrev))
+                    {
+                        //Editar solo ruta archivo previsualizacion libro
+                        File.Move(rutaArchivoViejoPrev, rutaArchivoNuevoPrev);
+                    }
+                    else if ((editarArchivoLibroPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionLibro.Value != editarNombrePrevisualizacionLibro.Value) && File.Exists(rutaArchivoViejoPrev))
+                    {
+                        //Editar archivo de libro previsualizacion y ruta
+                        File.Delete(rutaArchivoViejoPrev);
+                        editarArchivoLibroPrev.PostedFile.SaveAs(rutaArchivoNuevoPrev);
+                    }
+                    else if ((editarArchivoLibroPrev.PostedFile.ContentLength > 0) && (viejoNombrePrevisualizacionLibro.Value == editarNombrePrevisualizacionLibro.Value) && File.Exists(rutaArchivoViejoPrev))
+                    {
+                        //Editar solo archivo de libro previsualizacion
+                        File.Delete(rutaArchivoViejoPrev);
+                        editarArchivoLibroPrev.PostedFile.SaveAs(rutaArchivoViejoPrev);
+                    }
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoCrear", "exitoMensaje('Elemento actualizado con exito')", true);
+                }
+                catch (Exception ex)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                }
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
         }
 
@@ -167,20 +116,21 @@ namespace Web_Application.Paginas.Backend
             {
                 string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
                 string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
-
-                if ((viejoNombreDescargaLibro.Value != "") && (viejoNombrePrevisualizacionLibro.Value != ""))
-                {
-                    string rutaArchivo = rutaPrincipal + "\\" + viejoNombreDescargaLibro.Value;
-                    string rutaArchivoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionLibro.Value;
-                    if (File.Exists(rutaArchivo)) { File.Delete(rutaArchivo); }
-                    if (File.Exists(rutaArchivoPrev)) { File.Delete(rutaArchivoPrev); }
-                }
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoMensaje", "exitoMensaje('El elemento ha sido eliminado con exito.')", true);
+                string rutaArchivo = rutaPrincipal + "\\" + viejoNombreDescargaLibro.Value;
+                string rutaArchivoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionLibro.Value;
+                if (File.Exists(rutaArchivo)) { File.Delete(rutaArchivo); }
+                if (File.Exists(rutaArchivoPrev)) { File.Delete(rutaArchivoPrev); }
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoMensaje", "exitoMensaje('Elemento eliminado con exito.')", true);
             }
             catch (Exception ex)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
             }
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
+            ViewState["update"] = Session["update"];
         }
     }
 }
