@@ -110,21 +110,24 @@ namespace Web_Application.Paginas.Backend
 
         protected void eliminarArchivoLibro_Click(object sender, EventArgs e)
         {
-            Parametros parametros = new Parametros();
-
-            try
+            if (Session["update"].ToString() == ViewState["update"].ToString())
             {
-                string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
-                string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
-                string rutaArchivo = rutaPrincipal + "\\" + viejoNombreDescargaLibro.Value;
-                string rutaArchivoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionLibro.Value;
-                if (File.Exists(rutaArchivo)) { File.Delete(rutaArchivo); }
-                if (File.Exists(rutaArchivoPrev)) { File.Delete(rutaArchivoPrev); }
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoMensaje", "exitoMensaje('Elemento eliminado con exito.')", true);
-            }
-            catch (Exception ex)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                try
+                {
+                    Parametros parametros = new Parametros();
+                    string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoLibros;
+                    string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionLibros;
+                    string rutaArchivo = rutaPrincipal + "\\" + viejoNombreDescargaLibro.Value;
+                    string rutaArchivoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionLibro.Value;
+                    if (File.Exists(rutaArchivo)) { File.Delete(rutaArchivo); }
+                    if (File.Exists(rutaArchivoPrev)) { File.Delete(rutaArchivoPrev); }
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoMensaje", "exitoMensaje('Elemento eliminado con exito.')", true);
+                }
+                catch (Exception ex)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                }
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
         }
 

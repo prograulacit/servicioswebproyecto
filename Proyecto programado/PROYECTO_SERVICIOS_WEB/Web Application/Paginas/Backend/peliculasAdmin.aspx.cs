@@ -110,22 +110,31 @@ namespace Web_Application.Paginas.Backend
 
         protected void eliminarArchivoPelicula_Click(object sender, EventArgs e)
         {
-            Parametros parametros = new Parametros();
+            if (Session["update"].ToString() == ViewState["update"].ToString())
+            {
+                try
+                {
+                    Parametros parametros = new Parametros();
+                    string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoPeliculas;
+                    string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionPeliculas;
+                    string rutaArchivo = rutaPrincipal + "\\" + viejoNombreDescargaPelicula.Value;
+                    string rutaArchivoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionPelicula.Value;
+                    if (File.Exists(rutaArchivo)) { File.Delete(rutaArchivo); }
+                    if (File.Exists(rutaArchivoPrev)) { File.Delete(rutaArchivoPrev); }
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoMensaje", "exitoMensaje('Elemento eliminado con exito.')", true);
+                }
+                catch (Exception ex)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                }
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
+            }
+                
+        }
 
-            try
-            {
-                string rutaPrincipal = parametros.traerParametros().First().rutaAlmacenamientoPeliculas;
-                string rutaPrincipalPrev = parametros.traerParametros().First().rutaAlmacenamientoPrevisualizacionPeliculas;
-                string rutaArchivo = rutaPrincipal + "\\" + viejoNombreDescargaPelicula.Value;
-                string rutaArchivoPrev = rutaPrincipalPrev + "\\" + viejoNombrePrevisualizacionPelicula.Value;
-                if (File.Exists(rutaArchivo)) { File.Delete(rutaArchivo); }
-                if (File.Exists(rutaArchivoPrev)) { File.Delete(rutaArchivoPrev); }
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "exitoMensaje", "exitoMensaje('Elemento eliminado con exito.')", true);
-            }
-            catch (Exception ex)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
-            }
+        protected override void OnPreRender(EventArgs e)
+        {
+            ViewState["update"] = Session["update"];
         }
     }
 }
