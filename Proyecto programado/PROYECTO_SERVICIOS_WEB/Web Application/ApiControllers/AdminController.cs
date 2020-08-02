@@ -47,7 +47,7 @@ namespace Web_Application.ApiControllers
             // Se actualiza el id de la pelicula como prefijo+numConsecuvito.
             // Ejemplo: ele4 .
             admin.id =
-                registro_de_consecutivo.prefijo + registro_de_consecutivo.descripcion;
+                registro_de_consecutivo.prefijo + (int.Parse(registro_de_consecutivo.descripcion) + 1);
 
             // Aumentamos el valor "descripcion" del consecutivo en 1.
             string valorDescripcionAumentadoEn1 =
