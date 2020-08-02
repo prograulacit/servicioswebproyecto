@@ -134,7 +134,11 @@ function guardar_cambios() {
         }).then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then((response) => {
-                console.log("Success: " + response);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Hecho',
+                    text: 'Consecutivo actualizado con exito',
+                })
                 cargar_elementos();
             });
 

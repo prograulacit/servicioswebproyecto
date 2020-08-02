@@ -28,11 +28,11 @@ namespace Web_Application.Paginas.Compartido
         {
             if (Memoria.sesionDeAdmin)
             {
-                Bitacora b = new Bitacora();
-                b.guardarBitacora_interfazDeUsuario("Cierre de sesion"
-                    , "Admin a cerrado su sesion"
-                    , $"El administrador {Memoria.sesionAdminDatos.nombreUsuario} a salido del " +
-                    $"sistema.");
+                //Bitacora b = new Bitacora();
+                //b.guardarBitacora_interfazDeUsuario("Cierre de sesion"
+                //    , "Admin a cerrado su sesion"
+                //    , $"El administrador {Memoria.sesionAdminDatos.nombreUsuario} a salido del " +
+                //    $"sistema.");
 
                 Admin admin = new Admin();
 

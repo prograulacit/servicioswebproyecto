@@ -128,7 +128,7 @@ namespace DATABASE_HANDLER
             string[] valores_transaccion = {
                 "transaccion"
                 ,"transaccion"
-                ,"1"
+                ,"0"
                 ,"tra"
                 ,"0"
                 ,"200" };
@@ -150,7 +150,7 @@ namespace DATABASE_HANDLER
             string[] valores_pelicula = {
                 "pelicula"
                 ,"pelicula"
-                ,"1"
+                ,"0"
                 ,"pel"
                 ,"0"
                 ,"200" };
@@ -172,7 +172,7 @@ namespace DATABASE_HANDLER
             string[] valores_musica = {
                 "musica"
                 ,"musica"
-                ,"1"
+                ,"0"
                 ,"mus"
                 ,"0"
                 ,"200" };
@@ -194,7 +194,7 @@ namespace DATABASE_HANDLER
             string[] valores_libro = {
                 "libro"
                 ,"libro"
-                ,"1"
+                ,"0"
                 ,"lib"
                 ,"0"
                 ,"200" };

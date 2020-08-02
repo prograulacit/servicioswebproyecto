@@ -111,6 +111,19 @@ namespace BLL.Logica
             return conversor_integerInverso(valorDescripcionAumentadoEn1);
         }
 
+        /// <summary>
+        /// Recibe un Consecutivo. Retorna su valor descripcion disminuido en 1 en string.
+        /// </summary>
+        /// <param name="consecutivo">Numero en string. Ejemplo: "4".</param>
+        /// <returns>Retorna Int disminuido en 1. Si el valor es "4", retorna 3.</returns>
+        public static string disminuirColumnaDeConsecutivoEn1(Consecutivo consecutivo)
+        {
+            int valorDescripcionActual = conversor_integer(consecutivo.descripcion);
+            int valorDescripcionDisminuidoEn1 =
+                valorDescripcionActual = valorDescripcionActual - 1;
+            return conversor_integerInverso(valorDescripcionDisminuidoEn1);
+        }
+
         // Recibe parametros de una bitacora, crea un objeto bitacora y
         // la guarda automaticamente en la base de datos.
         public static void guardarRegistro_bitacora(string nombreUsuarioAdmin
