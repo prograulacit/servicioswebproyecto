@@ -45,8 +45,8 @@ namespace Web_Application.ApiControllers
 
             // Se actualiza el id de la pelicula como prefijo+numConsecuvito.
             // Ejemplo: pel4 .
-            pelicula.id = 
-                registro_de_consecutivo.prefijo + registro_de_consecutivo.descripcion;
+            pelicula.id =
+                registro_de_consecutivo.prefijo + (int.Parse(registro_de_consecutivo.descripcion) + 1);
 
             // Aumentamos el valor "descripcion" del consecutivo en 1.
             string valorDescripcionAumentadoEn1 =
@@ -109,6 +109,13 @@ namespace Web_Application.ApiControllers
         {
             Pelicula pelicula = new Pelicula();
             pelicula.eliminarPelicula(id);
+
+            // Disminuimos el valor "descripcion" del consecutivo en 1.
+            Consecutivo consecutivo = new Consecutivo();
+            Consecutivo registro_de_consecutivo = consecutivo.traerConsecutivo_registroReflejadoEnDB("pelicula");
+            string valorDescripcionDisminuidoEn1 = Tareas.disminuirColumnaDeConsecutivoEn1(registro_de_consecutivo);
+            registro_de_consecutivo.descripcion = valorDescripcionDisminuidoEn1;
+            consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
 
             // Agregar registro en bitacora
             Bitacora bitacora = new Bitacora();

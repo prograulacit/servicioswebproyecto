@@ -42,7 +42,7 @@ namespace Web_Application.Paginas.Backend
                 }
                 catch (Exception ex)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                    System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
                 }
                 Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
@@ -102,7 +102,7 @@ namespace Web_Application.Paginas.Backend
                 }
                 catch (Exception ex)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                    System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
                 }
                 Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
@@ -127,7 +127,7 @@ namespace Web_Application.Paginas.Backend
                 }
                 catch (Exception ex)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "errorMensaje", "errorMensaje('Error: " + ex.Message + "')", true);
+                    System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
                 }
                 Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }

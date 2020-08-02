@@ -51,7 +51,7 @@ namespace Web_Application.ApiControllers
             // Se actualiza el id del libro como prefijo+numConsecuvito.
             // Ejemplo: lib4 .
             musica.id =
-                registro_de_consecutivo.prefijo + registro_de_consecutivo.descripcion;
+                registro_de_consecutivo.prefijo + (int.Parse(registro_de_consecutivo.descripcion) + 1);
 
             // Aumentamos el valor "descripcion" del consecutivo en 1.
             string valorDescripcionAumentadoEn1 =
@@ -119,6 +119,13 @@ namespace Web_Application.ApiControllers
         {
             Musica musica = new Musica();
             musica.eliminarMusica(id);
+
+            // Disminuimos el valor "descripcion" del consecutivo en 1.
+            Consecutivo consecutivo = new Consecutivo();
+            Consecutivo registro_de_consecutivo = consecutivo.traerConsecutivo_registroReflejadoEnDB("musica");
+            string valorDescripcionDisminuidoEn1 = Tareas.disminuirColumnaDeConsecutivoEn1(registro_de_consecutivo);
+            registro_de_consecutivo.descripcion = valorDescripcionDisminuidoEn1;
+            consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
 
             // Agregar registro en bitacora
             Bitacora bitacora = new Bitacora();

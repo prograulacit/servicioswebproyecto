@@ -6,23 +6,35 @@
 }
 
 function filtro_fecha_inicio(array, columna, fecha) {
+    const viejaFecha = fecha.split("/");
+    const nuevaFecha = viejaFecha.join("-");
+    const fechaInput = new Date(`${nuevaFecha} 00:00`);
+    fechaInput.setHours(0, 0, 0, 0);
+
     let resultado = array.filter((item) => {
-        const fecha1 = new Date(item[columna]);
-        const fecha2 = new Date(fecha);
-        fecha1.setHours(0, 0, 0, 0);
-        fecha2.setHours(0, 0, 0, 0);
-        return fecha1.getTime() >= fecha2.getTime();
+        const viejaFechaItem = (item[columna]).split(" ");
+        const nuevaFechaItem = `${viejaFechaItem[0]}  00:00`;
+
+        console.log("fecha tabla raw: " + nuevaFechaItem)
+        const fechaItem = new Date(nuevaFechaItem);
+        fechaItem.setHours(0, 0, 0, 0);
+        return fechaItem.getDate() >= fechaInput.getDate();
     });
     return resultado;
 }
 
 function filtro_fecha_final(array, columna, fecha) {
+    const viejaFecha = fecha.split("/");
+    const nuevaFecha = viejaFecha.join("-");
+    const fechaInput = new Date(`${nuevaFecha} 00:00`);
+    fechaInput.setHours(0, 0, 0, 0);
+
     let resultado = array.filter((item) => {
-        const fecha1 = new Date(item[columna]);
-        const fecha2 = new Date(fecha);
-        fecha1.setHours(0, 0, 0, 0);
-        fecha2.setHours(0, 0, 0, 0);
-        return fecha1.getTime() <= fecha2.getTime();
+        const viejaFechaItem = (item[columna]).split(" ");
+        const nuevaFechaItem = `${viejaFechaItem[0]}  00:00`;
+        const fechaItem = new Date(nuevaFechaItem);
+        fechaItem.setHours(0, 0, 0, 0);
+        return fechaItem.getDate() <= fechaInput.getDate();
     });
     return resultado;
 }
@@ -30,8 +42,10 @@ function filtro_fecha_final(array, columna, fecha) {
 function filtro_fecha_actual_diaria(array, columna) {
     let resultado = array.filter((item) => {
         const today = new Date();
-        const fecha1 = new Date(item[columna]);
-        return fecha1.getDay() === today.getDay();
+        const viejaFechaItem = (item[columna]).split(" ");
+        const nuevaFechaItem = `${viejaFechaItem[0]}  00:00`;
+        const fechaItem = new Date(nuevaFechaItem);
+        return fechaItem.getDay() === today.getDay();
     });
     return resultado;
 }
@@ -39,8 +53,10 @@ function filtro_fecha_actual_diaria(array, columna) {
 function filtro_fecha_actual_semanal(array, columna) {
     let resultado = array.filter((item) => {
         const today = new Date();
-        const fecha1 = new Date(item[columna]);
-        return fecha1.getDay() >= (today.getDay()-7) && fecha1.getDay() <= today.getDay();
+        const viejaFechaItem = (item[columna]).split(" ");
+        const nuevaFechaItem = `${viejaFechaItem[0]}  00:00`;
+        const fechaItem = new Date(nuevaFechaItem);
+        return fechaItem.getDay() >= (today.getDay() - 7) && fechaItem.getDay() <= today.getDay();
     });
     return resultado;
 }
@@ -48,8 +64,10 @@ function filtro_fecha_actual_semanal(array, columna) {
 function filtro_fecha_actual_mensual_actual(array, columna) {
     let resultado = array.filter((item) => {
         const today = new Date();
-        const fecha1 = new Date(item[columna]);
-        return fecha1.getMonth() === today.getMonth();
+        const viejaFechaItem = (item[columna]).split(" ");
+        const nuevaFechaItem = `${viejaFechaItem[0]}  00:00`;
+        const fechaItem = new Date(nuevaFechaItem);
+        return fechaItem.getMonth() === today.getMonth();
     });
     return resultado;
 }
@@ -57,8 +75,10 @@ function filtro_fecha_actual_mensual_actual(array, columna) {
 function filtro_fecha_actual_mensual_anterior(array, columna) {
     let resultado = array.filter((item) => {
         const today = new Date();
-        const fecha1 = new Date(item[columna]);
-        return fecha1.getMonth() === (today.getMonth() - 1);
+        const viejaFechaItem = (item[columna]).split(" ");
+        const nuevaFechaItem = `${viejaFechaItem[0]}  00:00`;
+        const fechaItem = new Date(nuevaFechaItem);
+        return fechaItem.getMonth() === (today.getMonth() - 1);
     });
     return resultado;
 }
@@ -66,8 +86,10 @@ function filtro_fecha_actual_mensual_anterior(array, columna) {
 function filtro_fecha_actual_trimestral(array, columna) {
     let resultado = array.filter((item) => {
         const today = new Date();
-        const fecha1 = new Date(item[columna]);
-        return (fecha1.getMonth() === today.getMonth()) || (fecha1.getMonth() === today.getMonth() - 1) || (fecha1.getMonth() === today.getMonth() - 2);
+        const viejaFechaItem = (item[columna]).split(" ");
+        const nuevaFechaItem = `${viejaFechaItem[0]}  00:00`;
+        const fechaItem = new Date(nuevaFechaItem);
+        return (fechaItem.getMonth() === today.getMonth()) || (fechaItem.getMonth() === today.getMonth() - 1) || (fechaItem.getMonth() === today.getMonth() - 2);
     });
     return resultado;
 }
@@ -75,9 +97,11 @@ function filtro_fecha_actual_trimestral(array, columna) {
 function filtro_fecha_actual_semestral(array, columna) {
     let resultado = array.filter((item) => {
         const today = new Date();
-        const fecha1 = new Date(item[columna]);
-        return (fecha1.getMonth() === today.getMonth()) || (fecha1.getMonth() === today.getMonth() - 1) || (fecha1.getMonth() === today.getMonth() - 2) ||
-            (fecha1.getMonth() === today.getMonth() - 3) || (fecha1.getMonth() === today.getMonth() - 4) || (fecha1.getMonth() === today.getMonth() - 5);
+        const viejaFechaItem = (item[columna]).split(" ");
+        const nuevaFechaItem = `${viejaFechaItem[0]}  00:00`;
+        const fechaItem = new Date(nuevaFechaItem);
+        return (fechaItem.getMonth() === today.getMonth()) || (fechaItem.getMonth() === today.getMonth() - 1) || (fechaItem.getMonth() === today.getMonth() - 2) ||
+            (fechaItem.getMonth() === today.getMonth() - 3) || (fechaItem.getMonth() === today.getMonth() - 4) || (fechaItem.getMonth() === today.getMonth() - 5);
     });
     return resultado;
 }
@@ -85,8 +109,10 @@ function filtro_fecha_actual_semestral(array, columna) {
 function filtro_fecha_actual_anual(array, columna) {
     let resultado = array.filter((item) => {
         const today = new Date();
-        const fecha1 = new Date(item[columna]);
-        return fecha1.getFullYear() === today.getFullYear();
+        const viejaFechaItem = (item[columna]).split(" ");
+        const nuevaFechaItem = `${viejaFechaItem[0]}  00:00`;
+        const fechaItem = new Date(nuevaFechaItem);
+        return fechaItem.getFullYear() === today.getFullYear();
     });
     return resultado;
 }

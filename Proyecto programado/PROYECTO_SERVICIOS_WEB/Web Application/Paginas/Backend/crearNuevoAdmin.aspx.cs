@@ -55,14 +55,14 @@ namespace Web_Application.Paginas.Backend
                 admin.crearNuevoAdmin_UI(admin);
 
                 // Guardamos una bitacora.
-                Bitacora b = new Bitacora();
-                b.guardarBitacora_interfazDeUsuario("Movimiento a otro admin"
-                    , "Un nuevo administrador a sido creado."
-                    , $"El administrador {Memoria.sesionAdminDatos.nombreUsuario} a " +
-                    $"creado un nuevo administrador con el nombre de usuario " +
-                    $"{nombreUsuario} el cual tiene los permisos de: AdminMaestro: {adminMaestro}, " +
-                    $"AdminSeguridad: {adminSeguridad}, AdminMantenimiento: {adminMantenimiento}, " +
-                    $"AdminConsultas: {adminConsultas}.");
+                //Bitacora b = new Bitacora();
+                //b.guardarBitacora_interfazDeUsuario("Movimiento a otro admin"
+                //    , "Un nuevo administrador a sido creado."
+                //    , $"El administrador {Memoria.sesionAdminDatos.nombreUsuario} a " +
+                //    $"creado un nuevo administrador con el nombre de usuario " +
+                //    $"{nombreUsuario} el cual tiene los permisos de: AdminMaestro: {adminMaestro}, " +
+                //    $"AdminSeguridad: {adminSeguridad}, AdminMantenimiento: {adminMantenimiento}, " +
+                //    $"AdminConsultas: {adminConsultas}.");
 
                 // Se da feedback al administrador en el user interface.
                 adminCreado_cambiosUI();
