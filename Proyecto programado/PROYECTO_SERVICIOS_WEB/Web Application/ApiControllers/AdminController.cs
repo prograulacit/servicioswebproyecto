@@ -122,6 +122,14 @@ namespace Web_Application.ApiControllers
             }
 
             admin.eliminarAdmin(id);
+
+            // Disminuimos el valor "descripcion" del consecutivo en 1.
+            Consecutivo consecutivo = new Consecutivo();
+            Consecutivo registro_de_consecutivo = consecutivo.traerConsecutivo_registroReflejadoEnDB("admin");
+            string valorDescripcionDisminuidoEn1 = Tareas.disminuirColumnaDeConsecutivoEn1(registro_de_consecutivo);
+            registro_de_consecutivo.descripcion = valorDescripcionDisminuidoEn1;
+            consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
+
             return "Admin " + id + " eliminado.";
         }
     }

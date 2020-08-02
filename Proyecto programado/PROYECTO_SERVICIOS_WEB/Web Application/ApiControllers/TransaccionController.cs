@@ -85,6 +85,14 @@ namespace Web_Application.ApiControllers
         {
             Transaccion transaccion = new Transaccion();
             transaccion.eliminarTransaccion(id);
+
+            // Disminuimos el valor "descripcion" del consecutivo en 1.
+            Consecutivo consecutivo = new Consecutivo();
+            Consecutivo registro_de_consecutivo = consecutivo.traerConsecutivo_registroReflejadoEnDB("transaccion");
+            string valorDescripcionDisminuidoEn1 = Tareas.disminuirColumnaDeConsecutivoEn1(registro_de_consecutivo);
+            registro_de_consecutivo.descripcion = valorDescripcionDisminuidoEn1;
+            consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
+
             return "Transaccion " + id + " eliminada.";
         }
     }
