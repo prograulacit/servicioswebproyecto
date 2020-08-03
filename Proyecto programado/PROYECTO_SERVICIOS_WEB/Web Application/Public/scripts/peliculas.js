@@ -8,6 +8,30 @@ function get_data_filtrada(array, llave, data_filtro) {
     return filtrado;
 }
 
+function traer_previsualizacion(nombreArchivo) {
+    fetch(`${apiURL}/api/pelicula/?archivoPrevisualizacion=${nombreArchivo}`, {
+        responseType: "arraybuffer"
+    })
+        .then(function (response) {
+            return response.blob();
+        })
+        .then(function (response) {
+            var objectURL = URL.createObjectURL(response);
+            html = `<source src="${objectURL}" type="video/mp4">`;
+            document.getElementById("pelicula_player").innerHTML = html;
+            document.getElementById("main_container").style.display = "none";
+            document.getElementById("video_container").style.display = "block";
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
+}
+
+function ir_a_tabla() {
+    document.getElementById("main_container").style.display = "block";
+    document.getElementById("video_container").style.display = "none";
+}
+
 function traer_generos() {
     fetch(urlGenero)
         .then(function (response) {
@@ -73,7 +97,7 @@ function cargar_peliculas(genero, nombre, anio, idioma, actores) {
                             <td>${json[index].id}</td>
                             <td>${json[index].nombre}</td>
                             <td>${json[index].genero}</td>
-                            <td><a href="/${json[index].nombreArchivoPrevisualizacion}">Ver</a></td>
+                            <td><a href="#" onclick="traer_previsualizacion('${json[index].nombreArchivoPrevisualizacion}')">Ver</a></td>
                             <td>comprar</td>
                         </tr>`;
             }
