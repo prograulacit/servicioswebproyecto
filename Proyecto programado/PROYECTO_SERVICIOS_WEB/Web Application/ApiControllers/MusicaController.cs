@@ -146,11 +146,11 @@ namespace Web_Application.ApiControllers
             musica.eliminarMusica(id);
 
             // Disminuimos el valor "descripcion" del consecutivo en 1.
-            Consecutivo consecutivo = new Consecutivo();
-            Consecutivo registro_de_consecutivo = consecutivo.traerConsecutivo_registroReflejadoEnDB("musica");
-            string valorDescripcionDisminuidoEn1 = Tareas.disminuirColumnaDeConsecutivoEn1(registro_de_consecutivo);
-            registro_de_consecutivo.descripcion = valorDescripcionDisminuidoEn1;
-            consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
+            //Consecutivo consecutivo = new Consecutivo();
+            //Consecutivo registro_de_consecutivo = consecutivo.traerConsecutivo_registroReflejadoEnDB("musica");
+            //string valorDescripcionDisminuidoEn1 = Tareas.disminuirColumnaDeConsecutivoEn1(registro_de_consecutivo);
+            //registro_de_consecutivo.descripcion = valorDescripcionDisminuidoEn1;
+            //consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
 
             // Agregar registro en bitacora
             Bitacora bitacora = new Bitacora();
