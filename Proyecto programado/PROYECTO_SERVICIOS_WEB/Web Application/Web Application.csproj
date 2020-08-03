@@ -133,6 +133,7 @@
     <Content Include="Paginas\Compartido\Login.aspx" />
     <Content Include="Paginas\Compartido\Registrarse.aspx" />
     <Content Include="Paginas\Frontend\ajustesUsuario.aspx" />
+    <Content Include="Paginas\Frontend\EasyPay.aspx" />
     <Content Include="Paginas\Frontend\eliminarCuenta.aspx" />
     <Content Include="Paginas\Frontend\Index.aspx" />
     <Content Include="Paginas\Frontend\Libros.aspx" />
@@ -173,6 +174,7 @@
     <Compile Include="ApiControllers\Categorias_librosController.cs" />
     <Compile Include="ApiControllers\ConsecutivoController.cs" />
     <Compile Include="ApiControllers\DescargasController.cs" />
+    <Compile Include="ApiControllers\EasyPayController.cs" />
     <Compile Include="ApiControllers\ErrorController.cs" />
     <Compile Include="ApiControllers\Generos_musicaController.cs" />
     <Compile Include="ApiControllers\Generos_peliculasController.cs" />
@@ -368,6 +370,13 @@
     </Compile>
     <Compile Include="Paginas\Frontend\ajustesUsuario.aspx.designer.cs">
       <DependentUpon>ajustesUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Frontend\EasyPay.aspx.cs">
+      <DependentUpon>EasyPay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Frontend\EasyPay.aspx.designer.cs">
+      <DependentUpon>EasyPay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Frontend\eliminarCuenta.aspx.cs">
       <DependentUpon>eliminarCuenta.aspx</DependentUpon>
