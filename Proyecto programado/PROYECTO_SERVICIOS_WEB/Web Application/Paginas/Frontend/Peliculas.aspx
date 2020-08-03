@@ -10,7 +10,7 @@
             <li class="breadcrumb-item active" aria-current="page">Películas</li>
         </ol>
     </nav>
-    <div class="container">
+    <div class="container" id="main_container">
         <div class="row">
             <div class="col-md-4">
                 <br />
@@ -45,6 +45,16 @@
             </div>
         </div>
     </div>
+
+    <div id="video_container" class="container" style="display:none">
+        <div class="column">
+            <a href="#" class="btn btn-secondary mb-4" onclick="ir_a_tabla()">Atras</a>
+            <div>
+                <video id="pelicula_player" width="480" height="320" controls="controls"></video>
+            </div>
+        </div>
+    </div>
+
     <script src="../../Public/scripts/peliculas.js"></script>
     <script>
         traer_generos();

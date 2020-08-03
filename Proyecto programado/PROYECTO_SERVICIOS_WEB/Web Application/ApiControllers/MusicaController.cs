@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
-using BLL.Logica;
+﻿using BLL.Logica;
 using BLL.Objeto;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Web.Http;
 
 namespace Web_Application.ApiControllers
 {
@@ -19,6 +24,26 @@ namespace Web_Application.ApiControllers
         public string Get(int id)
         {
             return "value";
+        }
+
+        // GET: api/Musica/?archivoPrevisualizacion=nombre_archivo
+        public HttpResponseMessage Get(string archivoPrevisualizacion)
+        {
+            Parametros parametros = new Parametros();
+            List<Parametros> lista_parametros = parametros.traerParametros();
+            string path = lista_parametros.First().rutaAlmacenamientoPrevisualizacionMusica + "\\" + archivoPrevisualizacion;
+
+            if (File.Exists(path))
+            {
+                HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
+                var stream = new FileStream(path, FileMode.Open);
+                result.Content = new StreamContent(stream);
+                result.Content.Headers.ContentType = new MediaTypeHeaderValue("audio/mp3");
+                result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
+                result.Content.Headers.ContentDisposition.FileName = archivoPrevisualizacion;
+                return result;
+            }
+            return new HttpResponseMessage(HttpStatusCode.NotFound);
         }
 
         // POST: api/Musica
