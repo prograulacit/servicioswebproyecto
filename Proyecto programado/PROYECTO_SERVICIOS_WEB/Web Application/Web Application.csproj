@@ -141,6 +141,7 @@
     <Content Include="Paginas\Frontend\Musica.aspx" />
     <Content Include="Paginas\Frontend\Peliculas.aspx" />
     <Content Include="Paginas\Frontend\tarjetas.aspx" />
+    <Content Include="Public\estilos\easypay.css" />
     <Content Include="Public\estilos\estilo_clientes.css" />
     <Content Include="Public\estilos\estilo_global.css" />
     <Content Include="Public\estilos\tarjetas.css" />
@@ -154,6 +155,7 @@
     <Content Include="Public\scripts\consultasDescargas.js" />
     <Content Include="Public\scripts\consultasErrores.js" />
     <Content Include="Public\scripts\consultasTransacciones.js" />
+    <Content Include="Public\scripts\EasyPay.js" />
     <Content Include="Public\scripts\generosMusica.js" />
     <Content Include="Public\scripts\generosPeliculas.js" />
     <Content Include="Public\scripts\librosAdmin.js" />

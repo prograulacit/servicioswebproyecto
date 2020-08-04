@@ -2,8 +2,6 @@
 const API_URI = "https://localhost:44371/api/tarjeta?user_id=asociada";
 const API_URI_ELIMINAR = "https://localhost:44371/api/tarjeta";
 
-cargar_tarjetas();
-
 function cargar_tarjetas() {
     fetch(API_URI)
         .then(function (response) {

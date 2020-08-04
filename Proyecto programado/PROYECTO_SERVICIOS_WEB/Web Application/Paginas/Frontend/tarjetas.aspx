@@ -65,4 +65,7 @@
         <asp:Label ID="Label_status_success" class="alert alert-success" runat="server" Text=""></asp:Label>
     </div>
     <script src="../../Public/scripts/tarjetas.js"></script>
+    <script>
+        cargar_tarjetas();
+    </script>
 </asp:Content>

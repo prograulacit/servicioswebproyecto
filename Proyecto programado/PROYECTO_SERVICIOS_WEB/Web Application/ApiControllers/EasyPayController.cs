@@ -14,23 +14,65 @@ namespace Web_Application.ApiControllers
             return ep.traer_easyPays();
         }
 
-        // GET: api/EasyPay/5
-        public EasyPay Get(string id)
+        /// <summary>
+        /// Envia al cliente una lista de EasyPays asociados
+        /// con el ID que se haya dado.
+        /// </summary>
+        /// <param name="user_id">ID del usuario. Si es
+        /// escrito como ID "asociada" se envia segun el usuario
+        /// logeado en memoria.</param>
+        /// <returns>Lista de tarjetas asociadas al usuario
+        /// cuyo ID fue dado.</returns>
+        public IEnumerable<EasyPay> Get(string user_id)
         {
-            EasyPay ep = new EasyPay();
+            EasyPay e = new EasyPay();
 
-            // Recorre todos los easypays
-            foreach (EasyPay e in ep.traer_easyPays()) 
+            if (!user_id.Equals("asociada"))
             {
-                if(e.id == id) // si encuentra coincidencia, lo retorna.
+                List<EasyPay> listaEasyPays_asociados =
+                e.traerEasyPays_UsuarioId(user_id);
+
+                if (listaEasyPays_asociados != null)
                 {
-                    return e;
+                    return listaEasyPays_asociados;
                 }
             }
-            return null; // retorna null si no fue encontrado.
+            else // Se requieren los easypays asociadas al usuario logeado en memoria.
+            {
+                if (Memoria.sesionUsuarioDatos != null)
+                {
+                    List<EasyPay> listaEasypays_asociados =
+                        e.traerEasyPays_UsuarioId(Memoria.sesionUsuarioDatos.id);
+
+                    if (listaEasypays_asociados != null)
+                    {
+                        return listaEasypays_asociados;
+                    }
+                }
+            }
+
+            // Si no hay tarjetas asociadas, retorna null.
+            return null;
         }
 
+        //// GET: api/EasyPay/5
+        //public EasyPay Get(string id)
+        //{
+        //    EasyPay ep = new EasyPay();
+
+        //    // Recorre todos los easypays
+        //    foreach (EasyPay e in ep.traer_easyPays()) 
+        //    {
+        //        if(e.id == id) // si encuentra coincidencia, lo retorna.
+        //        {
+        //            return e;
+        //        }
+        //    }
+        //    return null; // retorna null si no fue encontrado.
+        //}
+
         // POST: api/EasyPay
+
         public string Post([FromBody]EasyPay easypay)
         {
             #region Plantilla Postman -> Abrir para ver.

@@ -12,7 +12,7 @@ namespace Web_Application.Paginas.Frontend
         {
             if (!Memoria.sesionDeUsuario)
             {
-                //Response.Redirect("~/Paginas/Compartido/index.aspx");
+                Response.Redirect("~/Paginas/Compartido/index.aspx");
             }
 
             // Los dropdowns se rellenan solo la primera vez que la pagina

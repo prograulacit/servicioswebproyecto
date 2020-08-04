@@ -24,7 +24,7 @@ namespace Web_Application.ApiControllers
         /// escrito "asociada" se envia segun el usuario
         /// logeado en memoria.</param>
         /// <returns>Lista de tarjetas asociadas al usuario
-        /// cuto ID fue dado.</returns>
+        /// cuyo ID fue dado.</returns>
         public IEnumerable<Tarjeta> Get(string user_id)
         {
             Tarjeta t = new Tarjeta();
@@ -34,7 +34,7 @@ namespace Web_Application.ApiControllers
                 List<Tarjeta> listaTarjetas_asociadas =
                 t.traerTarjetas_UsuarioId(user_id);
 
-                if (listaTarjetas_asociadas.Count > 0)
+                if (listaTarjetas_asociadas != null)
                 {
                     return listaTarjetas_asociadas;
                 }
