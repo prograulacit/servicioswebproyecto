@@ -26,9 +26,6 @@ function crearTablaDeEasyPays(obj_easypays) {
 
         html +=
             `
-            <div class="subtitulo">
-                Cuentas EasyPay registradas
-            </div>
             <div>
                 Total de cuentas: ${obj_easypays.length}
             </div>
@@ -50,7 +47,6 @@ function crearTablaDeEasyPays(obj_easypays) {
                     <td>${obj_easypays[index].codigoSeguridad}</td>
                     <td>${obj_easypays[index].monto}</td>
                     <td>
-                        <a href="#" onclick="editar_easypay('${obj_easypays[index].id}')">Editar</a>
                         <a href="#" onclick="eliminar_easypay('${obj_easypays[index].id}')">Eliminar</a>
                     </td>
                 </tr>`;
@@ -158,7 +154,7 @@ function crearTablaTarjetas_easypay(obj_tarjetas) {
                     <td>` + tipoTarjeta + `</td>
                     <td>` + obj_tarjetas[index].monto + `</td>
                     <td>
-                        <a href="#/" onclick="utilizarTarjeta_easypay('` + obj_tarjetas[index].id + `')">Seleccionar</a>
+                        <a href="#/" onclick="utilizarTarjeta_easypay('${numeroTarjeta} - ${tipoTarjeta}','${obj_tarjetas[index].id}')">Seleccionar</a>
                     </td>
                 </tr>`;
 
@@ -176,6 +172,9 @@ function crearTablaTarjetas_easypay(obj_tarjetas) {
 }
 
 
-function utilizarTarjeta_easypay(id) {
-    document.getElementById('ContentPlaceHolder1_Label_tarjetaAUtilizar').innerHTML = id;
+function utilizarTarjeta_easypay(datosTarjeta, idTarjeta) {
+    document.getElementById('Textbox_idTarjeta').readOnly = false;
+    document.getElementById('ContentPlaceHolder1_Label_tarjetaFormateada').innerHTML = datosTarjeta;
+    document.getElementById('Textbox_idTarjeta').value = idTarjeta;
+    document.getElementById('Textbox_idTarjeta').readOnly = true;
 }

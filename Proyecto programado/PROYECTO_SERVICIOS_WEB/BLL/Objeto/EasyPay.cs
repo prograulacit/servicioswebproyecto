@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL.Objeto
 {
@@ -100,41 +97,50 @@ namespace BLL.Objeto
             List<Tarjeta> lista_tarjetas = t.traerTarjetas();
             if (lista_tarjetas != null)
             {
-                foreach (var tarjeta in lista_tarjetas)
+                for (int i = 0; i < lista_tarjetas.Count; i++)
                 {
-                    if (tarjeta.numeroTarjeta == this.numeroCuenta) { return tarjeta; }
+                    if (lista_tarjetas[i].id == this.numeroCuenta)
+                    {
+                        return lista_tarjetas[i];
+                    }
                 }
             }
             return null; // Si no encuentra la tarjeta asociada retorna null.
         }
 
         /// <summary>
-        /// Retorna el saldo actual del EasyPay
+        /// Retorna el saldo actual del EasyPay. Lo calcula por medio
+        /// de su tarjeta asociada.
         /// </summary>
         /// <returns>Saldo o monto actual.</returns>
         public string obtenerMontoActual()
         {
             Tarjeta t = traerTarjetaAsociada();
-            string saldo = t.monto;
-            return saldo;
+            if (t == null)
+            {
+                throw new Exception("Tarjeta no fue encontrada.");
+            }
+            string monto = t.monto;
+            return monto;
         }
 
         /// <summary>
-        /// Regresa el numero de tarjeta vinculada a la
+        /// Regresa el numero de tarjeta asociada a la
         /// cuenta de EasyPay en formato "xxxx9383".
         /// </summary>
         /// <returns>String con numero de tarjeta
         /// formateada.</returns>
-        public string obtenerNumeroTarjetaFormateada()
+        public string obtenerNumeroTarjetaFormateada(EasyPay easyPay)
         {
-            Tarjeta t = traerTarjetaAsociada();
+            Tarjeta tarjeta = new Tarjeta();
+            tarjeta = tarjeta.traerTarjetaPorId(easyPay.numeroCuenta);
 
-            string numeroTarjeta = t.numeroTarjeta;
+            string numeroTarjeta = tarjeta.numeroTarjeta;
             int length = numeroTarjeta.Length;
 
             // Pasamos el numero de tarjeta a formato "xxxx9281".
             string tarjetaFormateada =
-                "xxxx" + 
+                "xxxx" +
                 Char.ToString(numeroTarjeta[length - 4]) +
                 Char.ToString(numeroTarjeta[length - 3]) +
                 Char.ToString(numeroTarjeta[length - 2]) +
@@ -160,18 +166,26 @@ namespace BLL.Objeto
                 {
                     if (lista_easypays[i].IDusuario == usuario_id)
                     {
-                        // Se establece el monto actual con reflejo al 
-                        // de la tarjeta asociada.
-                        lista_easypays[i].monto = obtenerMontoActual();
-
                         // Se establece el numero de tarjeta formateada.
-                        lista_easypays[i].monto = obtenerNumeroTarjetaFormateada();
+                        lista_easypays[i].numeroCuenta = 
+                            obtenerNumeroTarjetaFormateada(lista_easypays[i]);
                         listaEasypays_usuario.Add(lista_easypays[i]);
                     }
                 }
                 return listaEasypays_usuario;
             }
             return null;
+        }
+
+        /// <summary>
+        /// Genera los codigos de seguridad los cuales son numeros de 4 digitos.
+        /// </summary>
+        /// <returns>Numero de 4 digitos entre 1000 y 9999.</returns>
+        public string generarCodigoDeSeguridad()
+        {
+            // Genera y retorna un numero aleatorio entre 1000 y 9999.
+            Random rnd = new Random();
+            return "" + rnd.Next(1000, 9999);
         }
 
         public EasyPay() { }

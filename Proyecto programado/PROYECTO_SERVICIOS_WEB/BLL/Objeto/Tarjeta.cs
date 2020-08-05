@@ -114,6 +114,25 @@ namespace BLL.Objeto
             return null;
         }
 
+        /// <summary>
+        /// Trae una tarjeta de la base de datos segun el ID dado.
+        /// </summary>
+        /// <param name="id">ID de la tarjeta a traer</param>
+        /// <returns>Retorna objeto Tarjeta solicitado por ID</returns>
+        public Tarjeta traerTarjetaPorId(string id_tarjeta)
+        {
+            Tarjeta tarjeta = new Tarjeta();
+            List<Tarjeta> lista_tarjetas = tarjeta.traerTarjetas();
+            for (int i = 0; i < lista_tarjetas.Count; i++)
+            {
+                if (lista_tarjetas[i].id == id_tarjeta)
+                {
+                    return lista_tarjetas[i];
+                }
+            }
+            return null; // Si no es encontrada retorna null.
+        }
+
         public Tarjeta() { }
 
         public Tarjeta(string id

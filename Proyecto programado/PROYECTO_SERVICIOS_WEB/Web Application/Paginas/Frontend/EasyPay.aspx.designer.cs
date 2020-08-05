@@ -15,13 +15,22 @@ namespace Web_Application.Paginas.Frontend
     {
 
         /// <summary>
-        /// Label_tarjetaAUtilizar control.
+        /// Label_tarjetaFormateada control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_tarjetaAUtilizar;
+        protected global::System.Web.UI.WebControls.Label Label_tarjetaFormateada;
+
+        /// <summary>
+        /// Textbox_idTarjeta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Textbox_idTarjeta;
 
         /// <summary>
         /// TextBox_contraseniaNueva control.

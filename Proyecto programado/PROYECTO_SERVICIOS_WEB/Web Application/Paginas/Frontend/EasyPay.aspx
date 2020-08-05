@@ -40,12 +40,18 @@
                                         <%--Formulario comienza aqui--%>
                                         Elija una de sus tarjetas para realizar el pago con EasyPay.
                                         <div id="tablaTarjetas_easypay">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                            Cargando, por favor espere...
                                         </div>
                                         Tarjeta a utilizar:
                                         <br />
-                                        <asp:Label ID="Label_tarjetaAUtilizar" runat="server" Text="Sin especificar."></asp:Label>
-                                        <br />
-                                        <br />
+                                        <div class="alert alert-secondary">
+                                            <asp:Label ID="Label_tarjetaFormateada" runat="server" Text="Sin especificar."></asp:Label>
+                                            <br />
+                                            <asp:TextBox ID="Textbox_idTarjeta" class="form-control" runat="server" ClientIDMode="Static"></asp:TextBox>
+                                        </div>
                                         Contraseña para su cuenta de EasyPay
                                         <br />
                                         <div class="form-group">
@@ -67,13 +73,18 @@
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                 <div class="subtitulo">
-                    Cuentas registradas
+                    Cuentas EasyPay registradas
                 </div>
                 <div id="tabla_easypays">
-
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    Cargando, por favor espere...
                 </div>
             </div>
         </div>
+        <br />
+        <br />
         <asp:Label ID="Label_status_error" class="alert alert-danger" runat="server" Text=""></asp:Label>
         <asp:Label ID="Label_status_success" class="alert alert-success" runat="server" Text=""></asp:Label>
     </div>
