@@ -13,11 +13,11 @@
         </ol>
     </nav>
     <div class="container">
-        <div class="titulo">
+        <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
             Administracion de tarjetas
         </div>
         <hr />
-        <div class="row">
+        <div class="row justify-content-center">
             <%--Selector de opciones--%>
             <%--<div class="selectorDeAcciones">
                 <div class="selectorDeAcciones_accion">
@@ -29,24 +29,28 @@
             </div>
             <hr />--%>
 
-            <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+            <div class="form-group col-4">
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
                 <%--Formulario para crear nueva tarjeta--%>
                 <div class="crearNuevaTarjeta" id="crearNuevaTarjeta">
                     <div class="subtitulo">
                         Crear nueva tarjeta
                     </div>
-                    <div>Numero de tarjeta</div>
-                    <asp:TextBox ID="TextBox_numeroTarjeta" runat="server" MaxLength="16"></asp:TextBox>
-                    <div>Mes de expiración</div>
-                    <asp:DropDownList ID="DropDownList_mesExpiracion" runat="server"></asp:DropDownList>
-                    <div>Año de expiracion</div>
-                    <asp:DropDownList ID="DropDownList_anioExpiracion" runat="server"></asp:DropDownList>
-                    <div>CVV</div>
-                    <asp:TextBox ID="TextBox_cvv" runat="server" MaxLength="4"></asp:TextBox>
+                    <div class="text-font-normal">Numero de tarjeta</div>
+                    <asp:TextBox class="form-control" ID="TextBox_numeroTarjeta" runat="server" MaxLength="16"></asp:TextBox>
+                    <div class="text-font-normal">Mes de expiración</div>
+                    <asp:DropDownList class="form-control" ID="DropDownList_mesExpiracion" runat="server"></asp:DropDownList>
+                    <div class="text-font-normal">Año de expiracion</div>
+                    <asp:DropDownList class="form-control" ID="DropDownList_anioExpiracion" runat="server"></asp:DropDownList>
+                    <div class="text-font-normal">CVV</div>
+                    <asp:TextBox class="form-control" ID="TextBox_cvv" runat="server" MaxLength="4"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:Button type="button" ID="Button_guardarTarjeta" runat="server" Text="Guardar tarjeta" OnClick="Button_guardarTarjeta_Click" />
+                    <asp:Button class="btn btn-primary justify-content-center" type="button" ID="Button_guardarTarjeta" runat="server" Text="Guardar tarjeta" OnClick="Button_guardarTarjeta_Click" />
                 </div>
+            </div>
+
             </div>
 
             <div class="col-12 col-sm-12 col-md-12 col-lg-9">
@@ -65,7 +69,4 @@
         <asp:Label ID="Label_status_success" class="alert alert-success" runat="server" Text=""></asp:Label>
     </div>
     <script src="../../Public/scripts/tarjetas.js"></script>
-    <script>
-        cargar_tarjetas();
-    </script>
 </asp:Content>

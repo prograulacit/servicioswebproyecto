@@ -10,10 +10,10 @@
         </ol>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
                 <br />
-                <h3 class="text-uppercase text-muted">Consulta de Descargas</h3>
+                <h3 class="ttp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Consulta de Descargas</h3>
                 <br />
                 <label class="text-font-normal">Tipo Fecha</label>
                 <select id="input_descargas_tipo_fecha" class="form-control" onChange="tipo_descarga_cambio()" >
@@ -45,7 +45,7 @@
                 <label class="text-font-normal">Género o Categoría</label>
                 <input type="text" id="input_descargas_categoria" placeholder="Género o Categoría" class="form-control sm-1" aria-label="Search" />
                 <br />
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="button_submit_descargas_buscar()">Buscar</button>
+                <button class="btn btn-primary justify-content-center" type="button" onclick="button_submit_descargas_buscar()">Buscar</button>
             </div>
             <div class="col-md-8">
                 <br />

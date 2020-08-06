@@ -9,61 +9,62 @@
             <li class="breadcrumb-item active" aria-current="page">Inicio</li>
         </ol>
     </nav>
-    <div class="titulo">
+    <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Bienvenido/a a E-Descargas Backend
     </div>
-    <div class="descripcion">
+    <br />
+    <div class="text-font-normal">
         Esta es una aplicación web para la gestión de compras y descargas de vídeos, música y libros electrónicos (PDF).
     </div>
-
+    <br />
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-4 col-md-4 col-lg-3">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
                 <div class="fondo-gris-mas categoria">
                     Seguridad
                 </div>
                 <div class="fondo-gris">
-                    <a href="./crearNuevoAdmin.aspx">- Crear nuevo administrador</a>
+                    <a class="text-font-normal" href="./crearNuevoAdmin.aspx">- Crear nuevo administrador</a>
                     <br>
-                    <a href="./editarAdministradores.aspx">- Editar administradores</a>
+                    <a class="text-font-normal"href="./editarAdministradores.aspx">- Editar administradores</a>
                     <br>
-                    <a href="./cambiarContrasenia.aspx">- Cambiar contraseña actual</a>
+                    <a class="text-font-normal"href="./cambiarContrasenia.aspx">- Cambiar contraseña actual</a>
                 </div>
             </div>
-            <div class="col-12 col-sm-4 col-md-4 col-lg-2">
+            <div class="form-group col-4">
                 <div  class="fondo-gris-mas categoria">
                     Administración
                 </div>
                 <div class="fondo-gris">
-                    <a href="generosPeliculas.aspx">- Generos peliculas.</a>
+                    <a class="text-font-normal"href="generosPeliculas.aspx">- Generos peliculas.</a>
                     <br>
-                    <a href="generosMusica.aspx">- Generos musica.</a>
+                    <a class="text-font-normal"href="generosMusica.aspx">- Generos musica.</a>
                     <br>
-                    <a href="categoriasLibro.aspx">- Categorias libro.</a>
+                    <a class="text-font-normal"href="categoriasLibro.aspx">- Categorias libro.</a>
                     <br>
-                    <a href="consecutivos.aspx">- Consecutivos.</a>
+                    <a class="text-font-normal"href="consecutivos.aspx">- Consecutivos.</a>
                     <br>
-                    <a href="parametros.aspx">- Parámetros</a>
+                    <a class="text-font-normal"href="parametros.aspx">- Parámetros</a>
                     <br>
-                    <a href="peliculasAdmin.aspx">- Películas</a>
+                    <a class="text-font-normal"href="peliculasAdmin.aspx">- Películas</a>
                     <br>
-                    <a href="libroAdmin.aspx">- Libros</a>
+                    <a class="text-font-normal"href="libroAdmin.aspx">- Libros</a>
                     <br>
-                    <a href="musicaAdmin.aspx">- Música</a>
+                    <a class="text-font-normal"href="musicaAdmin.aspx">- Música</a>
                 </div>
             </div>
-            <div class="col-12 col-sm-4 col-md-4 col-lg-2">
+            <div class="form-group col-4">
                 <div class="fondo-gris-mas categoria">
                     Consultas
                 </div>
                 <div class="fondo-gris">
-                    <a href="consultasBitacora.aspx">- Bitácora.</a>
+                    <a class="text-font-normal"href="consultasBitacora.aspx">- Bitácora.</a>
                     <br>
-                    <a href="consultasTransacciones.aspx">- Transacciones.</a>
+                    <a class="text-font-normal"href="consultasTransacciones.aspx">- Transacciones.</a>
                     <br>
-                    <a href="consultasDescargas.aspx">- Descargas.</a>
+                    <a class="text-font-normal"href="consultasDescargas.aspx">- Descargas.</a>
                     <br>
-                    <a href="consultasErrores.aspx">- Errores.</a>
+                    <a class="text-font-normal"href="consultasErrores.aspx">- Errores.</a>
                 </div>
             </div>
         </div>

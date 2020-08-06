@@ -10,41 +10,47 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de parametros</li>
         </ol>
     </nav>
-    <div class="titulo">
+    <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Parametros
     </div>
 
-    <div class="title">
+    <div class="text-font-normal">
         Administración de parametros.
     </div>
     <br>
-    <div>
-        <label>Ruta de almacenamiento previsualizacion Libros</label>
-        <br>
-        <input type="text" name="" id="pre_libros">
-        <br>
-        <label>Ruta de almacenamiento de Libros</label>
-        <br>
-        <input type="text" name="" id="alm_libros">
-        <br>
-        <label>Ruta de almacenamiento previsualizacion Peliculas</label>
-        <br>
-        <input type="text" name="" id="pre_peliculas">
-        <br>
-        <label>Ruta de almacenamiento de Peliculas</label>
-        <br>
-        <input type="text" name="" id="alm_peliculas">
-        <br>
-        <label>Ruta de almacenamiento previsualizacion musica</label>
-        <br>
-        <input type="text" name="" id="pre_musica">
-        <br>
-        <label>Ruta de almacenamiento de musica</label>
-        <br>
-        <input type="text" name="" id="alm_musica">
-        <br>
-        <br>
-        <button type="button" onclick="actualizar_parametros()">Actualizar datos</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
+                <div>
+                    <label class="text-font-normal">Ruta de almacenamiento previsualizacion Libros</label>
+                    <br>
+                    <input class="form-control" type="text" name="" id="pre_libros">
+                    <br>
+                    <label class="text-font-normal">Ruta de almacenamiento de Libros</label>
+                    <br>
+                    <input class="form-control" type="text" name="" id="alm_libros">
+                    <br>
+                    <label class="text-font-normal">Ruta de almacenamiento previsualizacion Peliculas</label>
+                    <br>
+                    <input class="form-control" type="text" name="" id="pre_peliculas">
+                    <br>
+                    <label class="text-font-normal">Ruta de almacenamiento de Peliculas</label>
+                    <br>
+                    <input class="form-control" type="text" name="" id="alm_peliculas">
+                    <br>
+                    <label class="text-font-normal">Ruta de almacenamiento previsualizacion musica</label>
+                    <br>
+                    <input class="form-control" type="text" name="" id="pre_musica">
+                    <br>
+                    <label class="text-font-normal">Ruta de almacenamiento de musica</label>
+                    <br>
+                    <input class="form-control" type="text" name="" id="alm_musica">
+                    <br>
+                    <br>
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="actualizar_parametros()">Actualizar datos</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>

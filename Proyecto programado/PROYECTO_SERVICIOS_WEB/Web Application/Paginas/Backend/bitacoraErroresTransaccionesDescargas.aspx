@@ -8,23 +8,29 @@
             <li class="breadcrumb-item active" aria-current="page">Consultas y monitoreo</li>
         </ol>
     </nav>
-    <div class="titulo">
+    <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Consultas y monitorización del sistema.
     </div>
 
-    <div class="descripcion">
-        Por favor, utilice el dropdown aquí dado para realizar consultas de monitorización.
-    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
+                <div class="descripcion">
+                    Por favor, utilice el dropdown aquí dado para realizar consultas de monitorización.
+                </div>
 
-    <div>
-        <select id="dropdown_consulta">
-            <option value="Bitacora">Bitacora</option>
-            <option value="Errores">Errores</option>
-            <option value="Transacciones">Transacciones</option>
-            <option value="Descargas">Descargas</option>
-        </select>
-        <br>
-        <button type="button" onclick="boton_consultar()">Consultar</button>
+                <div>
+                    <select class="form-control" id="dropdown_consulta">
+                        <option value="Bitacora">Bitacora</option>
+                        <option value="Errores">Errores</option>
+                        <option value="Transacciones">Transacciones</option>
+                        <option value="Descargas">Descargas</option>
+                    </select>
+                    <br>
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="boton_consultar()">Consultar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="contenido">

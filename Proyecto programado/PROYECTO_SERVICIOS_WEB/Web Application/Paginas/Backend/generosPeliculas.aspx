@@ -11,42 +11,50 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de generos y categorias.</li>
         </ol>
     </nav>
-    <div class="titulo">
+    <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Administracion de generos de peliculas
     </div>
 
-    <div class="descripcion">
+    <div class="text-font-normal">
         Utilice los controles para administrar
     </div>
 
-    <div class="contenedor">
-        <div class="formulario">
-            <h3>Ingresar genero nuevo</h3>
-            <input type="text" name="ingresar_categoria_contenido" id="input_elementoNuevo">
-            <br>
-            <button type="button" onclick="ingresar_elemento()">Guardar</button>
-        </div>
-
-        <div class="formulario">
-            <h3>Editar genero</h3>
-            <label for="">ID</label>
-            <br>
-            <input type="text" name="actualizar_categoria_id" id="inputId_elementoActualizar">
-            <br>
-            <label for="">Nuevo genero</label>
-            <br>
-            <input type="text" name="actualizar_genero_contenido" id="inputContenido_elementoActualizar">
-            <br>
-            <button type="button" onclick="actualizar_elemento()">Actualizar</button>
-        </div>
-
-        <div class="formulario">
-            <h3>Eliminar genero</h3>
-            <label for="">ID</label>
-            <br>
-            <input type="text" name="eliminar_datos" id="inputId_elementoEliminar">
-            <br>
-            <button type="button" onclick="eliminar_elemento()">Eliminar</button>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
+                <div class="formulario">
+                    <br />
+                    <h3 class="text-font-normal">Ingresar genero nuevo</h3>
+                    <input class="form-control" type="text" name="ingresar_categoria_contenido" id="input_elementoNuevo">
+                    <br>
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="ingresar_elemento()">Guardar</button>
+                </div>
+                <br />
+                <br />
+                <div class="formulario">
+                    <h3 class="text-font-normal">Editar genero</h3>
+                    <label class="text-font-normal" for="">ID</label>
+                    <br>
+                    <input class="form-control" type="text" name="actualizar_categoria_id" id="inputId_elementoActualizar">
+                    <br>
+                    <label class="text-font-normal" for="">Nuevo genero</label>
+                    <br>
+                    <input class="form-control" type="text" name="actualizar_genero_contenido" id="inputContenido_elementoActualizar">
+                    <br>
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="actualizar_elemento()">Actualizar</button>
+                </div>
+                <br />
+                <br />
+                <div class="formulario">
+                    <h3 class="text-font-normal">Eliminar genero</h3>
+                    <label class="text-font-normal" for="">ID</label>
+                    <br>
+                    <input class="form-control" type="text" name="eliminar_datos" id="inputId_elementoEliminar">
+                    <br>
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="eliminar_elemento()">Eliminar</button>
+                </div>
+            </div>
         </div>
     </div>
 

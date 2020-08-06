@@ -8,7 +8,7 @@
             <li class="breadcrumb-item active" aria-current="page">Cambiar contraseña</li>
         </ol>
     </nav>
-    <div class="titulo">
+    <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Cambiar contraseña
     </div>
 
@@ -16,26 +16,33 @@
         Por favor, rellene el siguiente formulario para cambiar su contraseña.
     </div>
 
-    <div>
-        <asp:Label class="badge badge-danger" ID="Label_status_error" runat="server" Text=""></asp:Label>
-        <br />
-        <asp:Label class="badge badge-success" ID="Label_status_success" runat="server" Text=""></asp:Label>
-        <br />
-        Contraseña actual:
-        <br />
-        <asp:TextBox TextMode="Password" ID="TextBox_contraseniaActual" runat="server"></asp:TextBox>
-        <br />
-        Contraseña nueva:
-        <br />
-        <asp:TextBox TextMode="Password" ID="TextBox_contraseniaNueva" runat="server"></asp:TextBox>
-        <br />
-        Confirmar nueva contraseña:
-        <br />
-        <asp:TextBox TextMode="Password" ID="TextBox_confirmarContrasenia" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <asp:Button ID="Button_confirmar" runat="server" Text="Confirmar" OnClick="Button_confirmar_Click" />
-        <asp:Button ID="Button_cancelar" runat="server" Text="Cancelar" OnClick="Button_cancelar_Click" />
-    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
+                <div>
+                    <asp:Label class="badge badge-danger" ID="Label_status_error" runat="server" Text=""></asp:Label>
+                    <br />
+                    <asp:Label class="badge badge-success" ID="Label_status_success" runat="server" Text=""></asp:Label>
+                    <br />
+                    <label class="text-font-normal">Contraseña actual:</label>
+                    <br />
+                    <asp:TextBox class="form-control" TextMode="Password" ID="TextBox_contraseniaActual" runat="server"></asp:TextBox>
+                    <br />
+                    <label class="text-font-normal">Contraseña nueva:</label>
+                    <br />
+                    <asp:TextBox class="form-control" TextMode="Password" ID="TextBox_contraseniaNueva" runat="server"></asp:TextBox>
+                    <br />
+                    <label class="text-font-normal">Confirmar nueva contraseña:</label>
+                    <br />
+                    <asp:TextBox class="form-control" TextMode="Password" ID="TextBox_confirmarContrasenia" runat="server"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Button class="btn btn-primary justify-content-center" ID="Button_confirmar" runat="server" Text="Confirmar" OnClick="Button_confirmar_Click" />
+                    <asp:Button class="btn btn-primary justify-content-center" ID="Button_cancelar" runat="server" Text="Cancelar" OnClick="Button_cancelar_Click" />
+                </div>
+            </div>
+        </div>
+     </div>
+
 
 </asp:Content>

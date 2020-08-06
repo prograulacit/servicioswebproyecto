@@ -13,7 +13,7 @@
     </div>
 
     <div id="boton_crear">
-        <button type="button" onclick="contenedorCrear_visible('inline'); 
+        <button class="btn btn-primary justify-content-center" type="button" onclick="contenedorCrear_visible('inline'); 
         contenedorTabla_visible('none'); 
         contenedorEditar_visible('none')">Crear nuevo registro</button>
     </div>
@@ -25,102 +25,109 @@
         </div>
     </div>
 
-    <div id="contenedor_editar">
-        <div class="titulo">
-            Editando pelicula
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
+                <div id="contenedor_editar">
+                    <div class="titulo">
+                        Editando pelicula
+                    </div>
+                    <label class="text-font-normal">ID:</label>
+                    <br>
+                    <input disabled type="text" name="" class="editar_id form-control">
+                    <br>
+                    <label class="text-font-normal">Nombre:</label>
+                    <br>
+                    <input type="text" name="" class="editar_nombre form-control">
+                    <br>
+                    <label class="text-font-normal">Genero:</label>
+                    <br>
+                    <select id="editarGenero" class="form-control editar_genero"></select>
+                    <br>
+                    <label class="text-font-normal">Año:</label>
+                    <br>
+                    <input type="text" name="" class="editar_anio form-control">
+                    <br>
+                    <label class="text-font-normal">Idioma:</label>
+                    <br>
+                    <input type="text" name="" class="editar_idioma form-control">
+                    <br>
+                    <label class="text-font-normal">Actores:</label>
+                    <br>
+                    <input type="text" name="" class="editar_actores form-control">
+                    <br>
+                    <label class="text-font-normal">Monto:</label>
+                    <br>
+                    <input type="number" name="" class="editar_monto form-control">
+                    <br>
+                    <label class="text-font-normal">Nombre archivo descarga:</label>
+                    <br>
+                    <input type="text" name="" id="editarNombreDescargaPelicula" class="editar_nombre_descarga_pelicula form-control" runat="server">
+                    <br>
+                    <label class="text-font-normal">Archivo Pelicula:</label>
+                    <br>
+                    <input id="editarArchivoPelicula" class="editar_archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server"/>
+                    <br>
+                    <label class="text-font-normal">Nombre archivo previsualizacion:</label>
+                    <br>
+                    <input type="text" name="" id="editarNombrePrevisualizacionPelicula" class="editar_nombre_previsualizacion_pelicula form-control" runat="server">
+                    <br>
+                    <label class="text-font-normal">Archivo Pelicula previsualizacion:</label>
+                    <br>
+                    <input id="editarArchivoPeliculaPrev" class="editar_archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server"/>
+                    <br>
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="guardar_cambios()">Guardar cambios</button>
+                    <button class="btn btn-primary justify-content-center" >Cancelar</button>
+                </div>
+
+                <div id="contenedor_crear">
+                    <label class="text-font-normal">Nombre:</label>
+                    <br>
+                    <input type="text" name="" class="crear_nombre form-control">
+                    <br>
+                    <label class="text-font-normal">Genero:</label>
+                    <br>
+                    <select id="crearGenero" class="form-control crear_genero form-control"></select>
+                    <br>
+                    <label class="text-font-normal">Año:</label>
+                    <br>
+                    <input type="text" name="" class="crear_anio form-control">
+                    <br>
+                    <label class="text-font-normal">Idioma:</label>
+                    <br>
+                    <input type="text" name="" class="crear_idioma form-control">
+                    <br>
+                    <label class="text-font-normal">Actores:</label>
+                    <br>
+                    <input type="text" name="" class="crear_actores form-control">
+                    <br>
+                    <label class="text-font-normal">Monto:</label>
+                    <br>
+                    <input type="number" name="" class="crear_monto form-control">
+                    <br>
+                    <label class="text-font-normal">Nombre archivo descarga:</label>
+                    <br>
+                    <input type="text" name="" id="nombreArchivoPelicula" class="nombre_archivo_pelicula form-control" runat="server">
+                    <br>
+                    <label class="text-font-normal">Archivo Pelicula:</label>
+                    <br>
+                    <input id="archivoPelicula" class="archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server"/>
+                    <br>
+                    <label class="text-font-normal">Nombre archivo previsualizacion:</label>
+                    <br>
+                    <input type="text" id="nombrePrevisualizacionPelicula" class="nombre_previsualizacion_pelicula form-control" runat="server">
+                    <br>
+                    <label class="text-font-normal">Archivo Pelicula previsualizacion:</label>
+                    <br>
+                    <input id="archivoPeliculaPrev" class="archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server"/>
+                    <br>
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="crear_elemento()">Crear nueva pelicula</button>
+                    <button class="btn btn-primary justify-content-center" >Cancelar</button>
+                </div>
+            </div>
         </div>
-        ID:
-        <br>
-        <input disabled type="text" name="" class="editar_id">
-        <br>
-        Nombre:
-        <br>
-        <input type="text" name="" class="editar_nombre">
-        <br>
-        Genero:
-        <br>
-        <select id="editarGenero" class="form-control sm-1 editar_genero"></select>
-        <br>
-        Año:
-        <br>
-        <input type="text" name="" class="editar_anio">
-        <br>
-        Idioma:
-        <br>
-        <input type="text" name="" class="editar_idioma">
-        <br>
-        Actores:
-        <br>
-        <input type="text" name="" class="editar_actores">
-        <br>
-        Monto:
-        <br>
-        <input type="number" name="" class="editar_monto">
-        <br>
-        Nombre archivo descarga:
-        <br>
-        <input type="text" name="" id="editarNombreDescargaPelicula" class="editar_nombre_descarga_pelicula" runat="server">
-        <br>
-        Archivo Pelicula:
-        <br>
-        <input id="editarArchivoPelicula" class="editar_archivo_pelicula" type="file" accept=".mp4,video/*" runat="server"/>
-        <br>
-        Nombre archivo previsualizacion:
-        <br>
-        <input type="text" name="" id="editarNombrePrevisualizacionPelicula" class="editar_nombre_previsualizacion_pelicula" runat="server">
-        <br>
-        Archivo Pelicula previsualizacion:
-        <br>
-        <input id="editarArchivoPeliculaPrev" class="editar_archivo_pelicula_prev" type="file" accept=".mp4,video/*" runat="server"/>
-        <br>
-        <button type="button" onclick="guardar_cambios()">Guardar cambios</button>
-        <button>Cancelar</button>
     </div>
 
-    <div id="contenedor_crear">
-        Nombre:
-        <br>
-        <input type="text" name="" class="crear_nombre">
-        <br>
-        Genero:
-        <br>
-        <select id="crearGenero" class="form-control sm-1 crear_genero"></select>
-        <br>
-        Año:
-        <br>
-        <input type="text" name="" class="crear_anio">
-        <br>
-        Idioma:
-        <br>
-        <input type="text" name="" class="crear_idioma">
-        <br>
-        Actores:
-        <br>
-        <input type="text" name="" class="crear_actores">
-        <br>
-        Monto:
-        <br>
-        <input type="number" name="" class="crear_monto">
-        <br>
-        Nombre archivo descarga:
-        <br>
-        <input type="text" name="" id="nombreArchivoPelicula" class="nombre_archivo_pelicula" runat="server">
-        <br>
-        Archivo Pelicula:
-        <br>
-        <input id="archivoPelicula" class="archivo_pelicula" type="file" accept=".mp4,video/*" runat="server"/>
-        <br>
-        Nombre archivo previsualizacion:
-        <br>
-        <input type="text" id="nombrePrevisualizacionPelicula" class="nombre_previsualizacion_pelicula" runat="server">
-        <br>
-        Archivo Pelicula previsualizacion:
-        <br>
-        <input id="archivoPeliculaPrev" class="archivo_pelicula_prev" type="file" accept=".mp4,video/*" runat="server"/>
-        <br>
-        <button type="button" onclick="crear_elemento()">Crear nueva pelicula</button>
-        <button>Cancelar</button>
-    </div>
 
     <%--hidden elements--%>
     <asp:Button class="descargar_archivo_pelicula" id="descargarArchivoPelicula" runat="server" Text="" OnClick="subirArchivosPelicula_Click" style="display:none"/>

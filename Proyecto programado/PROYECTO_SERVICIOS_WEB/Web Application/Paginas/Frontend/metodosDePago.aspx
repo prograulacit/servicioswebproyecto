@@ -10,13 +10,18 @@
         </ol>
     </nav>
     <div class="container">
-        <div class="titulo">
-            Administración de metodos de pago
-        </div>
-        <div class="descripcion">
-            <a href="tarjetas.aspx">Administración de tarjetas de credito y debito</a>
-            <br />
-            <a href="EasyPay.aspx">Administración de cuentas EasyPay</a>
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
+                <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
+                    Administración de metodos de pago
+                </div>
+                <div class="descripcion">
+                    <a href="tarjetas.aspx">Administración de tarjetas de credito y debito</a>
+                    <br />
+                    <br/>
+                    <a href="">Administración de cuentas EasyPay</a>
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>
