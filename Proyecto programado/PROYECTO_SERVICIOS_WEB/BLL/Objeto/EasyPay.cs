@@ -188,6 +188,29 @@ namespace BLL.Objeto
             return "" + rnd.Next(1000, 9999);
         }
 
+        /// <summary>
+        /// Trae un registro de EasyPay en forma de objeto dando como parametro
+        /// su ID,
+        /// </summary>
+        /// <param name="id">ID del EasyPay</param>
+        /// <returns>Objeto EasyPay cuyo ID concuerde.</returns>
+        public EasyPay traerEasyPay_porID(string id)
+        {
+            EasyPay e = new EasyPay();
+            List<EasyPay> lista_easyPay = traer_easyPays();
+            if (lista_easyPay != null)
+            {
+                for (int i = 0; i < lista_easyPay.Count; i++)
+                {
+                    if (lista_easyPay[i].id == id)
+                    {
+                        return lista_easyPay[i];
+                    }
+                }
+            }
+            return null; // Retorna null si no se encontró.
+        }
+
         public EasyPay() { }
 
         public EasyPay(string id

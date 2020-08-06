@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using BLL.Logica;
 using BLL.Objeto;
@@ -27,52 +28,40 @@ namespace Web_Application.ApiControllers
         {
             EasyPay e = new EasyPay();
 
-            if (!user_id.Equals("asociada"))
+            switch (user_id)
             {
-                List<EasyPay> listaEasyPays_asociados =
-                e.traerEasyPays_UsuarioId(user_id);
-
-                if (listaEasyPays_asociados != null)
-                {
-                    return listaEasyPays_asociados;
-                }
-            }
-            else // Se requieren los easypays asociadas al usuario logeado en memoria.
-            {
-                if (Memoria.sesionUsuarioDatos != null)
-                {
-                    List<EasyPay> listaEasypays_asociados =
-                        e.traerEasyPays_UsuarioId(Memoria.sesionUsuarioDatos.id);
-
-                    if (listaEasypays_asociados != null)
+                // Se requieren los easypays asociadas al usuario 
+                // logeado en memoria.
+                case "asociada":
+                    if (Memoria.sesionUsuarioDatos != null)
                     {
-                        return listaEasypays_asociados;
-                    }
-                }
-            }
+                        List<EasyPay> listaEasypays_asociados =
+                            e.traerEasyPays_UsuarioId(
+                                Memoria.sesionUsuarioDatos.id);
 
-            // Si no hay tarjetas asociadas, retorna null.
-            return null;
+                        if (listaEasypays_asociados != null)
+                        {
+                            return listaEasypays_asociados;
+                        }
+                    }
+                    // Retorna nulo si no hay sesion de usuario o
+                    // no hay EasyPays asociados.
+                    return null;
+
+                // Retorna EasyPays segun el ID del usuario dado.
+                default:
+                    List<EasyPay> listaEasyPays_asociados =
+                    e.traerEasyPays_UsuarioId(user_id);
+
+                    if (listaEasyPays_asociados != null)
+                    {
+                        return listaEasyPays_asociados;
+                    }
+                    return null; // Retorna null si no existen cuentas EasyPay.
+            }
         }
 
-        //// GET: api/EasyPay/5
-        //public EasyPay Get(string id)
-        //{
-        //    EasyPay ep = new EasyPay();
-
-        //    // Recorre todos los easypays
-        //    foreach (EasyPay e in ep.traer_easyPays()) 
-        //    {
-        //        if(e.id == id) // si encuentra coincidencia, lo retorna.
-        //        {
-        //            return e;
-        //        }
-        //    }
-        //    return null; // retorna null si no fue encontrado.
-        //}
-
         // POST: api/EasyPay
-
         public string Post([FromBody]EasyPay easypay)
         {
             #region Plantilla Postman -> Abrir para ver.
@@ -105,6 +94,31 @@ namespace Web_Application.ApiControllers
 
             easypay.actualizar_easypay(easypay);
             return "EasyPay " + easypay.id + " actualizado.";
+        }
+
+        /// <summary>
+        /// Cambia el codigo de seguridad de un EasyPay.
+        /// </summary>
+        /// <param name="easypay_id">ID del EasyPay a actualizar</param>
+        /// <returns>Nuevo código de seguridad.</returns>
+        public string Put(string easypay_id) 
+        {
+            #region Plantilla Postman
+            /*
+             Params -> 
+             KEY: easypay_id
+             VALUE: [ID del easy pay a actualizar]
+             */
+            #endregion
+
+            EasyPay easyPay = new EasyPay();
+            easyPay = easyPay.traerEasyPay_porID(easypay_id);
+
+            // Actualiza codigo de seguridad y actualiza registro en base de datos.
+            easyPay.codigoSeguridad = easyPay.generarCodigoDeSeguridad();
+            easyPay.actualizar_easypay(easyPay);
+
+            return easyPay.codigoSeguridad;
         }
 
         // DELETE: api/EasyPay/5

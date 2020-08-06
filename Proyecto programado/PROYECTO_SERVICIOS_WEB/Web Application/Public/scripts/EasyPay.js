@@ -1,5 +1,7 @@
 ﻿const API_URI_EASYPAY = "https://localhost:44371/api/easypay?user_id=asociada";
 const API_URI_ELIMINAR_EASYPAY = "https://localhost:44371/api/easypay";
+const API_URI_EASYPAY_NUEVO_CODIGO_SEGURIDAD =
+    "https://localhost:44371/api/easypay/?easypay_id=";
 
 function cargar_easypays() {
     fetch(API_URI_EASYPAY)
@@ -47,12 +49,18 @@ function crearTablaDeEasyPays(obj_easypays) {
                     <td>${obj_easypays[index].codigoSeguridad}</td>
                     <td>${obj_easypays[index].monto}</td>
                     <td>
+                        <a href="#" onclick="generarNuevoCodigo('${obj_easypays[index].id}')"
+                        data-toggle="tooltip" data-placement="top" 
+                        title="Genera automaticamente un nuevo código de seguridad.">Nuevo código</a>
+                        <br>                    
+                        <a href="#" onclick="cambiar_contraseña()">Cambiar contraseña</a>
+                        <br>
                         <a href="#" onclick="eliminar_easypay('${obj_easypays[index].id}')">Eliminar</a>
                     </td>
                 </tr>`;
 
         }
-        html += "</table>";
+        html += `</table>`;
         document.getElementById("tabla_easypays").innerHTML = html;
     } else {
         document.getElementById("tabla_easypays").innerHTML =
@@ -62,6 +70,51 @@ function crearTablaDeEasyPays(obj_easypays) {
             </div>
             `;
     }
+}
+
+function cambiar_contraseña() {
+    Swal.fire({
+        icon: 'info'
+        , text: `Para cambiar la contraseña elimine la cuenta EasyPay y creela nuevamente con la misma tarjeta.`
+    })
+}
+
+function generarNuevoCodigo(id) {
+    fetch(API_URI_EASYPAY_NUEVO_CODIGO_SEGURIDAD + id, {
+        method: 'PUT'
+    }).then(function (response) {
+        return response.text();
+    }).then(async function (response) {
+        await Swal.fire(
+            'Hecho',
+            `Código de seguridad nuevo generado: ${response}`,
+            'success'
+        )
+        cargar_easypays();
+    }).catch(function (err) {
+        console.error(err);
+        document.getElementById("tarjetas_registradas").innerHTML =
+            `<div class="alert alert-danger" role="alert">
+                Ha ocurrido un error al intentar generar un nuevo codigo de seguridad.
+            </div>`;
+    });
+}
+
+function actualizar_datos() {
+    fetch(url, {
+        method: 'PUT',
+        body: JSON.stringify(json_request),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then((response) => {
+            console.log('Success:', response)
+            document.getElementById(input_id).value = "";
+            document.getElementById(categoria_id).value = "";
+            obtener_categoriasLibros();
+        });
 }
 
 function eliminar_easypay(id) {
@@ -95,7 +148,6 @@ function eliminar_easypay(id) {
         }
     })
 }
-
 
 function cargarTarjetas_easypay() {
     fetch(API_URI)
