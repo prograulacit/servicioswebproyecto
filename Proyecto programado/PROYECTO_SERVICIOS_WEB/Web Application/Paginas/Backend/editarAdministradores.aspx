@@ -12,7 +12,7 @@
             <li class="breadcrumb-item active" aria-current="page">Editar administradores</li>
         </ol>
     </nav>
-    <div class="titulo">Editar administradores</div>
+    <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Editar administradores</div>
     <br />
     <div class="descripcion">Por favor, elija el administrador que desea editar o eliminar</div>
 
@@ -23,48 +23,56 @@
         </div>
     </div>
 
-    <div id="editar_admin">
-        <form action="">
-            ID:
-            <br>
-            <input type="text" name="" id="editar_id">
-            <br>
-            Nombre de usuario:
-            <br>
-            <input type="text" name="" id="editar_nombreUsuario" required>
-            <br>
-            Contraseña:
-            <br>
-            <input type="password" name="" id="editar_contrasenia" required>
-            <br>
-            Correo Electrónico:
-            <br>
-            <input type="text" name="" id="editar_correoElectronico" required>
-            <br>
-            Pregunta de seguridad:
-            <br>
-            <input type="text" name="" id="editar_preguntaSeguridad" required>
-            <br>
-            Respuesta de seguridad:
-            <br>
-            <input type="text" name="" id="editar_respuestaSeguridad" required>
-            <br>
-            Admin maestro
-            <input type="checkbox" name="" id="editar_adminMaestro">
-            <br>
-            Admin de seguridad
-            <input type="checkbox" name="" id="editar_adminSeguridad">
-            <br>
-            Admin de mantenimiento
-            <input type="checkbox" name="" id="editar_adminMantenimiento">
-            <br>
-            Admin de consultas
-            <input type="checkbox" name="" id="editar_adminConsultas">
-            <br>
-            <br>
-            <input onclick="editarAdmin_guardarCambios()" type="submit" value="Guardar cambios">
-            <button onclick="editarAdmin_cancelarCambios()">Cancelar edicion</button>
-        </form>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
+                <div id="editar_admin">
+                    <form action="">
+                        <br />
+                        <label class="text-font-normal">ID:</label>
+                        <br>
+                        <input class="form-control" type="text" name="" id="editar_id">
+                        <br>
+                        <label class="text-font-normal">Nombre de usuario:</label>
+                        <br>
+                        <input class="form-control" type="text" name="" id="editar_nombreUsuario" required>
+                        <br>
+                        <label class="text-font-normal">Contraseña:</label>
+                        <br>
+                        <input class="form-control" type="password" name="" id="editar_contrasenia" required>
+                        <br>
+                        <label class="text-font-normal">Correo Electrónico:</label>
+                        <br>
+                        <input class="form-control" type="text" name="" id="editar_correoElectronico" required>
+                        <br>
+                        <label class="text-font-normal">Pregunta de seguridad:</label>
+                        <br>
+                        <input class="form-control" type="text" name="" id="editar_preguntaSeguridad" required>
+                        <br>
+                        <label class="text-font-normal">Respuesta de seguridad:</label>
+                        <br>
+                        <input class="form-control" type="text" name="" id="editar_respuestaSeguridad" required>
+                        <br>
+                        <label class="text-font-normal">Admin maestro</label>
+                        <input class="form-check-input" type="checkbox" name="" id="editar_adminMaestro">
+                        <br>
+                        <label class="text-font-normal">Admin de seguridad</label>
+                        <input class="form-check-input" type="checkbox" name="" id="editar_adminSeguridad">
+                        <br>
+                        <label class="text-font-normal">Admin de mantenimiento</label>
+                        <input class="form-check-input" type="checkbox" name="" id="editar_adminMantenimiento">
+                        <br>
+                        <label class="text-font-normal">Admin de consultas</label>
+                        <input class="form-check-input" type="checkbox" name="" id="editar_adminConsultas">
+                        <br>
+                        <br>
+            
+                        <input class="btn btn-primary justify-content-center" onclick="editarAdmin_guardarCambios()" type="submit" value="Guardar cambios">
+                        <button class="btn btn-primary justify-content-center" onclick="editarAdmin_cancelarCambios()">Cancelar edicion</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>

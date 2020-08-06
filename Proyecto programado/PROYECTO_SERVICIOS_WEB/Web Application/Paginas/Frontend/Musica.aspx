@@ -10,17 +10,17 @@
             <li class="breadcrumb-item active" aria-current="page">Música</li>
         </ol>
     </nav>
-    <div class="container" id="main_container">
-        <div class="row">
-            <div class="col-md-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
                 <br />
-                <h3 class="text-uppercase text-muted">Búsqueda de Música</h3>
+                <h3 class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Búsqueda de Música</h3>
                 <br />
                 <label class="text-font-normal">Género</label>
                 <div class="spinner-border text-primary input_musica_Genero_spinner" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <select id="input_musica_Genero" class="form-control sm-1"></select>
+                <select id="input_musica_Genero" class="form-control"></select>
                 <br />
                 <label class="text-font-normal">Nombre</label>
                 <input type="text" id="input_musica_Nombre" placeholder="Nombre" class="form-control" aria-label="Search" />
@@ -43,7 +43,7 @@
                 <label class="text-font-normal">Año</label>
                 <input type="text" id="input_musica_Anio" placeholder="Año" class="form-control" aria-label="Search" />
                 <br />
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="button_submit_musica_buscar()">Buscar</button>
+                <button class="btn btn-primary justify-content-center" type="button" onclick="button_submit_musica_buscar()">Buscar</button>
             </div>
             <div class="col-md-8">
                 <br />
@@ -54,16 +54,6 @@
             </div>
         </div>
     </div>
-
-    <div id="audio_container" class="container" style="display:none">
-        <div class="column">
-            <a href="#" class="btn btn-secondary mb-4" onclick="ir_a_tabla()">Atras</a>
-            <div>
-                <audio id="musica_player" controls="controls"></audio>
-            </div>
-        </div>
-    </div>
-
     <script src="../../Public/scripts/musica.js"></script>
     <script>
         traer_generos();

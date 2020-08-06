@@ -3,28 +3,29 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
-
-
-        <div class="titulo">
-            Eliminar cuenta
-        </div>
-
-        <div class="descripcion">
-            Para eliminar su cuenta, vuelva a escribir su contraseña y nombre de usuario.
-        </div>
-
-        <div class="text_nombre">
-            Nombre de usuario
-        </div>
-        <asp:TextBox ID="TextBox_nombreUsuario" runat="server"></asp:TextBox>
-        <div class="text_nombre">
-            Contraseña
-        </div>
-        <asp:TextBox TextMode="Password" ID="TextBox_contrasenia" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label_status_error" runat="server" Text="" class="badge badge-danger"></asp:Label>
-        <br />
-        <asp:Button ID="Button_eliminarCuenta" runat="server" Text="Eliminar cuenta" OnClick="Button_eliminarCuenta_Click" />
+    <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
+        Eliminar cuenta
     </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="form-group col-4">
+                    <div class="text-font-normal">
+                    Para eliminar su cuenta, vuelva a escribir su contraseña y nombre de usuario.
+                    </div>
+                    <br/>
+                    <div class="text-font-normal">
+                        Nombre de usuario
+                    </div>
+                    <asp:TextBox class="form-control" ID="TextBox_nombreUsuario" runat="server"></asp:TextBox>
+                    <div class="text-font-normal">
+                        Contraseña
+                    </div>
+                    <asp:TextBox class="form-control" TextMode="Password" ID="TextBox_contrasenia" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="Label_status_error" runat="server" Text="" class="badge badge-danger"></asp:Label>
+                    <br />
+                    <asp:Button class="btn btn-primary justify-content-center" ID="Button_eliminarCuenta" runat="server" Text="Eliminar cuenta" OnClick="Button_eliminarCuenta_Click" />
+                </div>
+            </div>
+        </div>
 </asp:Content>

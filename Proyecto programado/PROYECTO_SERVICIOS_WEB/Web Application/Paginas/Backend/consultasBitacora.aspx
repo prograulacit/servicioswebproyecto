@@ -10,13 +10,13 @@
         </ol>
     </nav>
     <div class="container" id="buscador_bitacora">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
                 <br />
-                <h3 class="text-uppercase text-muted">Consulta de Bitacora</h3>
+                <h3 class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Consulta de Bitacora</h3>
                 <br />
                 <label class="text-font-normal">Usuario</label>
-                <input type="text" id="input_bitacora_usuario" placeholder="Usuario" class="form-control sm-1" aria-label="Search" />
+                <input type="text" id="input_bitacora_usuario" placeholder="Usuario" class="form-control" aria-label="Search" />
                 <br />
                 <label class="text-font-normal">Fecha Inicio</label>
                 <input type="date" id="input_bitacora_fecha_inicio" class="form-control" aria-label="Search" />
@@ -32,7 +32,7 @@
                   <option value="Eliminar">Eliminar</option>
                 </select>
                 <br />
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="button_submit_bitacora_buscar()">Buscar</button>
+                <button class="btn btn-primary justify-content-center" type="button" onclick="button_submit_bitacora_buscar()">Buscar</button>
             </div>
             <div class="col-md-8">
                 <br />

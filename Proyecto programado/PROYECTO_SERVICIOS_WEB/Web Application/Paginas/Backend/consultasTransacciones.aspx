@@ -10,10 +10,10 @@
         </ol>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
                 <br />
-                <h3 class="text-uppercase text-muted">Consulta de Transacciones</h3>
+                <h3 class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Consulta de Transacciones</h3>
                 <br />
                 <label class="text-font-normal">Tipo Fecha</label>
                 <select id="input_transacciones_tipo_fecha" class="form-control" onChange="tipo_transaccion_cambio()" >
@@ -42,7 +42,7 @@
                     <option value="ambas">Ambas</option>
                 </select>
                 <br />
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="button_submit_transacciones_buscar()">Buscar</button>
+                <button class="btn btn-primary justify-content-center" type="button" onclick="button_submit_transacciones_buscar()">Buscar</button>
             </div>
             <div class="col-md-8">
                 <br />

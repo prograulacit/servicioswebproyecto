@@ -10,136 +10,147 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de libros</li>
         </ol>
     </nav>
-    <div class="titulo">
+    <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Administracion de libros
     </div>
 
-    <div class="descripcion">
+    <div class="text-font-normal">
         Aquí puede administrar los recursos de libros (PDF)
     </div>
+    <br />
 
-    <div id="boton_crear">
-        <button type="button" onclick="contenedorCrear_visible('inline'); 
-        contenedorTabla_visible('none'); 
-        contenedorEditar_visible('none')">Crear nuevo registro</button>
-    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
+                <div id="boton_crear">
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="contenedorCrear_visible('inline'); 
+                    contenedorTabla_visible('none'); 
+                    contenedorEditar_visible('none')">Crear nuevo registro</button>
+                </div>
 
-    <div id="contenedor_tabla">
-        Cargando...
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
+                <div id="contenedor_tabla">
+                    Cargando...
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+
+                <div id="contenedor_editar">
+                    <div class="titulo">
+                        Editando libro
+                    </div>
+                    <label class="text-font-normal" for="">ID:</label>
+                    <br>
+                    <input disabled type="text" name="" class="editar_id form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Nombre:</label>
+                    <br>
+                    <input type="text" name="" class="editar_nombre form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Categoria:</label>
+                    <br>
+                    <select id="editarCategoria" class="form-control editar_categoria"></select>
+                    <br>
+                    <label class="text-font-normal" for="">Autor:</label>
+                    <br>
+                    <input type="text" name="" class="editar_autor form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Idioma:</label>
+                    <br>
+                    <input type="text" name="" class="editar_idioma form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Editorial:</label>
+                    <br>
+                    <input type="text" name="" class="editar_editorial form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Año de publicación:</label>
+                    <br>
+                    <input type="text" name="" class="editar_anioPublicacion form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Monto:</label>
+                    <br>
+                    <input type="number" name="" class="editar_monto form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Nombre archivo descarga:</label>
+                    <br>
+                    <input type="text" name="" id="editarNombreDescargaLibro" class="editar_nombre_descarga_libro form-control" runat="server">
+                     <br>
+                    <label class="text-font-normal" for="">Archivo Libro:</label>
+                    <br>
+                    <input id="editarArchivoLibro" class="editar_archivo_libro form-control" type="file" accept="application/pdf" runat="server"/>
+                    <br>
+                    <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
+                    <br>
+                    <input type="text" name="" id="editarNombrePrevisualizacionLibro" class="editar_nombre_previsualizacion_libro form-control" runat="server">
+                    <br>
+                    <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
+                    <br>
+                    <input id="editarArchivoLibroPrev" class="editar_archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server"/>
+                    <br>
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="guardar_cambios()">Guardar cambios</button>
+                    <button class="btn btn-primary justify-content-center">Cancelar</button>
+                </div>
+                <br />
+                <br />
+                <br />
+                <div id="contenedor_crear">
+                    <label class="text-font-normal" for="">Nombre:</label>
+                    <br>
+                    <input type="text" name="" class="crear_nombre form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Categoria:</label>
+                    <br>
+                    <select id="crearCategoria" class="form-control crear_categoria"></select>
+                    <br>
+                    <label class="text-font-normal" for="">Autor:</label>
+                    <br>
+                    <input type="text" name="" class="crear_autor form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Idioma:</label>
+                    <br>
+                    <input type="text" name="" class="crear_idioma form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Editorial:</label>
+                    <br>
+                    <input type="text" name="" class="crear_editorial form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Año de publicación:</label>
+                    <br>
+                    <input type="text" name="" class="crear_anioPublicacion form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Monto:</label>
+                    <br>
+                    <input type="number" name="" class="crear_monto form-control">
+                    <br>
+                    <label class="text-font-normal" for="">Nombre archivo Libro:</label>
+                    <br>
+                    <input type="text" name="" id="nombreArchivoLibro" class="nombre_archivo_libro form-control" runat="server">
+                    <br>
+                    <label class="text-font-normal" for="">Archivo Libro:</label>
+                    <br>
+                    <input id="archivoLibro" class="archivo_libro form-control" type="file" accept="application/pdf" runat="server"/>
+                    <br>
+                    <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
+                    <br>
+                    <input type="text" id="nombrePrevisualizacionLibro" class="nombre_previsualizacion_libro form-control" runat="server">
+                    <br>
+                    <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
+                    <br>
+                    <input id="archivoLibroPrev" class="archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server"/>
+                    <br>
+                    <button class="btn btn-primary justify-content-center" type="button" onclick="crear_elemento()">Crear nuevo libro</button>
+                    <button class="btn btn-primary justify-content-center">Cancelar</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div id="contenedor_editar">
-        <div class="titulo">
-            Editando libro
-        </div>
-        ID:
-        <br>
-        <input disabled type="text" name="" class="editar_id">
-        <br>
-        Nombre:
-        <br>
-        <input type="text" name="" class="editar_nombre">
-        <br>
-        Categoria:
-        <br>
-        <select id="editarCategoria" class="form-control sm-1 editar_categoria"></select>
-        <br>
-        Autor:
-        <br>
-        <input type="text" name="" class="editar_autor">
-        <br>
-        Idioma:
-        <br>
-        <input type="text" name="" class="editar_idioma">
-        <br>
-        Editorial:
-        <br>
-        <input type="text" name="" class="editar_editorial">
-        <br>
-        Año de publicación:
-        <br>
-        <input type="text" name="" class="editar_anioPublicacion">
-        <br>
-        Monto:
-        <br>
-        <input type="number" name="" class="editar_monto">
-        <br>
-        Nombre archivo descarga:
-        <br>
-        <input type="text" name="" id="editarNombreDescargaLibro" class="editar_nombre_descarga_libro" runat="server">
-         <br>
-        Archivo Libro:
-        <br>
-        <input id="editarArchivoLibro" class="editar_archivo_libro" type="file" accept="application/pdf" runat="server"/>
-        <br>
-        Nombre archivo previsualizacion:
-        <br>
-        <input type="text" name="" id="editarNombrePrevisualizacionLibro" class="editar_nombre_previsualizacion_libro" runat="server">
-        <br>
-        Archivo Libro previsualizacion:
-        <br>
-        <input id="editarArchivoLibroPrev" class="editar_archivo_libro_prev" type="file" accept="application/pdf" runat="server"/>
-        <br>
-        <button type="button" onclick="guardar_cambios()">Guardar cambios</button>
-        <button>Cancelar</button>
-    </div>
-
-    <div id="contenedor_crear">
-        Nombre:
-        <br>
-        <input type="text" name="" class="crear_nombre">
-        <br>
-        Categoria:
-        <br>
-        <select id="crearCategoria" class="form-control sm-1 crear_categoria"></select>
-        <br>
-        Autor:
-        <br>
-        <input type="text" name="" class="crear_autor">
-        <br>
-        Idioma:
-        <br>
-        <input type="text" name="" class="crear_idioma">
-        <br>
-        Editorial:
-        <br>
-        <input type="text" name="" class="crear_editorial">
-        <br>
-        Año de publicación:
-        <br>
-        <input type="text" name="" class="crear_anioPublicacion">
-        <br>
-        Monto:
-        <br>
-        <input type="number" name="" class="crear_monto">
-        <br>
-        Nombre archivo Libro:
-        <br>
-        <input type="text" name="" id="nombreArchivoLibro" class="nombre_archivo_libro" runat="server">
-        <br>
-        Archivo Libro:
-        <br>
-        <input id="archivoLibro" class="archivo_libro" type="file" accept="application/pdf" runat="server"/>
-        <br>
-        Nombre archivo previsualizacion:
-        <br>
-        <input type="text" id="nombrePrevisualizacionLibro" class="nombre_previsualizacion_libro" runat="server">
-        <br>
-        Archivo Libro previsualizacion:
-        <br>
-        <input id="archivoLibroPrev" class="archivo_libro_prev" type="file" accept="application/pdf" runat="server"/>
-        <br>
-        <button type="button" onclick="crear_elemento()">Crear nuevo libro</button>
-        <button>Cancelar</button>
-    </div>
+    
 
     <%--hidden elements--%>
-    <asp:Button class="descargar_archivo_libro" id="descargarArchivoLibro" runat="server" Text="" OnClick="subirArchivosLibro_Click" style="display:none"/>
-    <asp:Button class="eliminar_archivo_libro" id="eliminarArchivoLibro" runat="server" Text="" OnClick="eliminarArchivoLibro_Click" style="display:none"/>
-    <asp:Button class="editar_archivos_libro" id="editarArchivosLibro" runat="server" Text="" OnClick="editarArchivosLibro_Click" style="display:none"/>
+    <asp:Button class="descargar_archivo_libro btn btn-primary justify-content-center" id="descargarArchivoLibro" runat="server" Text="" OnClick="subirArchivosLibro_Click" style="display:none"/>
+    <asp:Button class="eliminar_archivo_libro btn btn-primary justify-content-center" id="eliminarArchivoLibro" runat="server" Text="" OnClick="eliminarArchivoLibro_Click" style="display:none"/>
+    <asp:Button class="editar_archivos_libro btn btn-primary justify-content-center" id="editarArchivosLibro" runat="server" Text="" OnClick="editarArchivosLibro_Click" style="display:none"/>
     <input type="text" name="" id="viejoNombreDescargaLibro" class="viejo_nombre_descarga_libro" runat="server" style="display:none">
     <input type="text" name="" id="viejoNombrePrevisualizacionLibro" class="viejo_nombre_previsualizacion_libro" runat="server" style="display:none">
 

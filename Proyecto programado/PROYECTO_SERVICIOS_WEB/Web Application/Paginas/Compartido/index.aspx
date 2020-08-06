@@ -3,13 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="titulo">
+    <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Bienvenido/a a E-Descargas
     </div>
-    <div class="descripcion">
-        <br />
-        <a href="Login.aspx">Login</a>
-        <br />
-        <a href="Registrarse.aspx">Crear nueva cuenta</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-4">
+                <br/>
+                <a class="h2" href="Login.aspx">Login</a>
+                <br />
+                <br/>
+                <br />
+                <br/>
+                <a class="h2" href="Registrarse.aspx">Crear nueva cuenta</a>
+            </div>
+        </div>
     </div>
 </asp:Content>

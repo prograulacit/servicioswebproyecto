@@ -4,26 +4,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-
-
-        <div class="titulo">
-            Login
-        </div>
-        <div class="descripcion">
+        <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
             Formulario de inicio de sesión.
         </div>
-        <div class="descripcion">
-            <asp:Label runat="server" Text="Nombre de usuario"></asp:Label>
+        <div class="container form-group col-4">
+            <br/>
+            <br/>
+            <asp:Label class="text-font-normal" runat="server" Text="Nombre de usuario"></asp:Label>
             <br />
-            <asp:TextBox ID="textbox_nombre_usuario" runat="server"></asp:TextBox>
+            <asp:TextBox class="form-control" ID="textbox_nombre_usuario" runat="server"></asp:TextBox>
             <br />
-            <asp:Label runat="server" Text="Contraseña"></asp:Label>
+            <asp:Label class="text-font-normal" runat="server" Text="Contraseña"></asp:Label>
             <br />
-            <asp:TextBox TextMode="Password" ID="textbox_contrasenia" runat="server"></asp:TextBox>
+            <asp:TextBox class="form-control" TextMode="Password" ID="textbox_contrasenia" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="button_submit_login" runat="server" Text="Submit" OnClick="button_submit_login_Click" />
-            <a href="index.aspx">Volver</a>
+            <asp:Button class="btn btn-primary justify-content-center" ID="button_submit_login" runat="server" Text="Submit" OnClick="button_submit_login_Click" />
+            <br/>
+            <br/>
+            <a class="text-font-normal" href="index.aspx">Volver</a>
             <br />
             <asp:Label class="badge badge-danger" ID="Label_status_error" runat="server" Text=""></asp:Label>
         </div>

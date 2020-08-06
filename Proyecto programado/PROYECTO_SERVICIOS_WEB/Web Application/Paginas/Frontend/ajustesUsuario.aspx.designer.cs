@@ -132,15 +132,6 @@ namespace Web_Application.Paginas.Frontend
         protected global::System.Web.UI.WebControls.Label Label1_status_success_contrasenia;
 
         /// <summary>
-        /// Label1_status_failed_contrasenia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1_status_failed_contrasenia;
-
-        /// <summary>
         /// Button_actualizarContrasenia control.
         /// </summary>
         /// <remarks>
