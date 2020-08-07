@@ -10,7 +10,7 @@
             <li class="breadcrumb-item active" aria-current="page">Música</li>
         </ol>
     </nav>
-    <div class="container">
+    <div class="container" id="main_container">
         <div class="row justify-content-center">
             <div class="form-group col-4">
                 <br />
@@ -53,6 +53,14 @@
                 <div id="tabla_Musica"></div>
             </div>
         </div>
+    </div>
+    <div id="audio_container" class="container" style="display:none">	
+        <div class="column">	
+            <a href="#" class="btn btn-secondary mb-4" onclick="ir_a_tabla()">Atras</a>	
+            <div>	
+                <audio id="musica_player" controls="controls"></audio>	
+            </div>	
+        </div>	
     </div>
     <script src="../../Public/scripts/musica.js"></script>
     <script>
