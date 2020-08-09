@@ -71,6 +71,7 @@
                     <asp:TextBox class="form-control" TextMode="Password" ID="TextBox_contraseniaConfirmar" runat="server"></asp:TextBox>
                 </div>
                 <asp:Label ID="Label1_status_success_contrasenia" runat="server" Text="" class="badge badge-success"></asp:Label>
+                <asp:Label ID="Label1_status_failed_contrasenia" runat="server" Text="" class="badge badge-danger"></asp:Label>
                 <br />
                 <asp:Button class="btn btn-primary justify-content-center" ID="Button_actualizarContrasenia" runat="server" Text="Actualizar contraseña" OnClick="Button_actualizarContrasenia_Click" />
             </div>
