@@ -40,5 +40,12 @@ namespace BLL.Logica
         // la clase Memoria. Recibe bool datos_encriptados para determinar si los datos con los
         // que estámos trabajando están códificados en Base64 o texto plano.
         public static DBLogica logica_database = new DBLogica(datos_encriptados);
+
+        /// <summary>
+        /// Producto que el usuario ha seleccionado para comprar. Gracias a la instancia
+        /// en la memoria del servidor, podemos consultar el producto que el usuario
+        /// a seleccionado para comprar en cualquier parte de la aplicación web.
+        /// </summary>
+        public static ProductoCompra productoAComprar = new ProductoCompra();
     }
 }
