@@ -19,7 +19,7 @@
                     <a href="tarjetas.aspx">Administración de tarjetas de credito y debito</a>
                     <br />
                     <br/>
-                    <a href="">Administración de cuentas EasyPay</a>
+                    <a href="EasyPay.aspx">Administración de cuentas EasyPay</a>
                 </div>
             </div>
         </div>
