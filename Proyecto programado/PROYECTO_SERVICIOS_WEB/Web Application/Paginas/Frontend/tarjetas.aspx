@@ -17,7 +17,7 @@
             Administracion de tarjetas
         </div>
         <hr />
-        <div class="row justify-content-center">
+        <div class="row">
             <%--Selector de opciones--%>
             <%--<div class="selectorDeAcciones">
                 <div class="selectorDeAcciones_accion">
@@ -29,9 +29,7 @@
             </div>
             <hr />--%>
 
-            <div class="form-group col-4">
-
-                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3">
                 <%--Formulario para crear nueva tarjeta--%>
                 <div class="crearNuevaTarjeta" id="crearNuevaTarjeta">
                     <div class="subtitulo">
@@ -51,7 +49,7 @@
                 </div>
             </div>
 
-            </div>
+
 
             <div class="col-12 col-sm-12 col-md-12 col-lg-9">
                 <%--Formulario para ver tarjetas existentes--%>
@@ -63,10 +61,14 @@
                 </div>
             </div>
         </div>
+
         <br />
         <br />
         <asp:Label ID="Label_status_error" class="alert alert-danger" runat="server" Text=""></asp:Label>
         <asp:Label ID="Label_status_success" class="alert alert-success" runat="server" Text=""></asp:Label>
     </div>
     <script src="../../Public/scripts/tarjetas.js"></script>
+    <script>
+        cargar_tarjetas();
+    </script>
 </asp:Content>

@@ -183,7 +183,11 @@ function renderizar(json, contenedor_id) {
         let obj = voltearValoresObj(json);
 
         contenidoHtml +=
-            `<p>Total de registros: ${obj.length}</p>
+            `
+            <br>
+            <div class="subtitulo">
+                Total de registros: ${obj.length}
+            </div>
                         <table class="table table-striped">
                             <tr>
                                 <th scope="col">ID</th>

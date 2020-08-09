@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Compartido/MasterPage_Backend.Master" AutoEventWireup="true" CodeBehind="libroAdmin.aspx.cs" Inherits="Web_Application.Paginas.Backend.libroAdmin" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Public/scripts/librosAdmin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -14,18 +15,18 @@
         Administracion de libros
     </div>
 
-    <div class="text-font-normal">
-        Aquí puede administrar los recursos de libros (PDF)
-    </div>
-    <br />
-
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="titulo">
+            Aquí puede administrar los recursos de libros (PDF)
+        </div>
+        <br />
+        <div class="row">
             <div class="form-group col-4">
                 <div id="boton_crear">
                     <button class="btn btn-primary justify-content-center" type="button" onclick="contenedorCrear_visible('inline'); 
                     contenedorTabla_visible('none'); 
-                    contenedorEditar_visible('none')">Crear nuevo registro</button>
+                    contenedorEditar_visible('none')">
+                        Crear nuevo registro</button>
                 </div>
 
                 <div id="contenedor_tabla">
@@ -74,10 +75,10 @@
                     <label class="text-font-normal" for="">Nombre archivo descarga:</label>
                     <br>
                     <input type="text" name="" id="editarNombreDescargaLibro" class="editar_nombre_descarga_libro form-control" runat="server">
-                     <br>
+                    <br>
                     <label class="text-font-normal" for="">Archivo Libro:</label>
                     <br>
-                    <input id="editarArchivoLibro" class="editar_archivo_libro form-control" type="file" accept="application/pdf" runat="server"/>
+                    <input id="editarArchivoLibro" class="editar_archivo_libro form-control" type="file" accept="application/pdf" runat="server" />
                     <br>
                     <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
                     <br>
@@ -85,7 +86,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
                     <br>
-                    <input id="editarArchivoLibroPrev" class="editar_archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server"/>
+                    <input id="editarArchivoLibroPrev" class="editar_archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server" />
                     <br>
                     <button class="btn btn-primary justify-content-center" type="button" onclick="guardar_cambios()">Guardar cambios</button>
                     <button class="btn btn-primary justify-content-center">Cancelar</button>
@@ -128,7 +129,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo Libro:</label>
                     <br>
-                    <input id="archivoLibro" class="archivo_libro form-control" type="file" accept="application/pdf" runat="server"/>
+                    <input id="archivoLibro" class="archivo_libro form-control" type="file" accept="application/pdf" runat="server" />
                     <br>
                     <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
                     <br>
@@ -136,7 +137,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
                     <br>
-                    <input id="archivoLibroPrev" class="archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server"/>
+                    <input id="archivoLibroPrev" class="archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server" />
                     <br>
                     <button class="btn btn-primary justify-content-center" type="button" onclick="crear_elemento()">Crear nuevo libro</button>
                     <button class="btn btn-primary justify-content-center">Cancelar</button>
@@ -145,14 +146,14 @@
         </div>
     </div>
 
-    
+
 
     <%--hidden elements--%>
-    <asp:Button class="descargar_archivo_libro btn btn-primary justify-content-center" id="descargarArchivoLibro" runat="server" Text="" OnClick="subirArchivosLibro_Click" style="display:none"/>
-    <asp:Button class="eliminar_archivo_libro btn btn-primary justify-content-center" id="eliminarArchivoLibro" runat="server" Text="" OnClick="eliminarArchivoLibro_Click" style="display:none"/>
-    <asp:Button class="editar_archivos_libro btn btn-primary justify-content-center" id="editarArchivosLibro" runat="server" Text="" OnClick="editarArchivosLibro_Click" style="display:none"/>
-    <input type="text" name="" id="viejoNombreDescargaLibro" class="viejo_nombre_descarga_libro" runat="server" style="display:none">
-    <input type="text" name="" id="viejoNombrePrevisualizacionLibro" class="viejo_nombre_previsualizacion_libro" runat="server" style="display:none">
+    <asp:Button class="descargar_archivo_libro btn btn-primary justify-content-center" ID="descargarArchivoLibro" runat="server" Text="" OnClick="subirArchivosLibro_Click" Style="display: none" />
+    <asp:Button class="eliminar_archivo_libro btn btn-primary justify-content-center" ID="eliminarArchivoLibro" runat="server" Text="" OnClick="eliminarArchivoLibro_Click" Style="display: none" />
+    <asp:Button class="editar_archivos_libro btn btn-primary justify-content-center" ID="editarArchivosLibro" runat="server" Text="" OnClick="editarArchivosLibro_Click" Style="display: none" />
+    <input type="text" name="" id="viejoNombreDescargaLibro" class="viejo_nombre_descarga_libro" runat="server" style="display: none">
+    <input type="text" name="" id="viejoNombrePrevisualizacionLibro" class="viejo_nombre_previsualizacion_libro" runat="server" style="display: none">
 
     <script>
         cargar_elementos();

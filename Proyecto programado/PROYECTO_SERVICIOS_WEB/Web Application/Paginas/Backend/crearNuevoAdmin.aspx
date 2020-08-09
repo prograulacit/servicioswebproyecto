@@ -12,17 +12,17 @@
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Crear un nuevo administrador
     </div>
-
-    <div class="descripcion">
-        Por favor, rellene los espacios correspondientes para crear un nuevo administrador
-        <br />
-        <asp:Label ID="Label_status_error" runat="server" class="badge badge-danger" Text=""></asp:Label>
-        <asp:Label ID="Label_status_success" runat="server" class="badge badge-success" Text=""></asp:Label>
-    </div>
-
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="form-group col-4">
+        <div class="descripcion">
+            <div class="subtitulo">
+                Por favor, rellene los espacios correspondientes para crear un nuevo administrador
+            </div>
+            <br />
+            <asp:Label ID="Label_status_error" runat="server" class="badge badge-danger" Text=""></asp:Label>
+            <asp:Label ID="Label_status_success" runat="server" class="badge badge-success" Text=""></asp:Label>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
                 <label class="text-font-normal">Nombre de usuario:</label>
                 <asp:TextBox class="form-control" ID="TextBox_nombreUsuario" runat="server"></asp:TextBox>
                 <br />
@@ -37,28 +37,27 @@
                 <br />
                 <label class="text-font-normal">Respuesta de seguridad:</label>
                 <asp:TextBox class="form-control" ID="TextBox_respuestaDeSeguridad" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <label class="text-font-normal">Permisos del sistema:</label>
-                <br />
-                <br />
-                <label class="text-font-normal">Administrador maestro:</label>
-                <asp:CheckBox class="form-check-input" ID="CheckBox_adminMaestro" runat="server" />
-                <br />
-                <br />
-                <label class="text-font-normal">Seguridad:</label>
-                <asp:CheckBox class="form-check-input" ID="CheckBox_adminSeguridad" runat="server" />
-                <br />
-                <br />
-                <label class="text-font-normal">Mantenimiento:</label>
-                <asp:CheckBox class="form-check-input" ID="CheckBox_mantenimiento" runat="server" />
-                <br />
-                <br />
-                <label class="text-font-normal">Consultas:</label>
-                <asp:CheckBox class="form-check-input" ID="CheckBox_consultas" runat="server" />
-
-                <br />
-                <br />
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="subtitulo">
+                    Permisos del sistema
+                </div>
+                <div class="form-group form-check">
+                    <asp:CheckBox class="form-check-input" ID="CheckBox_adminMaestro" runat="server" />
+                    <label class="form-check-label">Administrador maestro</label>
+                </div>
+                <div class="form-group form-check">
+                    <asp:CheckBox class="form-check-input" ID="CheckBox_adminSeguridad" runat="server" />
+                    <label class="form-check-label">Seguridad</label>
+                </div>
+                <div class="form-group form-check">
+                    <asp:CheckBox class="form-check-input" ID="CheckBox_mantenimiento" runat="server" />
+                    <label class="form-check-label">Mantenimiento:</label>
+                </div>
+                <div class="form-group form-check">
+                    <asp:CheckBox class="form-check-input" ID="CheckBox_consultas" runat="server" />
+                    <label class="text-font-label">Consultas</label>
+                </div>
                 <asp:Button class="btn btn-primary justify-content-center" ID="Button_crearAdmin" runat="server" Text="Crear administador" OnClick="Button_crearAdmin_Click" />
                 <asp:Button class="btn btn-primary justify-content-center" ID="Button_cancelar" runat="server" Text="Cancelar" OnClick="Button_cancelar_Click" />
             </div>

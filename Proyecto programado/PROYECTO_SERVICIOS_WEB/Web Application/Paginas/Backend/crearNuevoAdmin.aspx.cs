@@ -9,10 +9,17 @@ namespace Web_Application.Paginas.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool adminMaestro = Memoria.sesionAdminDatos.adminMaestro;
-            bool adminSeguridad = Memoria.sesionAdminDatos.adminSeguridad;
+            try
+            {
+                bool adminMaestro = Memoria.sesionAdminDatos.adminMaestro;
+                bool adminSeguridad = Memoria.sesionAdminDatos.adminSeguridad;
 
-            if (!adminMaestro && !adminSeguridad)
+                if (!adminMaestro && !adminSeguridad)
+                {
+                    Response.Redirect("~/Paginas/Backend/Index.aspx");
+                }
+            }
+            catch (Exception)
             {
                 Response.Redirect("~/Paginas/Backend/Index.aspx");
             }
@@ -133,7 +140,7 @@ namespace Web_Application.Paginas.Backend
             List<Admin> lista_admins = admin.traerAdmins();
             for (int i = 0; i < lista_admins.Count; i++)
             {
-                if (TextBox_nombreUsuario.Text.ToLower() == 
+                if (TextBox_nombreUsuario.Text.ToLower() ==
                     lista_admins[i].nombreUsuario.ToLower())
                 {
                     labelStatusDanger_cambiarTexto("Ese nombre de usuario ya está tomado.");
