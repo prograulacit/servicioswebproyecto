@@ -56,6 +56,7 @@
         </div>	
     </div>
     <script src="../../Public/scripts/libro.js"></script>
+    <script src="../../Public/scripts/productoCompra.js"></script>
     <script>
         traer_categorias();
     </script>

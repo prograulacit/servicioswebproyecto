@@ -133,6 +133,8 @@
     <Content Include="Paginas\Compartido\Login.aspx" />
     <Content Include="Paginas\Compartido\Registrarse.aspx" />
     <Content Include="Paginas\Frontend\ajustesUsuario.aspx" />
+    <Content Include="Paginas\Frontend\checkout.aspx" />
+    <Content Include="Paginas\Frontend\compra.aspx" />
     <Content Include="Paginas\Frontend\EasyPay.aspx" />
     <Content Include="Paginas\Frontend\eliminarCuenta.aspx" />
     <Content Include="Paginas\Frontend\Index.aspx" />
@@ -150,6 +152,7 @@
     <Content Include="Public\pruebas\script.js" />
     <Content Include="Public\scripts\bitacoraErroresTransaccionesDescargas.js" />
     <Content Include="Public\scripts\categoriasLibro.js" />
+    <Content Include="Public\scripts\compra.js" />
     <Content Include="Public\scripts\consecutivos.js" />
     <Content Include="Public\scripts\consultasBitacora.js" />
     <Content Include="Public\scripts\consultasDescargas.js" />
@@ -165,6 +168,7 @@
     <Content Include="Public\scripts\parametros.js" />
     <Content Include="Public\scripts\peliculas.js" />
     <Content Include="Public\scripts\peliculasAdmin.js" />
+    <Content Include="Public\scripts\productoCompra.js" />
     <Content Include="Public\scripts\tareas.js" />
     <Content Include="Public\scripts\tarjetas.js" />
     <Content Include="Public\scripts\utils.js" />
@@ -373,6 +377,20 @@
     </Compile>
     <Compile Include="Paginas\Frontend\ajustesUsuario.aspx.designer.cs">
       <DependentUpon>ajustesUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Frontend\checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Frontend\checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Frontend\compra.aspx.cs">
+      <DependentUpon>compra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Frontend\compra.aspx.designer.cs">
+      <DependentUpon>compra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Frontend\EasyPay.aspx.cs">
       <DependentUpon>EasyPay.aspx</DependentUpon>

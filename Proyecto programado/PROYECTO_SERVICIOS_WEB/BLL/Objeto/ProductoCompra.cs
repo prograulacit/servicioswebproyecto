@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL.Objeto
 {
     public class ProductoCompra
     {
         // Guarda el ID del producto que se va a comprar.
-        public string productoCompraId{ get; set; }
+        public string productoCompraId { get; set; }
 
         // Clases de los productos que van a mantener la información.
         public Pelicula pelicula { get; set; }
         public Musica musica { get; set; }
         public Libro libro { get; set; }
+
+        // Le dice a la logica de la aplicación que tipo de producto
+        // se ha elegido.
+        public bool esPelicula = false;
+        public bool esMusica = false;
+        public bool esLibro = false;
 
         public ProductoCompra() { }
 
@@ -24,11 +27,10 @@ namespace BLL.Objeto
         /// </summary>
         /// <param name="productoCompraId">ID del producto que se
         /// va a comprar (pelicula, musica o libro).</param>
-        public ProductoCompra(string productoCompraId) 
+        public ProductoCompra(string productoCompraId)
         {
             this.productoCompraId = productoCompraId;
             establecerProducto(productoCompraId);
-            
         }
 
         /// <summary>
@@ -36,24 +38,16 @@ namespace BLL.Objeto
         /// correspondientes del producto que se va a comprar.
         /// NOTA: METODO DEBE SER UTILIZADO UNICAMENTE EL EL CONSTRUCTOR.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">ID del producto</param>
         private void establecerProducto(string id)
         {
-            var peliculaLibroOMusica = traerProducto(id);
-        }
+            Pelicula p = new Pelicula();
+            Libro l = new Libro();
+            Musica m = new Musica();
 
-        /// <summary>
-        /// Dependiendo del id dado, traera el producto reflejado en la
-        /// base de datos.
-        /// NOTA: METODO DEBE SER UTILIZADO UNICAMENTE EL EL CONSTRUCTOR.
-        /// </summary>
-        /// <param name="id">ID del producto a traer de la base de datos</param>
-        /// <returns>Pelicula, Musica o Libro</returns>
-        private object traerProducto(string id)
-        {
-            List<Pelicula> lista_peliculas = pelicula.traerPeliculas();
-            List<Musica> lista_musica = musica.traerMusicas();
-            List<Libro> lista_libro = libro.traerLibros();
+            List<Pelicula> lista_peliculas = p.traerPeliculas();
+            List<Musica> lista_musica = m.traerMusicas();
+            List<Libro> lista_libro = l.traerLibros();
 
             // Revisa si el producto es pelicula
             if (lista_peliculas != null)
@@ -62,7 +56,9 @@ namespace BLL.Objeto
                 {
                     if (lista_peliculas[i].id == id)
                     {
-                        return lista_peliculas[i];
+                        esPelicula = true;
+                        pelicula = lista_peliculas[i];
+                        break;
                     }
                 }
             }
@@ -74,7 +70,9 @@ namespace BLL.Objeto
                 {
                     if (lista_musica[i].id == id)
                     {
-                        return lista_musica[i];
+                        esMusica = true;
+                        musica = lista_musica[i];
+                        break;
                     }
                 }
             }
@@ -86,23 +84,47 @@ namespace BLL.Objeto
                 {
                     if (lista_libro[i].id == id)
                     {
-                        return lista_libro[i];
+                        esLibro = true;
+                        libro = lista_libro[i];
+                        break;
                     }
                 }
             }
 
-            return null;
+            if (!esLibro && !esMusica && !esPelicula)
+            {
+                throw new Exception("Elemento no encontrado!");
+            }
         }
 
         /// <summary>
-        /// Elimina la información del producto a comprar.
+        /// Retorna true si el usuario a seleccionado un producto para comprar.
         /// </summary>
-        public void limpiarProducto()
+        /// <returns>boolean</returns>
+        public bool seHaSeleccionadoProductoParaComprar()
         {
-            productoCompraId = null;
-            pelicula = null;
-            musica = null;
-            libro = null;
+            return !string.IsNullOrEmpty(productoCompraId);
+        }
+
+        /// <summary>
+        /// Retorna un string el cual indica el tipo de producto seleccionado.
+        /// </summary>
+        /// <returns>string: pelicula | musica | libro</returns>
+        public string obtenerTipoProducto()
+        {
+            if (esPelicula)
+            {
+                return "pelicula";
+            }
+            else if (esMusica)
+            {
+                return "musica";
+            }
+            else if (esLibro)
+            {
+                return "libro";
+            }
+            throw new Exception("Error: producto no establecido!");
         }
     }
 }

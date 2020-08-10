@@ -11,6 +11,8 @@ namespace Web_Application.Paginas.Frontend
             {
                 Response.Redirect("~/Paginas/Compartido/index.aspx");
             }
+            // Se elimina el producto que se iba a comprar de la memoria.
+            Memoria.productoAComprar = new BLL.Objeto.ProductoCompra();
         }
     }
 }

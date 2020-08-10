@@ -48,6 +48,7 @@
     <Compile Include="Objeto\Admin.cs" />
     <Compile Include="Objeto\Bitacora.cs" />
     <Compile Include="Objeto\Categorias_libros.cs" />
+    <Compile Include="Objeto\CompraMetodoDePago.cs" />
     <Compile Include="Objeto\Consecutivo.cs" />
     <Compile Include="Objeto\Descargas.cs" />
     <Compile Include="Objeto\EasyPay.cs" />

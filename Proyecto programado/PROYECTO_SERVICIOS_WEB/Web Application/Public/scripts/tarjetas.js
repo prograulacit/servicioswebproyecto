@@ -64,7 +64,7 @@ function crearTablaDeTarjetas(obj_tarjetas) {
                 `<tr>
                     <td>` + numeroTarjeta + `</td>
                     <td>` + tipoTarjeta + `</td>
-                    <td>` + obj_tarjetas[index].monto + `</td>
+                    <td>₡` + obj_tarjetas[index].monto + `</td>
                     <td>
                         <a href="#" onclick="eliminar_tarjeta('` + obj_tarjetas[index].id + `')">Eliminar tarjeta</a>
                     </td>
@@ -113,4 +113,87 @@ function eliminar_tarjeta(id) {
           cargar_tarjetas();
         }
       })
+}
+
+// Código para tablas a mostran en página de compras.
+
+function cargar_tarjetasCompras() {
+    fetch(API_URI)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (response) {
+            let obj_tarjetas = JSON.parse(response);
+            crearTablaDeTarjetas_compras(obj_tarjetas);
+        })
+        .catch(function (err) {
+            console.error(err);
+            document.getElementById("tarjetas_registradas").innerHTML =
+                `<div class="alert alert-danger" role="alert">
+                Ha ocurrido un error al intentar cargar las tarjetas.
+            </div>`;
+        });
+}
+
+function crearTablaDeTarjetas_compras(obj_tarjetas) {
+    if (obj_tarjetas != null && obj_tarjetas.length > 0) {
+
+        let html = "";
+
+        html +=
+            `
+            <br>
+            <div>
+                Total de tarjetas: ${obj_tarjetas.length}
+            </div>
+            <br>
+            <table class="table table-bordered">
+                <tr>
+                    <th scope="col">Número</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            `;
+        for (let index = 0; index < obj_tarjetas.length; index++) {
+
+            // Se extrae el numero de tarjeta.
+            let numeroTarjeta = "xxxx" +
+                obj_tarjetas[index].numeroTarjeta.charAt(12) +
+                obj_tarjetas[index].numeroTarjeta.charAt(13) +
+                obj_tarjetas[index].numeroTarjeta.charAt(14) +
+                obj_tarjetas[index].numeroTarjeta.charAt(15);
+
+            // Se extrae el tipo de tarjeta.
+            let tipoTarjeta = "";
+            if (obj_tarjetas[index].tipo == "V") {
+                tipoTarjeta = "Visa";
+            } else {
+                tipoTarjeta = "Mastercart";
+            }
+
+            // Se contruye la tabla.
+            html +=
+                `<tr>
+                    <td>` + numeroTarjeta + `</td>
+                    <td>` + tipoTarjeta + `</td>
+                    <td>
+                        <a href="#" onclick="utilizarTarjeta('` + obj_tarjetas[index].id + `')">Utilizar esta tarjeta</a>
+                    </td>
+                </tr>`;
+
+        }
+        html += "</table>";
+        document.getElementById("tabla_metodosDePago").innerHTML = html;
+    } else {
+        document.getElementById("tabla_metodosDePago").innerHTML =
+            `
+        <div class="alert alert-info" role="alert">
+          No hay tarjetas registradas.
+        </div>
+        `;
+    }
+}
+
+function utilizarTarjeta(id) {
+    alert(id);
 }

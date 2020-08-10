@@ -1,11 +1,7 @@
 ﻿using BLL.Logica;
 using BLL.Objeto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using System.Windows.Forms;
 
 namespace Web_Application.ApiControllers
 {
@@ -22,15 +18,25 @@ namespace Web_Application.ApiControllers
         }
 
         // PUT: api/ProductoCompra/5
-        public string Put([FromBody]string productoCompraId)
+        /// <summary>
+        /// Obtiene el producto que el usuario eligio por su ID.
+        /// </summary>
+        /// <param name="pdID">Contiene el ID del producto
+        /// que el usuario desea comprar en su variable productoCompraID</param>
+        /// <returns></returns>
+        public string Put([FromBody]ProductoCompra pdID)
         {
-            Memoria.productoAComprar.productoCompraId = productoCompraId;
-            return "";
+           // Establece el producto que se va a comprar en la memoria.
+           Memoria.productoAComprar = 
+                new ProductoCompra(pdID.productoCompraId);
+            return "OK. ID:" + Memoria.productoAComprar.productoCompraId;
         }
 
-        // DELETE: api/ProductoCompra/5
-        public void Delete(int id)
+        // DELETE: api/ProductoCompra
+        public string Delete()
         {
+            Memoria.productoAComprar = new ProductoCompra();
+            return "Producto limpiado";
         }
     }
 }

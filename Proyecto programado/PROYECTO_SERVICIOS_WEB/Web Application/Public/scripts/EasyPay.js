@@ -223,10 +223,73 @@ function crearTablaTarjetas_easypay(obj_tarjetas) {
     }
 }
 
-
 function utilizarTarjeta_easypay(datosTarjeta, idTarjeta) {
     document.getElementById('Textbox_idTarjeta').readOnly = false;
     document.getElementById('ContentPlaceHolder1_Label_tarjetaFormateada').innerHTML = datosTarjeta;
     document.getElementById('Textbox_idTarjeta').value = idTarjeta;
     document.getElementById('Textbox_idTarjeta').readOnly = true;
+}
+
+// Código para tablas a mostran en página de compras.
+
+function cargar_easypays_compras() {
+    fetch(API_URI_EASYPAY)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (response) {
+            let obj_easypays = JSON.parse(response);
+            crearTablaDeEasyPays_compras(obj_easypays);
+        })
+        .catch(function (err) {
+            console.error(err);
+            document.getElementById("tabla_metodosDePago").innerHTML =
+                `<div class="alert alert-danger" role="alert">
+                Ha ocurrido un error al intentar cargar los EasyPays.
+            </div>`;
+        });
+}
+
+function crearTablaDeEasyPays_compras(obj_easypays) {
+    if (obj_easypays != null && obj_easypays.length > 0) {
+
+        let html = "";
+
+        html +=
+            `
+            <br>
+            <div>
+                Total de cuentas: ${obj_easypays.length}
+            </div>
+            <br>
+            <table class="table table-bordered">
+                <tr>
+                    <th scope="col">Tarjeta asociada</th>
+                    <th scope="col">Saldo</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            `;
+        for (let index = 0; index < obj_easypays.length; index++) {
+
+            // Se contruye la tabla.
+            html +=
+                `<tr>
+                    <td>${obj_easypays[index].numeroCuenta}</td>
+                    <td>₡${obj_easypays[index].monto}</td>
+                    <td>
+                        <a href="#" onclick="eliminar_easypay('${obj_easypays[index].id}')">Utilizar esta cuenta</a>
+                    </td>
+                </tr>`;
+
+        }
+        html += `</table>`;
+        document.getElementById("tabla_metodosDePago").innerHTML = html;
+    } else {
+        document.getElementById("tabla_metodosDePago").innerHTML =
+            `
+            <div class="alert alert-info" role="alert">
+                No hay cuentas EasyPay registradas.
+            </div>
+            `;
+    }
 }
