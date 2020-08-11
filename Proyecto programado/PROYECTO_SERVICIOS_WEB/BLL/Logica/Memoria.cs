@@ -47,5 +47,11 @@ namespace BLL.Logica
         /// a seleccionado para comprar en cualquier parte de la aplicación web.
         /// </summary>
         public static ProductoCompra productoAComprar = new ProductoCompra();
+
+        /// <summary>
+        /// Variable en la memoria en donde se guarda el metodo de pago a utilizar para
+        /// comprar un producto.
+        /// </summary>
+        public static CompraMetodoDePago compraMetodoDePago = new CompraMetodoDePago();
     }
 }

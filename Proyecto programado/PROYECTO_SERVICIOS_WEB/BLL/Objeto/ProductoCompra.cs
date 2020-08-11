@@ -126,5 +126,25 @@ namespace BLL.Objeto
             }
             throw new Exception("Error: producto no establecido!");
         }
+
+        /// <summary>
+        /// Regresa el monto del producto a comprar.
+        /// </summary>
+        /// <returns></returns>
+        public int obtenerMonto()
+        {
+            if (esPelicula)
+            {
+                return Int32.Parse(pelicula.monto);
+            }
+            else if (esMusica) 
+            {
+                return Int32.Parse(musica.monto);
+            }
+            else
+            {
+                return Int32.Parse(libro.monto);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿// Este script lleva a cabo la logica para comprar productos.
+﻿// Este script lleva a cabo la logica para guardar un producto que se va a comprar
+// en la memoria.
 
 const URL_PRODUCTOACOMPRAR = "https://localhost:44371/";
 
@@ -18,7 +19,9 @@ function establecerProductoAComprar(id) {
             .catch(error => console.error('Error:', error))
             .then( async(response) => {
                 await console.log('Success:', response);
-                window.location.href = "https://localhost:44371/Paginas/Frontend/Compra.aspx";
+                // Envia al usuario a la página de compra.
+                window.location.href =
+                    "https://localhost:44371/Paginas/Frontend/Compra.aspx";
             });
     } else {
         console.log("Datos vacios.");

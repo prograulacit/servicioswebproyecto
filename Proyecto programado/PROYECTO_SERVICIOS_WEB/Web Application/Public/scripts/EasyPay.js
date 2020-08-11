@@ -277,7 +277,7 @@ function crearTablaDeEasyPays_compras(obj_easypays) {
                     <td>${obj_easypays[index].numeroCuenta}</td>
                     <td>₡${obj_easypays[index].monto}</td>
                     <td>
-                        <a href="#" onclick="eliminar_easypay('${obj_easypays[index].id}')">Utilizar esta cuenta</a>
+                        <a href="#">Utilizar esta cuenta</a>
                     </td>
                 </tr>`;
 

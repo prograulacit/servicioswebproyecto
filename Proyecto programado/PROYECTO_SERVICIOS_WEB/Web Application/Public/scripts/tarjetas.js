@@ -2,6 +2,8 @@
 const API_URI = "https://localhost:44371/api/tarjeta?user_id=asociada";
 const API_URI_ELIMINAR = "https://localhost:44371/api/tarjeta";
 
+const API_COMPRAMETODODEPAGO = "https://localhost:44371/api/CompraMetodoDePago";
+
 function cargar_tarjetas() {
     fetch(API_URI)
         .then(function (response) {
@@ -13,8 +15,8 @@ function cargar_tarjetas() {
         })
         .catch(function (err) {
             console.error(err);
-            document.getElementById("tarjetas_registradas").innerHTML = 
-            `<div class="alert alert-danger" role="alert">
+            document.getElementById("tarjetas_registradas").innerHTML =
+                `<div class="alert alert-danger" role="alert">
                 Ha ocurrido un error al intentar cargar las tarjetas.
             </div>`;
         });
@@ -46,21 +48,21 @@ function crearTablaDeTarjetas(obj_tarjetas) {
 
             // Se extrae el numero de tarjeta.
             let numeroTarjeta = "xxxx" +
-            obj_tarjetas[index].numeroTarjeta.charAt(12) +
-            obj_tarjetas[index].numeroTarjeta.charAt(13) +
-            obj_tarjetas[index].numeroTarjeta.charAt(14) +
-            obj_tarjetas[index].numeroTarjeta.charAt(15);
+                obj_tarjetas[index].numeroTarjeta.charAt(12) +
+                obj_tarjetas[index].numeroTarjeta.charAt(13) +
+                obj_tarjetas[index].numeroTarjeta.charAt(14) +
+                obj_tarjetas[index].numeroTarjeta.charAt(15);
 
             // Se extrae el tipo de tarjeta.
             let tipoTarjeta = "";
-            if(obj_tarjetas[index].tipo == "V"){
+            if (obj_tarjetas[index].tipo == "V") {
                 tipoTarjeta = "Visa";
-            }else{
+            } else {
                 tipoTarjeta = "Mastercart";
             }
 
             // Se contruye la tabla.
-            html += 
+            html +=
                 `<tr>
                     <td>` + numeroTarjeta + `</td>
                     <td>` + tipoTarjeta + `</td>
@@ -69,13 +71,13 @@ function crearTablaDeTarjetas(obj_tarjetas) {
                         <a href="#" onclick="eliminar_tarjeta('` + obj_tarjetas[index].id + `')">Eliminar tarjeta</a>
                     </td>
                 </tr>`;
-        
+
         }
         html += "</table>";
         document.getElementById("tarjetas_registradas").innerHTML = html;
     } else {
-        document.getElementById("tarjetas_registradas").innerHTML = 
-        `
+        document.getElementById("tarjetas_registradas").innerHTML =
+            `
         <div class="alert alert-info" role="alert">
           No hay tarjetas registradas.
         </div>
@@ -83,7 +85,7 @@ function crearTablaDeTarjetas(obj_tarjetas) {
     }
 }
 
-function eliminar_tarjeta(id) {    
+function eliminar_tarjeta(id) {
 
     Swal.fire({
         title: 'Eliminar tarjeta',
@@ -93,7 +95,7 @@ function eliminar_tarjeta(id) {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Eliminar'
-      }).then(async (result) => {
+    }).then(async (result) => {
         if (result.value) {
             var json_request = {
                 ID: id
@@ -105,14 +107,14 @@ function eliminar_tarjeta(id) {
                     console.log(json);
                 })
             );
-          await Swal.fire(
-            'Hecho',
-            'La tarjeta ha sido eliminada.',
-            'success'
-          )
-          cargar_tarjetas();
+            await Swal.fire(
+                'Hecho',
+                'La tarjeta ha sido eliminada.',
+                'success'
+            )
+            cargar_tarjetas();
         }
-      })
+    })
 }
 
 // Código para tablas a mostran en página de compras.
@@ -151,6 +153,7 @@ function crearTablaDeTarjetas_compras(obj_tarjetas) {
                 <tr>
                     <th scope="col">Número</th>
                     <th scope="col">Tipo</th>
+                    <th scope="col">Saldo</th>
                     <th scope="col">Acción</th>
                 </tr>
             `;
@@ -176,11 +179,11 @@ function crearTablaDeTarjetas_compras(obj_tarjetas) {
                 `<tr>
                     <td>` + numeroTarjeta + `</td>
                     <td>` + tipoTarjeta + `</td>
+                    <td>₡` + obj_tarjetas[index].monto + `</td>
                     <td>
-                        <a href="#" onclick="utilizarTarjeta('` + obj_tarjetas[index].id + `')">Utilizar esta tarjeta</a>
+                        <a href="#" id="tarjetaOpcion${numeroTarjeta}" onclick="utilizarTarjeta('` + obj_tarjetas[index].id + `','tarjetaOpcion${numeroTarjeta}')">Utilizar esta tarjeta</a>
                     </td>
                 </tr>`;
-
         }
         html += "</table>";
         document.getElementById("tabla_metodosDePago").innerHTML = html;
@@ -195,5 +198,24 @@ function crearTablaDeTarjetas_compras(obj_tarjetas) {
 }
 
 function utilizarTarjeta(id) {
-    alert(id);
+    if (id != "") {
+        var json_request = {
+            metodoDePagoID: id
+        };
+
+        fetch(API_COMPRAMETODODEPAGO, {
+            method: 'PUT',
+            body: JSON.stringify(json_request),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then((response) => {
+                console.log('Success:', response);
+                toggle_botonRealizarCompra(true);
+            });
+    } else {
+        console.log("Datos vacios.");
+    }
 }

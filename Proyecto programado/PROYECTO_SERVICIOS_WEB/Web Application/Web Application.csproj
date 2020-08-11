@@ -178,6 +178,7 @@
     <Compile Include="ApiControllers\AdminController.cs" />
     <Compile Include="ApiControllers\BitacoraController.cs" />
     <Compile Include="ApiControllers\Categorias_librosController.cs" />
+    <Compile Include="ApiControllers\CompraMetodoDePagoController.cs" />
     <Compile Include="ApiControllers\ConsecutivoController.cs" />
     <Compile Include="ApiControllers\DescargasController.cs" />
     <Compile Include="ApiControllers\EasyPayController.cs" />
