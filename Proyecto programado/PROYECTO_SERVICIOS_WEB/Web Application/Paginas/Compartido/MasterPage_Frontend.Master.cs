@@ -8,7 +8,13 @@ namespace Web_Application.Paginas.Compartido
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Memoria.sesionSocial)
+            {
+                menu_ajustes_cuenta.Visible = false;
+            } else
+            {
+                menu_ajustes_cuenta.Visible = true;
+            }
         }
 
         protected void LinkButton_cerrar_sesion_Click(object sender, EventArgs e)

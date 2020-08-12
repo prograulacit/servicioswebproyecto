@@ -120,5 +120,22 @@ namespace Web_Application.Paginas.Compartido
         {
             Label_status_error.Text = mensaje;
         }
+
+        protected void btn_submit_social_login_Click(object sender, EventArgs e)
+        {
+            Usuario usuario = new Usuario("no definido"
+            , socialName.Value
+            , "no definido"
+            , "no definido"
+            , socialEmail.Value
+            , socialUsername.Value
+            , "no definido");
+
+            Memoria.sesionSocial = true;
+            Memoria.sesionDeUsuario = true;
+            Memoria.sesionUsuarioDatos = usuario;
+
+            Response.Redirect("~/Paginas/Frontend/index.aspx");
+        }
     }
 }
