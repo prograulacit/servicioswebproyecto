@@ -107,6 +107,12 @@ namespace Web_Application.ApiControllers
         public string Delete(string id)
         {
             Tarjeta tarjeta = new Tarjeta();
+            EasyPay ep = new EasyPay();
+
+            // Eliminamos todas las cuentas EasyPay que esten
+            // asociadas con la tarjeta que vamos de eliminar.
+            ep.eliminarEasyPays_asociadosATarjetaID(id);
+
             tarjeta.eliminarTarjeta(id);
             return "Tarjeta " + id + " eliminada.";
         }

@@ -98,7 +98,7 @@ function cargar_peliculas(genero, nombre, anio, idioma, actores) {
                             <td>${json[index].nombre}</td>
                             <td>${json[index].genero}</td>
                             <td><a href="#" onclick="traer_previsualizacion('${json[index].nombreArchivoPrevisualizacion}')">Ver</a></td>
-                            <td>comprar</td>
+                            <td><a onclick="establecerProductoAComprar('${json[index].id}')" href="#">Comprar</a></td>
                         </tr>`;
             }
             html += "</tbody></table>";

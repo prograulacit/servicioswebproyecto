@@ -1,4 +1,5 @@
 ﻿using BLL.Logica;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -153,6 +154,36 @@ namespace BLL.Objeto
             this.monto = monto;
             this.tipo = tipo;
         }
+
+        /// <summary>
+        /// Cuando se realiza una compra con cuenta EasyPay, se reduce el saldo de la cuenta EasyPay.
+        /// Por ende, debemos actualizar el saldo de las cuentas Tarjetas asociadas a la cuenta EasyPay
+        /// utilizada para que el saldo sea el mismo en ambos registros. Recordemos que el saldo
+        /// de las Tarjetas es exactamente el mismo que el de las cuentas EasyPay.
+        /// </summary>
+        /// <param name="easyPay_numeroCuenta">ID de la tarjeta con la que se ha efectuado el pago.</param>
+        /// <param name="montoActualizado">Monto con el cual la tarjeta a terminado después
+        /// de que se haya reducido su saldo.</param>
+        internal void actualizarMonto_compraConEasyPay(string easyPay_numeroCuenta, string saldoActualizado)
+        {
+            Tarjeta t = new Tarjeta();
+            List<Tarjeta> lista_tarjetas = t.traerTarjetas();
+
+            if (lista_tarjetas != null)
+            {
+                for (int i = 0; i < lista_tarjetas.Count; i++)
+                {
+                    if (lista_tarjetas[i].id == easyPay_numeroCuenta)
+                    {
+                        // actualizamos su monto y actualizamos el registro
+                        // en la base de datos.
+                        lista_tarjetas[i].monto = saldoActualizado;
+                        t.actualizarTarjeta(lista_tarjetas[i]);
+                    }
+                }
+            }
+        }
+
         string[] parametros = {
                 "ID"
                 ,"IDusuario"

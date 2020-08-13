@@ -140,6 +140,7 @@
     <Content Include="Paginas\Frontend\Index.aspx" />
     <Content Include="Paginas\Frontend\Libros.aspx" />
     <Content Include="Paginas\Frontend\metodosDePago.aspx" />
+    <Content Include="Paginas\Frontend\misArticulos.aspx" />
     <Content Include="Paginas\Frontend\Musica.aspx" />
     <Content Include="Paginas\Frontend\Peliculas.aspx" />
     <Content Include="Paginas\Frontend\tarjetas.aspx" />
@@ -163,6 +164,7 @@
     <Content Include="Public\scripts\generosPeliculas.js" />
     <Content Include="Public\scripts\librosAdmin.js" />
     <Content Include="Public\scripts\libro.js" />
+    <Content Include="Public\scripts\misArticulos.js" />
     <Content Include="Public\scripts\musica.js" />
     <Content Include="Public\scripts\musicaAdmin.js" />
     <Content Include="Public\scripts\parametros.js" />
@@ -427,6 +429,13 @@
     </Compile>
     <Compile Include="Paginas\Frontend\metodosDePago.aspx.designer.cs">
       <DependentUpon>metodosDePago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Frontend\misArticulos.aspx.cs">
+      <DependentUpon>misArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Frontend\misArticulos.aspx.designer.cs">
+      <DependentUpon>misArticulos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Frontend\Musica.aspx.cs">
       <DependentUpon>Musica.aspx</DependentUpon>

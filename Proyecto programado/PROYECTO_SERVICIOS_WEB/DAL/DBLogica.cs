@@ -20,12 +20,19 @@ namespace DAL
         // ésta variable. Por defecto la variable sera false si no es establecida.
         private bool datos_encriptados = false;
 
+        ///////////////////////////////////////////////////
         // Strings de conexión de las bases de datos.
         ///////////////////////////////////////////////////
+        //////////////////////////////////////////////////////
         public string stringDeConexion_baseDeDatos_principal =
             "Data Source=10.172.61.115;Initial Catalog=SERVICIOSWEB_MAIN;User ID=admin;Password=admin123@.";
+            //"Data Source=.;Initial Catalog=SERVICIOSWEB_MAIN;Integrated Security=True";
         public string stringDeConexion_baseDeDatos_pagos =
             "Data Source=10.172.61.115;Initial Catalog=SERVICIOSWEB_PAGOS;User ID=admin;Password=admin123@.";
+            //"Data Source=.;Initial Catalog=SERVICIOSWEB_MAIN;Integrated Security=True";
+        //////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////
 
         /// <summary>
         /// Ejecuta una consulta de SQL en donde no es requerido un retorno de datos.

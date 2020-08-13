@@ -211,6 +211,63 @@ namespace BLL.Objeto
             return null; // Retorna null si no se encontró.
         }
 
+        /// <summary>
+        /// Elimina de la base de datos todos los EasyPay que esten asociados a
+        /// una tarjeta. Este metodo se utiliza cuando una tarjeta es eliminada 
+        /// del sistema y, por ende, los EasyPays asociados a esa tarjeta deben
+        /// ser eliminados tambien.
+        /// </summary>
+        /// <param name="tarjetaId">ID de la tarjeta que se ha eliminado
+        /// del sistema.</param>
+        public void eliminarEasyPays_asociadosATarjetaID(string tarjetaId)
+        {
+            // Se traen los EasyPay de la base de datos.
+            EasyPay e = new EasyPay();
+            List<EasyPay> listaEasyPays = e.traer_easyPays();
+
+            if (listaEasyPays != null)
+            {
+                for (int i = 0; i < listaEasyPays.Count; i++)
+                {
+                    // El número de cuenta es el ID de la tarjeta.
+                    if (listaEasyPays[i].numeroCuenta == tarjetaId)
+                    {
+                        e.eliminar_easypay(listaEasyPays[i].id);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Cuando se realiza una compra con una tarjeta, se reduce el saldo de la tarjeta.
+        /// Por ende, debemos actualizar el saldo de las cuentas EasyPay asociadas a la tarjeta
+        /// utilizada para que el saldo sea el mismo en ambos registros. Recordemos que el saldo
+        /// de los EasyPay es exactamente el mismo que el de las tarjetas.
+        /// </summary>
+        /// <param name="tarjetaId">ID de la tarjeta con la que se ha efectuado el pago.</param>
+        /// <param name="montoActualizado">Monto con el cual la tarjeta a terminado después
+        /// de que se haya reducido su saldo.</param>
+        public void actualizarMonto_compraConTarjeta(string tarjetaId, string montoActualizado)
+        {
+            EasyPay e = new EasyPay();
+            List<EasyPay> listaEasyPays = e.traer_easyPays();
+
+            if (listaEasyPays != null) 
+            {
+                for (int i = 0; i < listaEasyPays.Count; i++)
+                {
+                    // si es una cuenta asociada a la tarjeta.
+                    if (listaEasyPays[i].numeroCuenta == tarjetaId) 
+                    {
+                        // actualizamos su monto y actualizamos el registro
+                        // en la base de datos.
+                        listaEasyPays[i].monto = montoActualizado;
+                        e.actualizar_easypay(listaEasyPays[i]);
+                    }
+                }
+            }
+        }
+
         public EasyPay() { }
 
         public EasyPay(string id

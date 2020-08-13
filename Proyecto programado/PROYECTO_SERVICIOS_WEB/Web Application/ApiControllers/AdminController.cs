@@ -25,17 +25,17 @@ namespace Web_Application.ApiControllers
         public string Post([FromBody]Admin admin)
         {
             #region Plantilla Postman -> Abrir para ver.
-            //{
-            //    "nombreUsuario":"admin_post",
-            //    "contrasenia": "admin",
-            //    "correoElectronico":"admin_post@e-descargas.com",
-            //    "preguntaSeguridad":"pregunta",
-            //    "respuestaSeguridad":"respuesta",
-            //    "adminMaestro":true,
-            //    "adminSeguridad":false,
-            //    "adminMantenimiento":false,
-            //    "adminConsultas":false
-            //}
+            /*{
+                "nombreUsuario":"admin_post",
+                "contrasenia": "admin",
+                "correoElectronico":"admin_post@e-descargas.com",
+                "preguntaSeguridad":"pregunta",
+                "respuestaSeguridad":"respuesta",
+                "adminMaestro":true,
+                "adminSeguridad":false,
+                "adminMantenimiento":false,
+                "adminConsultas":false
+            }*/
             #endregion
 
             Consecutivo consecutivo = new Consecutivo();
