@@ -13,7 +13,8 @@ namespace Web_Application.Paginas.Frontend
             }
 
             // Valida si se ha seleccionado un producto para comprar
-            if (!Memoria.productoAComprar.seHaSeleccionadoProductoParaComprar())
+            if (!Memoria.productoAComprar.seHaSeleccionadoProductoParaComprar() &&
+                !Memoria.compraMetodoDePago.seHaSeleccionadoMetodoDePago())
             {
                 // Retorna el cliente al lobby si no ha seleccionado producto
                 // para comprar.
@@ -25,7 +26,7 @@ namespace Web_Application.Paginas.Frontend
         private void mostrarInformacionDelProducto()
         {
             string tipoDeProducto = Memoria.productoAComprar.obtenerTipoProducto();
-            var p = Memoria.productoAComprar;
+            var producto = Memoria.productoAComprar;
             string labelMensaje = "";
 
             switch (tipoDeProducto)
@@ -33,35 +34,35 @@ namespace Web_Application.Paginas.Frontend
                 case "pelicula":
                     labelMensaje += 
                         $"Tipo de producto: Película<br><br>" +
-                        $"Nombre: {p.pelicula.nombre}<br>" +
-                        $"Genero: {p.pelicula.genero}<br>" +
-                        $"Año: {p.pelicula.anio}<br>" +
-                        $"Actores: {p.pelicula.actores}<br>" +
-                        $"Costo: ₡{p.pelicula.monto}";
+                        $"Nombre: {producto.pelicula.nombre}<br>" +
+                        $"Genero: {producto.pelicula.genero}<br>" +
+                        $"Año: {producto.pelicula.anio}<br>" +
+                        $"Actores: {producto.pelicula.actores}<br>" +
+                        $"Costo: ₡{producto.pelicula.monto}";
                     break;
                 case "musica":
                     labelMensaje +=
                         $"Tipo de producto: Música<br>" +
-                        $"Nombre: {p.musica.nombre}<br>" +
-                        $"Genero: {p.musica.genero}<br>" +
-                        $"Tipo de interpretación: {p.musica.tipoInterpretacion}<br>" +
-                        $"Idioma: {p.musica.idioma}<br>" +
-                        $"País: {p.musica.pais}<br>" +
-                        $"Disquera: {p.musica.disquera}<br>" +
-                        $"Disco: {p.musica.nombreDisco}<br>" +
-                        $"Año: {p.musica.anio}<br>" +
-                        $"Costo: ₡{p.musica.monto}";
+                        $"Nombre: {producto.musica.nombre}<br>" +
+                        $"Genero: {producto.musica.genero}<br>" +
+                        $"Tipo de interpretación: {producto.musica.tipoInterpretacion}<br>" +
+                        $"Idioma: {producto.musica.idioma}<br>" +
+                        $"País: {producto.musica.pais}<br>" +
+                        $"Disquera: {producto.musica.disquera}<br>" +
+                        $"Disco: {producto.musica.nombreDisco}<br>" +
+                        $"Año: {producto.musica.anio}<br>" +
+                        $"Costo: ₡{producto.musica.monto}";
                     break;
                 case "libro":
                     labelMensaje +=
                         $"Tipo de producto: Libro<br>" +
-                        $"Nombre: {p.libro.nombre}<br>" +
-                        $"Categoría: {p.libro.categoria}<br>" +
-                        $"Autor: {p.libro.autor}<br>" +
-                        $"Idioma: {p.libro.idioma}<br>" +
-                        $"Editorial: {p.libro.editorial}<br>" +
-                        $"Año: {p.libro.anioPublicacion}<br>" +
-                        $"Costo: ₡{p.libro.monto}";
+                        $"Nombre: {producto.libro.nombre}<br>" +
+                        $"Categoría: {producto.libro.categoria}<br>" +
+                        $"Autor: {producto.libro.autor}<br>" +
+                        $"Idioma: {producto.libro.idioma}<br>" +
+                        $"Editorial: {producto.libro.editorial}<br>" +
+                        $"Año: {producto.libro.anioPublicacion}<br>" +
+                        $"Costo: ₡{producto.libro.monto}";
                     break;
                 default:
                     labelMensaje += "Ha habido un error.";

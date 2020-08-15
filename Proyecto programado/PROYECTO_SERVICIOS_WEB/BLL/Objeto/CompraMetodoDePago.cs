@@ -81,7 +81,8 @@ namespace BLL.Objeto
 
         /// <summary>
         /// Trae la Tarjeta o EasyPay asociado. Retorna null si el
-        /// registro no es encontrado.
+        /// registro no es encontrado. Esteblece también si el
+        /// tipo de metodo de pago es EasyPay o Tarjeta.
         /// </summary>
         /// <returns>Tarjeta | EasyPay | null</returns>
         public Object traerTarjetaOEasyPayAsociado()
@@ -160,12 +161,22 @@ namespace BLL.Objeto
                 Tarjeta t = traerTarjetaAsociada();
                 t.monto = saldoActualizado;
                 t.actualizarTarjeta(t);
+
+                // Actualizamos el saldo de todas las cuentas EasyPay
+                // asociadas a esa tarjeta.
+                EasyPay e = new EasyPay();
+                e.actualizarMonto_compraConTarjeta(t.id, saldoActualizado);
             }
             else if(esEasyPay)
             {
                 EasyPay ep = traerEasyPayAsociado();
                 ep.monto = saldoActualizado;
                 ep.actualizar_easypay(ep);
+
+                // Actualizamos el saldo de todas las tarjetas
+                // asociadas a esa cuenta de EasyPay.
+                Tarjeta t = new Tarjeta();
+                t.actualizarMonto_compraConEasyPay(ep.numeroCuenta, saldoActualizado);
             }
         }
     }

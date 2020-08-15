@@ -1,6 +1,9 @@
 ﻿const tabla_metodosDePago = document.getElementById("tabla_metodosDePago");
 const botonCompra_contenedor = document.getElementById("botonCompra_contenedor");
 
+// REST API URL donde se guarda el método de pago a utilizar.
+const API_COMPRAMETODODEPAGO = "https://localhost:44371/api/CompraMetodoDePago";
+
 function seleccion_tarjeta() {
     selector_contenidoTarjeta();
     cargar_tarjetasCompras();
@@ -13,7 +16,7 @@ function seleccion_easypay() {
     toggle_botonRealizarCompra(false); // Oculta el boton Realizar compra.
 }
 
-// Establece en el interfaz el selector de Tarjeta como metodo de pago.
+// Establece en el mavegador de selección de métodos de pago a Tarjeta.
 function selector_contenidoTarjeta() {
     let contenido =
         `
@@ -30,7 +33,7 @@ function selector_contenidoTarjeta() {
     document.getElementById('selector_metodoDePago').innerHTML = contenido;
 }
 
-// Establece en el interfaz el selector de EasyPays como metodo de pago.
+// Establece en el mavegador de selección de métodos de pago a EasyPay.
 function selector_contenidoEasyPay() {
     let contenido =
         `
@@ -82,3 +85,26 @@ const Toast = Swal.mixin({
         toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
 })
+
+function establecerMetodoDePagoEnServidor(id) {
+    if (id != "") {
+        var json_request = {
+            metodoDePagoID: id
+        };
+
+        fetch(API_COMPRAMETODODEPAGO, {
+            method: 'PUT',
+            body: JSON.stringify(json_request),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then((response) => {
+                console.log('Success:', response);
+                toggle_botonRealizarCompra(true);
+            });
+    } else {
+        console.log("Datos vacios.");
+    }
+}

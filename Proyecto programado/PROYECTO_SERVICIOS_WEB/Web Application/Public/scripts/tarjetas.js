@@ -2,8 +2,6 @@
 const API_URI = "https://localhost:44371/api/tarjeta?user_id=asociada";
 const API_URI_ELIMINAR = "https://localhost:44371/api/tarjeta";
 
-const API_COMPRAMETODODEPAGO = "https://localhost:44371/api/CompraMetodoDePago";
-
 function cargar_tarjetas() {
     fetch(API_URI)
         .then(function (response) {
@@ -17,8 +15,8 @@ function cargar_tarjetas() {
             console.error(err);
             document.getElementById("tarjetas_registradas").innerHTML =
                 `<div class="alert alert-danger" role="alert">
-                Ha ocurrido un error al intentar cargar las tarjetas.
-            </div>`;
+                    Ha ocurrido un error al intentar cargar las tarjetas.
+                </div>`;
         });
 }
 
@@ -58,7 +56,7 @@ function crearTablaDeTarjetas(obj_tarjetas) {
             if (obj_tarjetas[index].tipo == "V") {
                 tipoTarjeta = "Visa";
             } else {
-                tipoTarjeta = "Mastercart";
+                tipoTarjeta = "Mastercard";
             }
 
             // Se contruye la tabla.
@@ -78,6 +76,7 @@ function crearTablaDeTarjetas(obj_tarjetas) {
     } else {
         document.getElementById("tarjetas_registradas").innerHTML =
             `
+        <br>
         <div class="alert alert-info" role="alert">
           No hay tarjetas registradas.
         </div>
@@ -181,7 +180,7 @@ function crearTablaDeTarjetas_compras(obj_tarjetas) {
                     <td>` + tipoTarjeta + `</td>
                     <td>₡` + obj_tarjetas[index].monto + `</td>
                     <td>
-                        <a href="#" id="tarjetaOpcion${numeroTarjeta}" onclick="utilizarTarjeta('` + obj_tarjetas[index].id + `','tarjetaOpcion${numeroTarjeta}')">Utilizar esta tarjeta</a>
+                        <a href="#" onclick="utilizarTarjeta('` + obj_tarjetas[index].id + `')">Utilizar esta tarjeta</a>
                     </td>
                 </tr>`;
         }
@@ -190,6 +189,7 @@ function crearTablaDeTarjetas_compras(obj_tarjetas) {
     } else {
         document.getElementById("tabla_metodosDePago").innerHTML =
             `
+        <br>
         <div class="alert alert-info" role="alert">
           No hay tarjetas registradas.
         </div>
@@ -198,24 +198,5 @@ function crearTablaDeTarjetas_compras(obj_tarjetas) {
 }
 
 function utilizarTarjeta(id) {
-    if (id != "") {
-        var json_request = {
-            metodoDePagoID: id
-        };
-
-        fetch(API_COMPRAMETODODEPAGO, {
-            method: 'PUT',
-            body: JSON.stringify(json_request),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then((response) => {
-                console.log('Success:', response);
-                toggle_botonRealizarCompra(true);
-            });
-    } else {
-        console.log("Datos vacios.");
-    }
+    establecerMetodoDePagoEnServidor(id);
 }

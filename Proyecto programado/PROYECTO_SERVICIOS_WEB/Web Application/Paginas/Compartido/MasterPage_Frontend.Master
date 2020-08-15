@@ -48,6 +48,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="/Paginas/Frontend/metodosDePago.aspx">Métodos de pago</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/Paginas/Frontend/misArticulos.aspx">Mis articulos</a>
+                    </li>
                 </ul>
                 <div class="row my-2 my-lg-0">
                     <asp:LinkButton class="text-light" ID="LinkButton_cerrar_sesion" runat="server" OnClick="LinkButton_cerrar_sesion_Click">Cerrar Sesión</asp:LinkButton>

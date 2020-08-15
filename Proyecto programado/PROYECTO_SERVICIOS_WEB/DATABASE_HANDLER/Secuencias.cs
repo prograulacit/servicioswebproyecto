@@ -3,13 +3,9 @@ using System;
 
 namespace DATABASE_HANDLER
 {
-    public class Tareas
+    public class Secuencias
     {
-        // Exporta objeto DBLogica. La encriptación de la base de datos está determinada segun la variable
-        // datos_encriptados el cual se encuentra en BLL/Logica/Memoria.cs
-        DAL.DBLogica database_logica = new DAL.DBLogica(BLL.Logica.Memoria.datos_encriptados);
-
-        public void crear_admin_maestro()
+        public void crearAdmin_maestro()
         {
             Console.WriteLine("Secuencia -> Crear admin maestro -> Iniciada");
             // Parametros y valores del admin nuevo.
@@ -35,8 +31,8 @@ namespace DATABASE_HANDLER
                 "false",
                 "false",
                 "false"};
-            database_logica.querySimple(
-                database_logica.stringDeConexion_baseDeDatos_principal,
+            Funciones.database_logica.querySimple(
+                Funciones.database_logica.stringDeConexion_baseDeDatos_principal,
                 "sp_admin_crear",
                 parametrosAdmin, valoresAdmin);
 
@@ -44,53 +40,10 @@ namespace DATABASE_HANDLER
             Console.WriteLine("Secuencia -> Crear admin maestro -> Terminada");
         }
 
-        // Crea nuevos admins para el sistema.
-        public void crear_admin(string id
-            , string nombreUsuario
-            , string contrasenia
-            , string correoElectronico
-            , string preguntaSeguridad
-            , string respuestaSeguridad
-            , string adminMaestro
-            , string adminSeguridad
-            , string adminMantenimiento
-            , string adminConsultas)
-        {
-            Console.WriteLine("Secuencia -> Crear admin nuevo -> Iniciada");
-            // Parametros y valores del admin nuevo.
-            string[] parametrosAdmin =
-                {"ID"
-                ,"nombreUsuario"
-                , "contrasenia"
-                , "correoElectronico"
-                , "preguntaSeguridad"
-                , "respuestaSeguridad"
-                , "adminMaestro"
-                , "adminSeguridad"
-                , "adminMantenimiento"
-                , "adminConsultas" };
-            string[] valoresAdmin = {
-                id,
-                nombreUsuario,
-                contrasenia,
-                correoElectronico,
-                preguntaSeguridad,
-                respuestaSeguridad,
-                adminMaestro,
-                adminSeguridad,
-                adminMantenimiento,
-                adminConsultas};
-            database_logica.querySimple(
-                database_logica.stringDeConexion_baseDeDatos_principal,
-                "sp_admin_crear",
-                parametrosAdmin, valoresAdmin);
-
-            Console.WriteLine("Admin nuevo creado. OK.");
-            Console.WriteLine("Secuencia -> Crear nuevo maestro -> Terminada");
-        }
-
-        // Crea los registros de Transaccion, Admin, Pelicula, Musica y Libro.
-        public void crear_registros_de_consecutivos()
+        /// <summary>
+        /// Crea los registros de Transaccion, Admin, Pelicula, Musica y Libro.
+        /// </summary>
+        public void crearRegistros_consecutivo()
         {
             Console.WriteLine("Secuencia -> Crear consecutivos -> Iniciada");
             // Se utiliza un ID personalizado para efectos de indentifiación más rápida.
@@ -106,13 +59,13 @@ namespace DATABASE_HANDLER
             string[] valores_admin = {
                 "admin"
                 ,"admin"
-                ,"5" // 5 porqué ya existen 4 admins: maestro, seguridad, mantenimiento y consultas.
+                ,"4"
                 ,"adm"
                 ,"0"
                 ,"200" };
 
-            database_logica.querySimple(
-                database_logica.stringDeConexion_baseDeDatos_principal,
+            Funciones.database_logica.querySimple(
+                Funciones.database_logica.stringDeConexion_baseDeDatos_principal,
                 "sp_consecutivo_crear",
                 parametros_admin, valores_admin);
             Console.WriteLine("Consecutivo admin creado. OK");
@@ -133,8 +86,8 @@ namespace DATABASE_HANDLER
                 ,"0"
                 ,"200" };
 
-            database_logica.querySimple(
-                database_logica.stringDeConexion_baseDeDatos_principal,
+            Funciones.database_logica.querySimple(
+                Funciones.database_logica.stringDeConexion_baseDeDatos_principal,
                 "sp_consecutivo_crear",
                 parametros_transaccion, valores_transaccion);
             Console.WriteLine("Consecutivo transaccion creado. OK");
@@ -155,8 +108,8 @@ namespace DATABASE_HANDLER
                 ,"0"
                 ,"200" };
 
-            database_logica.querySimple(
-                database_logica.stringDeConexion_baseDeDatos_principal,
+            Funciones.database_logica.querySimple(
+                Funciones.database_logica.stringDeConexion_baseDeDatos_principal,
                 "sp_consecutivo_crear",
                 parametros_pelicula, valores_pelicula);
             Console.WriteLine("Consecutivo pelicula creado. OK");
@@ -177,8 +130,8 @@ namespace DATABASE_HANDLER
                 ,"0"
                 ,"200" };
 
-            database_logica.querySimple(
-                database_logica.stringDeConexion_baseDeDatos_principal,
+            Funciones.database_logica.querySimple(
+                Funciones.database_logica.stringDeConexion_baseDeDatos_principal,
                 "sp_consecutivo_crear",
                 parametros_musica, valores_musica);
             Console.WriteLine("Consecutivo musica creado. OK");
@@ -199,8 +152,8 @@ namespace DATABASE_HANDLER
                 ,"0"
                 ,"200" };
 
-            database_logica.querySimple(
-                database_logica.stringDeConexion_baseDeDatos_principal,
+            Funciones.database_logica.querySimple(
+                Funciones.database_logica.stringDeConexion_baseDeDatos_principal,
                 "sp_consecutivo_crear",
                 parametros_libro, valores_libro);
             Console.WriteLine("Consecutivo libro creado. OK");
@@ -223,48 +176,51 @@ namespace DATABASE_HANDLER
             Console.WriteLine("Secuencia -> Parametros termianda. OK");
         }
 
-        /// <summary>
-        /// Crea un nuevo usuario y lo guarda en la base de datos.
-        /// </summary>
-        /// <param name="id">Si es escrito "vacio" se generara un id
-        /// a partir del metodo. Si se establece id, se concatena id + 
-        /// Tareas.generar_nuevo_id_para_un_registro().</param>
-        /// <param name="nombre"></param>
-        /// <param name="apellido_paterno"></param>
-        /// <param name="apellido_materno"></param>
-        /// <param name="correo"></param>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        public void crear_usuario(string id
-            ,string nombre
-            , string apellido_paterno
-            , string apellido_materno
-            , string correo
-            , string username
-            , string password)
+        // Crea los admins de seguridad, mantenimiento y consultas.
+        public void crearAdmin_seguridadMantenimientoConsultas()
         {
-            Console.WriteLine("Secuencia -> Crear usuario iniciada.");
-
-            string id_resultado = "";
-
-            if (!id.Equals("vacio"))
-            {
-                id_resultado = id + BLL.Logica.Tareas.generar_nuevo_id_para_un_registro();
-            }
-            else
-            {
-                id_resultado = BLL.Logica.Tareas.generar_nuevo_id_para_un_registro();
-            }
-
-            Usuario u = new Usuario(id_resultado
-                , nombre
-                , apellido_paterno
-                , apellido_materno
-                , correo
-                , username, password
-                );
-            u.guardarNuevoUsuario(u);
-            Console.WriteLine("Secuencia -> Crear usuario terminada.OK.");
+            // Crear admin de seguridad.
+            Funciones.crear_admin("adm2"
+                , "adminSeguridad"
+                , "admin"
+                , "adminSeguridad@e-shop.com"
+                , "Respuesta de pregunta de seguridad:respuesta"
+                , "respuesta"
+                , "false"
+                , "true"
+                , "false"
+                , "false");
+            // Crear admin de mantenimiento.
+            Funciones.crear_admin("adm3"
+                , "adminMantenimiento"
+                , "admin"
+                , "adminMantenimiento@e-shop.com"
+                , "Respuesta de pregunta de seguridad:respuesta"
+                , "respuesta"
+                , "false"
+                , "false"
+                , "true"
+                , "false");
+            // Crear admin de consultas.
+            Funciones.crear_admin("adm4"
+                , "adminConsultas"
+                , "admin"
+                , "adminConsultas@e-shop.com"
+                , "Respuesta de pregunta de seguridad:respuesta"
+                , "respuesta"
+                , "false"
+                , "false"
+                , "false"
+                , "true");
         }
+
+        public void crearUsuarios()
+        {
+            Funciones.crear_usuario("juanid", "Juan", "Mora", "Tenorio", "juantenorio@e-corp.usa", "user", "password");
+            Funciones.crear_usuario("cameronid", "Cameron", "Hidalgo", "Tenorio", "cameronhidalgo@e-corp.usa", "cameron", "password");
+            Funciones.crear_usuario("elliotid", "Elliot", "Alderson", "Seppion", "elliotalderson@e-corp.usa", "elliot", "password");
+            Funciones.crear_usuario("doloresid", "Dolores", "Haze", "Moggly", "doloreshaze@e-corp.usa", "dolores", "password");
+        }
+
     }
 }

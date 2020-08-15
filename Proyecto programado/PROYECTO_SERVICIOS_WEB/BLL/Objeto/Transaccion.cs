@@ -108,6 +108,36 @@ namespace BLL.Objeto
             return Tareas.obtener_fecha_actual();
         }
 
+        /// <summary>
+        /// Revisa en la base de datos en la tabla transacciones si no existe
+        /// ningun registro que concuerde con el ID del usuario dado y el 
+        /// producto comprado dado. Este método, por lo tanto, funciona para
+        /// verificar si el usuario en cuestion tiene propiedad de un producto
+        /// especifico.
+        /// </summary>
+        /// <param name="usuario_id">ID del usuario a consultar.</param>
+        /// <param name="producto_id">ID del producto a consultar</param>
+        /// <returns>Retorna true si el usuario NO tiene propiedad del producto
+        /// a consultar.</returns>
+        public bool usuarioNoTienePropiedadDeProducto(
+            string usuario_id, string producto_id)
+        {
+            List<Transaccion> lista_transacciones = traerTransacciones();
+
+            if (lista_transacciones != null)
+            {
+                for (int i = 0; i < lista_transacciones.Count; i++)
+                {
+                    if (lista_transacciones[i].usuarioID == usuario_id &&
+                        lista_transacciones[i].consecutivoProductoID == producto_id)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         public Transaccion(string id
             , string fechaCompra
             , string monto

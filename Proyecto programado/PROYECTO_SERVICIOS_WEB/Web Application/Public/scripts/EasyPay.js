@@ -47,7 +47,7 @@ function crearTablaDeEasyPays(obj_easypays) {
                 `<tr>
                     <td>${obj_easypays[index].numeroCuenta}</td>
                     <td>${obj_easypays[index].codigoSeguridad}</td>
-                    <td>${obj_easypays[index].monto}</td>
+                    <td>₡${obj_easypays[index].monto}</td>
                     <td>
                         <a href="#" onclick="generarNuevoCodigo('${obj_easypays[index].id}')"
                         data-toggle="tooltip" data-placement="top" 
@@ -277,7 +277,7 @@ function crearTablaDeEasyPays_compras(obj_easypays) {
                     <td>${obj_easypays[index].numeroCuenta}</td>
                     <td>₡${obj_easypays[index].monto}</td>
                     <td>
-                        <a href="#">Utilizar esta cuenta</a>
+                        <a href="#" onclick="utilizarEasyPay('${obj_easypays[index].id}')">Utilizar esta cuenta</a>
                     </td>
                 </tr>`;
 
@@ -287,9 +287,14 @@ function crearTablaDeEasyPays_compras(obj_easypays) {
     } else {
         document.getElementById("tabla_metodosDePago").innerHTML =
             `
+            <br>
             <div class="alert alert-info" role="alert">
                 No hay cuentas EasyPay registradas.
             </div>
             `;
     }
+}
+
+function utilizarEasyPay(id) {
+    establecerMetodoDePagoEnServidor(id);
 }

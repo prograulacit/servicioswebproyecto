@@ -54,6 +54,7 @@
         </div>	
     </div>
     <script src="../../Public/scripts/peliculas.js"></script>
+    <script src="../../Public/scripts/productoCompra.js"></script>
     <script>
         traer_generos();
     </script>

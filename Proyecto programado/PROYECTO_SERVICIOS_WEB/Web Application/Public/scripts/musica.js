@@ -109,7 +109,7 @@ function cargar_musica(genero, nombre, tipoInterpretacion, idioma, pais, disquer
                             <td>${json[index].nombreDisco}</td>
                             <td>${json[index].genero}</td>
                             <td><a href="#" onclick="traer_previsualizacion('${json[index].nombreArchivoPrevisualizacion}')">Ver</a></td>
-                            <td>comprar</td>
+                            <td><a onclick="establecerProductoAComprar('${json[index].id}')" href="#">Comprar</a></td>
                         </tr>`;
                 }
                 html += "</tbody></table>";

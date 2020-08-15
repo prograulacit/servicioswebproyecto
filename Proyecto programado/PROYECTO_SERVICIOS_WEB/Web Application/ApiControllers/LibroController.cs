@@ -46,7 +46,6 @@ namespace Web_Application.ApiControllers
             return new HttpResponseMessage(HttpStatusCode.NotFound);
         }
 
-
         // POST: api/Libro
         public string Post([FromBody]Libro libro)
         {
