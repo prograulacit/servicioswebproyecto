@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Compartido/SesionAnonimo.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Web_Application.Paginas.Compartido.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../../Public/scripts/externo/oauth.js"></script>
+    <script src="../../Public/scripts/login.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -18,6 +20,10 @@
             <br />
             <asp:TextBox class="form-control" TextMode="Password" ID="textbox_contrasenia" runat="server"></asp:TextBox>
             <br />
+            <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+            <br />
+            <a class="bnt-twitter-login" href="#" onclick="twitter_login()">Iniciar sesión con Twitter</a>
+            <br />
             <br />
             <asp:Button class="btn btn-primary justify-content-center" ID="button_submit_login" runat="server" Text="Submit" OnClick="button_submit_login_Click" />
             <br/>
@@ -27,6 +33,15 @@
             <asp:Label class="badge badge-danger" ID="Label_status_error" runat="server" Text=""></asp:Label>
         </div>
     </div>
+
+    <%--Hidden elements--%>
+    <asp:Button ID="btn_submit_social_login" class="submit_social_login" runat="server" Text="Submit" OnClick="btn_submit_social_login_Click" style="display:none"/>
+    <input class="social_name" id="socialName" type="text" runat="server" value="No definido" style="display:none"/>
+    <input class="social_email" id="socialEmail" type="text" runat="server" value="No definido" style="display:none"/>
+    <input class="social_username" id="socialUsername" type="text" runat="server" value="No definido" style="display:none"/>
+    <input class="social_id" id="socialId" type="text" runat="server" style="display:none"/>
+
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v8.0&appId=3299543530092459&autoLogAppEvents=1" nonce="TvtcEOb4"></script>
     <script>
         document.getElementById("ContentPlaceHolder1_textbox_nombre_usuario").autofocus;
 

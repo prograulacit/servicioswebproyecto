@@ -21,6 +21,7 @@ namespace BLL.Logica
 
         // Lista de variables bool. Si sessionDeUsuario, por ejemplo, es true significa
         // que el usuario actualmente logeado es un usuario o cliente.
+        public static bool sesionSocial = false;
         public static bool sesionDeUsuario = false;
         public static bool sesionDeAdmin = false;
 

@@ -120,5 +120,46 @@ namespace Web_Application.Paginas.Compartido
         {
             Label_status_error.Text = mensaje;
         }
+
+        protected void btn_submit_social_login_Click(object sender, EventArgs e)
+        {
+            Usuario usuario = new Usuario(socialId.Value
+            , socialName.Value
+            , "no definido"
+            , "no definido"
+            , socialEmail.Value
+            , socialUsername.Value
+            , "no definido");
+
+            if (!existe_usuario_social(usuario))
+            {
+                usuario.guardarNuevoUsuario(usuario);
+            }
+
+            Memoria.sesionSocial = true;
+            Memoria.sesionDeUsuario = true;
+            Memoria.sesionUsuarioDatos = usuario;
+
+            Response.Redirect("~/Paginas/Frontend/index.aspx");
+        }
+
+        private bool existe_usuario_social(Usuario usuario)
+        {
+            List<Usuario> lista_usuarios = usuario.traerUsuarios();
+
+            if (lista_usuarios != null)
+            {
+                for (int i = 0; i < lista_usuarios.Count; i++)
+                {
+                    if (lista_usuarios[i].id == socialId.Value)
+                    {
+                        return true;
+
+                    }
+                }
+            }
+            return false;
+        }
+
     }
 }

@@ -24,3 +24,29 @@
 .fondo-gris-mas {
     background-color: #D8D8D8;
 }
+
+.bnt-twitter-login:before {
+    background: url('/Public/imagenes/twitter-logo.png');
+    background-repeat: no-repeat;
+    background-size: 40px;
+    content: '';
+    display: inline-block;
+    height: 38px;
+    position: relative;
+    top: 12px;
+    width: 42px;
+}
+
+.bnt-twitter-login {
+    background: #ededed;
+    border-radius: 4px;
+    color: #1DA1F2;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 12px 12px 2px;
+}
+
+.bnt-twitter-login:hover {
+    text-decoration: none;
+}
