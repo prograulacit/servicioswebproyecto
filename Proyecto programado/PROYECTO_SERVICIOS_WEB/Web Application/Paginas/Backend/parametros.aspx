@@ -20,7 +20,7 @@
     <br>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="form-group col-4">
+            <div class="form-group col-12">
                 <div>
                     <label class="text-font-normal">Ruta de almacenamiento previsualizacion Libros</label>
                     <br>

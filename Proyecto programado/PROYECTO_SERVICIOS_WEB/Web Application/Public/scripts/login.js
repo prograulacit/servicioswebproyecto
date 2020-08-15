@@ -12,7 +12,7 @@
                 document.getElementsByClassName('social_name')[0].value = response.name;
                 document.getElementsByClassName('social_email')[0].value = response.email;
                 document.getElementsByClassName('social_username')[0].value = response.email;
-                document.getElementsByClassName('social_id')[0].response = response.id;
+                document.getElementsByClassName('social_id')[0].value = response.id;
                 document.getElementsByClassName('submit_social_login')[0].click();
             });
         }
