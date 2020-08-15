@@ -85,5 +85,14 @@ namespace Web_Application.Paginas.Compartido
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText socialUsername;
+
+        /// <summary>
+        /// socialId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText socialId;
     }
 }

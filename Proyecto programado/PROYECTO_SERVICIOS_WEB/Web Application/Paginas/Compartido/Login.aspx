@@ -39,6 +39,7 @@
     <input class="social_name" id="socialName" type="text" runat="server" value="No definido" style="display:none"/>
     <input class="social_email" id="socialEmail" type="text" runat="server" value="No definido" style="display:none"/>
     <input class="social_username" id="socialUsername" type="text" runat="server" value="No definido" style="display:none"/>
+    <input class="social_id" id="socialId" type="text" runat="server" style="display:none"/>
 
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v8.0&appId=3299543530092459&autoLogAppEvents=1" nonce="TvtcEOb4"></script>
     <script>

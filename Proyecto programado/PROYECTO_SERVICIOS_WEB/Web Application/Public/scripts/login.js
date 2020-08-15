@@ -12,6 +12,7 @@
                 document.getElementsByClassName('social_name')[0].value = response.name;
                 document.getElementsByClassName('social_email')[0].value = response.email;
                 document.getElementsByClassName('social_username')[0].value = response.email;
+                document.getElementsByClassName('social_id')[0].response = response.id;
                 document.getElementsByClassName('submit_social_login')[0].click();
             });
         }
@@ -24,6 +25,7 @@ function twitter_login() {
         result.me().done(function (data) {
             document.getElementsByClassName('social_name')[0].value = data.name;
             document.getElementsByClassName('social_username')[0].value = data.alias;
+            document.getElementsByClassName('social_id')[0].value = data.id;
             document.getElementsByClassName('submit_social_login')[0].click();
         })
     })
