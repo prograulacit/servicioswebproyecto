@@ -20,10 +20,26 @@ namespace Web_Application.ApiControllers
             return lista_libros;
         }
 
-        // GET: api/Libro/5
-        public string Get(int id)
+        // GET: /api/Libro?libro_id=pel1&placeholder=serviciosweb
+        /// <summary>
+        /// Trae un libro al dar un ID.
+        /// </summary>
+        /// <param name="libro_id">ID del libro a traer.</param>
+        /// <param name="placeholder">String de relleno que no es utilizado
+        /// dado que ya existe una ruta GET de 1 sólo parametro.</param>
+        /// <returns>Libro | Null si no es encontrado.</returns>
+        public Libro Get(string libro_id, string placeholder)
         {
-            return "value";
+            Libro libro = new Libro();
+
+            libro = libro.traerLibroPorId(libro_id);
+
+            if (libro != null)
+            {
+                return libro;
+            }
+
+            return null;
         }
 
         // GET: api/Libro/?archivoPrevisualizacion=nombre_archivo

@@ -109,6 +109,54 @@ namespace BLL.Objeto
         }
 
         /// <summary>
+        /// Trae el registro de una transaccion dado un ID.
+        /// </summary>
+        /// <param name="id">ID del registro de transaccion
+        /// que se desea traer de la base de datos.</param>
+        /// <returns>Transaccion | null si no es encontrado.</returns>
+        public Transaccion traerTransaccion_id(string id)
+        {
+            List<Transaccion> lista_transacciones = traerTransacciones();
+
+            if (lista_transacciones != null)
+            {
+                for (int i = 0; i < lista_transacciones.Count; i++)
+                {
+                    if (lista_transacciones[i].id == id)
+                    {
+                        return lista_transacciones[i];
+                    }
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Trae una lista con todos los productos que pertenecen al usuario logeado
+        /// en la memoria.
+        /// </summary>
+        /// <returns>List<Transaccion> || null si no encontro registros.</returns>
+        public List<Transaccion> traer_listaTransaccionesPropiedadUsuarioLogeado()
+        {
+            List<Transaccion> lista_transacciones = traerTransacciones();
+            List<Transaccion> lista_transaccionesPropiedad = new List<Transaccion>();
+
+            if (lista_transacciones != null &&
+                Memoria.sesionUsuarioDatos != null)
+            {
+                for (int i = 0; i < lista_transacciones.Count; i++)
+                {
+                    if (lista_transacciones[i].usuarioID == Memoria.sesionUsuarioDatos.id)
+                    {
+                        lista_transaccionesPropiedad.Add(lista_transacciones[i]);
+                    }
+                }
+                return lista_transaccionesPropiedad;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Revisa en la base de datos en la tabla transacciones si no existe
         /// ningun registro que concuerde con el ID del usuario dado y el 
         /// producto comprado dado. Este método, por lo tanto, funciona para

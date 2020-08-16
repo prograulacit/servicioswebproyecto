@@ -86,7 +86,7 @@ namespace Web_Application.Paginas.Frontend
             // Se actualiza el id de la transaccion como prefijo+numConsecuvito.
             // Ejemplo: tra4 .
             string id_consecutivo =
-                 registro_de_consecutivo.prefijo + (int.Parse(registro_de_consecutivo.descripcion));
+                 registro_de_consecutivo.prefijo + (int.Parse(registro_de_consecutivo.descripcion) + 1);
 
             // Se crea objeto Transacción.
             Transaccion transaccion = new Transaccion(

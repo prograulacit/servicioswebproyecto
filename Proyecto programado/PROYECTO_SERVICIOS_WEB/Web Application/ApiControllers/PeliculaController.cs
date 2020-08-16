@@ -20,10 +20,25 @@ namespace Web_Application.ApiControllers
             return lista_peliculas;
         }
 
-        // GET: api/Pelicula/5
-        public string Get(int id)
+        // GET: /api/pelicula?pelicula_id=pel1&placeholder=serviciosweb
+        /// <summary>
+        /// Trae una pelicula al dar un ID.
+        /// </summary>
+        /// <param name="pelicula_id">ID de la pélicula a traer.</param>
+        /// <param name="placeholder">String de relleno que no es utilizado
+        /// dado que ya existe una ruta GET de 1 sólo parametro.</param>
+        /// <returns>Pelicula | Null si el registro no es encontrado.</returns>
+        public Pelicula Get(string pelicula_id, string placeholder)
         {
-            return "value";
+            Pelicula pelicula = new Pelicula();
+            pelicula = pelicula.traerPeliculaPorId(pelicula_id);
+
+            if (pelicula != null)
+            {
+                return pelicula;
+            }
+
+            return null;
         }
 
         // GET: api/Pelicula/?archivoPrevisualizacion=nombre_archivo

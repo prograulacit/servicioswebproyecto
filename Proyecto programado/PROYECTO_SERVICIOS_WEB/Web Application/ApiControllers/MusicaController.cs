@@ -20,10 +20,25 @@ namespace Web_Application.ApiControllers
             return lista_musica;
         }
 
-        // GET: api/Musica/5
-        public string Get(int id)
+        // GET: /api/Musica?musica_id=pel1&placeholder=serviciosweb
+        /// Trae una musica al dar un ID.
+        /// </summary>
+        /// <param name="musica_id">ID de la musica a traer.</param>
+        /// <param name="placeholder">String de relleno que no es utilizado
+        /// dado que ya existe una ruta GET de 1 sólo parametro.</param>
+        /// <returns>Musica | Null si el registro no es encontrado.</returns>
+        public Musica Get(string musica_id, string placeholder)
         {
-            return "value";
+            Musica musica = new Musica();
+
+            musica = musica.traerMusicaPorId(musica_id);
+
+            if (musica != null)
+            {
+                return musica;
+            }
+
+            return null;
         }
 
         // GET: api/Musica/?archivoPrevisualizacion=nombre_archivo

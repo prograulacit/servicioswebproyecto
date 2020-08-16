@@ -170,7 +170,7 @@ function crearTablaDeTarjetas_compras(obj_tarjetas) {
             if (obj_tarjetas[index].tipo == "V") {
                 tipoTarjeta = "Visa";
             } else {
-                tipoTarjeta = "Mastercart";
+                tipoTarjeta = "Mastercard";
             }
 
             // Se contruye la tabla.

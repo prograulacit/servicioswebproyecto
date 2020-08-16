@@ -15,6 +15,43 @@ namespace Web_Application.ApiControllers
             return lista_transacciones;
         }
 
+        // GET: api/Transaccion/id
+        /// <summary>
+        /// Retorna una transacción por ID. Si el ID escrito es
+        /// "asociada" se traen todas las transacciones que pertenezcan
+        /// o sean propiedad del usuario logeado en la sesión actual.
+        /// </summary>
+        /// <param name="ID">ID de una transacción o la palabra
+        /// "asociada" sin comillas.</param>
+        /// <returns>Objeto Transacción.</returns>
+        public IEnumerable<Transaccion> Get(string ID)
+        {
+            Transaccion transaccion = new Transaccion();
+
+            if (ID.Equals("asociada"))
+            {
+                // Traemos todas las transacciones que indican propiedad del usuario
+                // logeado en memoria.
+                List<Transaccion> lista_transaccionesPropiedad =
+                    transaccion.traer_listaTransaccionesPropiedadUsuarioLogeado();
+
+                if (lista_transaccionesPropiedad != null)
+                {
+                    return lista_transaccionesPropiedad;
+                }
+
+                // Si envia null significa que el usuario no tiene propiedad de ningun producto.
+                return null; 
+            }
+
+            transaccion = transaccion.traerTransaccion_id(ID);
+
+            List<Transaccion> resultado_busqueda = new List<Transaccion>();
+            resultado_busqueda.Add(transaccion);
+
+            return resultado_busqueda;
+        }
+
         // POST: api/Transaccion
         public string Post([FromBody]Transaccion transaccion)
         {
@@ -73,7 +110,7 @@ namespace Web_Application.ApiControllers
 
             // La fecha de la compra no debería poder ser actualizada por lo que
             // se trae su valor guardado original.
-            transaccion.fechaCompra = 
+            transaccion.fechaCompra =
                 transaccion.traerFechaCompra_porId(transaccion.id);
 
             transaccion.actualizarRegistroTransaccion(transaccion);
@@ -87,11 +124,11 @@ namespace Web_Application.ApiControllers
             transaccion.eliminarTransaccion(id);
 
             // Disminuimos el valor "descripcion" del consecutivo en 1.
-            Consecutivo consecutivo = new Consecutivo();
-            Consecutivo registro_de_consecutivo = consecutivo.traerConsecutivo_registroReflejadoEnDB("transaccion");
-            string valorDescripcionDisminuidoEn1 = Tareas.disminuirColumnaDeConsecutivoEn1(registro_de_consecutivo);
-            registro_de_consecutivo.descripcion = valorDescripcionDisminuidoEn1;
-            consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
+            //Consecutivo consecutivo = new Consecutivo();
+            //Consecutivo registro_de_consecutivo = consecutivo.traerConsecutivo_registroReflejadoEnDB("transaccion");
+            //string valorDescripcionDisminuidoEn1 = Tareas.disminuirColumnaDeConsecutivoEn1(registro_de_consecutivo);
+            //registro_de_consecutivo.descripcion = valorDescripcionDisminuidoEn1;
+            //consecutivo.actualizarConsecutivo_baseDeDatos(registro_de_consecutivo);
 
             return "Transaccion " + id + " eliminada.";
         }

@@ -97,6 +97,23 @@ namespace BLL.Objeto
                , valores);
         }
 
+        public Musica traerMusicaPorId(string id)
+        {
+            List<Musica> lista_musica = traerMusicas();
+
+            if (lista_musica != null)
+            {
+                for (int i = 0; i < lista_musica.Count; i++)
+                {
+                    if (lista_musica[i].id == id)
+                    {
+                        return lista_musica[i];
+                    }
+                }
+            }
+            return null;
+        }
+
         public Musica() { }
 
         public Musica(string id

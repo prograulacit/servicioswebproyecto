@@ -91,6 +91,23 @@ namespace BLL.Objeto
                , valores);
         }
 
+        public Pelicula traerPeliculaPorId(string id)
+        {
+            List<Pelicula> lista_pelicula = traerPeliculas();
+
+            if (lista_pelicula != null)
+            {
+                for (int i = 0; i < lista_pelicula.Count; i++)
+                {
+                    if (lista_pelicula[i].id == id)
+                    {
+                        return lista_pelicula[i];
+                    }
+                }
+            }
+            return null;
+        }
+
         public Pelicula() { }
 
         public Pelicula(string id
