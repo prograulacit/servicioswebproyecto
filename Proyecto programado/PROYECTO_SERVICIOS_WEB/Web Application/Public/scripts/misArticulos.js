@@ -64,6 +64,120 @@ function generarTabla_Peliculas() {
         });
 }
 
+function generarTabla_Musica() {
+    fetch(API_URL_ARTICULOSASOCIADOS)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (response) {
+            console.log("Exito en cargar transacciones.");
+            // Trae transacciones de la base de datos.
+            let transacciones = JSON.parse(response);
+            console.log(transacciones);
+
+            if (transacciones != null) {
+                fetch(API_URL + "musica")
+                    .then(function (response) {
+                        return response.text();
+                    })
+                    .then(function (response) {
+                        let musicas = JSON.parse(response);
+                        let musica_conPropiedadDelUsuario = [];
+
+                        for (var i = 0; i < transacciones.length; i++) {
+                            for (var j = 0; j < musicas.length; j++) {
+                                if (transacciones[i]
+                                    .consecutivoProductoID == musicas[j].id) {
+                                    musica_conPropiedadDelUsuario
+                                        .push(musicas[j]);
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (musica_conPropiedadDelUsuario.length > 0) {
+                            construirTabla_musica(musica_conPropiedadDelUsuario);
+                        } else {
+                            let mensaje = "Usted no ha comprado ninguna música.";
+                            mensaje_alertaAzul(mensaje);
+                        }
+                    })
+                    .catch(function (err) {
+                        console.error(err);
+                    });
+            } else {
+                let mensaje = "Usted no ha comprado ninguna música.";
+                mensaje_alertaAzul(mensaje);
+            }
+        })
+        .catch(function (err) {
+            console.error("Error: " + err);
+            document.getElementById("contenido").innerHTML =
+                `
+                <div class="alert alert-danger" role="alert">
+                    Ha ocurrido un error.
+                </div>
+                `;
+        });
+}
+
+function generarTabla_Libro() {
+    fetch(API_URL_ARTICULOSASOCIADOS)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (response) {
+            console.log("Exito en cargar transacciones.");
+            // Trae transacciones de la base de datos.
+            let transacciones = JSON.parse(response);
+            console.log(transacciones);
+
+            if (transacciones != null) {
+                fetch(API_URL + "libro")
+                    .then(function (response) {
+                        return response.text();
+                    })
+                    .then(function (response) {
+                        let libros = JSON.parse(response);
+                        let libros_conPropiedadDelUsuario = [];
+
+                        for (var i = 0; i < transacciones.length; i++) {
+                            for (var j = 0; j < libros.length; j++) {
+                                if (transacciones[i]
+                                    .consecutivoProductoID == libros[j].id) {
+                                    libros_conPropiedadDelUsuario
+                                        .push(libros[j]);
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (libros_conPropiedadDelUsuario.length > 0) {
+                            construirTabla_libro(libros_conPropiedadDelUsuario);
+                        } else {
+                            let mensaje = "Usted no ha comprado ningun libro.";
+                            mensaje_alertaAzul(mensaje);
+                        }
+                    })
+                    .catch(function (err) {
+                        console.error(err);
+                    });
+            } else {
+                let mensaje = "Usted no ha comprado ningun libro.";
+                mensaje_alertaAzul(mensaje);
+            }
+        })
+        .catch(function (err) {
+            console.error("Error: " + err);
+            document.getElementById("contenido").innerHTML =
+                `
+                <div class="alert alert-danger" role="alert">
+                    Ha ocurrido un error.
+                </div>
+                `;
+        });
+}
+
 /////////////////////////////////////////////////////////
 /// Funciones de creación de tablas.
 /////////////////////////////////////////////////////////
@@ -110,12 +224,116 @@ function construirTabla_peliculas(peliculas) {
     document.getElementById("contenido").innerHTML = html;
 }
 
+function construirTabla_musica(musicas) {
+    let html = "";
+
+    html +=
+        `
+        <br>
+        <div>
+            Total de músicas compradas: ${musicas.length}
+        </div>
+        <br>
+        <table class="table table-bordered">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Género</th>
+                <th scope="col">Tipo interpretación</th>
+                <th scope="col">Idioma</th>
+                <th scope="col">País</th>
+                <th scope="col">Disquera</th>
+                <th scope="col">Nombre disco</th>
+                <th scope="col">Año</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        `;
+    for (let i = 0; i < musicas.length; i++) {
+        html +=
+            `<tr>
+                <td>${musicas[i].id}</td>
+                <td>${musicas[i].nombre}</td>
+                <td>${musicas[i].genero}</td>
+                <td>${musicas[i].tipoInterpretacion}</td>
+                <td>${musicas[i].idioma}</td>
+                <td>${musicas[i].pais}</td>
+                <td>${musicas[i].disquera}</td>
+                <td>${musicas[i].nombreDisco}</td>
+                <td>${musicas[i].anio}</td>
+                <td><a href="#"
+                    onclick="descargarMusica('${musicas[i].nombre}', '${musicas[i].id}', '${musicas[i].nombreArchivoDescarga}',)">
+                    Descargar</a>
+                </td>
+            </tr>
+            `;
+    }
+
+    html += "</table>";
+    document.getElementById("contenido").innerHTML = html;
+}
+
+function construirTabla_libro(libros) {
+    let html = "";
+
+    html +=
+        `
+        <br>
+        <div>
+            Total de músicas compradas: ${libros.length}
+        </div>
+        <br>
+        <table class="table table-bordered">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Idioma</th>
+                <th scope="col">Editorial</th>
+                <th scope="col">Año publicación</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        `;
+    for (let i = 0; i < libros.length; i++) {
+        html +=
+            `<tr>
+                <td>${libros[i].id}</td>
+                <td>${libros[i].nombre}</td>
+                <td>${libros[i].categoria}</td>
+                <td>${libros[i].autor}</td>
+                <td>${libros[i].idioma}</td>
+                <td>${libros[i].editorial}</td>
+                <td>${libros[i].anioPublicacion}</td>
+                <td><a href="#"
+                    onclick="descargarLibro('${libros[i].nombre}', '${libros[i].id}', '${libros[i].nombreArchivoDescarga}',)">
+                    Descargar</a>
+                </td>
+            </tr>
+            `;
+    }
+
+    html += "</table>";
+    document.getElementById("contenido").innerHTML = html;
+}
+
 /////////////////////////////////////////////////////////
 /// Funciones de descarga.
 /////////////////////////////////////////////////////////
 
 function descargarPelicula(nombre, id, nombreArchivoDescarga) {
     alert("Nombre de la pélicula: " + nombre + "\n ID: " + id + "\nNombre archivo descarga: " + nombreArchivoDescarga);
+
+    // Aquí va el código de descarga...
+}
+
+function descargarMusica(nombre, id, nombreArchivoDescarga) {
+    alert("Nombre de la música: " + nombre + "\n ID: " + id + "\nNombre archivo descarga: " + nombreArchivoDescarga);
+
+    // Aquí va el código de descarga...
+}
+
+function descargarLibro(nombre, id, nombreArchivoDescarga) {
+    alert("Nombre del libro: " + nombre + "\n ID: " + id + "\nNombre archivo descarga: " + nombreArchivoDescarga);
 
     // Aquí va el código de descarga...
 }
@@ -149,6 +367,7 @@ boton_libros.addEventListener("click", () => {
     boton_peliculas.classList.remove("active");
     boton_musica.classList.remove("active");
     boton_libros.classList.add("active");
+    generarTabla_Libro();
 });
 
 
