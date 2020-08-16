@@ -1,37 +1,49 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Compartido/MasterPage_Backend.Master" AutoEventWireup="true" CodeBehind="peliculasAdmin.aspx.cs" Inherits="Web_Application.Paginas.Backend.peliculasAdmin" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Public/scripts/peliculasAdmin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="titulo">
-        Administracion de peliculas
-    </div>
-
-    <div class="descripcion">
-        Aquí puede administrar los recursos de peliculas
-    </div>
-
-    <div id="boton_crear">
-        <button class="btn btn-primary justify-content-center" type="button" onclick="contenedorCrear_visible('inline'); 
-        contenedorTabla_visible('none'); 
-        contenedorEditar_visible('none')">Crear nuevo registro</button>
-    </div>
-
-    <div id="contenedor_tabla">
-        Cargando...
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.aspx">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Administración de péliculas</li>
+        </ol>
+    </nav>
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="form-group col-4">
-                <div id="contenedor_editar">
-                    <div class="titulo">
-                        Editando pelicula
-                    </div>
+
+        <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
+            Administracion de péliculas
+        </div>
+
+        <div class="titulo">
+            Aquí puede administrar los recursos de péliculas
+        </div>
+
+        <div id="boton_crear">
+            <button class="btn btn-primary" type="button" onclick="contenedorCrear_visible('inline'); 
+                contenedorTabla_visible('none'); 
+                contenedorEditar_visible('none')">
+                Crear nuevo registro</button>
+        </div>
+        <br />
+        <div class="row">
+            <div id="contenedor_tabla">
+                Cargando...
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="contenedor_editar">
+            <div class="titulo">
+                Editando pelicula
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal">ID:</label>
                     <br>
                     <input disabled type="text" name="" class="editar_id form-control">
@@ -55,7 +67,8 @@
                     <label class="text-font-normal">Actores:</label>
                     <br>
                     <input type="text" name="" class="editar_actores form-control">
-                    <br>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal">Monto:</label>
                     <br>
                     <input type="number" name="" class="editar_monto form-control">
@@ -66,7 +79,7 @@
                     <br>
                     <label class="text-font-normal">Archivo Pelicula:</label>
                     <br>
-                    <input id="editarArchivoPelicula" class="editar_archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server"/>
+                    <input id="editarArchivoPelicula" class="editar_archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server" />
                     <br>
                     <label class="text-font-normal">Nombre archivo previsualizacion:</label>
                     <br>
@@ -74,13 +87,22 @@
                     <br>
                     <label class="text-font-normal">Archivo Pelicula previsualizacion:</label>
                     <br>
-                    <input id="editarArchivoPeliculaPrev" class="editar_archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server"/>
+                    <input id="editarArchivoPeliculaPrev" class="editar_archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server" />
                     <br>
-                    <button class="btn btn-primary justify-content-center" type="button" onclick="guardar_cambios()">Guardar cambios</button>
-                    <button class="btn btn-primary justify-content-center" >Cancelar</button>
                 </div>
+            </div>
+            <br />
+            <button class="btn btn-primary btn-block btn-sm" type="button" onclick="guardar_cambios()">Guardar cambios</button>
+            <button class="btn btn-primary btn-block btn-sm">Cancelar</button>
+            <br />
+        </div>
 
-                <div id="contenedor_crear">
+        <div id="contenedor_crear">
+            <div class="subtitulo">
+                Nueva pélicula
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal">Nombre:</label>
                     <br>
                     <input type="text" name="" class="crear_nombre form-control">
@@ -100,7 +122,8 @@
                     <label class="text-font-normal">Actores:</label>
                     <br>
                     <input type="text" name="" class="crear_actores form-control">
-                    <br>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal">Monto:</label>
                     <br>
                     <input type="number" name="" class="crear_monto form-control">
@@ -111,7 +134,7 @@
                     <br>
                     <label class="text-font-normal">Archivo Pelicula:</label>
                     <br>
-                    <input id="archivoPelicula" class="archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server"/>
+                    <input id="archivoPelicula" class="archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server" />
                     <br>
                     <label class="text-font-normal">Nombre archivo previsualizacion:</label>
                     <br>
@@ -119,22 +142,23 @@
                     <br>
                     <label class="text-font-normal">Archivo Pelicula previsualizacion:</label>
                     <br>
-                    <input id="archivoPeliculaPrev" class="archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server"/>
-                    <br>
-                    <button class="btn btn-primary justify-content-center" type="button" onclick="crear_elemento()">Crear nueva pelicula</button>
-                    <button class="btn btn-primary justify-content-center" >Cancelar</button>
+                    <input id="archivoPeliculaPrev" class="archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server" />
                 </div>
             </div>
+            <br />
+            <button class="btn btn-primary btn-block btn-sm" type="button" onclick="crear_elemento()">Crear nueva pelicula</button>
+            <button class="btn btn-primary btn-block btn-sm">Cancelar</button>
+            <br />
         </div>
     </div>
 
 
     <%--hidden elements--%>
-    <asp:Button class="descargar_archivo_pelicula" id="descargarArchivoPelicula" runat="server" Text="" OnClick="subirArchivosPelicula_Click" style="display:none"/>
-    <asp:Button class="eliminar_archivo_pelicula" id="eliminarArchivoPelicula" runat="server" Text="" OnClick="eliminarArchivoPelicula_Click" style="display:none"/>
-    <asp:Button class="editar_archivos_pelicula" id="editarArchivosPelicula" runat="server" Text="" OnClick="editarArchivosPelicula_Click" style="display:none"/>
-    <input type="text" name="" id="viejoNombreDescargaPelicula" class="viejo_nombre_descarga_pelicula" runat="server" style="display:none">
-    <input type="text" name="" id="viejoNombrePrevisualizacionPelicula" class="viejo_nombre_previsualizacion_pelicula" runat="server" style="display:none">
+    <asp:Button class="descargar_archivo_pelicula" ID="descargarArchivoPelicula" runat="server" Text="" OnClick="subirArchivosPelicula_Click" Style="display: none" />
+    <asp:Button class="eliminar_archivo_pelicula" ID="eliminarArchivoPelicula" runat="server" Text="" OnClick="eliminarArchivoPelicula_Click" Style="display: none" />
+    <asp:Button class="editar_archivos_pelicula" ID="editarArchivosPelicula" runat="server" Text="" OnClick="editarArchivosPelicula_Click" Style="display: none" />
+    <input type="text" name="" id="viejoNombreDescargaPelicula" class="viejo_nombre_descarga_pelicula" runat="server" style="display: none">
+    <input type="text" name="" id="viejoNombrePrevisualizacionPelicula" class="viejo_nombre_previsualizacion_pelicula" runat="server" style="display: none">
 
     <script>
         cargar_elementos();

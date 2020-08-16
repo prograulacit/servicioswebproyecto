@@ -37,8 +37,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seguridad
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/Paginas/Backend/crearNuevoAdmin.aspx">Crear Usuario</a>
-                            <a class="dropdown-item" href="/Paginas/Backend/editarAdministradores.aspx">Editar Usuario</a>
+                            <a class="dropdown-item" href="/Paginas/Backend/crearNuevoAdmin.aspx">Crear administrador</a>
+                            <a class="dropdown-item" href="/Paginas/Backend/editarAdministradores.aspx">Editar administadores</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/Paginas/Backend/cambiarContrasenia.aspx">Cambiar Contraseña</a>
                         </div>
@@ -47,8 +47,13 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administración
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/Paginas/Backend/generosPeliculas.aspx">Géneros de pélicula</a>
+                            <a class="dropdown-item" href="/Paginas/Backend/generosMusica.aspx">Géneros de música</a>
+                            <a class="dropdown-item" href="/Paginas/Backend/categoriasLibro.aspx">Categorias de libros</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/Paginas/Backend/consecutivos.aspx">Consecutivos</a>
                             <a class="dropdown-item" href="/Paginas/Backend/parametros.aspx">Parámetros</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/Paginas/Backend/peliculasAdmin.aspx">Películas</a>
                             <a class="dropdown-item" href="/Paginas/Backend/libroAdmin.aspx">Libros</a>
                             <a class="dropdown-item" href="/Paginas/Backend/musicaAdmin.aspx">Música</a>

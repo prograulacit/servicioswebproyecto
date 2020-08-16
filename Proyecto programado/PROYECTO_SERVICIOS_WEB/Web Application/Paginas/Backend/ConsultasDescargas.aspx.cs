@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,20 @@ namespace Web_Application.Paginas.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Memoria.sesionAdminDatos != null)
+            {
+                bool adminMaestro = Memoria.sesionAdminDatos.adminMaestro;
+                bool adminConsultas = Memoria.sesionAdminDatos.adminConsultas;
 
+                if (!adminMaestro && !adminConsultas)
+                {
+                    Response.Redirect("~/Paginas/Backend/Index.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Paginas/Backend/Index.aspx");
+            }
         }
     }
 }

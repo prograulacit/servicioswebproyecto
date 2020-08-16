@@ -9,10 +9,17 @@ namespace Web_Application.Paginas.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool adminMaestro = Memoria.sesionAdminDatos.adminMaestro;
-            bool adminConsultas = Memoria.sesionAdminDatos.adminConsultas;
+            if (Memoria.sesionAdminDatos != null)
+            {
+                bool adminMaestro = Memoria.sesionAdminDatos.adminMaestro;
+                bool adminConsultas = Memoria.sesionAdminDatos.adminConsultas;
 
-            if (!adminMaestro && !adminConsultas)
+                if (!adminMaestro && !adminConsultas)
+                {
+                    Response.Redirect("~/Paginas/Backend/Index.aspx");
+                }
+            }
+            else
             {
                 Response.Redirect("~/Paginas/Backend/Index.aspx");
             }

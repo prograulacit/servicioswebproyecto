@@ -13,17 +13,16 @@
         </ol>
     </nav>
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Editar administradores</div>
-    <br />
-    <div class="descripcion">Por favor, elija el administrador que desea editar o eliminar</div>
-
-    <div id="lista_admins">
-        Cargando datos... por favor, espere
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-
     <div class="container">
+        <div class="titulo">Por favor, elija el administrador que desea editar o eliminar</div>
+
+        <div id="lista_admins">
+            Cargando datos... por favor, espere
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
         <div class="row justify-content-center">
             <div class="form-group col-4">
                 <div id="editar_admin">
@@ -66,7 +65,7 @@
                         <input class="form-check-input" type="checkbox" name="" id="editar_adminConsultas">
                         <br>
                         <br>
-            
+
                         <input class="btn btn-primary justify-content-center" onclick="editarAdmin_guardarCambios()" type="submit" value="Guardar cambios">
                         <button class="btn btn-primary justify-content-center" onclick="editarAdmin_cancelarCambios()">Cancelar edicion</button>
                     </form>
@@ -169,17 +168,19 @@
                 let html = "";
 
                 html +=
-                    `<p>Total de registros: ${json.length}</p>
-                     <p>Registros: <br>
-                     <table class="table">
-                     <tr scope="col">
-                        <th>ID</th>
-                        <th>Nombre de usuario</th>
-                        <th>Admin maestro</th>
-                        <th>Admin Seguridad</th>
-                        <th>Admin mantenimiento</th>
-                        <th>Admin consultas</th>
-                     </tr>
+                    `<p>Total de administradores: ${json.length}</p>
+                     <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr scope="col">
+                                <th>ID</th>
+                                <th>Nombre de usuario</th>
+                                <th>Admin maestro</th>
+                                <th>Admin Seguridad</th>
+                                <th>Admin mantenimiento</th>
+                                <th>Admin consultas</th>
+                                <th colspan="2">Acción</th>
+                            </tr>
+                        </thead>
                     `;
 
                 for (let index = 0; index < json.length; index++) {

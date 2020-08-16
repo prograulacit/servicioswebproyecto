@@ -13,18 +13,21 @@ namespace Web_Application.Paginas.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool adminMaestro = Memoria.sesionAdminDatos.adminMaestro;
-            bool adminSeguridad = Memoria.sesionAdminDatos.adminSeguridad;
+            if (Memoria.sesionDeAdmin != null)
+            {
+                bool adminMaestro = Memoria.sesionAdminDatos.adminMaestro;
+                bool adminSeguridad = Memoria.sesionAdminDatos.adminSeguridad;
 
-            if (!adminMaestro && !adminSeguridad)
+                if (!adminMaestro && !adminSeguridad)
+                {
+                    Response.Redirect("~/Paginas/Backend/Index.aspx");
+                }
+            }
+            else
             {
                 Response.Redirect("~/Paginas/Backend/Index.aspx");
             }
-        }
 
-        private void cargarGrid_admins()
-        {
-           
         }
     }
 }

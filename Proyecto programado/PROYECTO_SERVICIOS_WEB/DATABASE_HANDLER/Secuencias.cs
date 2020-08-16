@@ -25,7 +25,7 @@ namespace DATABASE_HANDLER
                 "adminMaestro",
                 "admin",
                 "admin@e-descargas.com",
-                "Respuesta de pregunta de seguridad:respuesta",
+                "Respuesta de pregunta de seguridad: respuesta",
                 "respuesta",
                 "true",
                 "false",

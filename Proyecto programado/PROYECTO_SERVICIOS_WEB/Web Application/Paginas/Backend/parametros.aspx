@@ -13,13 +13,13 @@
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Parametros
     </div>
-
-    <div class="text-font-normal">
+    <div class="container">
+    <div class="titulo">
         Administración de parametros.
     </div>
     <br>
-    <div class="container">
-        <div class="row justify-content-center">
+    
+        <div class="row shadow-lg p-3 mb-5 bg-white rounded">
             <div class="form-group col-12">
                 <div>
                     <label class="text-font-normal">Ruta de almacenamiento previsualizacion Libros</label>
@@ -47,7 +47,7 @@
                     <input class="form-control" type="text" name="" id="alm_musica">
                     <br>
                     <br>
-                    <button class="btn btn-primary justify-content-center" type="button" onclick="actualizar_parametros()">Actualizar datos</button>
+                    <button class="btn btn-primary btn-block btn-lg" type="button" onclick="actualizar_parametros()">Actualizar datos</button>
                 </div>
             </div>
         </div>

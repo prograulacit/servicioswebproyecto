@@ -164,6 +164,7 @@
     <Content Include="Public\scripts\externo\oauth.js" />
     <Content Include="Public\scripts\generosMusica.js" />
     <Content Include="Public\scripts\generosPeliculas.js" />
+    <Content Include="Public\scripts\indexAdmins.js" />
     <Content Include="Public\scripts\librosAdmin.js" />
     <Content Include="Public\scripts\libro.js" />
     <Content Include="Public\scripts\login.js" />

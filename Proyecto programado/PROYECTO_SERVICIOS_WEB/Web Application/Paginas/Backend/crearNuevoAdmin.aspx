@@ -21,7 +21,7 @@
             <asp:Label ID="Label_status_error" runat="server" class="badge badge-danger" Text=""></asp:Label>
             <asp:Label ID="Label_status_success" runat="server" class="badge badge-success" Text=""></asp:Label>
         </div>
-        <div class="row">
+        <div class="row shadow-lg p-3 mb-5 bg-white rounded">
             <div class="col-12 col-sm-12 col-md-12 col-lg-4">
                 <label class="text-font-normal">Nombre de usuario:</label>
                 <asp:TextBox class="form-control" ID="TextBox_nombreUsuario" runat="server"></asp:TextBox>

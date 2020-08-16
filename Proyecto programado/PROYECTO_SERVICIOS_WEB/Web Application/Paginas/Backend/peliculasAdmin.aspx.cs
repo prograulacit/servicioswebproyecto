@@ -11,17 +11,24 @@ namespace Web_Application.Paginas.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool adminMaestro = Memoria.sesionAdminDatos.adminMaestro;
-            bool mantenimiento = Memoria.sesionAdminDatos.adminMantenimiento;
+            if (Memoria.sesionAdminDatos != null)
+            {
+                bool adminMaestro = Memoria.sesionAdminDatos.adminMaestro;
+                bool mantenimiento = Memoria.sesionAdminDatos.adminMantenimiento;
 
-            if (!adminMaestro && !mantenimiento)
+                if (!adminMaestro && !mantenimiento)
+                {
+                    Response.Redirect("~/Paginas/Backend/Index.aspx");
+                }
+
+                if (!IsPostBack)
+                {
+                    Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
+                }
+            }
+            else
             {
                 Response.Redirect("~/Paginas/Backend/Index.aspx");
-            }
-
-            if (!IsPostBack)
-            {
-                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
         }
 
@@ -129,7 +136,7 @@ namespace Web_Application.Paginas.Backend
                 }
                 Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
-                
+
         }
 
         protected override void OnPreRender(EventArgs e)

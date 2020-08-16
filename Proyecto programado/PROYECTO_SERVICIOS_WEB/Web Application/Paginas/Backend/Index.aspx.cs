@@ -13,18 +13,25 @@ namespace Web_Application.Paginas.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Este código se ejecuta cada vez que se carga ésta página. Vamos a verificar
-            // aquí que un administrador este logeado siempre en todas las páginas.
-            // Si no es sesión de admin, el usuario es enviado de vuelta a el index.
-            if (!Memoria.sesionDeAdmin)
+            if (Memoria.sesionAdminDatos != null)
             {
-                Response.Redirect("~/Paginas/Compartido/index.aspx");
+                // Este código se ejecuta cada vez que se carga ésta página. Vamos a verificar
+                // aquí que un administrador este logeado siempre en todas las páginas.
+                // Si no es sesión de admin, el usuario es enviado de vuelta a el index.
+                if (!Memoria.sesionDeAdmin)
+                {
+                    Response.Redirect("~/Paginas/Compartido/index.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Paginas/Backend/Index.aspx");
             }
         }
 
         protected void Button_deslogeo_prueba_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void Button_cerrar_sesion_Click(object sender, EventArgs e)

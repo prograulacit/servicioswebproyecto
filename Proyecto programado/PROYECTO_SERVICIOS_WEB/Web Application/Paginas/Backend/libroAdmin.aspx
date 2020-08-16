@@ -20,26 +20,28 @@
             Aquí puede administrar los recursos de libros (PDF)
         </div>
         <br />
-        <div class="row">
-            <div class="form-group col-4">
-                <div id="boton_crear">
-                    <button class="btn btn-primary justify-content-center" type="button" onclick="contenedorCrear_visible('inline'); 
+        <div class="form-group col-4">
+            <div id="boton_crear">
+                <button class="btn btn-primary justify-content-center" type="button" onclick="contenedorCrear_visible('inline'); 
                     contenedorTabla_visible('none'); 
                     contenedorEditar_visible('none')">
-                        Crear nuevo registro</button>
-                </div>
+                    Crear nuevo registro</button>
+            </div>
+        </div>
 
-                <div id="contenedor_tabla">
-                    Cargando...
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                </div>
+        <div id="contenedor_tabla">
+            Cargando...
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
 
-                <div id="contenedor_editar">
-                    <div class="titulo">
-                        Editando libro
-                    </div>
+        <div id="contenedor_editar">
+            <div class="titulo">
+                Editando libro
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal" for="">ID:</label>
                     <br>
                     <input disabled type="text" name="" class="editar_id form-control">
@@ -63,7 +65,8 @@
                     <label class="text-font-normal" for="">Editorial:</label>
                     <br>
                     <input type="text" name="" class="editar_editorial form-control">
-                    <br>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal" for="">Año de publicación:</label>
                     <br>
                     <input type="text" name="" class="editar_anioPublicacion form-control">
@@ -87,14 +90,21 @@
                     <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
                     <br>
                     <input id="editarArchivoLibroPrev" class="editar_archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server" />
-                    <br>
-                    <button class="btn btn-primary justify-content-center" type="button" onclick="guardar_cambios()">Guardar cambios</button>
-                    <button class="btn btn-primary justify-content-center">Cancelar</button>
                 </div>
-                <br />
-                <br />
-                <br />
-                <div id="contenedor_crear">
+            </div>
+            <br>
+            <button class="btn btn-primary btn-block" type="button" onclick="guardar_cambios()">Guardar cambios</button>
+            <button class="btn btn-primary btn-block">Cancelar</button>
+            <br>
+        </div>
+
+        <div id="contenedor_crear">
+            <div class="titulo">
+                Crear nuevo libro
+            </div>
+            <div class="row">
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal" for="">Nombre:</label>
                     <br>
                     <input type="text" name="" class="crear_nombre form-control">
@@ -116,9 +126,10 @@
                     <input type="text" name="" class="crear_editorial form-control">
                     <br>
                     <label class="text-font-normal" for="">Año de publicación:</label>
-                    <br>
+                <br />
                     <input type="text" name="" class="crear_anioPublicacion form-control">
-                    <br>
+                    </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal" for="">Monto:</label>
                     <br>
                     <input type="number" name="" class="crear_monto form-control">
@@ -138,28 +149,26 @@
                     <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
                     <br>
                     <input id="archivoLibroPrev" class="archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server" />
-                    <br>
-                    <button class="btn btn-primary justify-content-center" type="button" onclick="crear_elemento()">Crear nuevo libro</button>
-                    <button class="btn btn-primary justify-content-center">Cancelar</button>
                 </div>
             </div>
+            <br>
+            <button class="btn btn-primary btn-block" type="button" onclick="crear_elemento()">Crear nuevo libro</button>
+            <button class="btn btn-primary btn-block">Cancelar</button>
+            <br />
         </div>
-    </div>
 
+        <%--hidden elements--%>
+        <asp:Button class="descargar_archivo_libro btn btn-primary justify-content-center" ID="descargarArchivoLibro" runat="server" Text="" OnClick="subirArchivosLibro_Click" Style="display: none" />
+        <asp:Button class="eliminar_archivo_libro btn btn-primary justify-content-center" ID="eliminarArchivoLibro" runat="server" Text="" OnClick="eliminarArchivoLibro_Click" Style="display: none" />
+        <asp:Button class="editar_archivos_libro btn btn-primary justify-content-center" ID="editarArchivosLibro" runat="server" Text="" OnClick="editarArchivosLibro_Click" Style="display: none" />
+        <input type="text" name="" id="viejoNombreDescargaLibro" class="viejo_nombre_descarga_libro" runat="server" style="display: none">
+        <input type="text" name="" id="viejoNombrePrevisualizacionLibro" class="viejo_nombre_previsualizacion_libro" runat="server" style="display: none">
 
-
-    <%--hidden elements--%>
-    <asp:Button class="descargar_archivo_libro btn btn-primary justify-content-center" ID="descargarArchivoLibro" runat="server" Text="" OnClick="subirArchivosLibro_Click" Style="display: none" />
-    <asp:Button class="eliminar_archivo_libro btn btn-primary justify-content-center" ID="eliminarArchivoLibro" runat="server" Text="" OnClick="eliminarArchivoLibro_Click" Style="display: none" />
-    <asp:Button class="editar_archivos_libro btn btn-primary justify-content-center" ID="editarArchivosLibro" runat="server" Text="" OnClick="editarArchivosLibro_Click" Style="display: none" />
-    <input type="text" name="" id="viejoNombreDescargaLibro" class="viejo_nombre_descarga_libro" runat="server" style="display: none">
-    <input type="text" name="" id="viejoNombrePrevisualizacionLibro" class="viejo_nombre_previsualizacion_libro" runat="server" style="display: none">
-
-    <script>
-        cargar_elementos();
-        traer_categorias();
-        contenedorTabla_visible("inline");
-        contenedorEditar_visible("none");
-        contenedorCrear_visible("none");
-    </script>
+        <script>
+            cargar_elementos();
+            traer_categorias();
+            contenedorTabla_visible("inline");
+            contenedorEditar_visible("none");
+            contenedorCrear_visible("none");
+        </script>
 </asp:Content>

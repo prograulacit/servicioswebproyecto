@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Compartido/MasterPage_Backend.Master" AutoEventWireup="true" CodeBehind="musicaAdmin.aspx.cs" Inherits="Web_Application.Paginas.Backend.musicaAdmin" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../../Public/scripts/musicaAdmin.js"></script>
@@ -15,30 +16,33 @@
         Administracion de musica
     </div>
 
-    <div class="text-font-normal">
-        Aquí puede administrar los recursos de musica
-    </div>
-    <br />
-    <div id="boton_crear">
-        <button class="btn btn-primary justify-content-center" type="button" onclick="contenedorCrear_visible('inline'); 
-        contenedorTabla_visible('none'); 
-        contenedorEditar_visible('none')">Crear nuevo registro</button>
-    </div>
-
-    <div id="contenedor_tabla">
-        Cargando...
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="form-group col-4">
-                <div id="contenedor_editar">
-                    <div class="titulo">
-                        Editando musica
-                    </div>
+        <div class="titulo">
+            Aquí puede administrar los recursos de musica
+        </div>
+        <br />
+        <div id="boton_crear">
+            <button class="btn btn-primary justify-content-center" type="button" onclick="contenedorCrear_visible('inline'); 
+                contenedorTabla_visible('none'); 
+                contenedorEditar_visible('none')">
+                Crear nuevo registro</button>
+        </div>
+        <br />
+        <div id="contenedor_tabla">
+            Cargando...
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div id="contenedor_editar">
+            <div class="titulo">
+                Editando musica
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+
+
                     <label class="text-font-normal" for="">ID:</label>
                     <br>
                     <input disabled type="text" name="" class="editar_id_musica form-control">
@@ -66,11 +70,12 @@
                     <label class="text-font-normal" for="">Disquera:</label>
                     <br>
                     <input type="text" name="" class="editar_disquera_musica form-control">
-                    <br>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal" for="">Nombre del disco:</label>
                     <br>
                     <input type="text" name="" class="editar_nombreDisco_musica form-control">
-                    <br>
+                    <br />
                     <label class="text-font-normal" for="">Año:</label>
                     <br>
                     <input type="text" name="" class="editar_anio_musica form-control">
@@ -82,10 +87,10 @@
                     <label class="text-font-normal" for="">Nombre archivo descarga:</label>
                     <br>
                     <input type="text" name="" id="editarNombreDescargaMusica" class="editar_nombre_descarga_musica form-control" runat="server">
-                     <br>
+                    <br>
                     <label class="text-font-normal" for="">Archivo musica:</label>
                     <br>
-                    <input id="editarArchivoMusica" class="editar_archivo_musica form-control" type="file" accept=".mp3,audio/*" runat="server"/>
+                    <input id="editarArchivoMusica" class="editar_archivo_musica form-control" type="file" accept=".mp3,audio/*" runat="server" />
                     <br>
                     <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
                     <br>
@@ -93,15 +98,22 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo musica previsualizacion:</label>
                     <br>
-                    <input id="editarArchivoMusicaPrev" class="editar_archivo_musica_prev form-control" type="file" accept=".mp3,audio/*" runat="server"/>
-                    <br>
-                    <button class="btn btn-primary justify-content-center" type="button" onclick="guardar_cambios()">Guardar cambios</button>
-                    <button class="btn btn-primary justify-content-center">Cancelar</button>
+                    <input id="editarArchivoMusicaPrev" class="editar_archivo_musica_prev form-control" type="file" accept=".mp3,audio/*" runat="server" />
                 </div>
-                <br />
-                <br />
-                <br />
-                <div id="contenedor_crear">
+
+            </div>
+            <br />
+            <button class="btn btn-primary btn-block" type="button" onclick="guardar_cambios()">Guardar cambios</button>
+            <button class="btn btn-primary btn-block">Cancelar</button>
+            <br />
+        </div>
+
+        <div id="contenedor_crear">
+            <div class="titulo">
+                Creando nueva música
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal" for="">Nombre:</label>
                     <br>
                     <input type="text" name="" class="crear_nombre_musica form-control">
@@ -125,15 +137,16 @@
                     <label class="text-font-normal" for="">Disquera:</label>
                     <br>
                     <input type="text" name="" class="crear_disquera_musica form-control">
-                    <br>
+                <br />
                     <label class="text-font-normal" for="">Nombre del disco:</label>
                     <br>
                     <input type="text" name="" class="crear_nombreDisco_musica form-control">
-                    <br>
+                    </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                     <label class="text-font-normal" for="">Año:</label>
                     <br>
                     <input type="text" name="" class="crear_anio_musica form-control">
-                    <br>
+                    <br />
                     <label class="text-font-normal" for="">Monto:</label>
                     <br>
                     <input type="number" name="" class="crear_monto_musica form-control">
@@ -144,7 +157,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo musica:</label>
                     <br>
-                    <input id="archivoMusica" class="archivo_musica form-control" type="file" accept=".mp3,audio/*" runat="server"/>
+                    <input id="archivoMusica" class="archivo_musica form-control" type="file" accept=".mp3,audio/*" runat="server" />
                     <br>
                     <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
                     <br>
@@ -152,22 +165,23 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo musica previsualizacion:</label>
                     <br>
-                    <input id="archivoMusicaPrev" class="archivo_musica_prev form-control" type="file" accept=".mp3,audio/*" runat="server"/>
-                    <br>
-                    <button class="btn btn-primary justify-content-center" type="button" onclick="crear_elemento()">Crear nueva musica</button>
-                    <button class="btn btn-primary justify-content-center">Cancelar</button>
+                    <input id="archivoMusicaPrev" class="archivo_musica_prev form-control" type="file" accept=".mp3,audio/*" runat="server" />
                 </div>
             </div>
+            <br>
+            <button class="btn btn-primary btn-block" type="button" onclick="crear_elemento()">Crear nueva musica</button>
+            <button class="btn btn-primary btn-block">Cancelar</button>
+            <br />
         </div>
     </div>
 
-    
+
     <%--hidden elements--%>
-    <asp:Button class="descargar_archivo_musica" id="descargarArchivoMusica" runat="server" Text="" OnClick="subirArchivosMusica_Click" style="display:none"/>
-    <asp:Button class="eliminar_archivo_musica" id="eliminarArchivoMusica" runat="server" Text="" OnClick="eliminarArchivoMusica_Click" style="display:none"/>
-    <asp:Button class="editar_archivos_musica" id="editarArchivosMusica" runat="server" Text="" OnClick="editarArchivosMusica_Click" style="display:none"/>
-    <input type="text" name="" id="viejoNombreDescargaMusica" class="viejo_nombre_descarga_musica" runat="server" style="display:none">
-    <input type="text" name="" id="viejoNombrePrevisualizacionMusica" class="viejo_nombre_previsualizacion_musica" runat="server" style="display:none">
+    <asp:Button class="descargar_archivo_musica" ID="descargarArchivoMusica" runat="server" Text="" OnClick="subirArchivosMusica_Click" Style="display: none" />
+    <asp:Button class="eliminar_archivo_musica" ID="eliminarArchivoMusica" runat="server" Text="" OnClick="eliminarArchivoMusica_Click" Style="display: none" />
+    <asp:Button class="editar_archivos_musica" ID="editarArchivosMusica" runat="server" Text="" OnClick="editarArchivosMusica_Click" Style="display: none" />
+    <input type="text" name="" id="viejoNombreDescargaMusica" class="viejo_nombre_descarga_musica" runat="server" style="display: none">
+    <input type="text" name="" id="viejoNombrePrevisualizacionMusica" class="viejo_nombre_previsualizacion_musica" runat="server" style="display: none">
 
     <script>
         cargar_elementos();

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using BLL.Objeto;
 using BLL.Logica;
 
@@ -29,6 +24,11 @@ namespace Web_Application.Paginas.Backend
             {
                 Response.Redirect("~/Paginas/Backend/index.aspx");
             }
+
+            if (!IsPostBack)
+            {
+                Label_status_error.Visible = false;
+            }
         }
 
         protected void Button_aceptar_Click(object sender, EventArgs e)
@@ -52,7 +52,8 @@ namespace Web_Application.Paginas.Backend
             else
             {
                 // La respuesta es incorrecta.
-                labelStatusDanger_cambiarTexto("La respuesta es incorrecta.");
+                Label_status_error.Visible = true;
+                labelStatusDanger_cambiarTexto("La respuesta de seguridad es incorrecta.");
             }
         }
 

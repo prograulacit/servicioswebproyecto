@@ -27,19 +27,24 @@ function renderizar(json, contenedor_id) {
 
         contenidoHtml +=
             `<p>Total de registros: ${obj.length}</p>
-                        <table class="table table-striped">
+                        <table class="table table-bordered">
+                        <thead class="thead-light">
                             <tr>
-                                <th scope="col">Codigo</th>
-                                <th scope="col">Descripcion</th>
+                                <th scope="col">Código ID</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Prefijo</th>
                                 <th scope="col">Consecutivo</th>
+                                <th scope="col">Acción</th>
                             </tr>
+                        </thead>
                         `;
 
         for (let index = 0; index < obj.length; index++) {
-            contenidoHtml +=
-                `<tr>
+                        contenidoHtml +=
+                            `<tr>
                                 <td>` + obj[index].id + `</td>
                                 <td>` + obj[index].tipoConsecutivo + `</td>
+                                <td>` + obj[index].prefijo + `</td>
                                 <td>` + obj[index].descripcion + `</td>
                                 <td> <a href="#" onclick="editar_elemento('` + obj[index].id + `')">Editar</a> </td>
                             </tr>
