@@ -58,6 +58,23 @@ namespace BLL.Objeto
             }
         }
 
+        public Musica traerMusicaPorId(string id)
+        {
+            List<Musica> lista_musica = traerMusicas();
+
+            if (lista_musica != null)
+            {
+                for (int i = 0; i < lista_musica.Count; i++)
+                {
+                    if (lista_musica[i].id == id)
+                    {
+                        return lista_musica[i];
+                    }
+                }
+            }
+            return null;
+        }
+
         public void guardarMusica(Musica musica)
         {
             string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;

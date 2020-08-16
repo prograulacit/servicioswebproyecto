@@ -54,6 +54,23 @@ namespace BLL.Objeto
             }
         }
 
+        public Libro traerLibroPorId(string id)
+        {
+            List<Libro> lista_libros = traerLibros();
+
+            if(lista_libros != null)
+            {
+                for (int i = 0; i < lista_libros.Count; i++)
+                {
+                    if (lista_libros[i].id == id)
+                    {
+                        return lista_libros[i];
+                    }
+                }
+            }
+            return null;
+        }
+
         public void guardarLibro(Libro libro)
         {
             string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;

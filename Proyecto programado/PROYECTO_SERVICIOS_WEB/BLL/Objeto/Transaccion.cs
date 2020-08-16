@@ -53,6 +53,21 @@ namespace BLL.Objeto
             }
         }
 
+        public List<Transaccion> traerTransaccionesPorUsuario(string usuario)
+        {
+            List<Transaccion> lista_transacciones = traerTransacciones();
+            List<Transaccion> lista_transacciones_usuario = new List<Transaccion>();
+
+            for (int i = 0; i < lista_transacciones.Count; i++)
+            {
+                if (lista_transacciones[i].usuarioID == usuario)
+                {
+                    lista_transacciones_usuario.Add(lista_transacciones[i]);
+                }
+            }
+            return lista_transacciones_usuario;
+        }
+
         public void crearRegistroTranseccion(Transaccion transaccion)
         {
             string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;

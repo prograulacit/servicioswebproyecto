@@ -52,6 +52,23 @@ namespace BLL.Objeto
             }
         }
 
+        public Pelicula traerPeliculaPorId(string id)
+        {
+            List<Pelicula> lista_pelicula = traerPeliculas();
+
+            if (lista_pelicula != null)
+            {
+                for (int i = 0; i < lista_pelicula.Count; i++)
+                {
+                    if (lista_pelicula[i].id == id)
+                    {
+                        return lista_pelicula[i];
+                    }
+                }
+            }
+            return null;
+        }
+
         public void guardarPelicula(Pelicula pelicula)
         {
             string stringDeConexion = Memoria.logica_database.stringDeConexion_baseDeDatos_principal;

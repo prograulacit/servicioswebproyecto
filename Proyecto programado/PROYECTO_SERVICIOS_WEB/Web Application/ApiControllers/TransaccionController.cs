@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Web.Http;
 using BLL.Logica;
 using BLL.Objeto;
+using System.Web.Script.Serialization;
 
 namespace Web_Application.ApiControllers
 {
@@ -13,6 +16,43 @@ namespace Web_Application.ApiControllers
             Transaccion transaccion = new Transaccion();
             List<Transaccion> lista_transacciones = transaccion.traerTransacciones();
             return lista_transacciones;
+        }
+
+        // GET: api/Transaccion?idUsuario=id
+        public IEnumerable<Transaccion> Get(string idUsuario)
+        {
+            Transaccion transaccion = new Transaccion();
+            Libro libro = new Libro();
+            Musica musica = new Musica();
+            Pelicula pelicula = new Pelicula();
+            string id_usuario = idUsuario;
+
+            if (idUsuario.Equals("asociada") && (Memoria.sesionUsuarioDatos != null))
+            {
+                id_usuario = Memoria.sesionUsuarioDatos.id;
+            }
+
+            List<Transaccion> lista_transacciones_usuario = transaccion.traerTransaccionesPorUsuario(id_usuario);
+
+            for (int i = 0; i < lista_transacciones_usuario.Count; i++)
+            {
+                string consecutivo_id = lista_transacciones_usuario[i].consecutivoProductoID;
+                Libro libro_transaccion = libro.traerLibroPorId(consecutivo_id);
+                Musica musica_transaccion = musica.traerMusicaPorId(consecutivo_id);
+                Pelicula pelicula_transaccion = pelicula.traerPeliculaPorId(consecutivo_id);
+
+                if(libro_transaccion != null)
+                {
+                    lista_transacciones_usuario[i].consecutivoProductoID = new JavaScriptSerializer().Serialize(libro_transaccion);
+                } else if (musica_transaccion != null )
+                {
+                    lista_transacciones_usuario[i].consecutivoProductoID = new JavaScriptSerializer().Serialize(musica_transaccion);
+                } else if (pelicula_transaccion != null)
+                {
+                    lista_transacciones_usuario[i].consecutivoProductoID = new JavaScriptSerializer().Serialize(pelicula_transaccion);
+                }
+            }
+            return lista_transacciones_usuario;
         }
 
         // POST: api/Transaccion
