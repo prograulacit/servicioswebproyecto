@@ -32,15 +32,15 @@ namespace BLL.Objeto
                     lista_peliculas.Add(
                         new Pelicula
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["genero"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["anio"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["idioma"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["actores"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoDescarga"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoPrevisualizacion"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["genero"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["anio"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["idioma"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["actores"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoDescarga"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoPrevisualizacion"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
                             )
                         );
                 }

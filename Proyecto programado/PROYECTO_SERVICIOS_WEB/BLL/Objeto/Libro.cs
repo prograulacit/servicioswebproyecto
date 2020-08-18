@@ -33,16 +33,16 @@ namespace BLL.Objeto
                     lista_libros.Add(
                         new Libro
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["categoria"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["autor"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["idioma"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["editorial"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["anioPublicacion"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoDescarga"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoPrevisualizacion"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["categoria"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["autor"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["idioma"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["editorial"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["anioPublicacion"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoDescarga"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoPrevisualizacion"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
                             )
                         );
                 }

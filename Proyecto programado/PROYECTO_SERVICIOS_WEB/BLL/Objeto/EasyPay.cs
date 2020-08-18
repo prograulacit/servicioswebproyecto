@@ -30,12 +30,12 @@ namespace BLL.Objeto
                     lista_easyPays.Add(
                         new EasyPay
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["IDusuario"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["numeroCuenta"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["codigoSeguridad"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["contrasenia"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["IDusuario"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["numeroCuenta"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["codigoSeguridad"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["contrasenia"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
                             )
                         );
                 }

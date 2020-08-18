@@ -31,13 +31,13 @@ namespace BLL.Objeto
                     lista_usuarios.Add(
                         new Usuario
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["primerApellido"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["segundoApellido"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["correoElectronico"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreUsuario"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["contrasenia"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["primerApellido"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["segundoApellido"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["correoElectronico"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreUsuario"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["contrasenia"].ToString())
                             )
                         );
                 }

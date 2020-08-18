@@ -32,18 +32,18 @@ namespace BLL.Objeto
                     lista_parametros.Add(
                         new Parametros
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0]
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0]
                             .Rows[i]["rutaAlmacenamientoPrevisualizacionLibros"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0]
+                            , Desencriptar.desencriptar(datos.Tables[0]
                             .Rows[i]["rutaAlmacenamientoLibros"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0]
+                            , Desencriptar.desencriptar(datos.Tables[0]
                             .Rows[i]["rutaAlmacenamientoPrevisualizacionPeliculas"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0]
+                            , Desencriptar.desencriptar(datos.Tables[0]
                             .Rows[i]["rutaAlmacenamientoPeliculas"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0]
+                            , Desencriptar.desencriptar(datos.Tables[0]
                             .Rows[i]["rutaAlmacenamientoPrevisualizacionMusica"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0]
+                            , Desencriptar.desencriptar(datos.Tables[0]
                             .Rows[i]["rutaAlmacenamientoMusica"].ToString())
                             )
                         );

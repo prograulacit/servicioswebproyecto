@@ -30,13 +30,13 @@ namespace BLL.Objeto
                     lista_bitacoras.Add(
                         new Bitacora
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreUsuarioAdmin"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["fechaYHora"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["codigoDelRegistro"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["tipo"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["descripcion"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["registroEnDetalle"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreUsuarioAdmin"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["fechaYHora"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["codigoDelRegistro"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["tipo"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["descripcion"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["registroEnDetalle"].ToString())
                             )
                         );
                 }

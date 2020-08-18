@@ -29,12 +29,12 @@ namespace BLL.Objeto
                     lista_consecutivos.Add(
                         new Consecutivo
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["tipoConsecutivo"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["descripcion"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["prefijo"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["rangoInicial"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["rangofinal"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["tipoConsecutivo"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["descripcion"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["prefijo"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["rangoInicial"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["rangofinal"].ToString())
                             )
                         );
                 }

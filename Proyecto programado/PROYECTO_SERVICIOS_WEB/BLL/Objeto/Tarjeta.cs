@@ -32,14 +32,14 @@ namespace BLL.Objeto
                     lista_tarjetas.Add(
                         new Tarjeta
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["IDusuario"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["numeroTarjeta"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["mesExpiracion"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["anioExpiracion"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["CVV"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["tipo"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["IDusuario"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["numeroTarjeta"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["mesExpiracion"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["anioExpiracion"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["CVV"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["tipo"].ToString())
                             )
                         );
                 }

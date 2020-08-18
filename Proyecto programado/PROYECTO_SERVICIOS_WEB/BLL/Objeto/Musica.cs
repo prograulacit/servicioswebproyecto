@@ -35,18 +35,18 @@ namespace BLL.Objeto
                     lista_musica.Add(
                         new Musica
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["genero"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["tipoInterpretacion"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["idioma"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["pais"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["disquera"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreDisco"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["anio"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoDescarga"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoPrevisualizacion"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["genero"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["tipoInterpretacion"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["idioma"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["pais"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["disquera"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreDisco"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["anio"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoDescarga"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreArchivoPrevisualizacion"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
                             )
                         );
                 }

@@ -25,8 +25,8 @@ namespace BLL.Objeto
                     lista_generosMusica.Add(
                         new Generos_musica
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["genero"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["genero"].ToString())
                             )
                         );
                 }

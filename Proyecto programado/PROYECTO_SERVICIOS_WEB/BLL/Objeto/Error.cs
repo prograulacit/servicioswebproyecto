@@ -27,10 +27,10 @@ namespace BLL.Objeto
                     lista_errores.Add(
                         new Error
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["fechaYHora"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["IDUsuario"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["mensajeDeError"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["fechaYHora"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["IDUsuario"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["mensajeDeError"].ToString())
                             )
                         );
                 }

@@ -29,12 +29,12 @@ namespace BLL.Objeto
                     lista_descargas.Add(
                         new Descargas
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["IDconsecutivo"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["cantidad"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["fechaYHora"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["tipo"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["IDconsecutivo"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["cantidad"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["fechaYHora"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["tipo"].ToString())
                             )
                         );
                 }

@@ -25,8 +25,8 @@ namespace BLL.Objeto
                     lista_categoriasLibros.Add(
                         new Categorias_libros
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["categoria"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["categoria"].ToString())
                             )
                         );
                 }

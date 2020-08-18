@@ -38,16 +38,16 @@ namespace BLL.Objeto
                     lista_admins.Add(
                         new Admin
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombreUsuario"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["contrasenia"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["correoElectronico"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["preguntaSeguridad"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["respuestaSeguridad"].ToString())
-                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminMaestro"].ToString()))
-                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminSeguridad"].ToString()))
-                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminMantenimiento"].ToString()))
-                            , Tareas.conversor_booleano(Encriptacion.desencriptar(datos.Tables[0].Rows[i]["adminConsultas"].ToString()))
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["nombreUsuario"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["contrasenia"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["correoElectronico"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["preguntaSeguridad"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["respuestaSeguridad"].ToString())
+                            , Tareas.conversor_booleano(Desencriptar.desencriptar(datos.Tables[0].Rows[i]["adminMaestro"].ToString()))
+                            , Tareas.conversor_booleano(Desencriptar.desencriptar(datos.Tables[0].Rows[i]["adminSeguridad"].ToString()))
+                            , Tareas.conversor_booleano(Desencriptar.desencriptar(datos.Tables[0].Rows[i]["adminMantenimiento"].ToString()))
+                            , Tareas.conversor_booleano(Desencriptar.desencriptar(datos.Tables[0].Rows[i]["adminConsultas"].ToString()))
                             )
                         );
                 }

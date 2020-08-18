@@ -34,13 +34,13 @@ namespace BLL.Objeto
                     lista_transacciones.Add(
                         new Transaccion
                             (
-                            Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["fechaCompra"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["usuarioID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["consecutivoProductoID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["tarjetaID"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["easyPayID"].ToString())
+                            Desencriptar.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["fechaCompra"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["monto"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["usuarioID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["consecutivoProductoID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["tarjetaID"].ToString())
+                            , Desencriptar.desencriptar(datos.Tables[0].Rows[i]["easyPayID"].ToString())
                             )
                         );
                 }
