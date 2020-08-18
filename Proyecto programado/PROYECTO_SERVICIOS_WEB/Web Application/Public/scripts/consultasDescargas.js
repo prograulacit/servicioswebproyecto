@@ -1,6 +1,6 @@
 ﻿const apiURL = "https://localhost:44371";
 
-function cargar_descargas(tipoFecha, fechaInicio, fechaFinal, tipo, categoria) {
+function cargar_descargas(nombreProducto, tipoFecha, fechaInicio, fechaFinal, tipo) {
     let tablaDescargas = document.getElementById("tabla_descargas");
     tablaDescargas.innerHTML = "** Cargando datos..."
     fetch(`${apiURL}/api/descargas`)
@@ -12,39 +12,42 @@ function cargar_descargas(tipoFecha, fechaInicio, fechaFinal, tipo, categoria) {
                 if (tipoFecha) {
                     switch (tipoFecha) {
                         case 'diaria':
-                            json = filtro_fecha_actual_diaria(json, 'fechaCompra');
+                            json = filtro_fecha_actual_diaria(json, 'fechaYHora');
                             break;
                         case 'semanal':
-                            json = filtro_fecha_actual_semanal(json, 'fechaCompra');
+                            json = filtro_fecha_actual_semanal(json, 'fechaYHora');
                             break;
                         case 'mensualActual':
-                            json = filtro_fecha_actual_mensual_actual(json, 'fechaCompra');
+                            json = filtro_fecha_actual_mensual_actual(json, 'fechaYHora');
                             break;
                         case 'mensualAnterior':
-                            json = filtro_fecha_actual_mensual_anterior(json, 'fechaCompra');
+                            json = filtro_fecha_actual_mensual_anterior(json, 'fechaYHora');
                             break;
                         case 'trimestral':
-                            json = filtro_fecha_actual_trimestral(json, 'fechaCompra');
+                            json = filtro_fecha_actual_trimestral(json, 'fechaYHora');
                             break;
                         case 'semestral':
-                            json = filtro_fecha_actual_semestral(json, 'fechaCompra');
+                            json = filtro_fecha_actual_semestral(json, 'fechaYHora');
                             break;
                         case 'anual':
-                            json = filtro_fecha_actual_anual(json, 'fechaCompra');
+                            json = filtro_fecha_actual_anual(json, 'fechaYHora');
                             break;
                         case 'rango':
                             if (fechaInicio) {
-                                json = filtro_fecha_inicio(json, 'fechaCompra', fechaInicio);
+                                json = filtro_fecha_inicio(json, 'fechaYHora', fechaInicio);
                             };
                             if (fechaFinal) {
-                                json = filtro_fecha_final(json, 'fechaCompra', fechaFinal);
+                                json = filtro_fecha_final(json, 'fechaYHora', fechaFinal);
                             };
                             break;
                     }
                 }
-                //if (medioPago) {
-                //    json = get_data_filtrada(json, 'medioPago', medioPago);
-                //}
+                if (nombreProducto) {
+                    json = get_data_filtrada(json, 'nombre', nombreProducto);
+                }
+                if (tipo) {
+                    json = get_data_filtrada(json, 'tipo', tipo);
+                }
 
                 // Genera tabla
                 let html = "";
@@ -52,14 +55,16 @@ function cargar_descargas(tipoFecha, fechaInicio, fechaFinal, tipo, categoria) {
                         <thead class="thead-dark">
                             <tr>
                                 <th>Nombre de descarga</th>
+                                <th>Fecha</th>
                                 <th>Cantidad de descargas</th>
                             </tr>
                         </thead>
                         <tbody>`;
                 for (let index = 0; index < json.length; index++) {
                     html += `<tr>
-                            <td>${json[index].id}</td>
-                            <td>${json[index].fechaCompra}</td>
+                            <td>${json[index].nombre}</td>
+                            <td>${json[index].fechaYHora}</td>
+                            <td>${json[index].cantidad}</td>
                         </tr>`;
                 }
                 html += "</tbody></table>";
@@ -75,12 +80,12 @@ function cargar_descargas(tipoFecha, fechaInicio, fechaFinal, tipo, categoria) {
 }
 
 function button_submit_descargas_buscar() {
+    let inputDescargasNombre = document.getElementById("input_descargas_nombre");
+    let inputDescargasTipo = document.getElementById("input_descargas_tipo");
     let inputDescargasTipoFecha = document.getElementById("input_descargas_tipo_fecha");
     let inputDescargasInicioFecha = document.getElementById("input_descargas_inicio_fecha");
     let inputDescargasFinalFecha = document.getElementById("input_descargas_final_fecha");
-    let inputDescargasTipo = document.getElementById("input_descargas_tipo");
-    let inputDescargasCategoria = document.getElementById("input_descargas_categoria");
-    cargar_descargas(inputDescargasTipoFecha.value, inputDescargasInicioFecha.value, inputDescargasFinalFecha.value, inputDescargasTipo.value, inputDescargasCategoria.value)
+    cargar_descargas(inputDescargasNombre.value, inputDescargasTipoFecha.value, inputDescargasInicioFecha.value, inputDescargasFinalFecha.value, inputDescargasTipo.value);
 }
 
 function tipo_descarga_cambio() {

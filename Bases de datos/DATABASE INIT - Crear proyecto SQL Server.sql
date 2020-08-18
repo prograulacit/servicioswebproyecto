@@ -11,7 +11,10 @@ GO
 CREATE TABLE DESCARGAS(
 	ID nvarchar(max),
 	IDconsecutivo nvarchar(max),
-	IDusuario nvarchar(max)
+	nombre nvarchar(max),
+	cantidad nvarchar(max),
+	fechaYHora nvarchar(max),
+	tipo nvarchar(max),
 );
 
 CREATE TABLE USUARIO(
@@ -858,18 +861,27 @@ GO
 CREATE PROCEDURE sp_descargas_crear
 @ID nvarchar(max),
 @IDconsecutivo nvarchar(max),
-@IDusuario nvarchar(max)
+@nombre nvarchar(max),
+@cantidad nvarchar(max),
+@fechaYHora nvarchar(max),
+@tipo nvarchar(max)
 AS
 BEGIN
 INSERT INTO DESCARGAS(
 ID,
 IDconsecutivo,
-IDusuario
+nombre,
+cantidad,
+fechaYHora,
+tipo
 )
 VALUES(
 @ID,
 @IDconsecutivo,
-@IDusuario
+@nombre,
+@cantidad,
+@fechaYHora,
+@tipo
 );
 END
 
@@ -879,14 +891,20 @@ GO
 CREATE PROCEDURE sp_descargas_actualizar
 @ID nvarchar(max),
 @IDconsecutivo nvarchar(max),
-@IDusuario nvarchar(max)
+@nombre nvarchar(max),
+@cantidad nvarchar(max),
+@fechaYHora nvarchar(max),
+@tipo nvarchar(max)
 AS
 BEGIN
 UPDATE DESCARGAS
 SET
 ID = @ID,
 IDconsecutivo = @IDconsecutivo,
-IDusuario = @IDusuario
+nombre = @nombre,
+cantidad = @cantidad,
+fechaYHora = @fechaYHora,
+tipo = @tipo
 WHERE
 ID = @ID
 END

@@ -15,6 +15,18 @@
                 <br />
                 <h3 class="ttp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Consulta de Descargas</h3>
                 <br />
+                <label class="text-font-normal">Nombre producto</label>
+                <br />
+                <input type="text" id="input_descargas_nombre" placeholder="Nombre producto" class="form-control sm-1" aria-label="Search" />
+                <br />
+                <label class="text-font-normal">Tipo</label>
+                <select id="input_descargas_tipo" class="form-control">
+                    <option value="">Ninguno</option>
+                    <option value="pelicula">Peliculas</option>
+                    <option value="musica">Musica</option>
+                    <option value="libro">Libros</option>
+                </select>
+                <br />
                 <label class="text-font-normal">Tipo Fecha</label>
                 <select id="input_descargas_tipo_fecha" class="form-control" onChange="tipo_descarga_cambio()" >
                     <option value="">Ninguna</option>
@@ -33,17 +45,6 @@
                 <br />
                 <label class="text-font-normal" style="display:none">Final Fecha</label>
                 <input type="date" id="input_descargas_final_fecha" class="form-control" aria-label="Search" style="display:none"/>
-                <br />
-                <label class="text-font-normal">Tipo</label>
-                <select id="input_descargas_tipo" class="form-control">
-                    <option value="">Ninguno</option>
-                    <option value="peliculas">Peliculas</option>
-                    <option value="musica">Musica</option>
-                    <option value="libros">Libros</option>
-                </select>
-                <br />
-                <label class="text-font-normal">Género o Categoría</label>
-                <input type="text" id="input_descargas_categoria" placeholder="Género o Categoría" class="form-control sm-1" aria-label="Search" />
                 <br />
                 <button class="btn btn-primary justify-content-center" type="button" onclick="button_submit_descargas_buscar()">Buscar</button>
             </div>

@@ -321,21 +321,69 @@ function construirTabla_libro(libros) {
 /////////////////////////////////////////////////////////
 
 function descargarPelicula(nombre, id, nombreArchivoDescarga) {
-    alert("Nombre de la pélicula: " + nombre + "\n ID: " + id + "\nNombre archivo descarga: " + nombreArchivoDescarga);
-
-    // Aquí va el código de descarga...
+    fetch(`${API_URL}Descargas/?archivoDescarga=${nombreArchivoDescarga}&nombreDescarga=${nombre}&idConsecutivo=${id}&tipoArchivo=pelicula`, {
+        responseType: "arraybuffer"
+    })
+        .then(function (response) {
+            return response.blob();
+        })
+        .then(function (response) {
+            const url = window.URL.createObjectURL(response);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = nombreArchivoDescarga;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
 }
 
 function descargarMusica(nombre, id, nombreArchivoDescarga) {
-    alert("Nombre de la música: " + nombre + "\n ID: " + id + "\nNombre archivo descarga: " + nombreArchivoDescarga);
-
-    // Aquí va el código de descarga...
+    fetch(`${API_URL}Descargas/?archivoDescarga=${nombreArchivoDescarga}&nombreDescarga=${nombre}&idConsecutivo=${id}&tipoArchivo=musica`, {
+        responseType: "arraybuffer"
+    })
+        .then(function (response) {
+            return response.blob();
+        })
+        .then(function (response) {
+            const url = window.URL.createObjectURL(response);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = nombreArchivoDescarga;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
 }
 
 function descargarLibro(nombre, id, nombreArchivoDescarga) {
-    alert("Nombre del libro: " + nombre + "\n ID: " + id + "\nNombre archivo descarga: " + nombreArchivoDescarga);
-
-    // Aquí va el código de descarga...
+    fetch(`${API_URL}Descargas/?archivoDescarga=${nombreArchivoDescarga}&nombreDescarga=${nombre}&idConsecutivo=${id}&tipoArchivo=libro`, {
+        responseType: "arraybuffer"
+    })
+        .then(function (response) {
+            return response.blob();
+        })
+        .then(function (response) {
+            const url = window.URL.createObjectURL(response);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = nombreArchivoDescarga;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
 }
 
 /////////////////////////////////////////////////////////

@@ -15,6 +15,14 @@
                 <br />
                 <h3 class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Consulta de Transacciones</h3>
                 <br />
+                <label class="text-font-normal">Medio Pago</label>
+                <select id="input_transacciones_medio_pago" class="form-control">
+                    <option value="">Ninguna</option>
+                    <option value="tarjeta">Tarjeta de crédito/débito</option>
+                    <option value="easypay">EasyPay</option>
+                    <option value="ambas">Ambas</option>
+                </select>
+                <br />
                 <label class="text-font-normal">Tipo Fecha</label>
                 <select id="input_transacciones_tipo_fecha" class="form-control" onChange="tipo_transaccion_cambio()" >
                     <option value="">Ninguna</option>
@@ -33,14 +41,6 @@
                 <br />
                 <label class="text-font-normal" style="display:none">Final Fecha</label>
                 <input type="date" id="input_transacciones_final_fecha" class="form-control" aria-label="Search" style="display:none"/>
-                <br />
-                <label class="text-font-normal">Medio Pago</label>
-                <select id="input_transacciones_medio_pago" class="form-control">
-                    <option value="">Ninguna</option>
-                    <option value="tarjeta">Tarjeta de crédito/débito</option>
-                    <option value="easypay">EasyPay</option>
-                    <option value="ambas">Ambas</option>
-                </select>
                 <br />
                 <button class="btn btn-primary justify-content-center" type="button" onclick="button_submit_transacciones_buscar()">Buscar</button>
             </div>

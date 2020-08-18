@@ -7,7 +7,10 @@ namespace BLL.Objeto
     {
         public string ID { get; set; }
         public string IDconsecutivo { get; set; }
-        public string IDusuario { get; set; }
+        public string nombre { get; set; }
+        public string cantidad { get; set; }
+        public string fechaYHora { get; set; }
+        public string tipo { get; set; }
 
         public List<Descargas> traerDescargas()
         {
@@ -28,7 +31,10 @@ namespace BLL.Objeto
                             (
                             Encriptacion.desencriptar(datos.Tables[0].Rows[i]["ID"].ToString())
                             , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["IDconsecutivo"].ToString())
-                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["IDusuario"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["nombre"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["cantidad"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["fechaYHora"].ToString())
+                            , Encriptacion.desencriptar(datos.Tables[0].Rows[i]["tipo"].ToString())
                             )
                         );
                 }
@@ -38,6 +44,24 @@ namespace BLL.Objeto
             {
                 return null;
             }
+        }
+
+        public int traerContadorDescargaConsecutivo(string idConsecutivo)
+        {
+            List<Descargas> lista_descargas = traerDescargas();
+            int contador = 0;
+
+            if (lista_descargas != null )
+            {
+                for (int i = 0; i < lista_descargas.Count; i++)
+                {
+                    if (lista_descargas[i].IDconsecutivo == idConsecutivo)
+                    {
+                        contador++;
+                    }
+                }
+            }
+            return contador;
         }
 
         public void crearRegistroDescarga(Descargas descargas)
@@ -81,24 +105,33 @@ namespace BLL.Objeto
 
         public Descargas() {}
 
-        public Descargas(string iD, string iDconsecutivo, string iDusuario)
+        public Descargas(string iD, string iDconsecutivo, string Nombre, string Cantidad, string FechaYHora, string Tipo)
         {
             ID = iD;
             IDconsecutivo = iDconsecutivo;
-            IDusuario = iDusuario;
+            nombre = Nombre;
+            cantidad = Cantidad;
+            fechaYHora = FechaYHora;
+            tipo = Tipo;
         }
 
         string[] parametros = {
                 "ID"
                 ,"IDconsecutivo"
-                , "IDusuario" };
+                ,"nombre"
+                ,"cantidad"
+                ,"fechaYHora"
+                ,"tipo"};
 
         private string[] return_valores(Descargas descargas)
         {
             string[] valores = {
                 descargas.ID,
                 descargas.IDconsecutivo,
-                descargas.IDusuario
+                descargas.nombre,
+                descargas.cantidad,
+                descargas.fechaYHora,
+                descargas.tipo
                 };
             return valores;
         }
