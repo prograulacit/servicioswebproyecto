@@ -19,7 +19,8 @@ namespace BLL.Objeto
 
             if (datos.Tables[0].Rows.Count > 0)
             {
-                List<Generos_peliculas> lista_generosPelicula = new List<Generos_peliculas>();
+                List<Generos_peliculas> lista_generosPelicula = 
+                    new List<Generos_peliculas>();
                 for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
                 {
                     lista_generosPelicula.Add(

@@ -3,7 +3,7 @@ using System.Text;
 
 namespace BLL.Logica
 {
-    public class Encriptacion
+    public class Desencriptar
     {
         // Este metodo de encriptación se encuentra en DAL/Encriptacion.
 

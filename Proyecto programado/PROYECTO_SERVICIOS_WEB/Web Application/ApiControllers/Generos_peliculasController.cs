@@ -29,6 +29,7 @@ namespace Web_Application.ApiControllers
             //    "genero": "codigoDelRegistroPlaceholder"
             //}
             #endregion
+
             string nuevo_id = Tareas.generar_nuevo_id_para_un_registro();
 
             generos_peliculas.id = nuevo_id;

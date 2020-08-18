@@ -54,8 +54,15 @@ namespace DAL
             for (int i = 0; i < parametros.Length; i++)
             {
                 string valor_entrante;
-                if (datos_encriptados) { valor_entrante = Encriptacion.encriptar(valores[i]); } else { valor_entrante = valores[i]; }
-                cmd.Parameters.AddWithValue(parametros[i], SqlDbType.NVarChar).Value = valor_entrante;
+                if (datos_encriptados) 
+                { 
+                    valor_entrante = Encriptacion.encriptar(valores[i]);
+                } else 
+                { 
+                    valor_entrante = valores[i]; 
+                }
+                cmd.Parameters.AddWithValue(parametros[i]
+                    , SqlDbType.NVarChar).Value = valor_entrante;
             }
             try
             {

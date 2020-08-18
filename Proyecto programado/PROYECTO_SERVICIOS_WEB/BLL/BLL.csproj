@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logica\Encriptacion.cs" />
+    <Compile Include="Logica\Desencriptar.cs" />
     <Compile Include="Logica\Memoria.cs" />
     <Compile Include="Logica\Tareas.cs" />
     <Compile Include="Objeto\Admin.cs" />

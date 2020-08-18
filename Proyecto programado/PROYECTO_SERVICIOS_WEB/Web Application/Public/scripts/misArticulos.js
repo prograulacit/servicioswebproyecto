@@ -26,20 +26,24 @@ function generarTabla_Peliculas() {
                     .then(function (response) {
                         let peliculas = JSON.parse(response);
                         let peliculas_conPropiedadDelUsuario = [];
-
-                        for (var i = 0; i < transacciones.length; i++) {
-                            for (var j = 0; j < peliculas.length; j++) {
-                                if (transacciones[i]
-                                    .consecutivoProductoID == peliculas[j].id) {
-                                    peliculas_conPropiedadDelUsuario
-                                        .push(peliculas[j]);
-                                    break;
+                        if (peliculas != null) {
+                            for (var i = 0; i < transacciones.length; i++) {
+                                for (var j = 0; j < peliculas.length; j++) {
+                                    if (transacciones[i]
+                                        .consecutivoProductoID == peliculas[j].id) {
+                                        peliculas_conPropiedadDelUsuario
+                                            .push(peliculas[j]);
+                                        break;
+                                    }
                                 }
                             }
-                        }
 
-                        if (peliculas_conPropiedadDelUsuario.length > 0) {
-                            construirTabla_peliculas(peliculas_conPropiedadDelUsuario);
+                            if (peliculas_conPropiedadDelUsuario.length > 0) {
+                                construirTabla_peliculas(peliculas_conPropiedadDelUsuario);
+                            } else {
+                                let mensaje = "Usted no ha comprado ninguna pélicula.";
+                                mensaje_alertaAzul(mensaje);
+                            }
                         } else {
                             let mensaje = "Usted no ha comprado ninguna pélicula.";
                             mensaje_alertaAzul(mensaje);
@@ -84,25 +88,29 @@ function generarTabla_Musica() {
                         let musicas = JSON.parse(response);
                         let musica_conPropiedadDelUsuario = [];
 
-                        for (var i = 0; i < transacciones.length; i++) {
-                            for (var j = 0; j < musicas.length; j++) {
-                                if (transacciones[i]
-                                    .consecutivoProductoID == musicas[j].id) {
-                                    musica_conPropiedadDelUsuario
-                                        .push(musicas[j]);
-                                    break;
+                        if (musicas != null) {
+                            for (var i = 0; i < transacciones.length; i++) {
+                                for (var j = 0; j < musicas.length; j++) {
+                                    if (transacciones[i]
+                                        .consecutivoProductoID == musicas[j].id) {
+                                        musica_conPropiedadDelUsuario
+                                            .push(musicas[j]);
+                                        break;
+                                    }
                                 }
                             }
-                        }
 
-                        if (musica_conPropiedadDelUsuario.length > 0) {
-                            construirTabla_musica(musica_conPropiedadDelUsuario);
+                            if (musica_conPropiedadDelUsuario.length > 0) {
+                                construirTabla_musica(musica_conPropiedadDelUsuario);
+                            } else {
+                                let mensaje = "Usted no ha comprado ninguna música.";
+                                mensaje_alertaAzul(mensaje);
+                            }
                         } else {
                             let mensaje = "Usted no ha comprado ninguna música.";
                             mensaje_alertaAzul(mensaje);
                         }
-                    })
-                    .catch(function (err) {
+                    }).catch(function (err) {
                         console.error(err);
                     });
             } else {
