@@ -142,7 +142,7 @@ namespace Web_Application.Paginas.Frontend
                 true
                 , "¡Gracias!"
                 , "La compra ha sido efectuada exitosamente"
-                , "Puede revisar sus compras en la página dedicada. <a href='#'>Ver compras</a>");
+                , "Puede revisar sus compras en la página dedicada. <a href='misArticulos.aspx'>Ver compras</a>");
         }
         #endregion
 

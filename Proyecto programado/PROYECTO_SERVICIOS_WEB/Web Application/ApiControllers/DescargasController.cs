@@ -1,4 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using BLL.Logica;
 using BLL.Objeto;
@@ -13,6 +18,51 @@ namespace Web_Application.ApiControllers
             Descargas descargas = new Descargas();
             List<Descargas> lista_descargas = descargas.traerDescargas();
             return lista_descargas;
+        }
+
+        // GET: api/Descargas/?archivoDescarga="nombre_archivo"?nombreDescarga="nombre"?idConsecutivo="id"?tipoArchivo="tipo"
+        public HttpResponseMessage Get(string archivoDescarga, string nombreDescarga, string idConsecutivo, string tipoArchivo)
+        {
+            Parametros parametros = new Parametros();
+            List<Parametros> lista_parametros = parametros.traerParametros();
+            string pathDescarga = null;
+            string tipoDescarga = "";
+
+            switch (tipoArchivo)
+            {
+                case "pelicula":
+                    pathDescarga = lista_parametros.First().rutaAlmacenamientoPeliculas + "\\" + archivoDescarga;
+                    tipoDescarga = "video/mp4";
+                    break;
+                case "libro":
+                    pathDescarga = lista_parametros.First().rutaAlmacenamientoLibros + "\\" + archivoDescarga;
+                    tipoDescarga = "application/pdf";
+                    break;
+                case "musica":
+                    pathDescarga = lista_parametros.First().rutaAlmacenamientoMusica + "\\" + archivoDescarga;
+                    tipoDescarga = "audio/mp3";
+                    break;
+            }
+
+            if (pathDescarga != null && File.Exists(pathDescarga))
+            {
+                Descargas descargas = new Descargas();
+                descargas.crearRegistroDescarga(new Descargas(Tareas.generar_nuevo_id_para_un_registro(),
+                    idConsecutivo,
+                    nombreDescarga,
+                    (descargas.traerContadorDescargaConsecutivo(idConsecutivo) + 1).ToString(),
+                    Tareas.obtener_fecha_actual(),
+                    tipoArchivo));
+
+                HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
+                var stream = new FileStream(pathDescarga, FileMode.Open);
+                result.Content = new StreamContent(stream);
+                result.Content.Headers.ContentType = new MediaTypeHeaderValue(tipoDescarga);
+                result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
+                result.Content.Headers.ContentDisposition.FileName = archivoDescarga;
+                return result;
+            }
+            return new HttpResponseMessage(HttpStatusCode.NotFound);
         }
 
         // POST: api/Descargas
