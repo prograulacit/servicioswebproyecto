@@ -11,7 +11,8 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de consecutivos</li>
         </ol>
     </nav>
-
+    <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Administracion de consecutivos
     </div>
@@ -67,7 +68,7 @@
             <button class="btn btn-primary">Cancelar</button>
         </div>
     </div>
-
+</div>
     <script>
         cargar_elementos();
         contenedorTabla_visible("inline");

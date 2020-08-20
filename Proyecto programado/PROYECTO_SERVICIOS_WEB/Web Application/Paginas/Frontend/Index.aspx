@@ -8,6 +8,8 @@
             <li class="breadcrumb-item active" aria-current="page">Inicio</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <div class="container">
         <br />
         <br />
@@ -16,4 +18,5 @@
             <h1 class="text-uppercase text-muted">Bienvenido a la aplicacion</h1>
         </div>
     </div>
+</div>
 </asp:Content>

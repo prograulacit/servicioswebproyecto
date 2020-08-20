@@ -12,6 +12,8 @@
             <li class="breadcrumb-item active" aria-current="page">Géneros de música</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Administracion de generos de musica
     </div>
@@ -54,7 +56,7 @@
                     <button class="btn btn-danger btn-block" type="button" onclick="eliminar_elemento()">Eliminar</button>
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8 text-white">
                 <div class="formulario">
                     <div id="http_response_contenido">
                         <div class="spinner-border text-primary" role="status">
@@ -66,7 +68,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <script>
         obtener_elementos();
     </script>

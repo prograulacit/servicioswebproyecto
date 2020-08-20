@@ -10,6 +10,8 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de parametros</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Parametros
     </div>
@@ -52,7 +54,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <script>
         traer_datos();
     </script>

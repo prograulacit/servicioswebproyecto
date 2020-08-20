@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <div class="container">
 
         <div class="titulo">
@@ -33,5 +35,6 @@
         <br />
         <asp:Label class="alert alert-danger" ID="Label_status_error" runat="server" Text=""></asp:Label>
     </div>
+</div>
 
 </asp:Content>

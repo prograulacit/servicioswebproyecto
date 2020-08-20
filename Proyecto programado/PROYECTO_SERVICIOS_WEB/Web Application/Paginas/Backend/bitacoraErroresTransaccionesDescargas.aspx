@@ -8,6 +8,8 @@
             <li class="breadcrumb-item active" aria-current="page">Consultas y monitoreo</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Consultas y monitorización del sistema.
     </div>
@@ -36,6 +38,7 @@
     <div id="contenido">
 
     </div>
+</div>
 
     <script src="../../Public/scripts/bitacoraErroresTransaccionesDescargas.js"></script>
 </asp:Content>

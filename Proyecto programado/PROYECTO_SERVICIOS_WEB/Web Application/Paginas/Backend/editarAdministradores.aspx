@@ -12,6 +12,8 @@
             <li class="breadcrumb-item active" aria-current="page">Editar administradores</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Editar administradores</div>
     <div class="container">
         <div class="titulo">Por favor, elija el administrador que desea editar o eliminar</div>
@@ -73,7 +75,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <script>
 
         cargarDatos();

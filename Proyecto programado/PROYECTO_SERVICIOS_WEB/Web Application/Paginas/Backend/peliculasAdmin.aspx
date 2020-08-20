@@ -11,7 +11,8 @@
             <li class="breadcrumb-item active" aria-current="page">Administración de péliculas</li>
         </ol>
     </nav>
-
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1413px;" class="text-white">
     <div class="container">
 
         <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
@@ -151,7 +152,7 @@
             <br />
         </div>
     </div>
-
+</div>
 
     <%--hidden elements--%>
     <asp:Button class="descargar_archivo_pelicula" ID="descargarArchivoPelicula" runat="server" Text="" OnClick="subirArchivosPelicula_Click" Style="display: none" />

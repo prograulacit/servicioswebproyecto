@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         <asp:Label ID="Label_titulo" runat="server" Text="Ajustes del usuario XXXXXXXXXX"></asp:Label>
     </div>
@@ -86,6 +88,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <style>
         .sub_titulo {

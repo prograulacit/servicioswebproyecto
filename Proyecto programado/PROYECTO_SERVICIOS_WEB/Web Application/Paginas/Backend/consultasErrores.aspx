@@ -9,6 +9,8 @@
             <li class="breadcrumb-item active" aria-current="page">Errores</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <div class="container">
         <div class="row justify-content-center">
             <div class="form-group col-4">
@@ -32,6 +34,7 @@
             </div>
         </div>
     </div>
+</div>
     <script src="../../Public/scripts/utils.js"></script>
     <script src="../../Public/scripts/consultasErrores.js"></script>
 </asp:Content>

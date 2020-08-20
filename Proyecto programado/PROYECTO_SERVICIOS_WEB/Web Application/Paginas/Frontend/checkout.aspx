@@ -10,7 +10,10 @@
             <li class="breadcrumb-item active" aria-current="page">Checkout</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
 
     <asp:Label ID="Label_status" runat="server" Text=""></asp:Label>
+</div>
 
 </asp:Content>

@@ -9,7 +9,8 @@
             <li class="breadcrumb-item active" aria-current="page">Mis articulos</li>
         </ol>
     </nav>
-
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <div class="container">
 
         <div class="titulo">
@@ -37,7 +38,7 @@
             Cargando contenido. Por favor, espere...
         </div>
     </div>
-
+</div>
     <script src="../../Public/scripts/misArticulos.js"></script>
     <script>
         generarTabla_Peliculas();
