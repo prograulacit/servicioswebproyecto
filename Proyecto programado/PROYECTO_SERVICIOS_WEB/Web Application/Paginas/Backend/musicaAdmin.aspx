@@ -92,7 +92,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo musica:</label>
                     <br>
-                    <input id="editarArchivoMusica" class="editar_archivo_musica form-control" type="file" accept=".mp3,audio/*" runat="server" />
+                    <input id="editarArchivoMusica" class="editar_archivo_musica form-control-file" type="file" accept=".mp3,audio/*" runat="server" />
                     <br>
                     <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
                     <br>
@@ -100,7 +100,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo musica previsualizacion:</label>
                     <br>
-                    <input id="editarArchivoMusicaPrev" class="editar_archivo_musica_prev form-control" type="file" accept=".mp3,audio/*" runat="server" />
+                    <input id="editarArchivoMusicaPrev" class="editar_archivo_musica_prev form-control-file" type="file" accept=".mp3,audio/*" runat="server" />
                 </div>
 
             </div>
@@ -159,7 +159,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo musica:</label>
                     <br>
-                    <input id="archivoMusica" class="archivo_musica form-control" type="file" accept=".mp3,audio/*" runat="server" />
+                    <input id="archivoMusica" class="archivo_musica form-control-file" type="file" accept=".mp3,audio/*" runat="server" />
                     <br>
                     <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
                     <br>
@@ -167,7 +167,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo musica previsualizacion:</label>
                     <br>
-                    <input id="archivoMusicaPrev" class="archivo_musica_prev form-control" type="file" accept=".mp3,audio/*" runat="server" />
+                    <input id="archivoMusicaPrev" class="archivo_musica_prev form-control-file" type="file" accept=".mp3,audio/*" runat="server" />
                 </div>
             </div>
             <br>
