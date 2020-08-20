@@ -15,6 +15,22 @@ namespace Web_Application.Paginas.Compartido
             {
                 menu_ajustes_cuenta.Visible = true;
             }
+
+            if (Memoria.sesionDeUsuario)
+            {
+                if (Memoria.sesionUsuarioDatos != null)
+                {
+                    if (!String.IsNullOrEmpty(Memoria.sesionUsuarioDatos.nombreUsuario))
+                    {
+                        Label_nombreUsuario.Text = Memoria.sesionUsuarioDatos.nombreUsuario;
+                    }
+                }
+            }
+            else
+            {
+                Label_nombreUsuario.Text = "";
+            }
+
         }
 
         protected void LinkButton_cerrar_sesion_Click(object sender, EventArgs e)

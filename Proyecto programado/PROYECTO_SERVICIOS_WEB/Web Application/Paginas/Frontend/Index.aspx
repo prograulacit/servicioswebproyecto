@@ -15,8 +15,29 @@
         <br />
         <br />
         <div class="justify-content-center ">
-            <h1 class="text-uppercase text-muted">Bienvenido a la aplicacion</h1>
+            <h1 class="text-uppercase text-muted text-white">Bienvenido E-Descargas</h1>
         </div>
+        <div class="subtitulo text-muted">
+            E-Descargas online es una plataforma de compra y descargas de péliculas, libros y música.
+        </div>
+        <div class="text-muted">
+            Para ver el catalogo de productos. Dirijase a cualquiera de nuestras categorias de productos.
+            <ul>
+                <li><a href="Peliculas.aspx">Péliculas</a>: péliculas en formato .mp4 .</li>
+            </ul>
+            <ul>
+                <li><a href="Libros.aspx">Libros</a>: libros en formato PDF.</li>
+            </ul>
+            <ul>
+                <li><a href="Musica.aspx">Música</a>: música en formato .mp3</li>
+            </ul>
+        </div>
+
+        <ul>
+            <li class="text-muted">
+                Este es un proyecto progrado para el curso Servicios Web - ULACIT 2020.
+            </li>
+        </ul>
     </div>
 </div>
 </asp:Content>

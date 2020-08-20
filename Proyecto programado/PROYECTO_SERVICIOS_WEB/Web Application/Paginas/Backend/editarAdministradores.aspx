@@ -12,24 +12,25 @@
             <li class="breadcrumb-item active" aria-current="page">Editar administradores</li>
         </ol>
     </nav>
-        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
-<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
-    <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Editar administradores</div>
-    <div class="container">
-        <div class="titulo">Por favor, elija el administrador que desea editar o eliminar</div>
+    <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+    <div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
+        <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">Editar administradores</div>
+        <div class="container">
+            <div class="titulo">Por favor, elija el administrador que desea editar o eliminar</div>
 
-        <div id="lista_admins">
-            Cargando datos... por favor, espere
+            <div id="lista_admins">
+                Cargando datos... por favor, espere
             <div class="spinner-border text-primary" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
-        </div>
+            </div>
 
-        <div class="row justify-content-center">
-            <div class="form-group col-4">
-                <div id="editar_admin">
-                    <form action="">
-                        <br />
+            <div id="editar_admin">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="subtitulo">
+                            Editando administrador
+                        </div>
                         <label class="text-font-normal">ID:</label>
                         <br>
                         <input class="form-control" type="text" name="" id="editar_id">
@@ -51,31 +52,36 @@
                         <input class="form-control" type="text" name="" id="editar_preguntaSeguridad" required>
                         <br>
                         <label class="text-font-normal">Respuesta de seguridad:</label>
-                        <br>
+                        <br />
                         <input class="form-control" type="text" name="" id="editar_respuestaSeguridad" required>
-                        <br>
-                        <label class="text-font-normal">Admin maestro</label>
-                        <input class="form-check-input" type="checkbox" name="" id="editar_adminMaestro">
-                        <br>
-                        <label class="text-font-normal">Admin de seguridad</label>
-                        <input class="form-check-input" type="checkbox" name="" id="editar_adminSeguridad">
-                        <br>
-                        <label class="text-font-normal">Admin de mantenimiento</label>
-                        <input class="form-check-input" type="checkbox" name="" id="editar_adminMantenimiento">
-                        <br>
-                        <label class="text-font-normal">Admin de consultas</label>
-                        <input class="form-check-input" type="checkbox" name="" id="editar_adminConsultas">
-                        <br>
-                        <br>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-5">
 
-                        <input class="btn btn-primary justify-content-center" onclick="editarAdmin_guardarCambios()" type="submit" value="Guardar cambios">
-                        <button class="btn btn-primary justify-content-center" onclick="editarAdmin_cancelarCambios()">Cancelar edicion</button>
-                    </form>
+                        <div class="subtitulo">
+                            Permisos del sistema
+                        </div>
+
+                        <input class="form-check-input" type="checkbox" name="" id="editar_adminMaestro">
+                        <label class="text-font-normal">Admin maestro</label>
+                        <br>
+                        <input class="form-check-input" type="checkbox" name="" id="editar_adminSeguridad">
+                        <label class="text-font-normal">Seguridad</label>
+                        <br>
+                        <input class="form-check-input" type="checkbox" name="" id="editar_adminMantenimiento">
+                        <label class="text-font-normal">Mantenimiento</label>
+                        <br>
+                        <input class="form-check-input" type="checkbox" name="" id="editar_adminConsultas">
+                        <label class="text-font-normal">Consultas</label>
+                    </div>
                 </div>
+                <br>
+                <br>
+                <input class="btn btn-primary btn-block" onclick="editarAdmin_guardarCambios()" type="submit" value="Guardar cambios">
+                <button class="btn btn-primary btn-block" onclick="editarAdmin_cancelarCambios()">Cancelar edicion</button>
             </div>
         </div>
     </div>
-</div>
     <script>
 
         cargarDatos();

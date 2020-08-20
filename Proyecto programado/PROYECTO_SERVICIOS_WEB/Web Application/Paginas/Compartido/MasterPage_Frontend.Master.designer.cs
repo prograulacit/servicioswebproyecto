@@ -42,6 +42,15 @@ namespace Web_Application.Paginas.Compartido
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_ajustes_cuenta;
 
         /// <summary>
+        /// Label_nombreUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_nombreUsuario;
+
+        /// <summary>
         /// LinkButton_cerrar_sesion control.
         /// </summary>
         /// <remarks>

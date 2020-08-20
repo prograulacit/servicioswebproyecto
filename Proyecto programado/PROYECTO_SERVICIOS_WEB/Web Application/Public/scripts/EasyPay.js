@@ -34,10 +34,10 @@ function crearTablaDeEasyPays(obj_easypays) {
             <br>
             <table class="table table-bordered">
                 <tr>
-                    <th scope="col">Tarjeta</th>
-                    <th scope="col">Código seguridad</th>
-                    <th scope="col">Saldo</th>
-                    <th scope="col">Accion</th>
+                    <th class="white_table" scope="col">Tarjeta</th>
+                    <th class="white_table" scope="col">Código seguridad</th>
+                    <th class="white_table" scope="col">Saldo</th>
+                    <th class="white_table" scope="col">Accion</th>
                 </tr>
             `;
         for (let index = 0; index < obj_easypays.length; index++) {
@@ -45,9 +45,9 @@ function crearTablaDeEasyPays(obj_easypays) {
             // Se contruye la tabla.
             html +=
                 `<tr>
-                    <td>${obj_easypays[index].numeroCuenta}</td>
-                    <td>${obj_easypays[index].codigoSeguridad}</td>
-                    <td>₡${obj_easypays[index].monto}</td>
+                    <td class="white_table">${obj_easypays[index].numeroCuenta}</td>
+                    <td class="white_table">${obj_easypays[index].codigoSeguridad}</td>
+                    <td class="white_table">₡${obj_easypays[index].monto}</td>
                     <td>
                         <a href="#" onclick="generarNuevoCodigo('${obj_easypays[index].id}')"
                         data-toggle="tooltip" data-placement="top" 
@@ -174,7 +174,7 @@ function crearTablaTarjetas_easypay(obj_tarjetas) {
 
         html +=
             `
-            <table class="table table-bordered">
+            <table class="table table-bordered font-weight-normal">
                 <tr>
                     <th scope="col">Número</th>
                     <th scope="col">Tipo</th>
@@ -196,7 +196,7 @@ function crearTablaTarjetas_easypay(obj_tarjetas) {
             if (obj_tarjetas[index].tipo == "V") {
                 tipoTarjeta = "Visa";
             } else {
-                tipoTarjeta = "Mastercart";
+                tipoTarjeta = "Mastercard";
             }
 
             // Se contruye la tabla.
