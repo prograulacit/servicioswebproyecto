@@ -42,7 +42,7 @@
                         <br>
                         <a class="text-font-normal" href="generosMusica.aspx">- Generos musica.</a>
                         <br>
-                        <a class="text-font-normal" href="categoriasLibro.aspx">- Categorias libro.</a>
+                        <a class="text-font-normal" href="categoriasLibro.aspx">- Categorías libro.</a>
                         <br>
                         <a class="text-font-normal" href="consecutivos.aspx">- Consecutivos.</a>
                         <br>
