@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Public/scripts/generosPeliculas.js"></script>
     <link rel="stylesheet" href="../../Public/estilos/generosCategoriasProductos.css">
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,6 +13,7 @@
             <li class="breadcrumb-item active" aria-current="page">Géneros de péliculas</li>
         </ol>
     </nav>
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1089px;" class="text-white">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Administracion de generos de peliculas
     </div>
@@ -63,6 +65,8 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
         <script>
             obtener_elementos();

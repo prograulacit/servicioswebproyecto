@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Public/scripts/consecutivos.js"></script>
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -11,12 +12,12 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de consecutivos</li>
         </ol>
     </nav>
-
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 833px;">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Administracion de consecutivos
     </div>
 
-    <div class="container">
+    <div class="container text-white">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="titulo">
@@ -67,6 +68,7 @@
             <button class="btn btn-primary">Cancelar</button>
         </div>
     </div>
+</div>
 
     <script>
         cargar_elementos();

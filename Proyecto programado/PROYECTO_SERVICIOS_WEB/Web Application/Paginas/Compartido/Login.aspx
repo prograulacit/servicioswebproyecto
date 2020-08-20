@@ -5,6 +5,7 @@
     <script src="../../Public/scripts/login.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 711px;">
     <div class="container">
         <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
             Formulario de inicio de sesión.
@@ -12,11 +13,11 @@
         <div class="container form-group col-4">
             <br/>
             <br/>
-            <asp:Label class="text-font-normal" runat="server" Text="Nombre de usuario"></asp:Label>
+            <asp:Label class="text-font-normal text-white" runat="server" Text="Nombre de usuario"></asp:Label>
             <br />
             <asp:TextBox class="form-control" ID="textbox_nombre_usuario" runat="server"></asp:TextBox>
             <br />
-            <asp:Label class="text-font-normal" runat="server" Text="Contraseña"></asp:Label>
+            <asp:Label class="text-font-normal text-white" runat="server" Text="Contraseña"></asp:Label>
             <br />
             <asp:TextBox class="form-control" TextMode="Password" ID="textbox_contrasenia" runat="server"></asp:TextBox>
             <br />
@@ -33,6 +34,7 @@
             <asp:Label class="badge badge-danger" ID="Label_status_error" runat="server" Text=""></asp:Label>
         </div>
     </div>
+</div>
 
     <%--Hidden elements--%>
     <asp:Button ID="btn_submit_social_login" class="submit_social_login" runat="server" Text="Submit" OnClick="btn_submit_social_login_Click" style="display:none"/>

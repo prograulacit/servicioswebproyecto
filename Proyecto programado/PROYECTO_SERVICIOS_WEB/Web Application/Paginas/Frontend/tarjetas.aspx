@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,6 +13,7 @@
             <li class="breadcrumb-item active" aria-current="page">Tarjetas</li>
         </ol>
     </nav>
+<div style="background-image: url('https://localhost:44371/Public/imagenes/fondo_general.png'); height: 818px;" class="text-white">
     <div class="container">
         <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
             Administracion de tarjetas
@@ -67,6 +69,7 @@
         <asp:Label ID="Label_status_error" class="alert alert-danger" runat="server" Text=""></asp:Label>
         <asp:Label ID="Label_status_success" class="alert alert-success" runat="server" Text=""></asp:Label>
     </div>
+</div>
     <script src="../../Public/scripts/tarjetas.js"></script>
     <script>
         cargar_tarjetas();

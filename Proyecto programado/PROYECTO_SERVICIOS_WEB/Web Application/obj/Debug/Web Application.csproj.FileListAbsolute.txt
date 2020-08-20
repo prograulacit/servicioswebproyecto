@@ -146,3 +146,94 @@ C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\We
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Text.Json.xml
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Threading.Tasks.Extensions.xml
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.ValueTuple.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Web Application.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Web Application.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Web Application.pdb
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csc.exe
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csc.exe.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csc.rsp
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csi.exe
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csi.exe.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\csi.rsp
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.Managed.Core.targets
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.AppContext.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Collections.Immutable.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Console.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Globalization.Calendars.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.IO.Compression.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.IO.FileSystem.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Net.Http.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Net.Sockets.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Reflection.Metadata.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.ValueTuple.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Xml.XmlDocument.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Xml.XPath.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\vbc.exe
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\vbc.exe.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\vbc.rsp
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\VBCSCompiler.exe
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\roslyn\VBCSCompiler.exe.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\BLL.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\DAL.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Newtonsoft.Json.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Buffers.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Memory.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Net.Http.Formatting.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Numerics.Vectors.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Text.Encodings.Web.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Text.Json.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Threading.Tasks.Extensions.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.ValueTuple.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Web.Http.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Web.Http.WebHost.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\BLL.pdb
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\BLL.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\DAL.pdb
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\DAL.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Newtonsoft.Json.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Buffers.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Memory.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Net.Http.Formatting.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Numerics.Vectors.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Text.Encodings.Web.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Text.Json.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Threading.Tasks.Extensions.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.ValueTuple.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Web.Http.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\System.Web.Http.WebHost.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.csprojAssemblyReference.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.csproj.CoreCompileInputs.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.csproj.CopyComplete
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\Web Application\obj\Debug\Web Application.pdb

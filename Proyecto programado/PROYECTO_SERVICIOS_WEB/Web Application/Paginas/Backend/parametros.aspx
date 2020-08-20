@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Public/scripts/parametros.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
@@ -10,6 +11,7 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de parametros</li>
         </ol>
     </nav>
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 926px;">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Parametros
     </div>
@@ -52,6 +54,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <script>
         traer_datos();

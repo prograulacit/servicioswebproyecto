@@ -24,7 +24,7 @@
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">
-                <img src="../../Public/imagenes/logo-header.png" width="80px" alt="e descargas logo"></a>
+                <img src="../../Public/imagenes/logo_2.jpg" width="80px" alt="e descargas logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -74,12 +74,9 @@
                         <asp:Label ID="Label_admin_nombreUsuario" style="padding-top:14px; padding-right: 7px;" class="badge badge-light" runat="server" Text="AdminV"></asp:Label>
                     </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton_cerrar_sesion" class="btn btn-outline-secondary" runat="server" OnClick="LinkButton_cerrar_sesion_Click">Cerrar sesión</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton_cerrar_sesion" class="btn btn-outline-secondary text-right" runat="server" OnClick="LinkButton_cerrar_sesion_Click">Cerrar sesión</asp:LinkButton>
                     </li>
                 </ul>
-                <div class="row my-2 my-lg-0">
-                    <a class="text-light" href="/Login.aspx">Cerrar Sesión</a>
-                </div>
             </div>
         </nav>
         <div>

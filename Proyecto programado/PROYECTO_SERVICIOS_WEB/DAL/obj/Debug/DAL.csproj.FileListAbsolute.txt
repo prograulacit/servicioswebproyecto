@@ -13,3 +13,10 @@ C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DA
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\obj\Debug\DAL.pdb
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\bin\Debug\DAL.dll.config
 C:\Proyecto Servicios Web\Git root\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\bin\Debug\DAL.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\bin\Debug\DAL.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\bin\Debug\DAL.pdb
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\obj\Debug\DAL.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\obj\Debug\DAL.pdb

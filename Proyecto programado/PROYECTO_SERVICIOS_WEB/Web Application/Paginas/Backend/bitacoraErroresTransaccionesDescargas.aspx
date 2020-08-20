@@ -2,12 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./index.aspx">Inicio</a></li>
             <li class="breadcrumb-item active" aria-current="page">Consultas y monitoreo</li>
         </ol>
     </nav>
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 632px;">
     <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Consultas y monitorización del sistema.
     </div>
@@ -15,7 +17,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="form-group col-4">
-                <div class="descripcion">
+                <div class="descripcion text-white">
                     Por favor, utilice el dropdown aquí dado para realizar consultas de monitorización.
                 </div>
 
@@ -36,6 +38,7 @@
     <div id="contenido">
 
     </div>
+</div>
 
     <script src="../../Public/scripts/bitacoraErroresTransaccionesDescargas.js"></script>
 </asp:Content>

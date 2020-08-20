@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,6 +13,7 @@
         </ol>
     </nav>
 
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 804px;" class="text-white">
     <div class="container">
         <div class="titulo">
             Compra
@@ -55,6 +57,7 @@
             </div>
         </div>
     </div>
+</div>
     <script src="../../Public/scripts/compra.js"></script>
     <script src="../../Public/scripts/tarjetas.js"></script>
     <script src="../../Public/scripts/EasyPay.js"></script>

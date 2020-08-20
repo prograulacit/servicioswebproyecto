@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../../Public/estilos/easypay.css">
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,6 +14,7 @@
         </ol>
     </nav>
 
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 880px;">
     <div class="titulo">
         Administración de cuentas EasyPay
     </div>
@@ -75,7 +77,7 @@
                 <div class="subtitulo">
                     Cuentas EasyPay registradas
                 </div>
-                <div id="tabla_easypays">
+                <div id="tabla_easypays" class="text-white">
                     <div class="spinner-border text-primary" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>
@@ -88,6 +90,7 @@
         <asp:Label ID="Label_status_error" class="alert alert-danger" runat="server" Text=""></asp:Label>
         <asp:Label ID="Label_status_success" class="alert alert-success" runat="server" Text=""></asp:Label>
     </div>
+</div>
 
     <script src="../../Public/scripts/EasyPay.js"></script>
     <script src="../../Public/scripts/tarjetas.js"></script>

@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/Paginas/Backend/Index.aspx">Inicio</a></li>
@@ -9,6 +10,7 @@
             <li class="breadcrumb-item active" aria-current="page">Transacciones</li>
         </ol>
     </nav>
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 817px;" class="text-white">
     <div class="container">
         <div class="row justify-content-center">
             <div class="form-group col-4">
@@ -54,6 +56,7 @@
             </div>
         </div>
     </div>
+</div>
     <script src="../../Public/scripts/utils.js"></script>
     <script src="../../Public/scripts/consultasTransacciones.js"></script>
 </asp:Content>

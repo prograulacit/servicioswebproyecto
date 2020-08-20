@@ -9,6 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Inicio</li>
         </ol>
     </nav>
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 935px;">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Bienvenido/a a E-Descargas Backend
     </div>
@@ -103,4 +104,5 @@
         </div>
         <script src="../../Public/scripts/indexAdmins.js"></script>
     </div>
+</div>
 </asp:Content>

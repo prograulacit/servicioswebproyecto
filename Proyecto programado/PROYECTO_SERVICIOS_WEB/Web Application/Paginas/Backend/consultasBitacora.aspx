@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/Paginas/Backend/Index.aspx">Inicio</a></li>
@@ -9,6 +10,7 @@
             <li class="breadcrumb-item active" aria-current="page">Bitacora</li>
         </ol>
     </nav>
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 870px;" class="text-white">
     <div class="container" id="buscador_bitacora">
         <div class="row justify-content-center">
             <div class="form-group col-4">
@@ -48,6 +50,7 @@
         <a href="#" onclick="ir_atras_detalle()">Atras</a>
         <div class="container" id="detalle_bitacora"></div>
     </div>
+</div>
 
     <script src="../../Public/scripts/utils.js"></script>
     <script src="../../Public/scripts/consultasBitacora.js"></script>

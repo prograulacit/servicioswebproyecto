@@ -3,12 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./index.aspx">Inicio</a></li>
             <li class="breadcrumb-item active" aria-current="page">Crear nuevo administrador</li>
         </ol>
     </nav>
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1020px;">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Crear un nuevo administrador
     </div>
@@ -63,4 +65,5 @@
             </div>
         </div>
     </div>
+</div>
 </asp:Content>

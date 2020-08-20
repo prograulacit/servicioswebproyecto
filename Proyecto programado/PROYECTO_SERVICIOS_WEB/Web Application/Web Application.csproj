@@ -148,7 +148,9 @@
     <Content Include="Public\estilos\estilo_clientes.css" />
     <Content Include="Public\estilos\estilo_global.css" />
     <Content Include="Public\estilos\tarjetas.css" />
+    <Content Include="Public\imagenes\fondo_general.png" />
     <Content Include="Public\imagenes\logo-header.png" />
+    <Content Include="Public\imagenes\logo_2.jpg" />
     <Content Include="Public\imagenes\twitter-logo.png" />
     <Content Include="Public\pruebas\index.html" />
     <Content Include="Public\pruebas\script.js" />

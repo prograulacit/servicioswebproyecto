@@ -24,3 +24,14 @@ C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\BL
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.pdb
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\BLL.dll.config
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\DAL.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\BLL.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\BLL.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\BLL.pdb
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\DAL.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\DAL.pdb
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\bin\Debug\DAL.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\BLL\obj\Debug\BLL.pdb

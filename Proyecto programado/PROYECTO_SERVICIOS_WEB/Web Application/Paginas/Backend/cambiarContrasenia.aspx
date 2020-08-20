@@ -9,11 +9,12 @@
             <li class="breadcrumb-item active" aria-current="page">Cambiar contraseña</li>
         </ol>
     </nav>
+<div style="background-image: url('https://localhost:44371/Public/imagenes/fondo_general.png'); height: 676px;">
     <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Cambiar contraseña
     </div>
 
-    <div class="container">
+    <div class="container text-white">
         <div class="subtitulo">
             Por favor, rellene el siguiente formulario para cambiar su contraseña.
         </div>
@@ -38,6 +39,6 @@
             </div>
         </div>
     </div>
-
+</div>
 
 </asp:Content>

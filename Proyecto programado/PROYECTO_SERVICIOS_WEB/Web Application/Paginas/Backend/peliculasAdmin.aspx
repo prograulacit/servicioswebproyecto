@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Public/scripts/peliculasAdmin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
@@ -11,7 +12,7 @@
             <li class="breadcrumb-item active" aria-current="page">Administración de péliculas</li>
         </ol>
     </nav>
-
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1404px;" class="text-white">
     <div class="container">
 
         <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
@@ -29,7 +30,7 @@
                 Crear nuevo registro</button>
         </div>
         <br />
-        <div class="row">
+        <div class="row text-white">
             <div id="contenedor_tabla">
                 Cargando...
                 <div class="spinner-border text-primary" role="status">
@@ -44,48 +45,48 @@
             </div>
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                    <label class="text-font-normal">ID:</label>
+                    <label class="text-font-normal text-white">ID:</label>
                     <br>
                     <input disabled type="text" name="" class="editar_id form-control">
                     <br>
-                    <label class="text-font-normal">Nombre:</label>
+                    <label class="text-font-normal text-white">Nombre:</label>
                     <br>
                     <input type="text" name="" class="editar_nombre form-control">
                     <br>
-                    <label class="text-font-normal">Genero:</label>
+                    <label class="text-font-normal text-white">Genero:</label>
                     <br>
                     <select id="editarGenero" class="form-control editar_genero"></select>
                     <br>
-                    <label class="text-font-normal">Año:</label>
+                    <label class="text-font-normal text-white">Año:</label>
                     <br>
                     <input type="text" name="" class="editar_anio form-control">
                     <br>
-                    <label class="text-font-normal">Idioma:</label>
+                    <label class="text-font-normal text-white">Idioma:</label>
                     <br>
                     <input type="text" name="" class="editar_idioma form-control">
                     <br>
-                    <label class="text-font-normal">Actores:</label>
+                    <label class="text-font-normal text-white">Actores:</label>
                     <br>
                     <input type="text" name="" class="editar_actores form-control">
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                    <label class="text-font-normal">Monto:</label>
+                    <label class="text-font-normal text-white">Monto:</label>
                     <br>
                     <input type="number" name="" class="editar_monto form-control">
                     <br>
-                    <label class="text-font-normal">Nombre archivo descarga:</label>
+                    <label class="text-font-normal text-white">Nombre archivo descarga:</label>
                     <br>
                     <input type="text" name="" id="editarNombreDescargaPelicula" class="editar_nombre_descarga_pelicula form-control" runat="server">
                     <br>
-                    <label class="text-font-normal">Archivo Pelicula:</label>
+                    <label class="text-font-normal text-white">Archivo Pelicula:</label>
                     <br>
                     <input id="editarArchivoPelicula" class="editar_archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server" />
                     <br>
-                    <label class="text-font-normal">Nombre archivo previsualizacion:</label>
+                    <label class="text-font-normal text-white">Nombre archivo previsualizacion:</label>
                     <br>
                     <input type="text" name="" id="editarNombrePrevisualizacionPelicula" class="editar_nombre_previsualizacion_pelicula form-control" runat="server">
                     <br>
-                    <label class="text-font-normal">Archivo Pelicula previsualizacion:</label>
+                    <label class="text-font-normal text-white">Archivo Pelicula previsualizacion:</label>
                     <br>
                     <input id="editarArchivoPeliculaPrev" class="editar_archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server" />
                     <br>
@@ -103,44 +104,44 @@
             </div>
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                    <label class="text-font-normal">Nombre:</label>
+                    <label class="text-font-normal text-white">Nombre:</label>
                     <br>
                     <input type="text" name="" class="crear_nombre form-control">
                     <br>
-                    <label class="text-font-normal">Genero:</label>
+                    <label class="text-font-normal text-white">Genero:</label>
                     <br>
                     <select id="crearGenero" class="form-control crear_genero form-control"></select>
                     <br>
-                    <label class="text-font-normal">Año:</label>
+                    <label class="text-font-normal text-white">Año:</label>
                     <br>
                     <input type="text" name="" class="crear_anio form-control">
                     <br>
-                    <label class="text-font-normal">Idioma:</label>
+                    <label class="text-font-normal text-white">Idioma:</label>
                     <br>
                     <input type="text" name="" class="crear_idioma form-control">
                     <br>
-                    <label class="text-font-normal">Actores:</label>
+                    <label class="text-font-normal text-white">Actores:</label>
                     <br>
                     <input type="text" name="" class="crear_actores form-control">
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                    <label class="text-font-normal">Monto:</label>
+                    <label class="text-font-normal text-white">Monto:</label>
                     <br>
                     <input type="number" name="" class="crear_monto form-control">
                     <br>
-                    <label class="text-font-normal">Nombre archivo descarga:</label>
+                    <label class="text-font-normal text-white">Nombre archivo descarga:</label>
                     <br>
                     <input type="text" name="" id="nombreArchivoPelicula" class="nombre_archivo_pelicula form-control" runat="server">
                     <br>
-                    <label class="text-font-normal">Archivo Pelicula:</label>
+                    <label class="text-font-normal text-white">Archivo Pelicula:</label>
                     <br>
                     <input id="archivoPelicula" class="archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server" />
                     <br>
-                    <label class="text-font-normal">Nombre archivo previsualizacion:</label>
+                    <label class="text-font-normal text-white">Nombre archivo previsualizacion:</label>
                     <br>
                     <input type="text" id="nombrePrevisualizacionPelicula" class="nombre_previsualizacion_pelicula form-control" runat="server">
                     <br>
-                    <label class="text-font-normal">Archivo Pelicula previsualizacion:</label>
+                    <label class="text-font-normal text-white">Archivo Pelicula previsualizacion:</label>
                     <br>
                     <input id="archivoPeliculaPrev" class="archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server" />
                 </div>
@@ -151,7 +152,7 @@
             <br />
         </div>
     </div>
-
+</div>
 
     <%--hidden elements--%>
     <asp:Button class="descargar_archivo_pelicula" ID="descargarArchivoPelicula" runat="server" Text="" OnClick="subirArchivosPelicula_Click" Style="display: none" />

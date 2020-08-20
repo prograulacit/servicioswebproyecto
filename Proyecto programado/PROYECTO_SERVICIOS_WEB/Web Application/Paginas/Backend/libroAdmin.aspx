@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Public/scripts/librosAdmin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="../../Public/estilos/estilo_global.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
@@ -11,6 +12,7 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de libros</li>
         </ol>
     </nav>
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1476px;" class="text-white">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Administracion de libros
     </div>
@@ -42,52 +44,52 @@
             </div>
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                    <label class="text-font-normal" for="">ID:</label>
+                    <label class="text-font-normal text-white" for="">ID:</label>
                     <br>
                     <input disabled type="text" name="" class="editar_id form-control">
                     <br>
-                    <label class="text-font-normal" for="">Nombre:</label>
+                    <label class="text-font-normal text-white" for="">Nombre:</label>
                     <br>
                     <input type="text" name="" class="editar_nombre form-control">
                     <br>
-                    <label class="text-font-normal" for="">Categoria:</label>
+                    <label class="text-font-normal text-white" for="">Categoria:</label>
                     <br>
                     <select id="editarCategoria" class="form-control editar_categoria"></select>
                     <br>
-                    <label class="text-font-normal" for="">Autor:</label>
+                    <label class="text-font-normal text-white" for="">Autor:</label>
                     <br>
                     <input type="text" name="" class="editar_autor form-control">
                     <br>
-                    <label class="text-font-normal" for="">Idioma:</label>
+                    <label class="text-font-normal text-white" for="">Idioma:</label>
                     <br>
                     <input type="text" name="" class="editar_idioma form-control">
                     <br>
-                    <label class="text-font-normal" for="">Editorial:</label>
+                    <label class="text-font-normal text-white" for="">Editorial:</label>
                     <br>
                     <input type="text" name="" class="editar_editorial form-control">
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                    <label class="text-font-normal" for="">Año de publicación:</label>
+                    <label class="text-font-normal text-white" for="">Año de publicación:</label>
                     <br>
                     <input type="text" name="" class="editar_anioPublicacion form-control">
                     <br>
-                    <label class="text-font-normal" for="">Monto:</label>
+                    <label class="text-font-normal text-white" for="">Monto:</label>
                     <br>
                     <input type="number" name="" class="editar_monto form-control">
                     <br>
-                    <label class="text-font-normal" for="">Nombre archivo descarga:</label>
+                    <label class="text-font-normal text-white" for="">Nombre archivo descarga:</label>
                     <br>
                     <input type="text" name="" id="editarNombreDescargaLibro" class="editar_nombre_descarga_libro form-control" runat="server">
                     <br>
-                    <label class="text-font-normal" for="">Archivo Libro:</label>
+                    <label class="text-font-normal text-white" for="">Archivo Libro:</label>
                     <br>
                     <input id="editarArchivoLibro" class="editar_archivo_libro form-control" type="file" accept="application/pdf" runat="server" />
                     <br>
-                    <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
+                    <label class="text-font-normal text-white" for="">Nombre archivo previsualizacion:</label>
                     <br>
                     <input type="text" name="" id="editarNombrePrevisualizacionLibro" class="editar_nombre_previsualizacion_libro form-control" runat="server">
                     <br>
-                    <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
+                    <label class="text-font-normal text-white" for="">Archivo Libro previsualizacion:</label>
                     <br>
                     <input id="editarArchivoLibroPrev" class="editar_archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server" />
                 </div>
@@ -105,48 +107,48 @@
             <div class="row">
 
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                    <label class="text-font-normal" for="">Nombre:</label>
+                    <label class="text-font-normal text-white" for="">Nombre:</label>
                     <br>
                     <input type="text" name="" class="crear_nombre form-control">
                     <br>
-                    <label class="text-font-normal" for="">Categoria:</label>
+                    <label class="text-font-normal text-white" for="">Categoria:</label>
                     <br>
                     <select id="crearCategoria" class="form-control crear_categoria"></select>
                     <br>
-                    <label class="text-font-normal" for="">Autor:</label>
+                    <label class="text-font-normal text-white" for="">Autor:</label>
                     <br>
                     <input type="text" name="" class="crear_autor form-control">
                     <br>
-                    <label class="text-font-normal" for="">Idioma:</label>
+                    <label class="text-font-normal text-white" for="">Idioma:</label>
                     <br>
                     <input type="text" name="" class="crear_idioma form-control">
                     <br>
-                    <label class="text-font-normal" for="">Editorial:</label>
+                    <label class="text-font-normal text-white" for="">Editorial:</label>
                     <br>
                     <input type="text" name="" class="crear_editorial form-control">
                     <br>
-                    <label class="text-font-normal" for="">Año de publicación:</label>
+                    <label class="text-font-normal text-white" for="">Año de publicación:</label>
                 <br />
                     <input type="text" name="" class="crear_anioPublicacion form-control">
                     </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                    <label class="text-font-normal" for="">Monto:</label>
+                    <label class="text-font-normal text-white" for="">Monto:</label>
                     <br>
                     <input type="number" name="" class="crear_monto form-control">
                     <br>
-                    <label class="text-font-normal" for="">Nombre archivo Libro:</label>
+                    <label class="text-font-normal text-white" for="">Nombre archivo Libro:</label>
                     <br>
                     <input type="text" name="" id="nombreArchivoLibro" class="nombre_archivo_libro form-control" runat="server">
                     <br>
-                    <label class="text-font-normal" for="">Archivo Libro:</label>
+                    <label class="text-font-normal text-white" for="">Archivo Libro:</label>
                     <br>
                     <input id="archivoLibro" class="archivo_libro form-control" type="file" accept="application/pdf" runat="server" />
                     <br>
-                    <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
+                    <label class="text-font-normal text-white" for="">Nombre archivo previsualizacion:</label>
                     <br>
                     <input type="text" id="nombrePrevisualizacionLibro" class="nombre_previsualizacion_libro form-control" runat="server">
                     <br>
-                    <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
+                    <label class="text-font-normal text-white" for="">Archivo Libro previsualizacion:</label>
                     <br>
                     <input id="archivoLibroPrev" class="archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server" />
                 </div>
@@ -156,7 +158,8 @@
             <button class="btn btn-primary btn-block">Cancelar</button>
             <br />
         </div>
-
+    </div>
+</div>
         <%--hidden elements--%>
         <asp:Button class="descargar_archivo_libro btn btn-primary justify-content-center" ID="descargarArchivoLibro" runat="server" Text="" OnClick="subirArchivosLibro_Click" Style="display: none" />
         <asp:Button class="eliminar_archivo_libro btn btn-primary justify-content-center" ID="eliminarArchivoLibro" runat="server" Text="" OnClick="eliminarArchivoLibro_Click" Style="display: none" />

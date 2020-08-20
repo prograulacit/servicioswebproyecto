@@ -28,3 +28,20 @@ C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DA
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.csproj.CopyComplete
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\BLL.dll.config
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DAL.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DATABASE_HANDLER.exe.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DATABASE_HANDLER.exe
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DATABASE_HANDLER.pdb
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\BLL.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DAL.dll
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\BLL.pdb
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\BLL.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DAL.pdb
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\bin\Debug\DAL.dll.config
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.csprojAssemblyReference.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.Main.resources
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.Properties.Resources.resources
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.csproj.GenerateResource.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.csproj.CoreCompileInputs.cache
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.csproj.CopyComplete
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.exe
+D:\ProyectosVisualStudio\Clones\servicioswebproyecto\Proyecto programado\PROYECTO_SERVICIOS_WEB\DATABASE_HANDLER\obj\Debug\DATABASE_HANDLER.pdb

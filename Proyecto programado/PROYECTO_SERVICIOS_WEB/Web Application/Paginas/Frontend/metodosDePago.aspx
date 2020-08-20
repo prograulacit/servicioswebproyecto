@@ -9,6 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Metodos de pago</li>
         </ol>
     </nav>
+<div style="background-image: url('https://localhost:44371/Public/imagenes/fondo_general.png'); height: 804px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="form-group col-4">
@@ -24,4 +25,5 @@
             </div>
         </div>
     </div>
+</div>
 </asp:Content>
