@@ -11,6 +11,8 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de libros</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1474px;" class="text-white">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Administracion de libros
     </div>
@@ -156,6 +158,8 @@
             <button class="btn btn-primary btn-block">Cancelar</button>
             <br />
         </div>
+        </div>
+</div>
 
         <%--hidden elements--%>
         <asp:Button class="descargar_archivo_libro btn btn-primary justify-content-center" ID="descargarArchivoLibro" runat="server" Text="" OnClick="subirArchivosLibro_Click" Style="display: none" />

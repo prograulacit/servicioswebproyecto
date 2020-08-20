@@ -11,7 +11,8 @@
             <li class="breadcrumb-item active" aria-current="page">Compra</li>
         </ol>
     </nav>
-
+    <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <div class="container">
         <div class="titulo">
             Compra
@@ -55,6 +56,7 @@
             </div>
         </div>
     </div>
+</div>
     <script src="../../Public/scripts/compra.js"></script>
     <script src="../../Public/scripts/tarjetas.js"></script>
     <script src="../../Public/scripts/EasyPay.js"></script>

@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 900px;" class="text-white">
     <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Formulario de registro.
     </div>
@@ -50,5 +51,5 @@
             </div>
                 </div>
         </div>
-
+</div>
 </asp:Content>

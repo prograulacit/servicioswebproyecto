@@ -5,6 +5,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./index.aspx">Inicio</a></li>
@@ -67,6 +69,7 @@
         <asp:Label ID="Label_status_error" class="alert alert-danger" runat="server" Text=""></asp:Label>
         <asp:Label ID="Label_status_success" class="alert alert-success" runat="server" Text=""></asp:Label>
     </div>
+</div>
     <script src="../../Public/scripts/tarjetas.js"></script>
     <script>
         cargar_tarjetas();

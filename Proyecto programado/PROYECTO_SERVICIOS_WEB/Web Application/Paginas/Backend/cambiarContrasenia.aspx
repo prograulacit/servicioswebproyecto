@@ -9,6 +9,8 @@
             <li class="breadcrumb-item active" aria-current="page">Cambiar contraseña</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" class="text-white">v
     <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Cambiar contraseña
     </div>
@@ -38,6 +40,6 @@
             </div>
         </div>
     </div>
-
+</div>
 
 </asp:Content>

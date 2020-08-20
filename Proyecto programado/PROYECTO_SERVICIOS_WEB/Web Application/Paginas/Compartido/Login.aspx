@@ -5,6 +5,7 @@
     <script src="../../Public/scripts/login.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 900px;" class="text-white">
     <div class="container">
         <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
             Formulario de inicio de sesión.
@@ -33,7 +34,7 @@
             <asp:Label class="badge badge-danger" ID="Label_status_error" runat="server" Text=""></asp:Label>
         </div>
     </div>
-
+</div>
     <%--Hidden elements--%>
     <asp:Button ID="btn_submit_social_login" class="submit_social_login" runat="server" Text="Submit" OnClick="btn_submit_social_login_Click" style="display:none"/>
     <input class="social_name" id="socialName" type="text" runat="server" value="No definido" style="display:none"/>

@@ -12,7 +12,8 @@
             <li class="breadcrumb-item active" aria-current="page">EasyPay</li>
         </ol>
     </nav>
-
+    <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1100px;" >
     <div class="titulo">
         Administración de cuentas EasyPay
     </div>
@@ -71,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8 text-white">
                 <div class="subtitulo">
                     Cuentas EasyPay registradas
                 </div>
@@ -88,7 +89,7 @@
         <asp:Label ID="Label_status_error" class="alert alert-danger" runat="server" Text=""></asp:Label>
         <asp:Label ID="Label_status_success" class="alert alert-success" runat="server" Text=""></asp:Label>
     </div>
-
+</div>
     <script src="../../Public/scripts/EasyPay.js"></script>
     <script src="../../Public/scripts/tarjetas.js"></script>
     <script>

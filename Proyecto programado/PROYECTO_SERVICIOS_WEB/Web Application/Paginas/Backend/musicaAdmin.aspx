@@ -12,6 +12,8 @@
             <li class="breadcrumb-item active" aria-current="page">Administracion de musica</li>
         </ol>
     </nav>
+        <link rel="stylesheet" href="../../Public/estilos/tarjetas.css">
+<div style="background-image: url('../../Public/imagenes/fondo_general.png'); height: 1682px;" class="text-white">
     <div class="tp-3 mb-2 bg-dark text-white text-center text-uppercase font-weight-bold">
         Administracion de musica
     </div>
@@ -174,7 +176,7 @@
             <br />
         </div>
     </div>
-
+</div>
 
     <%--hidden elements--%>
     <asp:Button class="descargar_archivo_musica" ID="descargarArchivoMusica" runat="server" Text="" OnClick="subirArchivosMusica_Click" Style="display: none" />
