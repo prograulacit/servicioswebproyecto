@@ -70,13 +70,9 @@
                             <a class="dropdown-item" href="../Backend/consultasErrores.aspx">Errores</a>
                         </div>
                     </li>
-                    <li>
-                        <asp:Label ID="Label_admin_nombreUsuario" style="padding-top:14px; padding-right: 7px;" class="badge badge-light" runat="server" Text="AdminV"></asp:Label>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="LinkButton_cerrar_sesion" class="btn btn-outline-secondary" runat="server" OnClick="LinkButton_cerrar_sesion_Click">Cerrar sesión</asp:LinkButton>
-                    </li>
                 </ul>
+                <asp:Label ID="Label_admin_nombreUsuario" style="padding:0; margin-right: 30px;" class="badge badge-light" runat="server" Text="AdminV"></asp:Label>
+                <asp:LinkButton ID="LinkButton_cerrar_sesion" class="btn btn-outline-secondary" runat="server" OnClick="LinkButton_cerrar_sesion_Click">Cerrar sesión</asp:LinkButton>
             </div>
         </nav>
         <div>

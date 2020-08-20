@@ -80,7 +80,7 @@
                     <br>
                     <label class="text-font-normal">Archivo Pelicula:</label>
                     <br>
-                    <input id="editarArchivoPelicula" class="editar_archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server" />
+                    <input id="editarArchivoPelicula" class="editar_archivo_pelicula form-control-file" type="file" accept=".mp4,video/*" runat="server" />
                     <br>
                     <label class="text-font-normal">Nombre archivo previsualizacion:</label>
                     <br>
@@ -88,7 +88,7 @@
                     <br>
                     <label class="text-font-normal">Archivo Pelicula previsualizacion:</label>
                     <br>
-                    <input id="editarArchivoPeliculaPrev" class="editar_archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server" />
+                    <input id="editarArchivoPeliculaPrev" class="editar_archivo_pelicula_prev form-control-file" type="file" accept=".mp4,video/*" runat="server" />
                     <br>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                     <br>
                     <label class="text-font-normal">Archivo Pelicula:</label>
                     <br>
-                    <input id="archivoPelicula" class="archivo_pelicula form-control" type="file" accept=".mp4,video/*" runat="server" />
+                    <input id="archivoPelicula" class="archivo_pelicula form-control-file" type="file" accept=".mp4,video/*" runat="server" />
                     <br>
                     <label class="text-font-normal">Nombre archivo previsualizacion:</label>
                     <br>
@@ -143,7 +143,7 @@
                     <br>
                     <label class="text-font-normal">Archivo Pelicula previsualizacion:</label>
                     <br>
-                    <input id="archivoPeliculaPrev" class="archivo_pelicula_prev form-control" type="file" accept=".mp4,video/*" runat="server" />
+                    <input id="archivoPeliculaPrev" class="archivo_pelicula_prev form-control-file" type="file" accept=".mp4,video/*" runat="server" />
                 </div>
             </div>
             <br />

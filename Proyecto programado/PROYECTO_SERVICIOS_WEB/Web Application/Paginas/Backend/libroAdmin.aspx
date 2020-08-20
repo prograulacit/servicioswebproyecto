@@ -83,7 +83,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo Libro:</label>
                     <br>
-                    <input id="editarArchivoLibro" class="editar_archivo_libro form-control" type="file" accept="application/pdf" runat="server" />
+                    <input id="editarArchivoLibro" class="editar_archivo_libro form-control-file" type="file" accept="application/pdf" runat="server" />
                     <br>
                     <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
                     <br>
@@ -91,7 +91,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
                     <br>
-                    <input id="editarArchivoLibroPrev" class="editar_archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server" />
+                    <input id="editarArchivoLibroPrev" class="editar_archivo_libro_prev form-control-file" type="file" accept="application/pdf" runat="server" />
                 </div>
             </div>
             <br>
@@ -142,7 +142,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo Libro:</label>
                     <br>
-                    <input id="archivoLibro" class="archivo_libro form-control" type="file" accept="application/pdf" runat="server" />
+                    <input id="archivoLibro" class="archivo_libro form-control-file" type="file" accept="application/pdf" runat="server" />
                     <br>
                     <label class="text-font-normal" for="">Nombre archivo previsualizacion:</label>
                     <br>
@@ -150,7 +150,7 @@
                     <br>
                     <label class="text-font-normal" for="">Archivo Libro previsualizacion:</label>
                     <br>
-                    <input id="archivoLibroPrev" class="archivo_libro_prev form-control" type="file" accept="application/pdf" runat="server" />
+                    <input id="archivoLibroPrev" class="archivo_libro_prev form-control-file" type="file" accept="application/pdf" runat="server" />
                 </div>
             </div>
             <br>
