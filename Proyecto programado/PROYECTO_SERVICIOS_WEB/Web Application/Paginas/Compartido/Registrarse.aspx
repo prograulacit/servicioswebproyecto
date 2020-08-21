@@ -43,6 +43,14 @@
                 <br />
                 <asp:TextBox class="form-control" TextMode="Password" ID="textbox_confirmar_contrasenia" runat="server"></asp:TextBox>
                 <br/>
+                <asp:Label ID="Label4" runat="server" Text="Código captcha:"></asp:Label>
+                <br />
+                <asp:Label ID="Label_captcha" runat="server" Text=""></asp:Label>
+                <br/>
+                <asp:Label ID="Label3" runat="server" Text="Por favor, rellene el código captcha"></asp:Label>
+                <br />
+                <asp:TextBox ID="TextBox_captcha" runat="server"></asp:TextBox>
+                <br/>
                 <br/>
                 <asp:Button class="btn btn-primary justify-content-center" ID="button_submit_login" runat="server" Text="Submit" OnClick="button_submit_login_Click" />
                 <br/>

@@ -6,21 +6,31 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Web_Application.Paginas.Compartido
 {
     public partial class Registrarse : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                // Genera el primer captcha que va a ser mostrado en el formulario.
+                // Cada vez que la app haga un reload se va a cambiar el catpcha, asi que
+                // debemos usar IsPostBack para controlar el que no cambie el valor del captcha
+                // para cuando hemos enviado el input de respuesta al captcha al servidor.
+                generarCapcha(); 
+            }
         }
 
         protected void button_submit_login_Click(object sender, EventArgs e)
         {
             if (estanTodosLosEspeciosVacios() &&
                 usuarioEsUnico() &&
-                contraseniaCoincide())
+                contraseniaCoincide() &&
+                captchaEsCorrecto())
             {
                 string nombre = textbox_nombre.Text;
                 string apellido_paterno = textbox_ap_paterno.Text;
@@ -43,6 +53,25 @@ namespace Web_Application.Paginas.Compartido
                 Memoria.sesionDeUsuario = true;
 
                 Response.Redirect("~/Paginas/Frontend/index.aspx");
+            }
+        }
+
+        private bool captchaEsCorrecto()
+        {
+            string codigoCatpcha_input = TextBox_captcha.Text;
+            string codigoCaptcha_enLabel = Label_captcha.Text;
+
+
+            if (codigoCatpcha_input.Equals(codigoCaptcha_enLabel))
+            {
+                return true;
+            }
+            else
+            {
+                status_labels("El código captcha es incorrecto.", "");
+                // Si el capcha es incorrecto, generamos un nuevo codigo.
+                generarCapcha();
+                return false;
             }
         }
 
@@ -122,6 +151,13 @@ namespace Web_Application.Paginas.Compartido
                 status_labels("Rellene todos los espacios", "");
                 return false;
             }
+        }
+
+        private void generarCapcha()
+        {
+            Random rnd = new Random();
+            int codigoCaptcha_generado = rnd.Next(1000, 9999); // Genera un número entre 1000 y 9999.
+            Label_captcha.Text = "" + codigoCaptcha_generado; // Pone el capcha generado en el label.
         }
     }
 }

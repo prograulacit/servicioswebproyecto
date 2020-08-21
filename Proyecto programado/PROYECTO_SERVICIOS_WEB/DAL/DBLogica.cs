@@ -25,11 +25,11 @@ namespace DAL
         ///////////////////////////////////////////////////
         //////////////////////////////////////////////////////
         public string stringDeConexion_baseDeDatos_principal =
-            "Data Source=10.172.61.115;Initial Catalog=SERVICIOSWEB_MAIN;User ID=admin;Password=admin123@.";
-            //"Data Source=.;Initial Catalog=SERVICIOSWEB_MAIN;Integrated Security=True";
+            //"Data Source=10.172.61.115;Initial Catalog=SERVICIOSWEB_MAIN;User ID=admin;Password=admin123@.";
+            "Data Source=.;Initial Catalog=SERVICIOSWEB_MAIN;Integrated Security=True";
         public string stringDeConexion_baseDeDatos_pagos =
-            "Data Source=10.172.61.115;Initial Catalog=SERVICIOSWEB_PAGOS;User ID=admin;Password=admin123@.";
-            //"Data Source=.;Initial Catalog=SERVICIOSWEB_PAGOS;Integrated Security=True";
+            //"Data Source=10.172.61.115;Initial Catalog=SERVICIOSWEB_PAGOS;User ID=admin;Password=admin123@.";
+            "Data Source=.;Initial Catalog=SERVICIOSWEB_PAGOS;Integrated Security=True";
         //////////////////////////////////////////////////////
         //////////////////////////////////////////////////////
         //////////////////////////////////////////////////////

@@ -12,4 +12,3 @@ C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DA
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\obj\Debug\DAL.dll
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\obj\Debug\DAL.pdb
 C:\Proyecto Servicios Web\GIT ROOT\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\bin\Debug\DAL.dll.config
-C:\Proyecto Servicios Web\Git root\Proyecto programado\PROYECTO_SERVICIOS_WEB\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
